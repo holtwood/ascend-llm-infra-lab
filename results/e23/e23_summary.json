@@ -1,0 +1,230 @@
+[
+ {
+  "tag": "c128_1x",
+  "n_clients": 1,
+  "wall_s": 7.7,
+  "aggregate_tok_s": 3631.7,
+  "per_client": {
+   "d": {
+    "c": 128,
+    "tok_s": 3631.7,
+    "ttft": 717.7,
+    "tpot": 21.7,
+    "ok": 256,
+    "err": 0
+   }
+  },
+  "client_cpu_pct": {
+   "d": {
+    "mean": 31.6,
+    "max": 47.3
+   }
+  }
+ },
+ {
+  "tag": "c128_2x",
+  "n_clients": 2,
+  "wall_s": 6.5,
+  "aggregate_tok_s": 4379.3,
+  "per_client": {
+   "d": {
+    "c": 64,
+    "tok_s": 2192.4,
+    "ttft": 566.1,
+    "tpot": 20.7,
+    "ok": 128,
+    "err": 0
+   },
+   "m3": {
+    "c": 64,
+    "tok_s": 2186.9,
+    "ttft": 730.0,
+    "tpot": 19.1,
+    "ok": 128,
+    "err": 0
+   }
+  },
+  "client_cpu_pct": {
+   "m3": {
+    "mean": 15.4,
+    "max": 32.5
+   },
+   "d": {
+    "mean": 22.6,
+    "max": 32.0
+   }
+  }
+ },
+ {
+  "tag": "c128_4x",
+  "n_clients": 4,
+  "wall_s": 6.5,
+  "aggregate_tok_s": 4390.8,
+  "per_client": {
+   "d": {
+    "c": 32,
+    "tok_s": 1101.6,
+    "ttft": 786.0,
+    "tpot": 18.5,
+    "ok": 64,
+    "err": 0
+   },
+   "m3": {
+    "c": 32,
+    "tok_s": 1100.4,
+    "ttft": 745.7,
+    "tpot": 19.1,
+    "ok": 64,
+    "err": 0
+   },
+   "m1": {
+    "c": 32,
+    "tok_s": 1097.8,
+    "ttft": 648.8,
+    "tpot": 20.0,
+    "ok": 64,
+    "err": 0
+   },
+   "m2": {
+    "c": 32,
+    "tok_s": 1091.0,
+    "ttft": 499.2,
+    "tpot": 21.8,
+    "ok": 64,
+    "err": 0
+   }
+  },
+  "client_cpu_pct": {
+   "m1": {
+    "mean": 6.9,
+    "max": 20.6
+   },
+   "m3": {
+    "mean": 5.7,
+    "max": 17.0
+   },
+   "d": {
+    "mean": 16.2,
+    "max": 31.0
+   },
+   "m2": {
+    "mean": 18.2,
+    "max": 36.0
+   }
+  }
+ },
+ {
+  "tag": "c256_1x",
+  "n_clients": 1,
+  "wall_s": 10.3,
+  "aggregate_tok_s": 5001.8,
+  "per_client": {
+   "d": {
+    "c": 256,
+    "tok_s": 5001.8,
+    "ttft": 1108.6,
+    "tpot": 36.6,
+    "ok": 512,
+    "err": 0
+   }
+  },
+  "client_cpu_pct": {
+   "d": {
+    "mean": 37.2,
+    "max": 50.0
+   }
+  }
+ },
+ {
+  "tag": "c256_2x",
+  "n_clients": 2,
+  "wall_s": 12.3,
+  "aggregate_tok_s": 4337.7,
+  "per_client": {
+   "d": {
+    "c": 128,
+    "tok_s": 2176.5,
+    "ttft": 870.9,
+    "tpot": 38.4,
+    "ok": 256,
+    "err": 0
+   },
+   "m3": {
+    "c": 128,
+    "tok_s": 2161.2,
+    "ttft": 1520.2,
+    "tpot": 31.9,
+    "ok": 256,
+    "err": 0
+   }
+  },
+  "client_cpu_pct": {
+   "m3": {
+    "mean": 17.9,
+    "max": 24.2
+   },
+   "d": {
+    "mean": 28.0,
+    "max": 37.0
+   }
+  }
+ },
+ {
+  "tag": "c256_4x",
+  "n_clients": 4,
+  "wall_s": 12.6,
+  "aggregate_tok_s": 4234.0,
+  "per_client": {
+   "d": {
+    "c": 64,
+    "tok_s": 1060.4,
+    "ttft": 1290.9,
+    "tpot": 34.6,
+    "ok": 128,
+    "err": 0
+   },
+   "m3": {
+    "c": 64,
+    "tok_s": 1057.3,
+    "ttft": 1422.9,
+    "tpot": 32.8,
+    "ok": 128,
+    "err": 0
+   },
+   "m1": {
+    "c": 64,
+    "tok_s": 1059.8,
+    "ttft": 1048.5,
+    "tpot": 36.3,
+    "ok": 128,
+    "err": 0
+   },
+   "m2": {
+    "c": 64,
+    "tok_s": 1056.5,
+    "ttft": 710.0,
+    "tpot": 39.6,
+    "ok": 128,
+    "err": 0
+   }
+  },
+  "client_cpu_pct": {
+   "m1": {
+    "mean": 12.7,
+    "max": 19.0
+   },
+   "m3": {
+    "mean": 16.3,
+    "max": 32.0
+   },
+   "d": {
+    "mean": 16.6,
+    "max": 33.0
+   },
+   "m2": {
+    "mean": 14.0,
+    "max": 21.2
+   }
+  }
+ }
+]

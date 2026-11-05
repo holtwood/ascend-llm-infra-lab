@@ -336,3 +336,11 @@
   TPOT 21→35ms 劣化 → goodput 拐点
 - 坑：节点只能 SSH 到 D，客户端注入靠 -L 隧道；pkill -f 'L 8080'
   会匹配外层 shell 自杀；npu-smi 首行是 Power(W) 非 AICore
+
+### E23 客户端扫描 + 测量伪影（第七轮末）
+
+- 客户端 CPU 全程 <1 核（31-37% of one core）→ 注入不是 CPU 瓶颈
+- 同集群同负载：vllm bench serve 2193 vs bench_openai 3632 tok/s（1.66×）
+  → **E4b 的 2100 天花板是工具伪影**；4 副本真实上限 ~4.2-5.0k
+- c128 加进程 +20%（3632→4371），c256 单进程最快（5002）——副本侧饱和
+- E4b/E22 README 已加修正头；"工具即瓶颈"成为独立方法论故事
