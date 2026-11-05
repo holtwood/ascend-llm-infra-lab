@@ -102,3 +102,53 @@
   输出质量不是状态码
 - 面试加分提问点：遇到 PR 先查 mainline 历史（D1 否决案例：目标符号
   上游已删，补了=重加被移除代码）
+
+## 手撕系列（E8b–E8g，910B1 实测）
+
+**Q: 手写 attention，融合算子快多少？**
+- naive MHA vs FIA 融合：S8192 差 5.32×，差距随序列长放大（E8b）
+- 单请求 decode matvec 实测 1475 GB/s ≈ 910B1 HBM 峰值 92%——
+  访存墙实锤，decode 快不快看带宽不看看 FLOPs
+
+**Q: RoPE/GQA/SWA 实现细节？**
+- RoPE：rotate-half 与复数乘法 diff=0；范数保持 1.9e-6、相对位置
+  性质 8.6e-6（E8e）——`R_m^T R_n = R_{n-m}`，插值外推的地基
+- GQA：数学上就是 KV 头广播（vs 原生 enable_gqa diff=0）；收益是
+  KV 字节 268→33.6MB/req（8×），不是 FLOPs（E8e）
+- SWA：显式 band mask 在 NPU 比 is_causal 慢 26× 且窗口零收益——
+  真 SWA 必须 kernel 跳过窗外块（FIA sparse_mode=4），mask 永远 O(S²)（E8e）
+
+**Q: 手写 FlashAttention 怎么答？**
+- online-softmax 递推式能写、S²→S·Bc 显存账能算（S8192: 268→16.8MB）、
+  "为什么 Python 版不快"能讲——加速来自片上驻留+消物化，不是少算（E8g）
+- 手写分块与 naive 同速（~21ms @ S8192），比融合慢 24×
+
+**Q: continuous batching / preemption / APC 怎么联动？**
+- 手写调度模拟器：static→continuous +15% 吞吐（死槽浪费消失）；
+  mnb=256 队头阻塞比 static 还差（=E3b 实测复现）（E8f）
+- 最值钱机制：mnb=256 时 APC 让 TTFT -74%、吞吐 +80%——APC 收益
+  本质是放大 token 预算，不是只省 TTFT
+- KV 池耗尽→队尾抢占→34341 次抢占吞吐腰斩：容量规划的反面教材
+
+**Q: spec decode 什么时候赚什么时候亏？**
+- 手写 ngram draft-verify（DynamicCache.crop 回滚）：重复负载 +8%、
+  开放文本 -6%——净收益 = 覆盖率×接受率 vs verify 开销（E8c）
+- 对照 E14 原生 MTP：接受率 65.6% 仍亏（串行草稿+验证前向固定开销）；
+  E15 k=1/2 也亏——Ascend 上 spec 的固定成本项是常量
+
+## 系统走读与上游贡献
+
+**Q: 一个请求在 vLLM 里怎么走？**
+- docs/request-walkthrough.md：API 进程 tokenize→ZMQ→EngineCore→
+  scheduler 双预算/prefix 命中/队尾抢占→NPUModelRunner 五态 attn→
+  FIA/paged-attention→ACLGraph→sampler（绕开同步 multinomial）→
+  detok→SSE，全程 file:line + 实测挂点
+
+**Q: 上游有什么实质贡献？**
+- vllm-ascend #21112：W8A16 compressed-tensors 掉穿 _detect_quant_type
+  （bare NotImplementedError）——附 detector 缺 weight-only 分支的
+  代码级根因 + wna16 scheme 已存在的复用建议
+- #21113：默认 cudagraph_capture_sizes 耗尽 SQ/CQ（207005，plog
+  签名 NormalSqCqAllocate）——与 #9564/#2629 划清边界，呼应 #9691
+- #18978 comment：causal_conv1d_update_npu 缺失在 Qwen3.5-4B 的复现
+  + ITL p99 160-250ms vs median 16ms 实测，自荐测 patch

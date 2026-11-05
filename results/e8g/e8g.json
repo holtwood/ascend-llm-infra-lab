@@ -1,0 +1,47 @@
+{
+  "device": "npu:1",
+  "correctness": {
+    "S512_Bc256": 0.015625,
+    "S1024_Bc128": 0.0078125,
+    "S777_Bc256": 0.015625,
+    "S2048_Bc512": 0.015625,
+    "noncausal_S1024": 0.001953125
+  },
+  "perf": [
+    {
+      "S": 2048,
+      "naive_materialize_ms": 0.99,
+      "sdpa_fused_ms": 0.172,
+      "manual_tiled_Bc512_ms": 2.623
+    },
+    {
+      "S": 4096,
+      "naive_materialize_ms": 5.508,
+      "sdpa_fused_ms": 0.302,
+      "manual_tiled_Bc512_ms": 5.102
+    },
+    {
+      "S": 8192,
+      "naive_materialize_ms": 22.979,
+      "sdpa_fused_ms": 0.937,
+      "manual_tiled_Bc512_ms": 21.019
+    }
+  ],
+  "mem_est": {
+    "S2048": {
+      "naive_score_mb": 16.8,
+      "tiled_score_mb": 4.2,
+      "ratio": 4.0
+    },
+    "S4096": {
+      "naive_score_mb": 67.1,
+      "tiled_score_mb": 8.4,
+      "ratio": 8.0
+    },
+    "S8192": {
+      "naive_score_mb": 268.4,
+      "tiled_score_mb": 16.8,
+      "ratio": 16.0
+    }
+  }
+}
