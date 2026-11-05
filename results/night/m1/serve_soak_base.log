@@ -1,0 +1,36 @@
+INFO 11-05 18:46:51 [__init__.py:52] Available plugins for group vllm.platform_plugins:
+INFO 11-05 18:46:51 [__init__.py:54] - ascend -> vllm_ascend:register
+INFO 11-05 18:46:51 [__init__.py:57] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+/usr/local/python3.12.13/lib/python3.12/site-packages/triton/language/extra/cann/extension/math_ops.py:13: FutureWarning: triton.language.extra.cann.extension.atan2 is deprecated and will be removed in the next release; use triton.language.extra.cann.libdevice.atan2 instead.
+  @_deprecated(replacement="triton.language.extra.cann.libdevice.atan2")
+/usr/local/python3.12.13/lib/python3.12/site-packages/triton/language/extra/cann/extension/math_ops.py:35: FutureWarning: triton.language.extra.cann.extension.isfinited is deprecated and will be removed in the next release; use triton.language.extra.cann.libdevice.isfinited instead.
+  @_deprecated(replacement="triton.language.extra.cann.libdevice.isfinited")
+/usr/local/python3.12.13/lib/python3.12/site-packages/triton/language/extra/cann/extension/math_ops.py:49: FutureWarning: triton.language.extra.cann.extension.finitef is deprecated and will be removed in the next release; use triton.language.extra.cann.libdevice.finitef instead.
+  @_deprecated(replacement="triton.language.extra.cann.libdevice.finitef")
+INFO 11-05 18:46:51 [__init__.py:272] Platform plugin ascend is activated
+INFO 11-05 18:46:52 [platform.py:74] Breakable CUDAGraph on Ascend is opt-in; using VLLM_USE_BREAKABLE_CUDAGRAPH=0.
+INFO 11-05 18:47:09 [patch_indexer_kv_dtype.py:102] Patched AttentionConfig.indexer_kv_dtype to accept 'int8' (DeepSeek V4 Ascend indexer K cache dtype).
+INFO 11-05 18:47:09 [patch_kv_cache_dtype.py:117] Patched CacheConfig.cache_dtype to accept 'int8' and 'mxfp8' (Ascend KV cache dtypes).
+INFO 11-05 18:47:09 [__init__.py:112] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader`
+INFO 11-05 18:47:09 [__init__.py:112] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork`
+WARNING 11-05 18:47:10 [indexer_topk.py:29] Failed to import the DeepSelect extension (vllm._deepselect_C): No module named 'vllm._deepselect_C'
+(APIServer pid=1128024) INFO 11-05 18:47:10 [api_utils.py:347] 
+(APIServer pid=1128024) INFO 11-05 18:47:10 [api_utils.py:347]        █     █     █▄   ▄█
+(APIServer pid=1128024) INFO 11-05 18:47:10 [api_utils.py:347]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.30.0
+(APIServer pid=1128024) INFO 11-05 18:47:10 [api_utils.py:347]   █▄█▀ █     █     █     █  model   /model/Qwen3.5-4B
+(APIServer pid=1128024) INFO 11-05 18:47:10 [api_utils.py:347]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=1128024) INFO 11-05 18:47:10 [api_utils.py:347] 
+(APIServer pid=1128024) INFO 11-05 18:47:10 [api_utils.py:286] non-default args: {'model_tag': '/model/Qwen3.5-4B', 'model': '/model/Qwen3.5-4B', 'max_model_len': 8192, 'served_model_name': ['qwen35-4b']}
+(APIServer pid=1128024) INFO 11-05 18:47:10 [model.py:692] Resolved architecture: Qwen3_5ForConditionalGeneration
+(APIServer pid=1128024) INFO 11-05 18:47:10 [model.py:2030] Using max model len 8192
+(APIServer pid=1128024) INFO 11-05 18:47:12 [config.py:625] Mamba cache mode is set to 'align' for Qwen3_5ForConditionalGeneration by default when prefix caching is enabled
+(APIServer pid=1128024) INFO 11-05 18:47:12 [kernel.py:416] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['native'])
+(APIServer pid=1128024) INFO 11-05 18:47:12 [utils.py:225] No quantization signature detected from model files for "/model/Qwen3.5-4B". The model will be loaded as float. To force a quantization method, pass "--quantization <method>" explicitly.
+(APIServer pid=1128024) WARNING 11-05 18:47:12 [platform.py:730] GPU-specific parameter is not supported on Ascend. parameter=disable_cascade_attn, value=True, action: resetting to False.
+(APIServer pid=1128024) INFO 11-05 18:47:12 [platform.py:944] The timeout interval of the HCCL operator is 1836s. Timeout in seconds for execute_model RPC calls in multiprocessing must be greater than 1836s, Set VLLM_EXECUTE_MODEL_TIMEOUT_SECONDS=3000
+(APIServer pid=1128024) INFO 11-05 18:47:12 [ascend_config.py:334] Dynamic EPLB is False
+(APIServer pid=1128024) INFO 11-05 18:47:12 [ascend_config.py:335] The number of redundant experts is 0
+(APIServer pid=1128024) INFO 11-05 18:47:12 [ascend_config.py:768] FlashComm1 is disabled. Using flashinfer_all2allv as the all2all backend.
+(APIServer pid=1128024) INFO 11-05 18:47:12 [platform.py:1455] Set PYTORCH_NPU_ALLOC_CONF=expandable_segments:True
+(APIServer pid=1128024) INFO 11-05 18:47:12 [compilation.py:336] Enabled custom fusions: norm_quant, act_quant
+(APIServer pid=1128024) [transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.

@@ -289,3 +289,73 @@
 [18:09:33] bench[clu_w0275] c=32 n=256 in=256 out=96 done
 [18:09:59] bench[clu_w0276] c=32 n=256 in=256 out=96 done
 [18:10:26] bench[clu_w0277] c=32 n=256 in=256 out=96 done
+[18:10:53] bench[clu_w0278] c=32 n=256 in=256 out=96 done
+[18:11:20] bench[clu_w0279] c=32 n=256 in=256 out=96 done
+[18:11:47] bench[clu_w0280] c=32 n=256 in=256 out=96 done
+[18:11:50] cluster wave 280 elapsed 123min
+[18:12:14] bench[clu_w0281] c=32 n=256 in=256 out=96 done
+[18:12:42] bench[clu_w0282] c=32 n=256 in=256 out=96 done
+[18:13:08] bench[clu_w0283] c=32 n=256 in=256 out=96 done
+[18:13:34] bench[clu_w0284] c=32 n=256 in=256 out=96 done
+[18:14:01] bench[clu_w0285] c=32 n=256 in=256 out=96 done
+[18:14:27] bench[clu_w0286] c=32 n=256 in=256 out=96 done
+[18:14:54] bench[clu_w0287] c=32 n=256 in=256 out=96 done
+[18:15:21] bench[clu_w0288] c=32 n=256 in=256 out=96 done
+[18:15:47] bench[clu_w0289] c=32 n=256 in=256 out=96 done
+[18:16:13] bench[clu_w0290] c=32 n=256 in=256 out=96 done
+[18:16:40] bench[clu_w0291] c=32 n=256 in=256 out=96 done
+[18:17:06] bench[clu_w0292] c=32 n=256 in=256 out=96 done
+[18:17:31] bench[clu_w0293] c=32 n=256 in=256 out=96 done
+[18:17:58] bench[clu_w0294] c=32 n=256 in=256 out=96 done
+[18:18:26] bench[clu_w0295] c=32 n=256 in=256 out=96 done
+[18:18:53] bench[clu_w0296] c=32 n=256 in=256 out=96 done
+[18:19:19] bench[clu_w0297] c=32 n=256 in=256 out=96 done
+[18:19:46] bench[clu_w0298] c=32 n=256 in=256 out=96 done
+[18:20:14] bench[clu_w0299] c=32 n=256 in=256 out=96 done
+[18:20:41] bench[clu_w0300] c=32 n=256 in=256 out=96 done
+[18:20:45] cluster wave 300 elapsed 132min
+[18:21:09] bench[clu_w0301] c=32 n=256 in=256 out=96 done
+[18:21:37] bench[clu_w0302] c=32 n=256 in=256 out=96 done
+[18:22:03] bench[clu_w0303] c=32 n=256 in=256 out=96 done
+[18:22:29] bench[clu_w0304] c=32 n=256 in=256 out=96 done
+[18:22:58] bench[clu_w0305] c=32 n=256 in=256 out=96 done
+[18:23:23] bench[clu_w0306] c=32 n=256 in=256 out=96 done
+[18:23:50] bench[clu_w0307] c=32 n=256 in=256 out=96 done
+[18:24:17] bench[clu_w0308] c=32 n=256 in=256 out=96 done
+[18:24:44] bench[clu_w0309] c=32 n=256 in=256 out=96 done
+[18:25:10] bench[clu_w0310] c=32 n=256 in=256 out=96 done
+[18:25:36] bench[clu_w0311] c=32 n=256 in=256 out=96 done
+[18:26:04] bench[clu_w0312] c=32 n=256 in=256 out=96 done
+[18:26:30] bench[clu_w0313] c=32 n=256 in=256 out=96 done
+[18:26:58] bench[clu_w0314] c=32 n=256 in=256 out=96 done
+[18:27:24] bench[clu_w0315] c=32 n=256 in=256 out=96 done
+[18:27:52] bench[clu_w0316] c=32 n=256 in=256 out=96 done
+[18:28:18] bench[clu_w0317] c=32 n=256 in=256 out=96 done
+[18:28:45] bench[clu_w0318] c=32 n=256 in=256 out=96 done
+[18:29:11] bench[clu_w0319] c=32 n=256 in=256 out=96 done
+[18:29:38] bench[clu_w0320] c=32 n=256 in=256 out=96 done
+[18:29:41] cluster wave 320 elapsed 141min
+[18:30:04] bench[clu_w0321] c=32 n=256 in=256 out=96 done
+[18:30:31] bench[clu_w0322] c=32 n=256 in=256 out=96 done
+[18:30:58] bench[clu_w0323] c=32 n=256 in=256 out=96 done
+[18:31:25] bench[clu_w0324] c=32 n=256 in=256 out=96 done
+[18:31:51] bench[clu_w0325] c=32 n=256 in=256 out=96 done
+[18:32:18] bench[clu_w0326] c=32 n=256 in=256 out=96 done
+[18:32:44] bench[clu_w0327] c=32 n=256 in=256 out=96 done
+[18:33:11] bench[clu_w0328] c=32 n=256 in=256 out=96 done
+[18:33:39] bench[clu_w0329] c=32 n=256 in=256 out=96 done
+[18:34:07] bench[clu_w0330] c=32 n=256 in=256 out=96 done
+[18:34:33] bench[clu_w0331] c=32 n=256 in=256 out=96 done
+[18:35:00] bench[clu_w0332] c=32 n=256 in=256 out=96 done
+[18:35:27] bench[clu_w0333] c=32 n=256 in=256 out=96 done
+[18:35:52] bench[clu_w0334] c=32 n=256 in=256 out=96 done
+[18:36:19] bench[clu_w0335] c=32 n=256 in=256 out=96 done
+[18:36:45] bench[clu_w0336] c=32 n=256 in=256 out=96 done
+[18:37:14] bench[clu_w0337] c=32 n=256 in=256 out=96 done
+[18:37:41] bench[clu_w0338] c=32 n=256 in=256 out=96 done
+[18:38:09] bench[clu_w0339] c=32 n=256 in=256 out=96 done
+[18:38:36] bench[clu_w0340] c=32 n=256 in=256 out=96 done
+[18:38:39] cluster wave 340 elapsed 150min
+[18:38:39] cluster phase done: 340 waves
+/data/llm-infra-lab/scripts/night_m1_soak.sh: line 12: WAVES: unbound variable
+[18:38:39] night_all total 150min

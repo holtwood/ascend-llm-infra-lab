@@ -273,3 +273,85 @@
 [18:10:26] bench[clu_w0260] c=32 n=256 in=256 out=96 done
 [18:10:29] cluster wave 260 elapsed 116min
 [18:10:53] bench[clu_w0261] c=32 n=256 in=256 out=96 done
+[18:11:20] bench[clu_w0262] c=32 n=256 in=256 out=96 done
+[18:11:47] bench[clu_w0263] c=32 n=256 in=256 out=96 done
+[18:12:14] bench[clu_w0264] c=32 n=256 in=256 out=96 done
+[18:12:42] bench[clu_w0265] c=32 n=256 in=256 out=96 done
+[18:13:08] bench[clu_w0266] c=32 n=256 in=256 out=96 done
+[18:13:34] bench[clu_w0267] c=32 n=256 in=256 out=96 done
+[18:14:01] bench[clu_w0268] c=32 n=256 in=256 out=96 done
+[18:14:28] bench[clu_w0269] c=32 n=256 in=256 out=96 done
+[18:14:54] bench[clu_w0270] c=32 n=256 in=256 out=96 done
+[18:15:20] bench[clu_w0271] c=32 n=256 in=256 out=96 done
+[18:15:47] bench[clu_w0272] c=32 n=256 in=256 out=96 done
+[18:16:13] bench[clu_w0273] c=32 n=256 in=256 out=96 done
+[18:16:40] bench[clu_w0274] c=32 n=256 in=256 out=96 done
+[18:17:06] bench[clu_w0275] c=32 n=256 in=256 out=96 done
+[18:17:31] bench[clu_w0276] c=32 n=256 in=256 out=96 done
+[18:17:58] bench[clu_w0277] c=32 n=256 in=256 out=96 done
+[18:18:25] bench[clu_w0278] c=32 n=256 in=256 out=96 done
+[18:18:53] bench[clu_w0279] c=32 n=256 in=256 out=96 done
+[18:19:19] bench[clu_w0280] c=32 n=256 in=256 out=96 done
+[18:19:23] cluster wave 280 elapsed 125min
+[18:19:46] bench[clu_w0281] c=32 n=256 in=256 out=96 done
+[18:20:14] bench[clu_w0282] c=32 n=256 in=256 out=96 done
+[18:20:42] bench[clu_w0283] c=32 n=256 in=256 out=96 done
+[18:21:09] bench[clu_w0284] c=32 n=256 in=256 out=96 done
+[18:21:37] bench[clu_w0285] c=32 n=256 in=256 out=96 done
+[18:22:03] bench[clu_w0286] c=32 n=256 in=256 out=96 done
+[18:22:29] bench[clu_w0287] c=32 n=256 in=256 out=96 done
+[18:22:58] bench[clu_w0288] c=32 n=256 in=256 out=96 done
+[18:23:23] bench[clu_w0289] c=32 n=256 in=256 out=96 done
+[18:23:50] bench[clu_w0290] c=32 n=256 in=256 out=96 done
+[18:24:17] bench[clu_w0291] c=32 n=256 in=256 out=96 done
+[18:24:44] bench[clu_w0292] c=32 n=256 in=256 out=96 done
+[18:25:10] bench[clu_w0293] c=32 n=256 in=256 out=96 done
+[18:25:36] bench[clu_w0294] c=32 n=256 in=256 out=96 done
+[18:26:04] bench[clu_w0295] c=32 n=256 in=256 out=96 done
+[18:26:30] bench[clu_w0296] c=32 n=256 in=256 out=96 done
+[18:26:58] bench[clu_w0297] c=32 n=256 in=256 out=96 done
+[18:27:24] bench[clu_w0298] c=32 n=256 in=256 out=96 done
+[18:27:52] bench[clu_w0299] c=32 n=256 in=256 out=96 done
+[18:28:18] bench[clu_w0300] c=32 n=256 in=256 out=96 done
+[18:28:22] cluster wave 300 elapsed 134min
+[18:28:45] bench[clu_w0301] c=32 n=256 in=256 out=96 done
+[18:29:11] bench[clu_w0302] c=32 n=256 in=256 out=96 done
+[18:29:38] bench[clu_w0303] c=32 n=256 in=256 out=96 done
+[18:30:04] bench[clu_w0304] c=32 n=256 in=256 out=96 done
+[18:30:31] bench[clu_w0305] c=32 n=256 in=256 out=96 done
+[18:30:58] bench[clu_w0306] c=32 n=256 in=256 out=96 done
+[18:31:25] bench[clu_w0307] c=32 n=256 in=256 out=96 done
+[18:31:51] bench[clu_w0308] c=32 n=256 in=256 out=96 done
+[18:32:18] bench[clu_w0309] c=32 n=256 in=256 out=96 done
+[18:32:44] bench[clu_w0310] c=32 n=256 in=256 out=96 done
+[18:33:11] bench[clu_w0311] c=32 n=256 in=256 out=96 done
+[18:33:39] bench[clu_w0312] c=32 n=256 in=256 out=96 done
+[18:34:07] bench[clu_w0313] c=32 n=256 in=256 out=96 done
+[18:34:33] bench[clu_w0314] c=32 n=256 in=256 out=96 done
+[18:35:00] bench[clu_w0315] c=32 n=256 in=256 out=96 done
+[18:35:27] bench[clu_w0316] c=32 n=256 in=256 out=96 done
+[18:35:52] bench[clu_w0317] c=32 n=256 in=256 out=96 done
+[18:36:19] bench[clu_w0318] c=32 n=256 in=256 out=96 done
+[18:36:45] bench[clu_w0319] c=32 n=256 in=256 out=96 done
+[18:37:14] bench[clu_w0320] c=32 n=256 in=256 out=96 done
+[18:37:18] cluster wave 320 elapsed 143min
+[18:37:41] bench[clu_w0321] c=32 n=256 in=256 out=96 done
+[18:38:09] bench[clu_w0322] c=32 n=256 in=256 out=96 done
+[18:38:36] bench[clu_w0323] c=32 n=256 in=256 out=96 done
+[18:38:59] bench[clu_w0324] c=32 n=256 in=256 out=96 done
+[18:39:23] bench[clu_w0325] c=32 n=256 in=256 out=96 done
+[18:39:48] bench[clu_w0326] c=32 n=256 in=256 out=96 done
+[18:40:13] bench[clu_w0327] c=32 n=256 in=256 out=96 done
+[18:40:36] bench[clu_w0328] c=32 n=256 in=256 out=96 done
+[18:40:59] bench[clu_w0329] c=32 n=256 in=256 out=96 done
+[18:41:23] bench[clu_w0330] c=32 n=256 in=256 out=96 done
+[18:41:49] bench[clu_w0331] c=32 n=256 in=256 out=96 done
+[18:42:13] bench[clu_w0332] c=32 n=256 in=256 out=96 done
+[18:42:37] bench[clu_w0333] c=32 n=256 in=256 out=96 done
+[18:43:01] bench[clu_w0334] c=32 n=256 in=256 out=96 done
+[18:43:25] bench[clu_w0335] c=32 n=256 in=256 out=96 done
+[18:43:49] bench[clu_w0336] c=32 n=256 in=256 out=96 done
+[18:43:53] cluster phase done: 336 waves
+[18:43:53] M2 phase A: 3D grid
+[18:47:15] serve[grid_base] ready
+[18:47:24] bench[g_c8_i256_o64] c=8 n=64 in=256 out=64 done

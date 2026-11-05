@@ -9,7 +9,7 @@ MODEL=/model/Qwen3.5-4B
 PORT=8000
 LINE_MIN=${LINE_MIN:-360}   # 实测波次 59s+7s -> 330 波/6h
 
-log "M1 soak start (waves=$WAVES)"
+log "M1 soak start (LINE_MIN=${LINE_MIN}min)"
 serve $PORT "$MODEL" soak_base || exit 1
 sample soak_t0 $PORT
 T0=$(date +%s); END=$(( T0 + LINE_MIN * 60 )); i=0
