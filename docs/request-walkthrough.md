@@ -1,8 +1,11 @@
 # 一个请求在 vLLM(-ascend) 里的完整一生
 
-源码基线：`/vllm-workspace/vllm`（V1 引擎）+ `/vllm-workspace/vllm-ascend`
-（Ascend 插件，v0.30.0rc2）。实测基线：本仓库 E1-E16 在 910B1/910B2 上的
-数据（每条标注出处）。用法：面试被问 "walk a request through vLLM" 时，
+源码基线：`/vllm-workspace/vllm`（V1 引擎，dev checkout）+
+`/vllm-workspace/vllm-ascend`（Ascend 插件 dev checkout）。
+⚠️ 行号按本地 dev 树标注；E1-E16 实验跑的是 vllm-ascend **0.30.0rc2**
+发行版，个别行号可能与运行时版本有 ±数十行漂移，引用前对符号名复核。
+实测基线：本仓库 E1-E16 在 910B1/910B2 上的数据（每条标注出处，
+引用值已逐项回查原始 JSON/README）。用法：面试被问 "walk a request through vLLM" 时，
 按本文顺序讲，每层都能 file:line 落地 + 实测数字佐证。
 
 ## 0. 全景图
@@ -135,7 +138,10 @@ input `zmq.ROUTER`（L598）/ output `zmq.PULL`（L605），msgpack 编解码。
 >   mnb=256 → 每请求 8 个 chunk → 队头阻塞下 mean TTFT 13.1s；
 >   mnb=4096 → TTFT 1.06s（12×）。完全对应"排队深度∝chunk 数"的模型。
 > - **E3** APC 实验：prefix_repetition 数据集（4×2048 共享前缀）下
->   `get_computed_blocks` 命中 → TTFT 省 28%——就是 L980 这一行。
+>   `get_computed_blocks` 命中 → **mean TTFT 1298→1018ms（-22%）**，
+>   但 median 反而 622→696ms——收益集中在重复前缀的第二波请求，
+>   第一波还白付哈希开销。收益 ∝ 前缀共享率 × 请求波次位置，
+>   就是 L980 这一行决定的。
 > - **E14** MTP：k=3 时每步 `scheduled_spec_decode_tokens` 把 4 位置
 >   塞进同一个 forward——接受率 65.6% 但 3 次草稿前向+验证前向的
 >   固定开销仍负收益（results/e14）。
@@ -165,7 +171,7 @@ find_longest_cache_hit`（L741-835）：**按 block 哈希链顺序探测**
   prompt 头开始的连续前缀）。
 
 > 实测关联：E8 KV 容量账本（results/e8）验证的 `kv_cache_size_tokens`
-> 和 E16 长上下文 KV 占用曲线（ctx 42k 峰值 KV 5.1%）就是这套
+> 和 E16 长上下文 KV 占用曲线（ctx 63k 峰值 KV 13.9%）就是这套
 > block 计数在服务端的表现；910B 上 block_size=128（见 §6）。
 
 ## 6. Ascend 执行路径：SchedulerOutput → NPU 前向
@@ -261,7 +267,7 @@ find_longest_cache_hit`（L741-835）：**按 block 哈希链顺序探测**
 - `RequestOutputCollector` → `chat_completion_stream_generator`
   （serving.py:450-910）→ `data: {...}\n\n` × N → `data: [DONE]\n\n`（L910）。
 
-> 实测关联：E16 长上下文（ctx 42k）下 TPOT 19→62ms——decode 单步的
+> 实测关联：E16 长上下文（ctx 3.9k→63k）下 TPOT 19→62ms——decode 单步的
 > attention 随 KV 长线性增长（E8b 实测 127→999 GB/s 访存爬升），
 > 这就是 §6 FIA decode 分支 `seq_lens` 那批数据在时延上的表现。
 
@@ -279,4 +285,5 @@ find_longest_cache_hit`（L741-835）：**按 block 哈希链顺序探测**
 > 的 multinomial）。输出 token 走 ZMQ 回 API 侧做增量 detok、stop-string
 > 判定，最后 SSE 流出。我在 910B 上实测过这条链上每一段的开销：
 > chunked-prefill 预算从 256 调到 4096 时 TTFT 13.1s→1.06s，async
-> scheduler 把 TPOT 砍了 39%，prefix caching 共享前缀下省 28% TTFT。"
+> scheduler 把 TPOT 砍了 39%，prefix caching 在 4×2048 共享前缀负载下
+> mean TTFT 降 22%（收益集中在第二波请求）。"
