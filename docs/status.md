@@ -229,3 +229,30 @@
   → f0a938956(#14620) 移除；rc2 patch_triton.py try-import 已删符号 =
   版本残留。补函数=重加上游主动移除代码，接受率≈0 → 改记为版本升级建议
 - 教训：PR 前查 mainline 历史（git log --all --grep）
+- 注：本 lane 独立到达同一结论（issue3 → #18978 comment）
+
+### 本 lane 第七轮（walkthrough + upstream issue + E8e）
+
+- `docs/request-walkthrough.md` 完成：vLLM V1 请求全路径 file:line
+  （api_router→serving→renderer tokenize→AsyncLLM→ZMQ→EngineCore
+  →scheduler→KV block pool→NPUModelRunner→FIA/paged-attention→
+  AscendSampler→detok→SSE），每段挂 E1/E3/E3b/E8b/E11/E14/E16 实测
+- upstream 重复检查（GitHub API，未认证可跑）：
+  issue1/issue2 无重复→发新 issue；**issue3 与 open #18978 同缺陷**
+  （#14620 删符号 + #15127 重新 import）→降级为 comment。
+  成品在 `docs/issues/ready/`，实际提交需 GitHub PAT（已停下等批准）
+- 坑：gh 二进制下载过慢，改用 api.github.com 未认证 search/issues
+  接口完成全部 dedup 检查
+
+### E8e 手撕 attention 变体（第七轮，pytorch 容器 npu:1）
+
+- RoPE：手写 rotate-half vs 复数乘法参考 diff=0、vs HF 0.038（bf16）、
+  范数保持 1.9e-6、相对位置性质 8.6e-6
+- GQA：expand==repeat_interleave 位级一致、vs 原生 enable_gqa diff=0；
+  KV 字节 268→33.6MB/req（8×）
+- SWA 最有信息量的是**负结果**：sdpa+显式 band mask 比 is_causal
+  慢 26×（S8192 24.2 vs 0.93ms）且 w256≈w1024 零窗口收益——真 SWA
+  靠 kernel 跳过窗外 block（FIA sparse_mode=4），mask 永远 O(S²)
+- 坑：sdpa attn_mask 在 NPU 上要求 dtype 与 query 一致（float mask +
+  bf16 q 直接 RuntimeError）；ssh 管道下 python stdout 块缓冲，
+  要 `python3 -u` 或日志文件才能看进度
