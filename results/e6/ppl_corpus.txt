@@ -1,0 +1,96 @@
+大语言模型推理系统的性能优化通常围绕两条主线展开：降低每步计算的算力消耗，以及减少显存带宽的瓶颈效应。在自回归解码阶段，每个token的生成都需要完整读取一遍模型权重，因此小batch下的decode天然是memory-bandwidth bound的。量化技术正是利用这一点，将fp16或bf16权重压缩为int8甚至int4，在几乎不损失精度的前提下显著降低带宽压力。然而在batch较大时，计算密度上升，系统逐渐转为compute-bound，此时量化带来的收益会减弱，甚至因为反量化开销而出现负收益。
+
+现代操作系统中的虚拟内存管理为KV cache的高效利用提供了直接类比。PagedAttention借鉴分页思想，将注意力缓存划分为固定大小的block，通过block table进行间接寻址。这种设计将显存碎片率从接近百分之五十压低至个位数，使得更大的batch size成为可能。调度器在每个迭代步中动态决定哪些请求进入执行序列，这正是continuous batching相对于静态批处理的核心优势。
+
+The transformer architecture has become the dominant paradigm in natural language processing since its introduction. Unlike recurrent networks that process tokens sequentially, the transformer relies entirely on self-attention mechanisms, allowing it to capture long-range dependencies in parallel. Each layer consists of multi-head attention followed by position-wise feed-forward networks, with residual connections and layer normalization stabilizing training. The attention operation scales quadratically with sequence length, which has motivated extensive research into sparse, linear, and low-rank approximations.
+
+Distributed training frameworks must carefully orchestrate communication primitives to keep accelerators busy. All-reduce aggregates gradients across workers, while all-gather and reduce-scatter handle sharded parameters in data-parallel schemes like ZeRO. When the communication fabric is limited to TCP over Ethernet rather than dedicated interconnects, gradient synchronization can dominate step time. Practitioners therefore overlap communication with backward computation, bucket gradients, and quantize or sparsify updates to reduce transferred bytes.
+
+def quicksort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    return quicksort(left) + middle + quicksort(right)
+
+数据库事务的ACID特性中，隔离性往往最难正确实现。读提交、可重复读、串行化三种级别对应着不同的并发异常：脏读、不可重复读和幻读。工程实践中，多版本并发控制通过为每行数据维护版本链，使读操作不阻塞写操作。然而MVCC并非银弹，写偏斜异常仍可能在快照隔离下发生，需要显式锁或谓词锁来防御。
+
+In Kubernetes, the scheduler binds pending pods to nodes based on resource requests, affinity rules, and taints. The kubelet on each node watches for assigned pods and instructs the container runtime to pull images and start containers. Liveness and readiness probes determine whether traffic should flow to a pod and whether it should be restarted. Horizontal pod autoscaling adjusts replica counts from metrics, while cluster autoscaling changes the node pool size itself.
+
+import heapq
+
+class LRUCache:
+    def __init__(self, capacity):
+        self.cap = capacity
+        self.cache = {}
+        self.order = []
+
+    def get(self, key):
+        if key not in self.cache:
+            return -1
+        self.order.remove(key)
+        self.order.append(key)
+        return self.cache[key]
+
+    def put(self, key, value):
+        if key in self.cache:
+            self.order.remove(key)
+        elif len(self.cache) >= self.cap:
+            oldest = self.order.pop(0)
+            del self.cache[oldest]
+        self.cache[key] = value
+        self.order.append(key)
+
+牛顿第二定律表明物体的加速度与所受合外力成正比，与质量成反比。在微观尺度上，薛定谔方程取代了经典力学，波函数的模方给出粒子出现的概率密度。海森堡不确定性原理指出，位置和动量不能同时被精确测定，其乘积的下限由约化普朗克常数决定。量子纠缠则展示了非定域关联：对一个粒子的测量会瞬时影响与之纠缠的另一个粒子的状态描述。
+
+The key insight behind speculative decoding is that verifying multiple draft tokens costs the same as generating one, because the target model's forward pass runs in parallel over the draft sequence. If the draft model proposes tokens the target would have generated anyway, throughput multiplies without changing output distribution. Acceptance rate depends on how closely the draft approximates the target; self-drafting methods like Medusa and EAGLE train lightweight heads on the target's own hidden states to achieve high agreement.
+
+TCP congestion control evolved from Tahoe through Reno to modern variants like CUBIC and BBR. The core idea is an additive-increase multiplicative-decrease loop that probes available bandwidth while reacting to packet loss as a congestion signal. BBR takes a different approach, modeling the bottleneck bandwidth and round-trip propagation delay explicitly, then pacing sends at the estimated bandwidth to keep queues short without collapsing throughput.
+
+深度学习框架的自动微分建立在计算图之上。前向传播时算子逐节点求值并记录局部导数，反向传播按链式法则从损失函数回传梯度。实现上有两种风格：Tape-based动态图在算子执行时即时记录，灵活但难以全局优化；静态图先编译整个计算图再执行，便于算子融合和内存规划。PyTorch的eager模式属于前者，而torch.compile和XLA属于后者。
+
+select u.id, u.name, count(o.id) as order_cnt
+from users u
+left join orders o on o.user_id = u.id and o.status = 'paid'
+where u.created_at > '2025-01-01'
+group by u.id, u.name
+having count(o.id) > 3
+order by order_cnt desc
+limit 20;
+
+韩信点兵问题是中国剩余定理的经典案例：三个三个数余二，五个五个数余三，七个七个数余二，求兵数。设总数为x，则x同余于2模3、3模5、2模7。由逐次代入可得最小正整数解为二十三。该定理保证了当模数两两互素时，同余方程组在模数乘积范围内存在唯一解，这也是RSA等公钥密码体系的数论基础之一。
+
+Garbage collection in the JVM divides the heap into generations: young objects die fast and are collected by minor GC with copying algorithms, while long-lived objects promote to the old generation collected by mark-sweep-compact or concurrent mark-sweep. Modern collectors like G1 and ZGC partition the heap into regions and prioritize collecting regions with the most garbage, aiming for pause times under ten milliseconds even on multi-hundred-gigabyte heaps.
+
+编译器优化的层次从源语言到机器码逐级展开。前端完成词法语法分析与语义检查，生成中间表示；中端在IR上做与机器无关的优化——常量折叠、循环展开、死代码消除、公共子表达式消除；后端进行指令选择、寄存器分配与调度。LLVM的三段式结构让新语言只需实现前端、新硬件只需实现后端即可复用整套优化管线。
+
+The Raft consensus algorithm decomposes consensus into leader election, log replication, and safety. A cluster elects a single leader per term; the leader accepts client commands, appends them to its log, and replicates entries to followers. An entry is committed once stored on a majority of servers. Randomized election timeouts prevent split votes, while term numbers act as a logical clock to detect stale leaders.
+
+神经网络中的归一化层解决了内部协变量偏移问题。BatchNorm在batch维度上归一化，依赖batch统计量，训练和推理行为不同；LayerNorm在特征维度上归一化，行为一致，成为Transformer的标配；RMSNorm进一步去掉减均值操作只保留均方根缩放，减少计算量，被LLaMA等模型广泛采用。GroupNorm则在通道分组上归一化，常用于小batch的视觉任务。
+
+async def fetch_all(urls, session):
+    sem = asyncio.Semaphore(16)
+    async def worker(u):
+        async with sem:
+            async with session.get(u, timeout=30) as r:
+                return await r.text()
+    tasks = [asyncio.create_task(worker(u)) for u in urls]
+    return await asyncio.gather(*tasks, return_exceptions=True)
+
+信息论中，熵度量随机变量的不确定性，交叉熵度量两个分布间的编码代价差。语言模型训练的本质就是最小化模型分布与真实数据分布的交叉熵，等价于最大化训练语料的似然。困惑度是交叉熵的指数化，直观含义是模型在每一步面临的等效平均分支数。困惑度对分词方案敏感，跨词表比较时需要按字节或字符归一化。
+
+In a Raft cluster, a log entry is committed once a majority of nodes have stored it. Committed entries are applied to the state machine in log order. The leader appends entries with the current term, and followers reject entries whose term is older than their own. The election restriction—that a candidate must have a log at least as up-to-date as a voter's—ensures a new leader holds every committed entry.
+
+流水线处理器的冒险分为三类：结构冒险源于硬件资源竞争，数据冒险源于指令间数据依赖，控制冒险源于跳转分支。五级流水线的经典解决方案包括：增加哈佛结构分离指令数据缓存、转发通路把ALU结果直接送回输入端、分支预测与延迟槽。一旦预测错误，流水线必须冲刷取错的指令，这就是分支预测精度对IPC影响巨大的原因。
+
+强化学习中的策略梯度方法直接优化参数化策略的期望回报。REINFORCE用蒙特卡洛回报作无偏估计但方差大；Actor-Critic引入价值函数作基线降低方差；PPO进一步用裁剪的重要性采样比率限制更新步长，成为稳定易用的工业标准。GRPO去掉价值网络，用组内相对优势作基线，在推理模型训练中流行。
+
+The CAP theorem states a distributed system cannot simultaneously guarantee consistency, availability, and partition tolerance. In practice, partitions are inevitable in wide-area deployments, so the real choice is CP versus AP. Systems like etcd and ZooKeeper choose consistency via quorum protocols, while Dynamo-style stores prefer eventual consistency with vector clocks and conflict resolution at read time.
+
+beam search是序列生成的经典解码策略：每步保留累计概率最高的k个候选，最终在k条完整序列中取最优。相比贪心解码它缓解了局部最优陷阱，但对开放生成任务会产生退化——重复、安全答案、缺乏多样性。温度采样、top-k截断和nucleus采样通过重塑下一个token的分布来换取多样性，perplexity上略差但文本质量更自然。
+
+生产者写入消息前先按key哈希选择partition，同一key的消息保证有序进入同一分区。消费者组内每个分区只分配给一个消费者，因此并发度上限等于分区数。副本机制通过ISR列表跟踪同步副本，leader宕机时从ISR中选新leader，acks=all配合min.insync.replicas可以在可用性和持久性之间做显式权衡。
+
+Zero-knowledge proofs allow a prover to convince a verifier that a statement is true without revealing why. zk-SNARK constructions compress the proof to a few hundred bytes with constant-time verification, at the cost of a trusted setup ceremony. zk-STARKs remove the trusted setup using hash-based commitments and the FRI protocol, but proofs are tens of kilobytes. Both compile a computation into an arithmetic circuit, then into polynomial constraints checked via random queries.

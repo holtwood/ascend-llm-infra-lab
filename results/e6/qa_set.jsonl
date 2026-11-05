@@ -1,0 +1,105 @@
+{"id":"cn001","cat":"cn_knowledge","type":"mcq","q":"中国的首都是哪座城市？","choices":{"A":"上海","B":"北京","C":"广州","D":"深圳"},"ans":"B"}
+{"id":"cn002","cat":"cn_knowledge","type":"mcq","q":"《红楼梦》的作者是谁？","choices":{"A":"罗贯中","B":"施耐庵","C":"曹雪芹","D":"吴承恩"},"ans":"C"}
+{"id":"cn003","cat":"cn_knowledge","type":"mcq","q":"长江是中国第几长河？","choices":{"A":"第一","B":"第二","C":"第三","D":"第四"},"ans":"A"}
+{"id":"cn004","cat":"cn_knowledge","type":"mcq","q":"秦始皇统一六国后统一的文字是？","choices":{"A":"大篆","B":"小篆","C":"隶书","D":"楷书"},"ans":"B"}
+{"id":"cn005","cat":"cn_knowledge","type":"mcq","q":"中国古代四大发明不包括以下哪项？","choices":{"A":"造纸术","B":"指南针","C":"蒸汽机","D":"火药"},"ans":"C"}
+{"id":"cn006","cat":"cn_knowledge","type":"mcq","q":"“但愿人长久，千里共婵娟”出自哪位词人？","choices":{"A":"李白","B":"杜甫","C":"苏轼","D":"辛弃疾"},"ans":"C"}
+{"id":"cn007","cat":"cn_knowledge","type":"mcq","q":"中国面积最大的省级行政区是？","choices":{"A":"西藏","B":"新疆","C":"内蒙古","D":"青海"},"ans":"B"}
+{"id":"cn008","cat":"cn_knowledge","type":"mcq","q":"科举制度创立于哪个朝代？","choices":{"A":"汉朝","B":"隋朝","C":"唐朝","D":"宋朝"},"ans":"B"}
+{"id":"cn009","cat":"cn_knowledge","type":"mcq","q":"《史记》的体裁属于？","choices":{"A":"编年体","B":"纪传体","C":"国别体","D":"纪事本末体"},"ans":"B"}
+{"id":"cn010","cat":"cn_knowledge","type":"mcq","q":"“丝绸之路”的开辟与哪位历史人物直接相关？","choices":{"A":"张骞","B":"班超","C":"玄奘","D":"郑和"},"ans":"A"}
+{"id":"cn011","cat":"cn_knowledge","type":"mcq","q":"人体内最大的器官是？","choices":{"A":"肝脏","B":"大脑","C":"皮肤","D":"肺"},"ans":"C"}
+{"id":"cn012","cat":"cn_knowledge","type":"mcq","q":"光在真空中的传播速度约为每秒多少公里？","choices":{"A":"3万公里","B":"30万公里","C":"300万公里","D":"3000公里"},"ans":"B"}
+{"id":"cn013","cat":"cn_knowledge","type":"mcq","q":"水的化学式是？","choices":{"A":"CO2","B":"H2O","C":"O2","D":"NaCl"},"ans":"B"}
+{"id":"cn014","cat":"cn_knowledge","type":"mcq","q":"地球绕太阳公转一周大约需要多长时间？","choices":{"A":"30天","B":"365天","C":"24小时","D":"10年"},"ans":"B"}
+{"id":"cn015","cat":"cn_knowledge","type":"mcq","q":"被称为“诗仙”的唐代诗人是？","choices":{"A":"杜甫","B":"白居易","C":"李白","D":"王维"},"ans":"C"}
+{"id":"cn016","cat":"cn_knowledge","type":"mcq","q":"下列哪个不是联合国安理会常任理事国？","choices":{"A":"中国","B":"德国","C":"法国","D":"俄罗斯"},"ans":"B"}
+{"id":"cn017","cat":"cn_knowledge","type":"mcq","q":"唐朝的开国皇帝是？","choices":{"A":"李世民","B":"李渊","C":"李治","D":"李隆基"},"ans":"B"}
+{"id":"cn018","cat":"cn_knowledge","type":"mcq","q":"京剧中的“生旦净末丑”属于？","choices":{"A":"乐器分类","B":"行当分类","C":"唱腔分类","D":"脸谱分类"},"ans":"B"}
+{"id":"cn019","cat":"cn_knowledge","type":"mcq","q":"世界上最大的沙漠是？","choices":{"A":"撒哈拉沙漠","B":"塔克拉玛干沙漠","C":"戈壁沙漠","D":"阿拉伯沙漠"},"ans":"A"}
+{"id":"cn020","cat":"cn_knowledge","type":"mcq","q":"《论语》记录的是哪位思想家及其弟子的言行？","choices":{"A":"老子","B":"孔子","C":"孟子","D":"庄子"},"ans":"B"}
+{"id":"cn021","cat":"cn_knowledge","type":"mcq","q":"中国第一颗原子弹爆炸成功是在哪一年？","choices":{"A":"1960年","B":"1964年","C":"1967年","D":"1970年"},"ans":"B"}
+{"id":"cn022","cat":"cn_knowledge","type":"mcq","q":"“三个代表”重要思想由谁提出？","choices":{"A":"邓小平","B":"江泽民","C":"胡锦涛","D":"毛泽东"},"ans":"B"}
+{"id":"cn023","cat":"cn_knowledge","type":"mcq","q":"五岳中的“东岳”指的是？","choices":{"A":"华山","B":"衡山","C":"泰山","D":"嵩山"},"ans":"C"}
+{"id":"cn024","cat":"cn_knowledge","type":"mcq","q":"汉字“囚”的造字法属于？","choices":{"A":"象形","B":"指事","C":"会意","D":"形声"},"ans":"C"}
+{"id":"cn025","cat":"cn_knowledge","type":"mcq","q":"下列哪位是“唐宋八大家”之一？","choices":{"A":"李白","B":"韩愈","C":"杜牧","D":"李商隐"},"ans":"B"}
+{"id":"cn026","cat":"cn_knowledge","type":"mcq","q":"本草纲目》的作者是？","choices":{"A":"张仲景","B":"华佗","C":"李时珍","D":"孙思邈"},"ans":"C"}
+{"id":"cn027","cat":"cn_knowledge","type":"mcq","q":"黄河最终注入哪个海域？","choices":{"A":"东海","B":"南海","C":"渤海","D":"黄海"},"ans":"C"}
+{"id":"cn028","cat":"cn_knowledge","type":"mcq","q":"“一国两制”构想最初是为解决哪个地区问题而提出？","choices":{"A":"香港","B":"澳门","C":"台湾","D":"深圳"},"ans":"C"}
+{"id":"cn029","cat":"cn_knowledge","type":"mcq","q":"中国农历中“二十四节气”主要服务于？","choices":{"A":"宗教祭祀","B":"农业生产","C":"天文观测","D":"军事活动"},"ans":"B"}
+{"id":"cn030","cat":"cn_knowledge","type":"mcq","q":"明代郑和下西洋最远到达？","choices":{"A":"印度西海岸","B":"非洲东海岸","C":"地中海","D":"大西洋"},"ans":"B"}
+{"id":"en001","cat":"en_knowledge","type":"mcq","q":"Which planet is known as the Red Planet?","choices":{"A":"Venus","B":"Mars","C":"Jupiter","D":"Saturn"},"ans":"B"}
+{"id":"en002","cat":"en_knowledge","type":"mcq","q":"Who wrote 'Romeo and Juliet'?","choices":{"A":"Charles Dickens","B":"William Shakespeare","C":"Jane Austen","D":"Mark Twain"},"ans":"B"}
+{"id":"en003","cat":"en_knowledge","type":"mcq","q":"What is the chemical symbol for gold?","choices":{"A":"Ag","B":"Fe","C":"Au","D":"Pb"},"ans":"C"}
+{"id":"en004","cat":"en_knowledge","type":"mcq","q":"In which year did humans first land on the Moon?","choices":{"A":"1959","B":"1965","C":"1969","D":"1972"},"ans":"C"}
+{"id":"en005","cat":"en_knowledge","type":"mcq","q":"What is the powerhouse of the cell?","choices":{"A":"Nucleus","B":"Ribosome","C":"Mitochondrion","D":"Golgi apparatus"},"ans":"C"}
+{"id":"en006","cat":"en_knowledge","type":"mcq","q":"Which ocean is the largest by surface area?","choices":{"A":"Atlantic","B":"Indian","C":"Arctic","D":"Pacific"},"ans":"D"}
+{"id":"en007","cat":"en_knowledge","type":"mcq","q":"Who proposed the theory of general relativity?","choices":{"A":"Isaac Newton","B":"Albert Einstein","C":"Niels Bohr","D":"Max Planck"},"ans":"B"}
+{"id":"en008","cat":"en_knowledge","type":"mcq","q":"What is the smallest prime number?","choices":{"A":"0","B":"1","C":"2","D":"3"},"ans":"C"}
+{"id":"en009","cat":"en_knowledge","type":"mcq","q":"Which data structure uses FIFO ordering?","choices":{"A":"Stack","B":"Queue","C":"Tree","D":"Heap"},"ans":"B"}
+{"id":"en010","cat":"en_knowledge","type":"mcq","q":"What does DNA stand for?","choices":{"A":"Deoxyribonucleic acid","B":"Dinucleic acid","C":"Deoxyribose nucleic atom","D":"Dual nucleic acid"},"ans":"A"}
+{"id":"en011","cat":"en_knowledge","type":"mcq","q":"Which country hosted the first modern Olympic Games in 1896?","choices":{"A":"France","B":"Greece","C":"Italy","D":"United Kingdom"},"ans":"B"}
+{"id":"en012","cat":"en_knowledge","type":"mcq","q":"The Pythagorean theorem relates to which shape?","choices":{"A":"Circle","B":"Right triangle","C":"Square","D":"Hexagon"},"ans":"B"}
+{"id":"en013","cat":"en_knowledge","type":"mcq","q":"Which gas makes up about 78% of Earth's atmosphere?","choices":{"A":"Oxygen","B":"Carbon dioxide","C":"Nitrogen","D":"Hydrogen"},"ans":"C"}
+{"id":"en014","cat":"en_knowledge","type":"mcq","q":"Who painted the Mona Lisa?","choices":{"A":"Vincent van Gogh","B":"Pablo Picasso","C":"Leonardo da Vinci","D":"Michelangelo"},"ans":"C"}
+{"id":"en015","cat":"en_knowledge","type":"mcq","q":"What is the SI unit of electric current?","choices":{"A":"Volt","B":"Ampere","C":"Ohm","D":"Watt"},"ans":"B"}
+{"id":"en016","cat":"en_knowledge","type":"mcq","q":"Which sorting algorithm has average-case O(n log n) complexity?","choices":{"A":"Bubble sort","B":"Insertion sort","C":"Merge sort","D":"Selection sort"},"ans":"C"}
+{"id":"en017","cat":"en_knowledge","type":"mcq","q":"Which of these is NOT a programming language?","choices":{"A":"Python","B":"HTTP","C":"Rust","D":"Kotlin"},"ans":"B"}
+{"id":"en018","cat":"en_knowledge","type":"mcq","q":"What is the largest mammal ever known to have lived?","choices":{"A":"African elephant","B":"Blue whale","C":"Giraffe","D":"Megalodon"},"ans":"B"}
+{"id":"en019","cat":"en_knowledge","type":"mcq","q":"In economics, what does GDP stand for?","choices":{"A":"Gross Domestic Product","B":"General Debt Position","C":"Global Development Plan","D":"Gross Deposit Percentage"},"ans":"A"}
+{"id":"en020","cat":"en_knowledge","type":"mcq","q":"Which organelle is responsible for photosynthesis in plants?","choices":{"A":"Mitochondrion","B":"Chloroplast","C":"Vacuole","D":"Lysosome"},"ans":"B"}
+{"id":"ma001","cat":"math","type":"numeric","q":"计算：37 + 58 = ?","ans":"95"}
+{"id":"ma002","cat":"math","type":"numeric","q":"计算：144 ÷ 12 = ?","ans":"12"}
+{"id":"ma003","cat":"math","type":"numeric","q":"计算：15 × 16 = ?","ans":"240"}
+{"id":"ma004","cat":"math","type":"numeric","q":"一个等边三角形的周长是 36 厘米，边长是多少厘米？","ans":"12"}
+{"id":"ma005","cat":"math","type":"numeric","q":"小明有 3 盒铅笔，每盒 24 支，送给同学 17 支后还剩多少支？","ans":"55"}
+{"id":"ma006","cat":"math","type":"numeric","q":"计算：2 的 10 次方 = ?","ans":"1024"}
+{"id":"ma007","cat":"math","type":"numeric","q":"一个数加上 25 等于 63，这个数是多少？","ans":"38"}
+{"id":"ma008","cat":"math","type":"numeric","q":"商店里一件衬衫原价 120 元，打八折后售价多少元？","ans":"96"}
+{"id":"ma009","cat":"math","type":"numeric","q":"计算：7! （7的阶乘）= ?","ans":"5040"}
+{"id":"ma010","cat":"math","type":"numeric","q":"从 1 加到 100 的和是多少？","ans":"5050"}
+{"id":"ma011","cat":"math","type":"numeric","q":"一辆汽车以每小时 60 公里的速度行驶 2.5 小时，行驶了多少公里？","ans":"150"}
+{"id":"ma012","cat":"math","type":"numeric","q":"计算：17 × 13 = ?","ans":"221"}
+{"id":"ma013","cat":"math","type":"numeric","q":"长方体长 5cm、宽 4cm、高 3cm，体积是多少立方厘米？","ans":"60"}
+{"id":"ma014","cat":"math","type":"numeric","q":"某班 50 名学生中 60% 是女生，女生有多少人？","ans":"30"}
+{"id":"ma015","cat":"math","type":"numeric","q":"计算：1000 − 376 = ?","ans":"624"}
+{"id":"ma016","cat":"math","type":"numeric","q":"若 x + 3 = 11，则 x = ?","ans":"8"}
+{"id":"ma017","cat":"math","type":"numeric","q":"计算：0.75 × 80 = ?","ans":"60"}
+{"id":"ma018","cat":"math","type":"numeric","q":"一个圆的半径是 7cm，面积约为多少平方厘米（π 取 22/7）？","ans":"154"}
+{"id":"ma019","cat":"math","type":"numeric","q":"3 的平方加上 4 的平方等于多少？","ans":"25"}
+{"id":"ma020","cat":"math","type":"numeric","q":"一本书 240 页，每天读 15 页，多少天读完？","ans":"16"}
+{"id":"ma021","cat":"math","type":"numeric","q":"计算：999 + 888 + 777 = ?","ans":"2664"}
+{"id":"ma022","cat":"math","type":"numeric","q":"若 5 个苹果重 1 千克，35 个苹果重多少千克？","ans":"7"}
+{"id":"ma023","cat":"math","type":"numeric","q":"计算：56 ÷ 7 × 9 = ?","ans":"72"}
+{"id":"ma024","cat":"math","type":"numeric","q":"等差数列 2, 5, 8, 11, ... 的第 10 项是多少？","ans":"29"}
+{"id":"ma025","cat":"math","type":"numeric","q":"一件商品先涨价 10% 再降价 10%，原价 100 元，现价多少元？","ans":"99"}
+{"id":"lg001","cat":"logic","type":"mcq","q":"所有 A 都是 B，所有 B 都是 C。那么所有 A 都是 C 吗？","choices":{"A":"是","B":"否","C":"无法确定","D":"仅部分是"},"ans":"A"}
+{"id":"lg002","cat":"logic","type":"mcq","q":"如果“下雨则地面湿”为真，现在地面是干的，可以推出？","choices":{"A":"刚下过雨","B":"没有下雨","C":"可能下雨了","D":"无法判断"},"ans":"B"}
+{"id":"lg003","cat":"logic","type":"mcq","q":"甲、乙、丙三人中只有一人说真话。甲说“乙说谎”，乙说“丙说谎”，丙说“甲和乙都说谎”。谁说真话？","choices":{"A":"甲","B":"乙","C":"丙","D":"无法确定"},"ans":"B"}
+{"id":"lg004","cat":"logic","type":"mcq","q":"数列 1, 1, 2, 3, 5, 8, 13 的下一个数是？","choices":{"A":"18","B":"19","C":"20","D":"21"},"ans":"D"}
+{"id":"lg005","cat":"logic","type":"mcq","q":"“有些猫是黑的”的否定命题是？","choices":{"A":"所有猫都是黑的","B":"所有猫都不是黑的","C":"有些猫不是黑的","D":"没有猫"},"ans":"B"}
+{"id":"lg006","cat":"logic","type":"mcq","q":"如果所有程序员都会写代码，小李不会写代码，那么小李？","choices":{"A":"是程序员","B":"不是程序员","C":"可能是程序员","D":"无法判断"},"ans":"B"}
+{"id":"lg007","cat":"logic","type":"mcq","q":"A 比 B 高，B 比 C 高，D 比 B 矮但比 C 高。四人中最矮的是？","choices":{"A":"A","B":"B","C":"C","D":"D"},"ans":"C"}
+{"id":"lg008","cat":"logic","type":"mcq","q":"“如果努力学习就会通过考试。小王通过了考试。”由此必然推出？","choices":{"A":"小王努力学习","B":"小王没努力","C":"无法确定小王是否努力","D":"小王很聪明"},"ans":"C"}
+{"id":"lg009","cat":"logic","type":"mcq","q":"房间外有 3 个开关，分别控制房内 3 盏白炽灯，你只能进房间一次。如何确定开关与灯的对应关系？","choices":{"A":"不可能确定","B":"先开两盏，关其一，利用余热判断","C":"逐一猜测","D":"拆开开关看线路"},"ans":"B"}
+{"id":"lg010","cat":"logic","type":"mcq","q":"数列 2, 6, 12, 20, 30 的下一个数是？","choices":{"A":"36","B":"40","C":"42","D":"48"},"ans":"C"}
+{"id":"lg011","cat":"logic","type":"mcq","q":"“并非所有鸟都会飞”等价于？","choices":{"A":"所有鸟都不会飞","B":"存在不会飞的鸟","C":"鸵鸟不是鸟","D":"企鹅会飞"},"ans":"B"}
+{"id":"lg012","cat":"logic","type":"mcq","q":"甲说“明天会下雨”，乙说“明天不会下雨”。两人说法？","choices":{"A":"都对","B":"都错","C":"恰好一人对","D":"无法判断"},"ans":"C"}
+{"id":"lg013","cat":"logic","type":"mcq","q":"把一张纸对折三次后戳一个洞，展开后有几个洞？","choices":{"A":"3","B":"4","C":"6","D":"8"},"ans":"D"}
+{"id":"lg014","cat":"logic","type":"mcq","q":"如果昨天的后天是星期五，那么今天是星期几？","choices":{"A":"星期三","B":"星期四","C":"星期五","D":"星期六"},"ans":"B"}
+{"id":"lg015","cat":"logic","type":"mcq","q":"“所有金属都导电，塑料不导电”，可以推出？","choices":{"A":"塑料是金属","B":"塑料不是金属","C":"金属是塑料","D":"无法判断"},"ans":"B"}
+{"id":"cs001","cat":"cs_basics","type":"mcq","q":"HTTP 协议默认使用的端口号是？","choices":{"A":"21","B":"22","C":"80","D":"443"},"ans":"C"}
+{"id":"cs002","cat":"cs_basics","type":"mcq","q":"下列哪个是关系型数据库？","choices":{"A":"Redis","B":"MySQL","C":"MongoDB","D":"Elasticsearch"},"ans":"B"}
+{"id":"cs003","cat":"cs_basics","type":"mcq","q":"TCP 和 UDP 的主要区别是？","choices":{"A":"TCP 更快","B":"TCP 提供可靠有序传输","C":"UDP 有拥塞控制","D":"UDP 用于文件传输"},"ans":"B"}
+{"id":"cs004","cat":"cs_basics","type":"mcq","q":"在 Linux 中查看进程实时资源占用的命令是？","choices":{"A":"ls","B":"ps","C":"top","D":"df"},"ans":"C"}
+{"id":"cs005","cat":"cs_basics","type":"mcq","q":"二分查找有序数组 n 个元素的时间复杂度是？","choices":{"A":"O(n)","B":"O(log n)","C":"O(n log n)","D":"O(1)"},"ans":"B"}
+{"id":"cs006","cat":"cs_basics","type":"mcq","q":"下列哪个 HTTP 方法是幂等的？","choices":{"A":"POST","B":"GET","C":"PATCH","D":"都不是"},"ans":"B"}
+{"id":"cs007","cat":"cs_basics","type":"mcq","q":"操作系统中“死锁”的四个必要条件不包括？","choices":{"A":"互斥","B":"占有且等待","C":"可抢占","D":"循环等待"},"ans":"C"}
+{"id":"cs008","cat":"cs_basics","type":"mcq","q":"IPv4 地址 192.168.1.1 属于哪类私有地址段？","choices":{"A":"10.0.0.0/8","B":"172.16.0.0/12","C":"192.168.0.0/16","D":"169.254.0.0/16"},"ans":"C"}
+{"id":"cs009","cat":"cs_basics","type":"mcq","q":"Git 中用于创建并切换到新分支的命令是？","choices":{"A":"git branch","B":"git checkout -b","C":"git merge","D":"git pull"},"ans":"B"}
+{"id":"cs010","cat":"cs_basics","type":"mcq","q":"下列哪个数据结构最适合实现 LRU 缓存？","choices":{"A":"数组+队列","B":"哈希表+双向链表","C":"栈+堆","D":"二叉树"},"ans":"B"}
+{"id":"cs011","cat":"cs_basics","type":"mcq","q":"进程与线程的主要区别是？","choices":{"A":"线程不能并发","B":"进程间内存独立，线程共享进程内存","C":"进程更快","D":"线程有独立地址空间"},"ans":"B"}
+{"id":"cs012","cat":"cs_basics","type":"mcq","q":"SQL 中用于去除重复行的关键字是？","choices":{"A":"UNIQUE","B":"DISTINCT","C":"GROUP BY","D":"PRIMARY"},"ans":"B"}
+{"id":"cs013","cat":"cs_basics","type":"mcq","q":"下列哪种攻击利用用户输入拼接 SQL 语句？","choices":{"A":"XSS","B":"CSRF","C":"SQL 注入","D":"DDoS"},"ans":"C"}
+{"id":"cs014","cat":"cs_basics","type":"mcq","q":"Docker 容器与虚拟机的主要区别是？","choices":{"A":"容器有独立内核","B":"容器共享宿主机内核","C":"虚拟机更轻量","D":"容器不能联网"},"ans":"B"}
+{"id":"cs015","cat":"cs_basics","type":"mcq","q":"RESTful API 中，PUT 与 POST 的典型语义区别是？","choices":{"A":"PUT 是幂等的更新，POST 是创建","B":"PUT 更快","C":"POST 更安全","D":"没有区别"},"ans":"A"}
