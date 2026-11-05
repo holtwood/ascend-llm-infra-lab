@@ -6,8 +6,8 @@
 |---|---|---|---|---|---|
 | 本机 | 223.111.149.177:40019 | 9364f16c1458 | davinci7 | vLLM | Qwen3.5-4B(8.8G), Qwen3.8-27B-w8a8(30G), mineru |
 | M1 | 223.92.35.244:40010 | ae8eeca26fe8 | davinci4 | vLLM | Qwen3-8B, Qwen3.5-4B, 27B bf16/w8a8/W8A16, qwen3-vl-8b/30b, MindIE, mooncake 工作区, DeepSeek-V4-Flash(151G) |
-| M2 | 223.92.35.253:40019 | 222cead0c523 | davinci6 | vLLM | 空（需拷贝模型） |
-| D | 223.111.149.165:40082 | ec2a1563181a | 未验证 | 裸镜像(仅driver) | 73 项模型库：DeepSeek-R1-Distill-32B-W8A8, Qwen2.5-32B-FP16, Qwen3.6-27B, Qwen3-Coder-Next, VL 系列 |
+| M2 | 223.92.35.253:40019 | 222cead0c523 | davinci6 | vLLM | 空（已从 M3 拷入 Qwen3.5-4B） |
+| D | 223.111.149.165:40083 | ad8f855a6dc4 | davinci3 | vLLM | **/model 宿主共享缓存 73 项**：DeepSeek-R1-Distill-32B-W8A8, Qwen2.5-32B-FP16, Qwen3-0.6B, Qwen3-Coder-Next, VL 系列等 |
 
 密码见会话记录（不入库）。
 

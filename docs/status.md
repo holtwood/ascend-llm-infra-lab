@@ -10,15 +10,17 @@
 - [x] 4 机免密 SSH（M3 的 ed25519 公钥已推到全部节点 authorized_keys）
 - [x] 方案仓库建仓 + docs + scripts
 
+## 已完成（续）
+
+- [x] **E1 基线压测完成**：6 档并发全数据 + 解读 → `results/e1/README.md`
+  （1→64 并发输出吞吐 75→807 tok/s 未饱和，TTFT p99@64=3.3s）
+- [x] Gitee 仓库 `shijiashuai/ascend-llm-infra-lab` 建仓+推送（PAT）
+- [x] D 重建为 vLLM 镜像并接入（**验证 /model 为宿主共享缓存**，73 项模型无需搬运）
+- [x] 4 机免密 SSH 全部打通（含新 D）
+
 ## 进行中
 
-- [ ] E1 基线压测（M3, Qwen3.5-4B, 并发 1→64 扫）— `results/e1/`
-  - c=1: TTFT 160.9ms, TPOT 12.1ms, 输出 75.0 tok/s
-  - c=4: TTFT 248.0ms, TPOT 17.8ms, 输出 197.9 tok/s
-  - c=8: TTFT 292.2ms, TPOT 23.4ms, 输出 292.3 tok/s
-  - c=16/32/64 进行中
-- [ ] E2 w8a8 服务在 M1 加载中（Qwen3.8-27B-w8a8 :8000）
-- [ ] D→M3 模型搬运：Qwen3-0.6B ✓ / Qwen2.5-VL-7B / DeepSeek-R1-Distill-32B-W8A8 → `/data/models/`（~22MB/s）
+- [ ] E2 w8a8 服务在 M1 加载中（修了 libatb.so 缺失：env.sh 补 ATB 路径）
 - [ ] M3→M2 模型拷贝：Qwen3.5-4B（副本 3 预备）
 
 ## 踩坑记录（已修）
@@ -27,6 +29,8 @@
 - 压测用 `/v1/completions`；指向 `/v1/chat/completions` 会全 400（backend 默认按 completions 格式发包）
 - `pkill -f` 匹配模式会杀掉自身 shell——按 PID 杀
 - env.sh 必须 source set_env.sh + 显式 LD_LIBRARY_PATH，否则非交互 SSH 下 torch_npu 加载失败
+- 量化模型（w8a8）还需 ATB：`LD_LIBRARY_PATH` 加 `/usr/local/Ascend/nnal/atb/latest/atb/cxx_abi_1/lib`
+- `/model` 是**宿主机共享缓存**：同宿主机重建镜像模型不丢；跨宿主机需拷贝
 
 ## 待做
 
