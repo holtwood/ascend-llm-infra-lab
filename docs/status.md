@@ -443,3 +443,8 @@
 - copy bw：pageable D2H 4-5× 惩罚；**D2H 在并发 matmul 下 24.7→19.7GB/s(-20%)**
 - 队列教训：all_gather_object 在 HCCL 不可用→rank 各自落盘；torch_npu SDPA
   拒绝 enable_gqa→用 batch 广播实现 GQA；非登录 ssh 不 source CANN env
+### 通宵执行（进行中）
+
+- 16:13-16:15 四条线启动（setsid nohup），全部进入集群段
+- 集群段实测：单客户端 c32 ≈ 913-926 tok/s，聚合 ≈3.7k tok/s，256/256 零错误
+- 排程：集群段 150min（~18:45 结束）→ 独立段 360min（~00:45 结束）→ 自动恢复
