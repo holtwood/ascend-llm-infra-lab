@@ -1,0 +1,49 @@
+{
+ "device": "Ascend910B1",
+ "A_mha_naive_vs_fused": {
+  "S512": {
+   "naive_ms": 0.12,
+   "fused_ms": 0.077,
+   "speedup": 1.55
+  },
+  "S2048": {
+   "naive_ms": 1.739,
+   "fused_ms": 0.45,
+   "speedup": 3.86
+  },
+  "S8192": {
+   "naive_ms": 35.186,
+   "fused_ms": 6.61,
+   "speedup": 5.32
+  }
+ },
+ "B_decode_step_vs_kvlen": {
+  "L512": {
+   "ms": 0.066,
+   "kv_GB": 0.008,
+   "eff_GBps": 127.0
+  },
+  "L2048": {
+   "ms": 0.0662,
+   "kv_GB": 0.034,
+   "eff_GBps": 507.0
+  },
+  "L8192": {
+   "ms": 0.1472,
+   "kv_GB": 0.134,
+   "eff_GBps": 912.0
+  },
+  "L32768": {
+   "ms": 0.5375,
+   "kv_GB": 0.537,
+   "eff_GBps": 999.0
+  }
+ },
+ "C_decode_memory_bound": {
+  "decode_bs1_ms": 0.0228,
+  "batch256_ms": 0.0446,
+  "decode_bw_GBps": 1475.0,
+  "batch_bw_GBps": 752.0,
+  "note": "decode reads same weights 256x fewer times amortized -> memory bound"
+ }
+}
