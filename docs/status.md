@@ -298,14 +298,12 @@
   类专属，Qwen3.5-4B 不适用（同 E19 规律：Ascend 特性多有模型/部署前置）
 - 收尾文档：docs/war-stories.md（10 个 STAR 故事）+ docs/demo-runbook.md
 
-<<<<<<< HEAD
 ### issue 提交核实（第七轮，2026-11-05）
 
 - 全部三份草稿已由 holtwood 提交上游：#21112(w8a16) #21113(207005) +
   #18978 comment(issue3)；与 docs/issues/ready/ 逐字一致
 - 此前"需 PAT 才能提交"判断为乌龙——用户已自行提交
 - issue1 源码核验：_detect_quant_type 行号 326-382 与草稿一致，属实
-=======
 ### E8f continuous batching 模拟器（第八轮）
 
 - 纯 Python 复刻 V1 调度循环（budget/admission/chunked prefill/队尾抢占/
@@ -318,6 +316,7 @@
   vLLM 也不会让 computed<in_len 的 req 产 token）；APC 命中请求 ttft
   未置位 → 负值 bug 已修
 
+<<<<<<< HEAD
 ### E8g 手写 FlashAttention（第八轮续）
 
 - online-softmax 分块实现 vs sdpa 对拍：S512-2048 max diff ~1e-2
@@ -326,3 +325,14 @@
   24×）——Python 够不到 SRAM 驻留，FA 加速是 kernel 层的事；
   显存账 S²→S·Bc（S8192: 268→16.8MB，16×）才是真收益
 - interview-notes 补齐手撕系列 + walkthrough + 上游 issue 条目
+=======
+### E21/E22 四机利用（第七轮末）
+
+- cluster_bench.py 编排层：bench-all/fanout/util/collect 四模式
+- E21 四节点同刻并行：聚合 3119 tok/s、墙钟 9.2s(vs 串行~33s)；
+  同配置节点差异 11%（743-825 tok/s）→ 跨节点 A/B 误差棒
+- E22 四客户端注入 4 副本：c128 聚合 3744(+82% vs E4b 2060)、
+  c256 聚合 4565(+122%)——证实 E4b 瓶颈在注入层；
+  TPOT 21→35ms 劣化 → goodput 拐点
+- 坑：节点只能 SSH 到 D，客户端注入靠 -L 隧道；pkill -f 'L 8080'
+  会匹配外层 shell 自杀；npu-smi 首行是 Power(W) 非 AICore

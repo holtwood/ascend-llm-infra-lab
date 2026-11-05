@@ -53,6 +53,8 @@
 | E18 | PD 跨节点重试：三层失败画像 + 静默垃圾输出 | ✅ | results/e18 |
 | E19 | Ascend 调度器画像：4 选 1（SRF 修复优先级倒转 −7.2%） | ✅ | results/e19 |
 | D2 | 上游 issue×2 + #18978 comment（vllm-ascend #21112 / #21113） | ✅ | docs/issues |
+| E21 | 四节点并行执行：聚合 3119 tok/s，节点间差异 11% | ✅ | results/e21 |
+| E22 | 多客户端注入：4 副本聚合 4565 tok/s（+122%），证实注入层瓶颈 | ✅ | results/e22 |
 | D3 | prefix-aware 路由 vs least_conn：命中率 54%→84% | ✅ | results/d3 |
 | — | 手写 MHA+KV cache（0 diff 验证） | ✅ | examples/mha_from_scratch.py |
 | — | SLO/成本换算模型 | ✅ | docs/slo-cost-model.md |
