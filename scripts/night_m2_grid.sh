@@ -11,6 +11,9 @@ MODEL=/data/models/Qwen3.5-4B
 PORT=8000
 LINE_MIN=${LINE_MIN:-360}
 
+if [ "${SKIP_ABC:-0}" = "1" ]; then
+  log "M2 phases A-C skipped (SKIP_ABC=1); resuming at phase D"
+else
 log "M2 phase A: 3D grid"
 serve $PORT "$MODEL" grid_base || exit 1
 for C in 8 16 32 64 128; do
@@ -35,6 +38,8 @@ for C in 16 64; do
     bench $PORT "out${OUT}_c${C}" "$C" 64 256 "$OUT"
   done
 done
+
+fi   # end of phases A-C
 
 log "M2 phase D: mixed-length soak (until +${LINE_MIN}min)"
 T0=$(date +%s); END=$(( T0 + LINE_MIN * 60 )); i=0
