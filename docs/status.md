@@ -51,3 +51,5 @@
 - E3 spec 完成：sonnet 对照接受率仅 8-11%/长度~1.5 → ngram 全负收益（TPOT 6×恶化）；两数据集结论一致已入库
 - E5 侦察：M1 /model/mindie 是部署包（MindIE3.0.0 配 CANN8.5.1），mindie-service daemon 未安装、venv 已坏；路径=装 .run 包 vs 9.2 CANN 兼容性风险，E5 排最后处理
 - e4_cluster.sh 重写：副本 M3/M2/D(8010)；D 已建 nginx+双隧道+免密；D 模型拷贝中
+- self-match 坑三连：pgrep -f 的 pattern 若出现在发起者自身 cmdline 会匹配自己——本地 kill、远端 kill 循环（wrapper 含 pattern 文本）、隧道清理（wrapper 含隧道命令）三种形态；修法分别=按PID杀/模式加锚点^ssh/或bin[/]vllm 正则断开字面量
+- E2 定论：27B bf16(71G) 塞不进 64G 单卡；W8A16 模型被 vllm_ascend compressed-tensors 拒绝(NotImplementedError)；可跑变体=w8a8+Qwen3-8B bf16 参照

@@ -1,0 +1,1 @@
+serve qwen3-8b pid 6024 -> /data/llm-infra-lab/results/serve_bf16-8b.log

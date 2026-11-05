@@ -1,0 +1,5 @@
+===== N=1 =====
+tunnel 8001 UP
+tunnel 8002 down
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+LB_READY:N=1
