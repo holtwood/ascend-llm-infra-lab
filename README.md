@@ -52,7 +52,7 @@
 | E17 | 多租户换租：冷启 169s vs 唤醒 0.14s（两引擎同卡共存） | ✅ | results/e17 |
 | E18 | PD 跨节点重试：三层失败画像 + 静默垃圾输出 | ✅ | results/e18 |
 | E19 | Ascend 调度器画像：4 选 1（SRF 修复优先级倒转 −7.2%） | ✅ | results/e19 |
-| D2 | 上游 issue 草稿×3（dedup 后 issue3 降级 comment） | ✅ | docs/issues |
+| D2 | 上游 issue×2 + #18978 comment（vllm-ascend #21112 / #21113） | ✅ | docs/issues |
 | D3 | prefix-aware 路由 vs least_conn：命中率 54%→84% | ✅ | results/d3 |
 | — | 手写 MHA+KV cache（0 diff 验证） | ✅ | examples/mha_from_scratch.py |
 | — | SLO/成本换算模型 | ✅ | docs/slo-cost-model.md |

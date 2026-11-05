@@ -295,3 +295,10 @@
 - `Sparse KV offload only support sparse attention model` —— SFA/DeepSeek
   类专属，Qwen3.5-4B 不适用（同 E19 规律：Ascend 特性多有模型/部署前置）
 - 收尾文档：docs/war-stories.md（10 个 STAR 故事）+ docs/demo-runbook.md
+
+### issue 提交核实（第七轮，2026-11-05）
+
+- 全部三份草稿已由 holtwood 提交上游：#21112(w8a16) #21113(207005) +
+  #18978 comment(issue3)；与 docs/issues/ready/ 逐字一致
+- 此前"需 PAT 才能提交"判断为乌龙——用户已自行提交
+- issue1 源码核验：_detect_quant_type 行号 326-382 与草稿一致，属实
