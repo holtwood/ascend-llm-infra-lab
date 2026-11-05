@@ -66,6 +66,11 @@
   naive vs 融合 attention @S8192 差 5.32×；decode 有效带宽随 KV 长
   512→32768 从 127→999 GB/s；bs=1 matvec 1475 GB/s≈92% HBM 峰值
   （访存墙实锤），bs=256 降到 752（瓶颈切换）→ results/e8b/
+- **E8d HCCL allreduce**（commit ac65661，pytorch 容器 npu:2+3，torchrun×hccl）：
+  延迟底 ~160μs（≤2MB 全平坦），渐进带宽 18.5 GB/s（HCCS 非 HBM 通道——
+  比 E8b 实测片内 1.5TB/s 低 80×）。推出 TP-2 decode 每步固定 ~11.5ms
+  通信税（2 allreduce/层×36层，消息全在延迟平台区）→ 8B 级模型 TP
+  结构性不划算，副本才是正解（呼应 E4）→ results/e8d/
 - **E8c 手写 spec decode**（commit 3104a85，pytorch 容器 npu:2，Qwen3-0.6B）：
   纯 torch 实现 draft(ngram prompt-lookup)/verify(单前向)+DynamicCache.crop
   KV rewind。重复负载 25% 接受/13% 覆盖 → +8%；开放文本 0% 接受 → -6%
@@ -85,6 +90,9 @@
   注意：mindie config 有两处 maxInputTokenLen（ModelDeployConfig 顶层
   + ScheduleConfig）都要 ≤maxPrefillTokens；daemon 不能套 setsid
   （自管进程组冲突报 MIE04E01011C）。
+- 新环境容器可见全部 8×davinci；`ASCEND_RT_VISIBLE_DEVICES` 是物理→逻辑
+  重映射，torch_npu set_device 用逻辑序号（2,3→0,1）。pytorch 容器无
+  torchrun 二进制，用 `python3 -m torch.distributed.run`。
 
 ## 第二轮（E3b/E4b/E6/E7/issues）状态与踩坑
 
