@@ -138,8 +138,12 @@ B 在 A 睡出的空间冷启 114.2s 并共存。
 或弹性伸缩：低峰 sleep 腾卡给批处理。坑：需 VLLM_SERVER_DEV_MODE=1、
 rl_config.enabled（FRACTAL_NZ 回灌）。
 
-**诚实缺口**：没测唤醒后的稳态吞吐损失（只测了首请求）；没测频繁
-sleep/wake 循环的碎片化；没测 level1 与 level2 的切换成本差。
+**L3 唤醒后性能有损失吗？**
+→ 无：warm 696.6 → post-wake 694.9 tok/s（TPOT 18.9→19.3ms），差异 −0.24%
+在噪声内（E25）；成本只有 sleep 的 1.74s PCIe 拷贝。
+
+**诚实缺口**：没测频繁 sleep/wake 循环的碎片化；没测 level1 与 level2
+的切换成本差（只测了 level2）。
 
 ---
 

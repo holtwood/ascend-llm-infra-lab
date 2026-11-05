@@ -316,7 +316,6 @@
   vLLM 也不会让 computed<in_len 的 req 产 token）；APC 命中请求 ttft
   未置位 → 负值 bug 已修
 
-<<<<<<< HEAD
 ### E8g 手写 FlashAttention（第八轮续）
 
 - online-softmax 分块实现 vs sdpa 对拍：S512-2048 max diff ~1e-2
@@ -325,7 +324,6 @@
   24×）——Python 够不到 SRAM 驻留，FA 加速是 kernel 层的事；
   显存账 S²→S·Bc（S8192: 268→16.8MB，16×）才是真收益
 - interview-notes 补齐手撕系列 + walkthrough + 上游 issue 条目
-=======
 ### E21/E22 四机利用（第七轮末）
 
 - cluster_bench.py 编排层：bench-all/fanout/util/collect 四模式
@@ -351,6 +349,7 @@
 - 接受率 88.3% 全程不变；草稿头成本随 batch 同比例增长→无摊薄拐点
 - 产出 docs/drill-cards.md：10 张追问链卡片（30s 回答+数据+L1-L3+诚实缺口）
 
+<<<<<<< HEAD
 ## 本 lane · 硬件窗口期增量（E8h/E8i/E-W8A16）
 
 - **E8i HCCL 全矩阵**（远端 8×910B1）：allreduce 延迟底 ~146-189μs（≤2MB 平坦）、
@@ -367,3 +366,8 @@
   scripts/repro_w8a16_detector.py。真权重 serve 验证待引擎空出
 - 拓扑确认：本容器=腾讯云 lane davinci7（910B2×1, CANN9.2, vllm 可编辑）；
   远端 npt=另一台 8×910B1（CANN9.0, torch only, 无 vllm）
+=======
+### E25 唤醒后稳态（第七轮末）
+
+- warm 696.6 → post-wake 694.9 tok/s（TPOT 18.9→19.3ms）——无稳态损失
+- sleep2 1.74s / wake 0.125s；drill-cards 卡5 缺口已补
