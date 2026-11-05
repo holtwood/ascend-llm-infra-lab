@@ -1,0 +1,78 @@
+{
+ "repetitive": {
+  "baseline": {
+   "tokens": 128,
+   "fw_calls": 128,
+   "sec": 9.758044379763305,
+   "tok_per_s": 13.1
+  },
+  "spec_k2": {
+   "tokens": 128,
+   "fw_calls": 126,
+   "sec": 9.414649869780988,
+   "proposed": 8,
+   "accepted": 2,
+   "accept_rate": 0.25,
+   "tok_per_s": 13.6,
+   "fw_per_tok": 0.984
+  },
+  "spec_k4": {
+   "tokens": 128,
+   "fw_calls": 124,
+   "sec": 8.999207990244031,
+   "proposed": 16,
+   "accepted": 4,
+   "accept_rate": 0.25,
+   "tok_per_s": 14.2,
+   "fw_per_tok": 0.969
+  },
+  "spec_k8": {
+   "tokens": 128,
+   "fw_calls": 120,
+   "sec": 9.012594520114362,
+   "proposed": 32,
+   "accepted": 8,
+   "accept_rate": 0.25,
+   "tok_per_s": 14.2,
+   "fw_per_tok": 0.938
+  }
+ },
+ "random": {
+  "baseline": {
+   "tokens": 128,
+   "fw_calls": 128,
+   "sec": 9.416550249792635,
+   "tok_per_s": 13.6
+  },
+  "spec_k2": {
+   "tokens": 128,
+   "fw_calls": 128,
+   "sec": 8.99380298005417,
+   "proposed": 2,
+   "accepted": 0,
+   "accept_rate": 0.0,
+   "tok_per_s": 14.2,
+   "fw_per_tok": 1.0
+  },
+  "spec_k4": {
+   "tokens": 128,
+   "fw_calls": 128,
+   "sec": 9.600283939857036,
+   "proposed": 4,
+   "accepted": 0,
+   "accept_rate": 0.0,
+   "tok_per_s": 13.3,
+   "fw_per_tok": 1.0
+  },
+  "spec_k8": {
+   "tokens": 128,
+   "fw_calls": 128,
+   "sec": 9.731280150357634,
+   "proposed": 8,
+   "accepted": 0,
+   "accept_rate": 0.0,
+   "tok_per_s": 13.2,
+   "fw_per_tok": 1.0
+  }
+ }
+}
