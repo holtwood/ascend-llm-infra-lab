@@ -1,0 +1,116 @@
+{
+ "8KB": {
+  "elems": 4096,
+  "ms": 0.163,
+  "GBps_algbw": 0.1,
+  "GBps_busbw": 0.1
+ },
+ "16KB": {
+  "elems": 8192,
+  "ms": 0.165,
+  "GBps_algbw": 0.1,
+  "GBps_busbw": 0.1
+ },
+ "33KB": {
+  "elems": 16384,
+  "ms": 0.163,
+  "GBps_algbw": 0.2,
+  "GBps_busbw": 0.2
+ },
+ "66KB": {
+  "elems": 32768,
+  "ms": 0.161,
+  "GBps_algbw": 0.4,
+  "GBps_busbw": 0.4
+ },
+ "131KB": {
+  "elems": 65536,
+  "ms": 0.18,
+  "GBps_algbw": 0.7,
+  "GBps_busbw": 0.7
+ },
+ "262KB": {
+  "elems": 131072,
+  "ms": 0.165,
+  "GBps_algbw": 1.6,
+  "GBps_busbw": 1.6
+ },
+ "524KB": {
+  "elems": 262144,
+  "ms": 0.146,
+  "GBps_algbw": 3.6,
+  "GBps_busbw": 3.6
+ },
+ "1MB": {
+  "elems": 524288,
+  "ms": 0.146,
+  "GBps_algbw": 7.2,
+  "GBps_busbw": 7.2
+ },
+ "2MB": {
+  "elems": 1048576,
+  "ms": 0.148,
+  "GBps_algbw": 14.2,
+  "GBps_busbw": 14.2
+ },
+ "4MB": {
+  "elems": 2097152,
+  "ms": 0.26,
+  "GBps_algbw": 16.1,
+  "GBps_busbw": 16.1
+ },
+ "8MB": {
+  "elems": 4194304,
+  "ms": 0.487,
+  "GBps_algbw": 17.2,
+  "GBps_busbw": 17.2
+ },
+ "17MB": {
+  "elems": 8388608,
+  "ms": 0.94,
+  "GBps_algbw": 17.8,
+  "GBps_busbw": 17.8
+ },
+ "34MB": {
+  "elems": 16777216,
+  "ms": 1.849,
+  "GBps_algbw": 18.1,
+  "GBps_busbw": 18.1
+ },
+ "67MB": {
+  "elems": 33554432,
+  "ms": 3.674,
+  "GBps_algbw": 18.3,
+  "GBps_busbw": 18.3
+ },
+ "134MB": {
+  "elems": 67108864,
+  "ms": 7.285,
+  "GBps_algbw": 18.4,
+  "GBps_busbw": 18.4
+ },
+ "268MB": {
+  "elems": 134217728,
+  "ms": 14.536,
+  "GBps_algbw": 18.5,
+  "GBps_busbw": 18.5
+ },
+ "537MB": {
+  "elems": 268435456,
+  "ms": 29.048,
+  "GBps_algbw": 18.5,
+  "GBps_busbw": 18.5
+ },
+ "1074MB": {
+  "elems": 536870912,
+  "ms": 58.007,
+  "GBps_algbw": 18.5,
+  "GBps_busbw": 18.5
+ },
+ "2147MB": {
+  "elems": 1073741824,
+  "ms": 116.004,
+  "GBps_algbw": 18.5,
+  "GBps_busbw": 18.5
+ }
+}
