@@ -55,7 +55,10 @@
 | D2 | 上游 issue×2 + #18978 comment（vllm-ascend #21112 / #21113） | ✅ | docs/issues |
 | E21 | 四节点并行执行：聚合 3119 tok/s，节点间差异 11% | ✅ | results/e21 |
 | E23 | 客户端数扫描：抓到 E4b"2100 天花板"是工具伪影（真实上限 4.2-5.0k） | ✅ | results/e23 |
-| E24 | MTP 大 batch 验证：c8-c64 全负，无摊薄拐点 | ✅ | results/e24 |
+| E25 | 唤醒后稳态：warm 696.6 → post-wake 694.9 tok/s（无损失） | ✅ | results/e25 |
+| E26 | 调度器/配置矩阵（4 机同刻）：default 800.6 / SRF 665 / async-off 500 / MTP 194 | ✅ | results/e26 |
+| E27 | KV 池扫描：跨节点"趋势"被同节点对照推翻（容量旋钮非性能旋钮） | ✅ | results/e27 |
+| E28 | 长上下文并行扫描：4k 178 → 63k 41 tok/s，与 E16 串行互证 | ✅ | results/e28 |
 | D3 | prefix-aware 路由 vs least_conn：命中率 54%→84% | ✅ | results/d3 |
 | — | 手写 MHA+KV cache（0 diff 验证） | ✅ | examples/mha_from_scratch.py |
 | — | SLO/成本换算模型 | ✅ | docs/slo-cost-model.md |

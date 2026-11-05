@@ -387,3 +387,13 @@
 - 注意：该 checkout 是 detached HEAD @v0.30.0rc2、多 lane 共享工作树——
   分支提交不动文件内容，对其他 lane 无影响
 - PR 前置缺口：fork 推送权限 + 真人 review/提交 + HTTP serve 冒烟（等卡）
+- warm 696.6 → post-wake 694.9 tok/s（TPOT 18.9→19.3ms）——无稳态损失
+- sleep2 1.74s / wake 0.125s；drill-cards 卡5 缺口已补
+
+### E26/E27/E28 四机矩阵（第八轮）
+
+- E26 同刻四臂：default 800.6 / SRF 665.3 / async-off 499.5 / MTP 193.5
+- E27 KV 池：跨节点单调趋势(-11%)被同节点对照推翻(u92 +7%)——第二次抓到伪结论
+- E28 长上下文并行：4k 178→63k 41 tok/s，TTFT 527ms→4.59s，TPOT 仅 1.4×
+  ——与 E16 串行互证
+- 坑：ssh 多层传 JSON 引号必被吃→改参数文件；M2/D 模型路径是 /data/models
