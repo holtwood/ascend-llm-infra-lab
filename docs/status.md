@@ -55,3 +55,5 @@
 - E2 定论：27B bf16(71G) 塞不进 64G 单卡；W8A16 模型被 vllm_ascend compressed-tensors 拒绝(NotImplementedError)；可跑变体=w8a8+Qwen3-8B bf16 参照
 - E5 定论：MindIE3.0.0 全部二进制需 glibc2.38(Ubuntu24.04)，4 节点均 22.04/2.35 → 物理不可行；8 步排障链已录 results/e5/README.md（含 py311/apt 绕行、Python API 尝试、_libatb_torch.so 同墙）
 - E4 第二轮发现双 driver 并发互踩（各自重建隧道+nginx upstream 互相打架）→ 全杀重开单实例；教训：后台 driver 必须先验证无同类进程再起
+- E4 完成：干净轮 c128 吞吐 1027→1674→2160 tok/s（效率1.63×/2.10×），c32 N=3无增益（未饱和）已写 results/e4/README.md
+- nginx daemon 挂 ssh：远端起 daemon 必须 setsid+重定向三个 fd，否则会话不返回

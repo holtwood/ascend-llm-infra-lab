@@ -21,6 +21,6 @@ $D "cat > /etc/nginx/conf.d/llblb.conf <<EOF
 upstream llm { least_conn; $UP }
 server { listen 8080; location / { proxy_pass http://llm; proxy_read_timeout 600s; proxy_buffering off; } }
 EOF
-nginx -t 2>&1 | tail -1 && (nginx -s reload 2>/dev/null || nginx) && echo LB_READY:N=$N"
+nginx -t 2>&1 | tail -1 && (pgrep -x nginx >/dev/null && nginx -s reload || setsid nginx </dev/null >/dev/null 2>&1) && echo LB_READY:N=$N"
 
 # 3) D 本机副本如需启用：serve 已另起在 :8000，由调用方保证
