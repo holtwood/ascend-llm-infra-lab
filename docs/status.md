@@ -13,8 +13,20 @@
 ## 进行中
 
 - [ ] E1 基线压测（M3, Qwen3.5-4B, 并发 1→64 扫）— `results/e1/`
-- [ ] D→M3 模型搬运：Qwen3-0.6B ✓ / Qwen2.5-VL-7B / DeepSeek-R1-Distill-32B-W8A8 → `/data/models/`
+  - c=1: TTFT 160.9ms, TPOT 12.1ms, 输出 75.0 tok/s
+  - c=4: TTFT 248.0ms, TPOT 17.8ms, 输出 197.9 tok/s
+  - c=8: TTFT 292.2ms, TPOT 23.4ms, 输出 292.3 tok/s
+  - c=16/32/64 进行中
+- [ ] E2 w8a8 服务在 M1 加载中（Qwen3.8-27B-w8a8 :8000）
+- [ ] D→M3 模型搬运：Qwen3-0.6B ✓ / Qwen2.5-VL-7B / DeepSeek-R1-Distill-32B-W8A8 → `/data/models/`（~22MB/s）
 - [ ] M3→M2 模型拷贝：Qwen3.5-4B（副本 3 预备）
+
+## 踩坑记录（已修）
+
+- `vllm bench serve` 需 `--tokenizer <本地路径>`（模型名会去 HF 查 → 不通）
+- 压测用 `/v1/completions`；指向 `/v1/chat/completions` 会全 400（backend 默认按 completions 格式发包）
+- `pkill -f` 匹配模式会杀掉自身 shell——按 PID 杀
+- env.sh 必须 source set_env.sh + 显式 LD_LIBRARY_PATH，否则非交互 SSH 下 torch_npu 加载失败
 
 ## 待做
 

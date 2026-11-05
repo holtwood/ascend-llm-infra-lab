@@ -7,6 +7,7 @@ source /data/llm-infra-lab/scripts/env.sh
 BASE=${1:-localhost:8000}
 MODEL=${2:-qwen35-4b}
 TAG=${3:-e1_$(date +%m%d_%H%M)}
+TOK=${4:-/model/Qwen3.5-4B}
 OUT=/data/llm-infra-lab/results/e1
 mkdir -p "$OUT"
 
@@ -18,9 +19,10 @@ for C in $LEVELS; do
   NP=$((C * 4)); [ $NP -lt 16 ] && NP=16; [ $NP -gt 256 ] && NP=256
   echo "=== concurrency=$C num_prompts=$NP ==="
   vllm bench serve \
-    --endpoint /v1/chat/completions \
+    --endpoint /v1/completions \
     --base-url "http://$BASE" \
     --model "$MODEL" \
+    --tokenizer "$TOK" \
     --dataset-name random \
     --random-input-len $IN_LEN --random-output-len $OUT_LEN \
     --random-range-ratio 0.2 \
