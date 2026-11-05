@@ -112,7 +112,8 @@ def main():
     # ---- M3 ctx + fatigue + wall ----
     L.append("\n## 四、M3 长上下文 / 换租疲劳 / 准入墙\n")
     d = data.get("m3", {})
-    ctx = tag_group(d.get("summ", []), "ctx")
+    ctx = [r for r in tag_group(d.get("summ", []), "ctx")
+           if not r["tag"].startswith("ctxsoak")]
     if ctx:
         L.append("\n### ctx × 并发\n\n| tag | tok/s | TTFT | TPOT |\n|---|---|---|---|\n")
         for r in sorted(ctx, key=lambda x: x["tag"]):
@@ -142,6 +143,11 @@ def main():
         for r in sorted(q, key=lambda x: x["tag"]):
             L.append(f"| {r['tag']} | {r['tok_s']} | {r['ttft']} | {r['tpot']} |\n")
     ds = tag_group(d.get("summ", []), "dsoak_w")
+    cs = tag_group(d.get("summ", []), "ctxsoak_w")
+    if cs:
+        drc = drift([x["tok_s"] for x in cs])
+        txt = f"{drc[0]} → {drc[1]}" if drc else f"均值 {mean([x['tok_s'] for x in cs])}"
+        L.append(f"\nM3 长上下文 soak：{len(cs)} 波（ctx16k/c4），{txt} tok/s\n")
     if ds:
         dr = drift([x["tok_s"] for x in ds])
         txt = f"{dr[0]} → {dr[1]}" if dr else f"均值 {mean([x['tok_s'] for x in ds])}"
