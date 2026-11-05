@@ -376,3 +376,14 @@
 - 坑：8001 是对端 SSH 隧道不是本机口；裸 /vllm-workspace PYTHONPATH 致
   import vllm 变 namespace 包；合并冲突脚本丢段——status.md 追加要用
   明确锚点不要用尾部盲并
+
+## W8A16 修复 PR 化（baedd8b）
+
+- vllm-ascend 分支 `fix/w8a16-compressed-tensors-detector`，单个签名提交
+  `baedd8b`（conventional commit + sign-off，作者=Devin 待用户 PR 时改写）
+- 单测补齐三态：channel/group 识别 + dynamic 拒绝 + activation 在场拒绝，
+  `test_compressed_tensors_config.py` 18/18 全过
+- lint 口径：vllm-ascend line-length=120（非 vllm 的 88），长签名合规
+- 注意：该 checkout 是 detached HEAD @v0.30.0rc2、多 lane 共享工作树——
+  分支提交不动文件内容，对其他 lane 无影响
+- PR 前置缺口：fork 推送权限 + 真人 review/提交 + HTTP serve 冒烟（等卡）

@@ -47,6 +47,26 @@ Related: #2265, #4267 (earlier W8A16 asks, pre-dating the wna16 scheme landing),
 
 None on 0.30.0rc2 for this format. Requantizing to `W8A8_DYNAMIC` works but costs accuracy and a calibration run.
 
+## Fix status (validated locally)
+
+Branch `fix/w8a16-compressed-tensors-detector` (`baedd8b`), one signed commit:
+
+- `_is_w8a16` added ahead of `_is_w4a16` in `_detect_quant_type`, mirroring
+  upstream `_is_wNa16_group_channel` semantics: `type == INT`,
+  `num_bits == 8`, `strategy in {channel, group}`, `input_quant is None`,
+  `not dynamic` → `W8A16` (reuses `AscendW8A16LinearMethod`, no new kernel).
+- UT: `test_detect_w8a16` (channel + group), `test_detect_w8a16_rejects_dynamic`,
+  `test_detect_w8a16_rejects_activation_quant` — 18/18 pass in
+  `tests/ut/quantization/configs/test_compressed_tensors_config.py`.
+- NPU evidence: repro → `AscendW8A16LinearMethod`; real W8A16 checkpoint
+  (Qwen3-0.6B int8 weight-only, 0.73 GiB) loads through scheme path;
+  `npu_weight_quant_batchmatmul` rel diff 0.13% vs bf16 dequant reference.
+- Remaining: end-to-end `vllm serve` + one `generate()` (blocked on card
+  availability, not on the fix itself); DCO/PR needs human submitter.
+
+Full diff: `../patch_w8a16_detector.diff`. Repro: `scripts/repro_w8a16_detector.py`,
+checkpoint builder: `scripts/make_w8a16_ckpt.py`.
+
 ---
 
 *Prepared with AI assistance; reproduction and code refs verified on real NPU hardware.*
