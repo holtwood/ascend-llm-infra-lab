@@ -35,12 +35,27 @@
 
 | # | 实验 | 状态 | 产出 |
 |---|------|------|------|
-| E1 | vLLM 服务基线压测（并发×时延×吞吐） | 进行中 | results/E1 |
-| E2 | 量化对比：27B w8a8 vs W8A16 vs 8B bf16 | 待做 | results/E2 |
-| E3 | 调度特性消融：prefix caching / chunked prefill / spec decode | 待做 | results/E3 |
-| E4 | 多副本扩展性：1→3 副本吞吐线性度 + LB | 待做 | results/E4 |
-| E5 | MindIE vs vLLM-Ascend 引擎对比 | 待做 | results/E5 |
-| E6 | Ascend C 自定义算子（进阶） | 待做 | results/E6 |
+| E1 | vLLM 服务基线压测（并发×时延×吞吐） | ✅ | results/e1 |
+| E3/E3b | 调度消融：prefix caching / chunked-prefill 六档扫描 | ✅ | results/e3 |
+| E4/E4b | 多副本扩展 1→4 副本 + least_conn，瓶颈迁移到注入层 | ✅ | results/e4 |
+| E5 | MindIE 平台绑定失败分析（glibc/CANN 锁定） | ✅ | results/e5 |
+| E6 | W8A8-27B 精度代价：QA 94.3% + PPL/top1 一致性 94.4% | ✅ | results/e6 |
+| E7 | PD 分离同卡共置：建链失败定位 + 收益上限测算 | ✅ | results/e7 |
+| E8 | KV 容量账本：hybrid 公式 vs 实测 + 准入墙/容量墙 | ✅ | results/e8 |
+| E8b–e | 手撕算子/attention 变体（并行 lane） | ✅ | results/e8b–e8e |
+| E9 | goodput@SLO：达标率 vs 吞吐分叉 | ✅ | results/e9 |
+| E10 | sleep/wake：释放 97% 显存，wake 0.58s | ✅ | results/e10 |
+| E11 | async_scheduling 消融：吞吐 +60% TPOT −39% | ✅ | results/e11 |
+| E13 | batch_job_aware 调度器（Ascend 独有） | ✅ | results/e13 |
+| E14 | MTP spec decode：接受率 65.6% 但净负（草稿开销） | ✅ | results/e14 |
+| E16 | 长上下文扫描 4k→64k：TTFT 线性，KV 占用曲线 | ✅ | results/e16 |
+| E17 | 多租户换租：冷启 169s vs 唤醒 0.14s（两引擎同卡共存） | ✅ | results/e17 |
+| E18 | PD 跨节点重试：三层失败画像 + 静默垃圾输出 | ✅ | results/e18 |
+| E19 | Ascend 调度器画像：4 选 1（SRF 修复优先级倒转 −7.2%） | ✅ | results/e19 |
+| D2 | 上游 issue 草稿×3（dedup 后 issue3 降级 comment） | ✅ | docs/issues |
+| D3 | prefix-aware 路由 vs least_conn：命中率 54%→84% | ✅ | results/d3 |
+| — | 手写 MHA+KV cache（0 diff 验证） | ✅ | examples/mha_from_scratch.py |
+| — | SLO/成本换算模型 | ✅ | docs/slo-cost-model.md |
 
 ## 目录结构
 

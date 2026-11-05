@@ -67,3 +67,38 @@
   闭源栈的平台锁定 vs vLLM 源码可移植性，这是引擎选型的隐性成本
 - 运维坑位速查（docs/status.md）：editable 包被 namespace 遮蔽、
   pgrep self-match 三形态、ssh 起 daemon 必须 setsid+断 fd、客户端 CPU 污染压测
+
+## 第六轮增量（E16–E19, D3, E17）
+
+**Q: 长上下文下 TTFT/TPOT 怎么变？KV 真的撑得住吗？**
+- E16 实测 4k→64k ctx：TTFT 1.39→12.2s（近线性于 prompt 长度），
+  TPOT 19.1→61.8ms（prefill/decode 争抢调度），KV 峰值仅 1.9→13.9%（c≤4）
+- 反直觉点：`kv_cache_size_tokens` 随 max_model_len 变化（8192→1.006M，
+  81920→1.427M）——容量规划必须按实际配置实测
+- 长上下文容量瓶颈从调度准入切回 KV 字节：64k 单请求 ~3.1GB
+
+**Q: 多租户/弹性伸缩怎么做？sleep mode 真实成本？**
+- E17 完整换租链：A 冷启 169.4s → sleep2 1.77s（HBM 4480/65536MB）
+  → B 冷启 114.2s 进腾出空间 → B 在线时 A wake **0.139s**，首请求 0.129s
+- 机制：CaMem 按 tag 搬显存，allocator/graph 元数据留着→wake=O(权重拷贝)
+- 边界坑：睡眠方仍持 stream/CQ → 共卡引擎只能 eager（EE1023 同根因）
+
+**Q: 多副本路由怎么让 prefix cache 生效？**
+- D3 实测：自写 stdlib LPR 路由（前缀 sha1 亲和 + inflight+2 降级）
+  命中率 53.8%→84.0%（~6k 前缀）/42.5%→62.2%（~900 前缀）
+- 但 p90 持平：并发到达时"第二波才命中"是命中率上界；
+  亲和倾斜要靠负载降级兜底——cache-aware 路由的真实权衡
+
+**Q: Ascend 有哪些调度器，单机该用哪个？**
+- E19 画像：4 选项 3 个有前置（recompute/dyntra_lb 要 kv_consumer；
+  profiling_chunk 要 PP>1）——它们是 PD 配套件不是通用优化
+- 单机唯一可用 SRF：short 28.73→26.66s（−7.2%），按 prompt 长度分道
+  + 老化防饿死——输出预算未知时最现实的 SRPT 近似
+
+**Q: 跨节点 PD 为什么更难？失败是什么样子？**
+- E18 三层失败画像：ZMQ 元数据（pod IP 广播错→VLLM_HOST_IP+隧道修通）
+  → TE-RPC 动态口（再补隧道）→ 数据面 device-mem 传输物理不可行
+- **最危险发现：传输失败请求仍 200，返回垃圾 token**——PD 监控要盯
+  输出质量不是状态码
+- 面试加分提问点：遇到 PR 先查 mainline 历史（D1 否决案例：目标符号
+  上游已删，补了=重加被移除代码）
