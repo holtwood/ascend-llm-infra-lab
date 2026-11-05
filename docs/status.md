@@ -191,3 +191,13 @@
   引擎可起，metrics 有 spec_decode 计数器。接受率 65.6%（5470/8343）
   但 c8 decode 负载下 TPOT 36.5 vs 无 spec 15.6ms——草稿串行前向开销
   吃掉接受收益，净负。告警：MTP 草稿未分到独立 KV cache group
+
+### 第五轮踩坑（E16）
+
+- `kv_cache_size_tokens` 随 max_model_len 变化（8192→1.006M，
+  81920→1.427M，同 45.6GiB 池）：mamba 页对齐颗粒度不同——容量
+  规划必须按实际配置实测，不能跨配置套用
+- stream  completions 不回 usage.prompt_tokens（需 stream_options.
+  include_usage）；词→token 按 ~1.5 估算
+- 63k ctx 每请求 KV ~3.1GB（48.7KB/tok），TPOT 19→62ms 随 ctx 4x 增长
+  ——长上下文容量瓶颈从调度准入切回 KV 字节

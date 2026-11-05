@@ -1,0 +1,15 @@
+{
+  "tag": "w21000c3",
+  "target_words": 21000,
+  "concurrency": 3,
+  "prompt_tokens_mean": null,
+  "ok": 3,
+  "fail": 0,
+  "ttft_mean_s": 5.548,
+  "ttft_p50_s": 5.643,
+  "tpot_mean_ms": 36.0,
+  "tpot_p50_ms": 35.2,
+  "peak_kv_usage": 0.072,
+  "peak_running": 3.0,
+  "errors": []
+}

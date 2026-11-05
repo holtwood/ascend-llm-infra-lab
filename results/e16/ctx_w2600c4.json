@@ -1,0 +1,15 @@
+{
+  "tag": "w2600c4",
+  "target_words": 2600,
+  "concurrency": 4,
+  "prompt_tokens_mean": null,
+  "ok": 4,
+  "fail": 0,
+  "ttft_mean_s": 1.394,
+  "ttft_p50_s": 1.632,
+  "tpot_mean_ms": 19.1,
+  "tpot_p50_ms": 19.7,
+  "peak_kv_usage": 0.0193,
+  "peak_running": 4.0,
+  "errors": []
+}

@@ -1,0 +1,15 @@
+{
+  "tag": "w10500c4",
+  "target_words": 10500,
+  "concurrency": 4,
+  "prompt_tokens_mean": null,
+  "ok": 4,
+  "fail": 0,
+  "ttft_mean_s": 3.611,
+  "ttft_p50_s": 4.322,
+  "tpot_mean_ms": 31.1,
+  "tpot_p50_ms": 36.1,
+  "peak_kv_usage": 0.0514,
+  "peak_running": 4.0,
+  "errors": []
+}

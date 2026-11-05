@@ -1,0 +1,15 @@
+{
+  "tag": "w42000c3",
+  "target_words": 42000,
+  "concurrency": 3,
+  "prompt_tokens_mean": null,
+  "ok": 3,
+  "fail": 0,
+  "ttft_mean_s": 12.229,
+  "ttft_p50_s": 12.213,
+  "tpot_mean_ms": 61.8,
+  "tpot_p50_ms": 62.3,
+  "peak_kv_usage": 0.1393,
+  "peak_running": 3.0,
+  "errors": []
+}
