@@ -1,0 +1,20 @@
+tunnel 8001 UP
+tunnel 8002 UP
+tunnel 8003 UP
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+LB_READY:N=4
+Successful requests:                     128       
+Request throughput (req/s):              7.93      
+Output token throughput (tok/s):         1028.66   
+Peak output token throughput (tok/s):    1666.00   
+Total token throughput (tok/s):          5106.97   
+Mean TTFT (ms):                          412.44    
+Mean TPOT (ms):                          23.97     
+Successful requests:                     256       
+Request throughput (req/s):              15.97     
+Output token throughput (tok/s):         2060.77   
+Peak output token throughput (tok/s):    5307.00   
+Total token throughput (tok/s):          10305.99  
+Mean TTFT (ms):                          1073.58   
+Mean TPOT (ms):                          40.89     
+E4b done -> /data/llm-infra-lab/results/e4
