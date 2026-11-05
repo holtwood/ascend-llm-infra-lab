@@ -19,31 +19,38 @@ def call(base, model, prompt, max_tokens):
     with urllib.request.urlopen(req, timeout=180) as r:
         return json.load(r)["choices"][0].get("text", "")
 
+def strip_think(text):
+    m = re.search(r"</think>\s*(.*)", text, re.S)
+    return m.group(1) if m else text
+
 def pred_mcq(text):
-    t = text.strip().upper()
-    m = re.search(r"[A-D]", t)
-    return m.group(0) if m else None
+    t = strip_think(text)
+    m = re.search(r"答案[:：]?\s*([A-D])", t, re.I)
+    if m:
+        return m.group(1).upper()
+    ms = re.findall(r"[A-D]", t.upper())
+    return ms[-1] if ms else None
 
 def pred_num(text):
-    nums = re.findall(r"-?\d+(?:\.\d+)?", text)
+    nums = re.findall(r"-?\d+(?:\.\d+)?", strip_think(text))
     return nums[-1] if nums else None
 
 def run_item(base, model, it):
     if it["type"] == "mcq":
         prompt = MCQ_FMT.format(q=it["q"], **it["choices"])
-        text = call(base, model, prompt, 8)
+        text = call(base, model, prompt, 768)
         pred = pred_mcq(text)
         ok = (pred == it["ans"])
     else:
         prompt = NUM_FMT.format(q=it["q"])
-        text = call(base, model, prompt, 24)
+        text = call(base, model, prompt, 768)
         pred = pred_num(text)
         try:
             ok = pred is not None and abs(float(pred) - float(it["ans"])) < 1e-4
         except ValueError:
             ok = False
     return {"id": it["id"], "cat": it["cat"], "ans": it["ans"],
-            "pred": pred, "ok": ok, "gen": text.strip()[:200]}
+            "pred": pred, "ok": ok, "gen": strip_think(text).strip()[:200]}
 
 def main():
     base, model, tag = sys.argv[1], sys.argv[2], sys.argv[3]
