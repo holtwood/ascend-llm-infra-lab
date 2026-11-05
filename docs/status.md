@@ -57,3 +57,55 @@
 - E4 第二轮发现双 driver 并发互踩（各自重建隧道+nginx upstream 互相打架）→ 全杀重开单实例；教训：后台 driver 必须先验证无同类进程再起
 - E4 完成：干净轮 c128 吞吐 1027→1674→2160 tok/s（效率1.63×/2.10×），c32 N=3无增益（未饱和）已写 results/e4/README.md
 - nginx daemon 挂 ssh：远端起 daemon 必须 setsid+重定向三个 fd，否则会话不返回
+
+## 第二轮（E3b/E4b/E6/E7/issues）状态与踩坑
+
+### 已完成
+
+- **E3b chunked-prefill 消融**（commit b82828e）：mnb 256~8192 六档扫描。
+  长 prefill 臂 TTFT 13.1s→1.06s 单调降，mnb≈2×prompt_len 进平台；
+  TPOT 非单调（512 档最差 141.8ms——chunk 大但仍需多步时 decode 被持续挤压）。
+  对照臂方向反转（小 mnb 保护 decode，TPOT 25.7 vs 32.6）
+- **E4b 四副本**（f54a3da/1a58f9f）：M1 加入 upstream（D:8003 隧道）。
+  c128 吞吐平台 ~2061（N=3 2160 平），但 TTFT/TPOT 改善——瓶颈迁到
+  负载注入层（D 单机上 bench+nginx+隧道）；c32 增益反而最大 +23%
+- **E6 精度评测**（进行中→见 results/e6/README.md）：
+  QA 臂完成 w8a8-27b 94.3%/96.2%(MCQ score)、bf16-8b 84.8%/92.5%、bf16-4b 94.3%；
+  PPL 臂 w8a8 nll 1.609/ppl 5.00，bf16-27b CPU 参照 ~13min/chunk 慢跑中，
+  前 4 chunk Δnll∈±0.13 方向不一（实现噪声≥量化效应）
+- **E7 PD 分离**（dbbc36d）：单卡共置 1P1D（各 0.35 显存）链路打通，
+  ~50% 请求 hixl CS 握手 10s 超时 → TTFT 灾难 22-87s；成功请求
+  TPOT 95ms < mono 108ms（decode 隔离收益 ~12% 存在但被淹没）
+- **issue 草稿 ×3**（a9bcc0f）：W8A16 compressed-tensors 拒绝 /
+  cudagraph 207005 SQ-CQ 耗尽 / causal_conv1d_update fallback
+- clef-flash joint_head 判定**非 spec-decode 资产**（Cloudflare 决策模型
+  schema head，非 next-token 草稿头）；EAGLE 路线作废。另发现
+  Qwen3.8-27B-W8A16 目录含 model_mtp.safetensors（真 MTP 头，但模型本体
+  暂不可加载）——备查
+
+### 第二轮踩坑（新增）
+
+- `max_num_batched_tokens` 合法性：`< max_model_len` 只在 chunked-prefill
+  开启时合法；且必须 `≥ max_num_seqs`（默认 128）
+- PD 共置两实例 `gpu_memory_utilization=0.35` 时装不下 max_model_len 8192
+  的 KV（可用 0.29G < 需 0.31G）→ 降到 4096 过；D 侧单独再降一档
+- e4_cluster.sh step1 的 ssh 远端 setsid 起隧道后**会话 channel 仍不释放**
+  → driver 卡死；杀该 ssh PID 解决（远端 daemon 化≠会话必释放）
+- 思考型模型（Qwen3.8-27B 吐 `<think>`）QA 评测 `max_tokens=8` 全截在
+  think 里 → 76.2% 伪低分；需 ≥768 + 去 think 块再匹配
+- `prompt_logprobs` 做选项打分：必须按字母 token id 查**该 token 自己**的
+  logprob；取 max(topk) 会让 4 变体得分趋同 → 曾测出 8.8% 伪随机
+- CPU 跑 qwen3_5 transformers 模型：即便 TORCH_DEVICE_BACKEND_AUTOLOAD=0
+  也会链式 import torch_npu → 缺 libhccl.so/libascend_hal.so；
+  必须 source env.sh 拿全 CANN LD_LIBRARY_PATH
+- Qwen3.8-27B CPU forward ~13min/100tok chunk：hybrid 架构 conv/linear-attn
+  算子走 torch 串行 fallback（"The fast path is not available" 警告）——
+  CPU 评测只适合 NLL 小语料，生成式 QA 不可行
+- M3 git remote 名为 gitee 且无 PAT → 同步凭据后 pull 成功
+- D→M1 直连最初 Permission denied：补推 D 公钥到 M1 authorized_keys
+
+### 在飞
+
+- M1 `e6_ppl_cpu.py`（PID 25027）bf16-27B CPU NLL，~13min/chunk × 27，
+  增量写盘 results/e6/ppl_bf16-27b.json —— 取部分 chunk 即可配对
+- M1 `serve_e4b_m1.log` qwen35-4b:8000 在跑（E4 集群第 4 副本角色）

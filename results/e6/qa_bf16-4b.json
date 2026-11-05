@@ -1,0 +1,854 @@
+{
+ "model": "qwen35-4b",
+ "tag": "bf16-4b",
+ "accuracy": {
+  "cn_knowledge": "30/30=100.0%",
+  "cs_basics": "15/15=100.0%",
+  "en_knowledge": "20/20=100.0%",
+  "logic": "13/15=86.7%",
+  "math": "22/25=88.0%",
+  "ALL": "100/105=95.2%"
+ },
+ "items": [
+  {
+   "id": "cn006",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "cn010",
+   "cat": "cn_knowledge",
+   "ans": "A",
+   "pred": "A",
+   "ok": true,
+   "gen": "A"
+  },
+  {
+   "id": "cn007",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\nB"
+  },
+  {
+   "id": "cn008",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cn011",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "cn002",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "cn009",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cn004",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cn013",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cn003",
+   "cat": "cn_knowledge",
+   "ans": "A",
+   "pred": "A",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nA"
+  },
+  {
+   "id": "cn014",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cn012",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cn016",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cn015",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "cn005",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C\n\n中国古代四大发明不包括以下哪项"
+  },
+  {
+   "id": "cn001",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\n<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cn017",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cn018",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cn019",
+   "cat": "cn_knowledge",
+   "ans": "A",
+   "pred": "A",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nA"
+  },
+  {
+   "id": "cn020",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cn023",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "cn022",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cn021",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cn024",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "cn026",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "cn025",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "en002",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cn029",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cn030",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\n<think>\nThinking Process:"
+  },
+  {
+   "id": "cn027",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C\n\n<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "cn028",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C\n\n<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "en001",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\n<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "en003",
+   "cat": "en_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "en004",
+   "cat": "en_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "en005",
+   "cat": "en_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C\n\n<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "en006",
+   "cat": "en_knowledge",
+   "ans": "D",
+   "pred": "D",
+   "ok": true,
+   "gen": "D\n\n<think>\n\n</think>\n\nD"
+  },
+  {
+   "id": "en007",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "en008",
+   "cat": "en_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "en011",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "en015",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "en017",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "en018",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "en012",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "en009",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\n<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "en010",
+   "cat": "en_knowledge",
+   "ans": "A",
+   "pred": "A",
+   "ok": true,
+   "gen": "A\n\n<think>\n\n</think>\n\nA"
+  },
+  {
+   "id": "en013",
+   "cat": "en_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C\n\n<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "en014",
+   "cat": "en_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C\n\n<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "en016",
+   "cat": "en_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C\n\nMerge sort has an average-case"
+  },
+  {
+   "id": "ma001",
+   "cat": "math",
+   "ans": "95",
+   "pred": "95",
+   "ok": true,
+   "gen": "95"
+  },
+  {
+   "id": "en019",
+   "cat": "en_knowledge",
+   "ans": "A",
+   "pred": "A",
+   "ok": true,
+   "gen": "A\n\n<think>\n\n</think>\n\nA"
+  },
+  {
+   "id": "en020",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "ma013",
+   "cat": "math",
+   "ans": "60",
+   "pred": null,
+   "ok": false,
+   "gen": ""
+  },
+  {
+   "id": "ma002",
+   "cat": "math",
+   "ans": "12",
+   "pred": "12",
+   "ok": true,
+   "gen": "12"
+  },
+  {
+   "id": "ma016",
+   "cat": "math",
+   "ans": "8",
+   "pred": "8",
+   "ok": true,
+   "gen": "8"
+  },
+  {
+   "id": "ma003",
+   "cat": "math",
+   "ans": "240",
+   "pred": "240",
+   "ok": true,
+   "gen": "240"
+  },
+  {
+   "id": "ma017",
+   "cat": "math",
+   "ans": "60",
+   "pred": "60",
+   "ok": true,
+   "gen": "60"
+  },
+  {
+   "id": "ma012",
+   "cat": "math",
+   "ans": "221",
+   "pred": "221",
+   "ok": true,
+   "gen": "221"
+  },
+  {
+   "id": "ma015",
+   "cat": "math",
+   "ans": "624",
+   "pred": "624",
+   "ok": true,
+   "gen": "624"
+  },
+  {
+   "id": "ma006",
+   "cat": "math",
+   "ans": "1024",
+   "pred": "1024",
+   "ok": true,
+   "gen": "1024"
+  },
+  {
+   "id": "ma009",
+   "cat": "math",
+   "ans": "5040",
+   "pred": "5040",
+   "ok": true,
+   "gen": "5040"
+  },
+  {
+   "id": "ma004",
+   "cat": "math",
+   "ans": "12",
+   "pred": "12",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n12"
+  },
+  {
+   "id": "ma007",
+   "cat": "math",
+   "ans": "38",
+   "pred": "38",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n38"
+  },
+  {
+   "id": "ma008",
+   "cat": "math",
+   "ans": "96",
+   "pred": "96",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n96"
+  },
+  {
+   "id": "ma005",
+   "cat": "math",
+   "ans": "55",
+   "pred": "25",
+   "ok": false,
+   "gen": "<think>\n\n</think>\n\n25"
+  },
+  {
+   "id": "ma014",
+   "cat": "math",
+   "ans": "30",
+   "pred": "30",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n30"
+  },
+  {
+   "id": "ma011",
+   "cat": "math",
+   "ans": "150",
+   "pred": "150",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n150"
+  },
+  {
+   "id": "ma023",
+   "cat": "math",
+   "ans": "72",
+   "pred": "72",
+   "ok": true,
+   "gen": "72"
+  },
+  {
+   "id": "ma010",
+   "cat": "math",
+   "ans": "5050",
+   "pred": "5050",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n5050"
+  },
+  {
+   "id": "lg001",
+   "cat": "logic",
+   "ans": "A",
+   "pred": "A",
+   "ok": true,
+   "gen": "A"
+  },
+  {
+   "id": "ma018",
+   "cat": "math",
+   "ans": "154",
+   "pred": "154",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n154"
+  },
+  {
+   "id": "ma019",
+   "cat": "math",
+   "ans": "25",
+   "pred": "25",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n25"
+  },
+  {
+   "id": "ma020",
+   "cat": "math",
+   "ans": "16",
+   "pred": "16",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n16"
+  },
+  {
+   "id": "ma022",
+   "cat": "math",
+   "ans": "7",
+   "pred": "7",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n7"
+  },
+  {
+   "id": "ma021",
+   "cat": "math",
+   "ans": "2664",
+   "pred": "2664",
+   "ok": true,
+   "gen": "</think>\n\n2664"
+  },
+  {
+   "id": "ma024",
+   "cat": "math",
+   "ans": "29",
+   "pred": "178",
+   "ok": false,
+   "gen": "<think>\n\n</think>\n\n178"
+  },
+  {
+   "id": "ma025",
+   "cat": "math",
+   "ans": "99",
+   "pred": "99",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n99"
+  },
+  {
+   "id": "lg009",
+   "cat": "logic",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "lg003",
+   "cat": "logic",
+   "ans": "B",
+   "pred": "C",
+   "ok": false,
+   "gen": "<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "lg004",
+   "cat": "logic",
+   "ans": "D",
+   "pred": "B",
+   "ok": false,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "lg002",
+   "cat": "logic",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\n<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "lg005",
+   "cat": "logic",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\n<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "lg006",
+   "cat": "logic",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\n解析：\n1."
+  },
+  {
+   "id": "lg007",
+   "cat": "logic",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C\n\n<think>\nThinking Process:"
+  },
+  {
+   "id": "lg008",
+   "cat": "logic",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C\n\n<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "lg010",
+   "cat": "logic",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "lg014",
+   "cat": "logic",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "lg011",
+   "cat": "logic",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\n<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "lg012",
+   "cat": "logic",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C\n\n解析：\n1."
+  },
+  {
+   "id": "lg013",
+   "cat": "logic",
+   "ans": "D",
+   "pred": "D",
+   "ok": true,
+   "gen": "D\n\n解析：\n1."
+  },
+  {
+   "id": "lg015",
+   "cat": "logic",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cs008",
+   "cat": "cs_basics",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "cs002",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cs001",
+   "cat": "cs_basics",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C\n\nHTTP 协议默认使用的端口"
+  },
+  {
+   "id": "cs003",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\n<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cs004",
+   "cat": "cs_basics",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "cs005",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cs006",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\n解析：\n1."
+  },
+  {
+   "id": "cs007",
+   "cat": "cs_basics",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C\n\n操作系统中“死锁”"
+  },
+  {
+   "id": "cs013",
+   "cat": "cs_basics",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C\n\nC"
+  },
+  {
+   "id": "cs009",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\n<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cs010",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\n<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cs011",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\n进程与线程的主要区别是"
+  },
+  {
+   "id": "cs012",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\n<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cs014",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cs015",
+   "cat": "cs_basics",
+   "ans": "A",
+   "pred": "A",
+   "ok": true,
+   "gen": "A\n\n解析：\n1. **"
+  }
+ ]
+}

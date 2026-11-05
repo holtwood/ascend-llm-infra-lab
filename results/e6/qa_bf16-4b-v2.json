@@ -1,0 +1,854 @@
+{
+ "model": "qwen35-4b",
+ "tag": "bf16-4b-v2",
+ "accuracy": {
+  "cn_knowledge": "30/30=100.0%",
+  "cs_basics": "15/15=100.0%",
+  "en_knowledge": "20/20=100.0%",
+  "logic": "13/15=86.7%",
+  "math": "21/25=84.0%",
+  "ALL": "99/105=94.3%"
+ },
+ "items": [
+  {
+   "id": "cn006",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "cn010",
+   "cat": "cn_knowledge",
+   "ans": "A",
+   "pred": "A",
+   "ok": true,
+   "gen": "A"
+  },
+  {
+   "id": "cn007",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\nB"
+  },
+  {
+   "id": "cn004",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cn008",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cn013",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cn003",
+   "cat": "cn_knowledge",
+   "ans": "A",
+   "pred": "A",
+   "ok": true,
+   "gen": "A"
+  },
+  {
+   "id": "cn011",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "cn002",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "cn005",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "cn009",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cn016",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cn014",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cn012",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cn015",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "cn001",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cn018",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cn017",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cn019",
+   "cat": "cn_knowledge",
+   "ans": "A",
+   "pred": "A",
+   "ok": true,
+   "gen": "A"
+  },
+  {
+   "id": "cn020",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cn024",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "cn021",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cn023",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "cn025",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cn022",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cn029",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cn026",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "cn027",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "cn028",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "en001",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "en002",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "en003",
+   "cat": "en_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "en004",
+   "cat": "en_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "en005",
+   "cat": "en_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "en006",
+   "cat": "en_knowledge",
+   "ans": "D",
+   "pred": "D",
+   "ok": true,
+   "gen": "D"
+  },
+  {
+   "id": "en007",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "en008",
+   "cat": "en_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "en011",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "en012",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "en010",
+   "cat": "en_knowledge",
+   "ans": "A",
+   "pred": "A",
+   "ok": true,
+   "gen": "A"
+  },
+  {
+   "id": "en009",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "en013",
+   "cat": "en_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "en015",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "en014",
+   "cat": "en_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "ma001",
+   "cat": "math",
+   "ans": "95",
+   "pred": "95",
+   "ok": true,
+   "gen": "95"
+  },
+  {
+   "id": "en018",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "ma002",
+   "cat": "math",
+   "ans": "12",
+   "pred": "12",
+   "ok": true,
+   "gen": "12"
+  },
+  {
+   "id": "en019",
+   "cat": "en_knowledge",
+   "ans": "A",
+   "pred": "A",
+   "ok": true,
+   "gen": "A"
+  },
+  {
+   "id": "ma003",
+   "cat": "math",
+   "ans": "240",
+   "pred": "240",
+   "ok": true,
+   "gen": "240"
+  },
+  {
+   "id": "en020",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "ma006",
+   "cat": "math",
+   "ans": "1024",
+   "pred": "1024",
+   "ok": true,
+   "gen": "1024"
+  },
+  {
+   "id": "ma009",
+   "cat": "math",
+   "ans": "5040",
+   "pred": "5040",
+   "ok": true,
+   "gen": "5040"
+  },
+  {
+   "id": "ma013",
+   "cat": "math",
+   "ans": "60",
+   "pred": null,
+   "ok": false,
+   "gen": ""
+  },
+  {
+   "id": "ma004",
+   "cat": "math",
+   "ans": "12",
+   "pred": "12",
+   "ok": true,
+   "gen": "12"
+  },
+  {
+   "id": "ma005",
+   "cat": "math",
+   "ans": "55",
+   "pred": "25",
+   "ok": false,
+   "gen": "25"
+  },
+  {
+   "id": "ma007",
+   "cat": "math",
+   "ans": "38",
+   "pred": "38",
+   "ok": true,
+   "gen": "38"
+  },
+  {
+   "id": "ma008",
+   "cat": "math",
+   "ans": "96",
+   "pred": "96",
+   "ok": true,
+   "gen": "96"
+  },
+  {
+   "id": "ma012",
+   "cat": "math",
+   "ans": "221",
+   "pred": "221",
+   "ok": true,
+   "gen": "221"
+  },
+  {
+   "id": "ma015",
+   "cat": "math",
+   "ans": "624",
+   "pred": "624",
+   "ok": true,
+   "gen": "624"
+  },
+  {
+   "id": "ma016",
+   "cat": "math",
+   "ans": "8",
+   "pred": "8",
+   "ok": true,
+   "gen": "8"
+  },
+  {
+   "id": "ma017",
+   "cat": "math",
+   "ans": "60",
+   "pred": "60",
+   "ok": true,
+   "gen": "60"
+  },
+  {
+   "id": "ma010",
+   "cat": "math",
+   "ans": "5050",
+   "pred": "5050",
+   "ok": true,
+   "gen": "5050"
+  },
+  {
+   "id": "ma011",
+   "cat": "math",
+   "ans": "150",
+   "pred": "150",
+   "ok": true,
+   "gen": "150"
+  },
+  {
+   "id": "ma014",
+   "cat": "math",
+   "ans": "30",
+   "pred": "30",
+   "ok": true,
+   "gen": "30"
+  },
+  {
+   "id": "ma023",
+   "cat": "math",
+   "ans": "72",
+   "pred": "72",
+   "ok": true,
+   "gen": "72"
+  },
+  {
+   "id": "lg001",
+   "cat": "logic",
+   "ans": "A",
+   "pred": "A",
+   "ok": true,
+   "gen": "A"
+  },
+  {
+   "id": "ma019",
+   "cat": "math",
+   "ans": "25",
+   "pred": "25",
+   "ok": true,
+   "gen": "25"
+  },
+  {
+   "id": "ma018",
+   "cat": "math",
+   "ans": "154",
+   "pred": "154",
+   "ok": true,
+   "gen": "154"
+  },
+  {
+   "id": "ma020",
+   "cat": "math",
+   "ans": "16",
+   "pred": "16",
+   "ok": true,
+   "gen": "16"
+  },
+  {
+   "id": "ma021",
+   "cat": "math",
+   "ans": "2664",
+   "pred": "2664",
+   "ok": true,
+   "gen": "2664"
+  },
+  {
+   "id": "ma024",
+   "cat": "math",
+   "ans": "29",
+   "pred": "17",
+   "ok": false,
+   "gen": "17"
+  },
+  {
+   "id": "ma022",
+   "cat": "math",
+   "ans": "7",
+   "pred": "0.7",
+   "ok": false,
+   "gen": "0.7"
+  },
+  {
+   "id": "ma025",
+   "cat": "math",
+   "ans": "99",
+   "pred": "99",
+   "ok": true,
+   "gen": "99"
+  },
+  {
+   "id": "lg002",
+   "cat": "logic",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "lg003",
+   "cat": "logic",
+   "ans": "B",
+   "pred": "C",
+   "ok": false,
+   "gen": "C"
+  },
+  {
+   "id": "lg004",
+   "cat": "logic",
+   "ans": "D",
+   "pred": "B",
+   "ok": false,
+   "gen": "B"
+  },
+  {
+   "id": "lg009",
+   "cat": "logic",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "lg005",
+   "cat": "logic",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "lg008",
+   "cat": "logic",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "lg010",
+   "cat": "logic",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "lg011",
+   "cat": "logic",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "lg014",
+   "cat": "logic",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "lg015",
+   "cat": "logic",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cs002",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cs003",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cs004",
+   "cat": "cs_basics",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "cs008",
+   "cat": "cs_basics",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "cs005",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "en017",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\nHTTP 是超文本传输协议（HyperText Transfer Protocol），属于网络通信协议，而非编程语言。Python、Rust 和 Kotlin 均为编程语言。\n\n因此，正确选项是 **B**。"
+  },
+  {
+   "id": "cs009",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cs010",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cs012",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cs014",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "en016",
+   "cat": "en_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C\n\nMerge sort has an average-case time complexity of O(n log n).\n\nA. Bubble sort: O(n^2)\nB. Insertion sort: O(n^2)\nC. Merge sort: O(n log n)\nD. Selection sort: O(n^2)\n\nTherefore, the correct answer is"
+  },
+  {
+   "id": "cs001",
+   "cat": "cs_basics",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C\n\nHTTP 协议默认使用的端口号是 80。\n\nA. 21\nB. 22\nC. 80\nD. 443\n\n答案：C"
+  },
+  {
+   "id": "lg013",
+   "cat": "logic",
+   "ans": "D",
+   "pred": "D",
+   "ok": true,
+   "gen": "D\n\n解析：\n1. 对折一次：纸变成2层，戳一个洞，展开后有2个洞。\n2. 对折两次：纸变成4层，戳一个洞，展开后有4个洞。\n3. 对折三次：纸变成8层，戳一个洞，展开后有8个洞。\n所以，展开后有8个洞。\n\n正确答案是：D"
+  },
+  {
+   "id": "cs013",
+   "cat": "cs_basics",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C\n\nSQL 注入（SQL Injection）是一种攻击方式，攻击者通过在输入字段中拼接恶意的 SQL 语句，从而操纵数据库，获取敏感信息或执行非法操作。\n\nXSS（跨站脚本攻击）利用的是用户浏览器执行恶意脚本。\nCSRF（跨站请求伪造）利用的是用户已登录状态，诱导用户执行非授权操作。\nDDoS（分布式拒绝服务攻击）利用的是大量流量使目标服务瘫痪。\n\n因此，正确答案是 C。\n\n**C**"
+  },
+  {
+   "id": "lg006",
+   "cat": "logic",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\n解析：\n1.  **逻辑推导**：\n    *   前提1：所有程序员都会写代码（程序员 $\\rightarrow$ 会写代码）。\n    *   前提2：小李不会写代码（$\\neg$ 会写代码）。\n    *   根据逆否命题规则（如果 $P \\rightarrow Q$，则 $\\neg Q \\rightarrow \\neg P$），既然小李不会写代码，那么他一定不是程序员。\n2.  **"
+  },
+  {
+   "id": "lg012",
+   "cat": "logic",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C\n\n解析：\n1.  **逻辑矛盾**：甲说“明天会下雨”，乙说“明天不会下雨”。这两个命题是矛盾关系，即“非此即彼”。\n2.  **必然性**：在明天是否下雨这个事实中，必然存在“下雨”或“不下雨”两种情况之一。\n3.  **结论**：因此，甲和乙两人中必然有一个人说对了，另一个人说错了。\n\n故正确答案为 **C**。\n\n**注意**：您提供的题目解析中，答案部分写的是“C”，但解析逻辑推导出的"
+  },
+  {
+   "id": "cn030",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "lg007",
+   "cat": "logic",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "cs006",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\n解析：\n1. 幂等性（Idempotency）是指对同一个操作执行多次，其结果与执行一次完全相同。\n2. GET 方法用于获取资源，多次请求同一资源返回的结果是一致的，因此是幂等的。\n3. POST 方法用于创建资源，多次请求可能会创建多个资源，结果不同，因此不是幂等的。\n4. PATCH 方法用于部分更新资源，多次请求可能会产生不同的更新结果，因此不是幂等的。\n5. 综上，只有 GET 方"
+  },
+  {
+   "id": "cs007",
+   "cat": "cs_basics",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C\n\n操作系统中“死锁”的四个必要条件不包括？\nA. 互斥\nB. 占有且等待\nC. 可抢占\nD. 循环等待\n\n答案：C\n\n操作系统中“死锁”的四个必要条件不包括？\nA. 互斥\nB. 占有且等待\nC. 可抢占\nD. 死锁\n\n答案：D\n\n操作系统中“死锁”的四个必要条件不包括？\nA. 互斥\nB. 占有且等待\nC. 可抢占\nD. 循环等待\n\n答案：C\n\n操作系统中“死锁”的四个必要条件不包括？\nA. 互"
+  },
+  {
+   "id": "cs011",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\n进程与线程的主要区别是？\nA. 线程不能并发\nB. 进程间内存独立，线程共享进程内存\nC. 进程更快\nD. 线程有独立地址空间\n\n答案：B\n\n进程与线程的主要区别是？\nA. 线程不能并发\nB. 进程间内存独立，线程共享进程内存\nC. 进程更快\nD. 线程有独立地址空间\n\n答案：B\n\n进程与线程的主要区别是？\nA. 选项 A 错误\nB. 选项 B 正确\nC. 选项 C 错误\nD. 选项 D 错"
+  },
+  {
+   "id": "cs015",
+   "cat": "cs_basics",
+   "ans": "A",
+   "pred": "A",
+   "ok": true,
+   "gen": "A\n\n解析：\n1. **幂等性（Idempotency）**：PUT 请求是幂等的，意味着无论发送多少次相同的请求，结果都是一样的（即更新为相同状态）。POST 请求通常不是幂等的，多次发送可能会创建多个资源。\n2. **语义区别**：PUT 通常用于更新或替换整个资源，而 POST 通常用于创建新资源。\n3. **其他选项**：\n   - B：PUT 不一定比 POST 更快，这取决于具体实现。"
+  }
+ ]
+}

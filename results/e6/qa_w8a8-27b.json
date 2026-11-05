@@ -1,0 +1,854 @@
+{
+ "model": "qwen38-27b-w8a8",
+ "tag": "w8a8-27b",
+ "accuracy": {
+  "cn_knowledge": "25/30=83.3%",
+  "cs_basics": "12/15=80.0%",
+  "en_knowledge": "15/20=75.0%",
+  "logic": "10/15=66.7%",
+  "math": "18/25=72.0%",
+  "ALL": "80/105=76.2%"
+ },
+ "items": [
+  {
+   "id": "cn003",
+   "cat": "cn_knowledge",
+   "ans": "A",
+   "pred": "A",
+   "ok": true,
+   "gen": "A"
+  },
+  {
+   "id": "cn016",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cn007",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cn004",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cn001",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\n<think>\n用户问的是中国"
+  },
+  {
+   "id": "cn008",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cn013",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cn014",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cn009",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cn011",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "cn002",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": null,
+   "ok": false,
+   "gen": "<think>\n用户问的是《红楼梦"
+  },
+  {
+   "id": "cn005",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": null,
+   "ok": false,
+   "gen": "<think>\n用户问的是中国古代四大"
+  },
+  {
+   "id": "cn010",
+   "cat": "cn_knowledge",
+   "ans": "A",
+   "pred": null,
+   "ok": false,
+   "gen": "<think>\n用户问的是\"丝绸之路"
+  },
+  {
+   "id": "cn006",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": null,
+   "ok": false,
+   "gen": "<think>\n用户问\"但愿人"
+  },
+  {
+   "id": "cn012",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\n<think>\n用户问的是光"
+  },
+  {
+   "id": "cn015",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": null,
+   "ok": false,
+   "gen": "<think>\n用户问的是被称为\""
+  },
+  {
+   "id": "cn019",
+   "cat": "cn_knowledge",
+   "ans": "A",
+   "pred": "A",
+   "ok": true,
+   "gen": "A"
+  },
+  {
+   "id": "cn018",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\nB"
+  },
+  {
+   "id": "cn017",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cn026",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "cn030",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cn020",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cn024",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "cn022",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\nB"
+  },
+  {
+   "id": "cn027",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "cn028",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "cn029",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "en001",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "en002",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cn025",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "cn023",
+   "cat": "cn_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "cn021",
+   "cat": "cn_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\n<think>\n用户问中国第一"
+  },
+  {
+   "id": "en008",
+   "cat": "en_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "en006",
+   "cat": "en_knowledge",
+   "ans": "D",
+   "pred": "D",
+   "ok": true,
+   "gen": "D"
+  },
+  {
+   "id": "en009",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "en003",
+   "cat": "en_knowledge",
+   "ans": "C",
+   "pred": null,
+   "ok": false,
+   "gen": "<think>\n用户问的是金的化学"
+  },
+  {
+   "id": "en012",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "en011",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "en014",
+   "cat": "en_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "en013",
+   "cat": "en_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "en004",
+   "cat": "en_knowledge",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C\n\n<think>\n用户问的是人类"
+  },
+  {
+   "id": "en015",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\nB"
+  },
+  {
+   "id": "en017",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "en007",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": null,
+   "ok": false,
+   "gen": "<think>\n用户问的是谁提出了"
+  },
+  {
+   "id": "en005",
+   "cat": "en_knowledge",
+   "ans": "C",
+   "pred": "A",
+   "ok": false,
+   "gen": "<think>\nThe question asks \"What is"
+  },
+  {
+   "id": "en018",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "en020",
+   "cat": "en_knowledge",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "en019",
+   "cat": "en_knowledge",
+   "ans": "A",
+   "pred": "A",
+   "ok": true,
+   "gen": "A"
+  },
+  {
+   "id": "en010",
+   "cat": "en_knowledge",
+   "ans": "A",
+   "pred": "D",
+   "ok": false,
+   "gen": "<think>\n用户问DNA代表什么"
+  },
+  {
+   "id": "ma009",
+   "cat": "math",
+   "ans": "5040",
+   "pred": null,
+   "ok": false,
+   "gen": ""
+  },
+  {
+   "id": "en016",
+   "cat": "en_knowledge",
+   "ans": "C",
+   "pred": "A",
+   "ok": false,
+   "gen": "<think>\nThe question asks which sorting algorithm"
+  },
+  {
+   "id": "ma003",
+   "cat": "math",
+   "ans": "240",
+   "pred": "240",
+   "ok": true,
+   "gen": "240"
+  },
+  {
+   "id": "ma001",
+   "cat": "math",
+   "ans": "95",
+   "pred": "95",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n95"
+  },
+  {
+   "id": "ma015",
+   "cat": "math",
+   "ans": "624",
+   "pred": null,
+   "ok": false,
+   "gen": ""
+  },
+  {
+   "id": "ma002",
+   "cat": "math",
+   "ans": "12",
+   "pred": "12",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n12"
+  },
+  {
+   "id": "ma004",
+   "cat": "math",
+   "ans": "12",
+   "pred": "12",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n12"
+  },
+  {
+   "id": "ma007",
+   "cat": "math",
+   "ans": "38",
+   "pred": "38",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n38"
+  },
+  {
+   "id": "ma006",
+   "cat": "math",
+   "ans": "1024",
+   "pred": "1024",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n1024"
+  },
+  {
+   "id": "ma008",
+   "cat": "math",
+   "ans": "96",
+   "pred": "96",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n96"
+  },
+  {
+   "id": "ma011",
+   "cat": "math",
+   "ans": "150",
+   "pred": "150",
+   "ok": true,
+   "gen": "150"
+  },
+  {
+   "id": "ma016",
+   "cat": "math",
+   "ans": "8",
+   "pred": "8",
+   "ok": true,
+   "gen": "8"
+  },
+  {
+   "id": "ma017",
+   "cat": "math",
+   "ans": "60",
+   "pred": "60",
+   "ok": true,
+   "gen": "60"
+  },
+  {
+   "id": "ma013",
+   "cat": "math",
+   "ans": "60",
+   "pred": "60",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n60"
+  },
+  {
+   "id": "lg002",
+   "cat": "logic",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "ma018",
+   "cat": "math",
+   "ans": "154",
+   "pred": "154",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n154"
+  },
+  {
+   "id": "ma019",
+   "cat": "math",
+   "ans": "25",
+   "pred": "25",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n25"
+  },
+  {
+   "id": "ma022",
+   "cat": "math",
+   "ans": "7",
+   "pred": "7",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n7"
+  },
+  {
+   "id": "ma023",
+   "cat": "math",
+   "ans": "72",
+   "pred": "72",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n72"
+  },
+  {
+   "id": "ma021",
+   "cat": "math",
+   "ans": "2664",
+   "pred": "2664",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n2664"
+  },
+  {
+   "id": "ma024",
+   "cat": "math",
+   "ans": "29",
+   "pred": "29",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n29"
+  },
+  {
+   "id": "ma025",
+   "cat": "math",
+   "ans": "99",
+   "pred": "99",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\n99"
+  },
+  {
+   "id": "lg001",
+   "cat": "logic",
+   "ans": "A",
+   "pred": null,
+   "ok": false,
+   "gen": "<think>\n用户问的是一道逻辑"
+  },
+  {
+   "id": "lg003",
+   "cat": "logic",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nB"
+  },
+  {
+   "id": "lg006",
+   "cat": "logic",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "lg008",
+   "cat": "logic",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "lg004",
+   "cat": "logic",
+   "ans": "D",
+   "pred": "C",
+   "ok": false,
+   "gen": "<think>\nThe sequence is 1,"
+  },
+  {
+   "id": "lg009",
+   "cat": "logic",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "ma005",
+   "cat": "math",
+   "ans": "55",
+   "pred": "24",
+   "ok": false,
+   "gen": "<think>\nThe problem: Xiao Ming has 3 boxes of pencils, each box has 24 pencils. After giving"
+  },
+  {
+   "id": "lg005",
+   "cat": "logic",
+   "ans": "B",
+   "pred": null,
+   "ok": false,
+   "gen": "<think>\n用户问的是\"有些猫"
+  },
+  {
+   "id": "lg007",
+   "cat": "logic",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "lg011",
+   "cat": "logic",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "lg015",
+   "cat": "logic",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "ma010",
+   "cat": "math",
+   "ans": "5050",
+   "pred": "100",
+   "ok": false,
+   "gen": "<think>\nThe user asks for the sum from 1 to 100.\n\nSum = 100"
+  },
+  {
+   "id": "ma012",
+   "cat": "math",
+   "ans": "221",
+   "pred": "17",
+   "ok": false,
+   "gen": "<think>\n用户要求计算 17 × 13，只输出最终数值答案。\n\n17 ×"
+  },
+  {
+   "id": "ma014",
+   "cat": "math",
+   "ans": "30",
+   "pred": "60",
+   "ok": false,
+   "gen": "<think>\nThe question asks: In a class of 50 students, 60% are girls. How many"
+  },
+  {
+   "id": "lg010",
+   "cat": "logic",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C\n\n<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "lg013",
+   "cat": "logic",
+   "ans": "D",
+   "pred": "D",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nD"
+  },
+  {
+   "id": "lg012",
+   "cat": "logic",
+   "ans": "C",
+   "pred": null,
+   "ok": false,
+   "gen": "<think>\n用户问的是：甲"
+  },
+  {
+   "id": "lg014",
+   "cat": "logic",
+   "ans": "B",
+   "pred": null,
+   "ok": false,
+   "gen": "<think>\n\"昨天的后天\"是什么意思"
+  },
+  {
+   "id": "cs004",
+   "cat": "cs_basics",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "cs005",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cs006",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cs007",
+   "cat": "cs_basics",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C"
+  },
+  {
+   "id": "cs001",
+   "cat": "cs_basics",
+   "ans": "C",
+   "pred": null,
+   "ok": false,
+   "gen": "<think>\n用户问的是HTTP协议默认"
+  },
+  {
+   "id": "ma020",
+   "cat": "math",
+   "ans": "16",
+   "pred": "15",
+   "ok": false,
+   "gen": "<think>\nThe user asks: A book has 240 pages, reading 15 pages per day, how"
+  },
+  {
+   "id": "cs002",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\n<think>\n用户问哪一个是"
+  },
+  {
+   "id": "cs003",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "C",
+   "ok": false,
+   "gen": "<think>\n用户问的是TCP和"
+  },
+  {
+   "id": "cs008",
+   "cat": "cs_basics",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "<think>\n\n</think>\n\nC"
+  },
+  {
+   "id": "cs010",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cs011",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cs012",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cs014",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B"
+  },
+  {
+   "id": "cs009",
+   "cat": "cs_basics",
+   "ans": "B",
+   "pred": "B",
+   "ok": true,
+   "gen": "B\n\nB"
+  },
+  {
+   "id": "cs013",
+   "cat": "cs_basics",
+   "ans": "C",
+   "pred": "C",
+   "ok": true,
+   "gen": "C\n\nC"
+  },
+  {
+   "id": "cs015",
+   "cat": "cs_basics",
+   "ans": "A",
+   "pred": null,
+   "ok": false,
+   "gen": "<think>\n用户问的是RESTful"
+  }
+ ]
+}
