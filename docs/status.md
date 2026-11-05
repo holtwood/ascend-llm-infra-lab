@@ -53,3 +53,5 @@
 - e4_cluster.sh 重写：副本 M3/M2/D(8010)；D 已建 nginx+双隧道+免密；D 模型拷贝中
 - self-match 坑三连：pgrep -f 的 pattern 若出现在发起者自身 cmdline 会匹配自己——本地 kill、远端 kill 循环（wrapper 含 pattern 文本）、隧道清理（wrapper 含隧道命令）三种形态；修法分别=按PID杀/模式加锚点^ssh/或bin[/]vllm 正则断开字面量
 - E2 定论：27B bf16(71G) 塞不进 64G 单卡；W8A16 模型被 vllm_ascend compressed-tensors 拒绝(NotImplementedError)；可跑变体=w8a8+Qwen3-8B bf16 参照
+- E5 定论：MindIE3.0.0 全部二进制需 glibc2.38(Ubuntu24.04)，4 节点均 22.04/2.35 → 物理不可行；8 步排障链已录 results/e5/README.md（含 py311/apt 绕行、Python API 尝试、_libatb_torch.so 同墙）
+- E4 第二轮发现双 driver 并发互踩（各自重建隧道+nginx upstream 互相打架）→ 全杀重开单实例；教训：后台 driver 必须先验证无同类进程再起

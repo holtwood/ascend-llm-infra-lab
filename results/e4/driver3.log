@@ -1,0 +1,22 @@
+===== N=1 =====
+tunnel 8001 UP
+tunnel 8002 down
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+LB_READY:N=1
+Successful requests:                     128       
+Request throughput (req/s):              4.36      
+Output token throughput (tok/s):         565.01    
+Peak output token throughput (tok/s):    1440.00   
+Total token throughput (tok/s):          2805.11   
+Mean TTFT (ms):                          644.94    
+Mean TPOT (ms):                          49.20     
+Successful requests:                     256       
+Request throughput (req/s):              7.96      
+Output token throughput (tok/s):         1026.90   
+Peak output token throughput (tok/s):    3224.00   
+Total token throughput (tok/s):          5135.54   
+Mean TTFT (ms):                          2751.13   
+Mean TPOT (ms):                          98.47     
+===== N=2 =====
+tunnel 8001 UP
+tunnel 8002 UP
