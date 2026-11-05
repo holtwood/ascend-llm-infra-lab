@@ -38,3 +38,13 @@ gh issue comment 18978 --repo vllm-project/vllm-ascend \
 - issue2 正文已包含验证过的 workaround（`--compilation-config`），maintainer 更愿意接
 - issue3 的 comment 结尾问了 maintainer 后续路线（AscendC kernel vs 批量化同步），并主动提出可在真实硬件上测 patch——提高被响应概率
 - 提交后把返回的 issue URL 记进 `docs/status.md`
+
+## ✅ 已提交（2026-11-05，账号 holtwood）
+
+- Issue1 → https://github.com/vllm-project/vllm-ascend/issues/21112
+- Issue2 → https://github.com/vllm-project/vllm-ascend/issues/21113
+- Issue3 → https://github.com/vllm-project/vllm-ascend/issues/18978#issuecomment-6659472281 （comment）
+
+提交前最终复查新发现并已纳入正文引用：#2265/#4267（早期 W8A16
+请求，ModelSlim 口径）、#9564（同族 stream 耗尽、不同签名）、
+#17491（507015 错误映射 open PR，与建议同法）。

@@ -272,3 +272,10 @@
 - 数据面 device-mem transfer ret:-1——SSH 隧道托不起 NPU DMA 语义；
   **请求仍 200 返回垃圾 token（静默劣化）**——PD 监控必须看输出质量
 - 节点间互信：id_nodekey 已放到 M3/M1 供 ssh -L 用
+
+### upstream issue 实发（2026-11-05，holtwood）
+
+- #21112 W8A16 compressed-tensors、#21113 cudagraph SQ/CQ、
+  #18978 comment causal_conv1d —— 三条已发，含 AI 辅助披露
+- 提交前二次 dedup 抓到 #2265/#4267/#9564/#17491 并已写入正文引用，
+  避免被 maintainer 当场指出漏查
