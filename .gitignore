@@ -1,3 +1,5 @@
 results/logs/
 *.tmp
 __pycache__/
+results/night/*/*.json
+!results/night/*/SUMMARY.md

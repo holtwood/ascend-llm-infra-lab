@@ -22,12 +22,19 @@ def hosts():
     return out
 
 
+SMALL_FILES = ("summary.jsonl", "samples.jsonl", "fatigue.jsonl",
+               "mix_runs.jsonl", "*.log", "SUMMARY.md")
+
+
 def pull(node, host, port, local):
+    """Pull only the small aggregate files — per-wave bench JSONs stay on the
+    node (36KB x ~2900 waves would bloat the repo)."""
     d = os.path.join(local, node)
     os.makedirs(d, exist_ok=True)
-    subprocess.run(["scp", "-i", KEY, "-o", "StrictHostKeyChecking=no",
-                    "-P", port, f"root@{host}:/data/llm-infra-lab/results/night/*",
-                    d + "/"], capture_output=True)
+    for pat in SMALL_FILES:
+        subprocess.run(["scp", "-i", KEY, "-o", "StrictHostKeyChecking=no",
+                        "-P", port, f"root@{host}:/data/llm-infra-lab/results/night/{pat}",
+                        d + "/"], capture_output=True)
     return d
 
 
