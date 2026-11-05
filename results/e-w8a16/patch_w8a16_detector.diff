@@ -1,0 +1,39 @@
+diff --git a/vllm_ascend/quantization/configs/compressed_tensors_config.py b/vllm_ascend/quantization/configs/compressed_tensors_config.py
+index 58deeaf10..881b9862f 100644
+--- a/vllm_ascend/quantization/configs/compressed_tensors_config.py
++++ b/vllm_ascend/quantization/configs/compressed_tensors_config.py
+@@ -376,6 +376,9 @@ class AscendCompressedTensorsConfig(QuantizationConfig):
+             if self._is_dynamic_token_w4a8(weight_quant, input_quant):
+                 return "W4A8_DYNAMIC"
+ 
++        if self._is_w8a16(weight_quant, input_quant):
++            return "W8A16"
++
+         if self._is_w4a16(weight_quant, input_quant):
+             return "W4A16"
+ 
+@@ -434,6 +437,24 @@ class AscendCompressedTensorsConfig(QuantizationConfig):
+         # Only symmetric weight quantization supported.
+         return is_4_bits and is_8_bits and is_token and is_symmetric and is_dynamic
+ 
++    def _is_w8a16(self, weight_quant: "QuantizationArgs", input_quant: Optional["QuantizationArgs"]) -> bool:
++        # Weight-only INT8, mirroring upstream _is_wNa16_group_channel:
++        # channel/group strategy, no activation quant, static weights.
++        if weight_quant is None:
++            return False
++        if weight_quant.type != QuantizationType.INT:
++            return False
++
++        input_quant_none = input_quant is None
++        is_8_bits = weight_quant.num_bits == 8
++        is_channel_group = (
++            weight_quant.strategy == QuantizationStrategy.CHANNEL.value
++            or weight_quant.strategy == QuantizationStrategy.GROUP.value
++        )
++        is_static = not weight_quant.dynamic
++
++        return input_quant_none and is_8_bits and is_channel_group and is_static
++
+     def _is_w4a16(self, weight_quant: "QuantizationArgs", input_quant: Optional["QuantizationArgs"]) -> bool:
+         # Confirm weights quantized.
+         if weight_quant is None:
