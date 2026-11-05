@@ -58,6 +58,34 @@
 - E4 完成：干净轮 c128 吞吐 1027→1674→2160 tok/s（效率1.63×/2.10×），c32 N=3无增益（未饱和）已写 results/e4/README.md
 - nginx daemon 挂 ssh：远端起 daemon 必须 setsid+重定向三个 fd，否则会话不返回
 
+## 新环境（MindIE/MindSpore/PyTorch 三容器，117.131.156.71 跳板进）
+
+### 已完成（新环境）
+
+- **E8b 手撕微观实验**（commit 4924b9d，pytorch 容器 npu:1，910B1）：
+  naive vs 融合 attention @S8192 差 5.32×；decode 有效带宽随 KV 长
+  512→32768 从 127→999 GB/s；bs=1 matvec 1475 GB/s≈92% HBM 峰值
+  （访存墙实锤），bs=256 降到 752（瓶颈切换）→ results/e8b/
+- **E8c 手写 spec decode**（commit 3104a85，pytorch 容器 npu:2，Qwen3-0.6B）：
+  纯 torch 实现 draft(ngram prompt-lookup)/verify(单前向)+DynamicCache.crop
+  KV rewind。重复负载 25% 接受/13% 覆盖 → +8%；开放文本 0% 接受 → -6%
+  纯开销——机制级复现 E3 生产负例 → results/e8c/
+
+### 进行中/卡点（新环境）
+
+- **E5R MindIE 复活战（阻塞中）**：glibc2.38+CANN8.5+MindIE2.3.0 条件全对，
+  9 步排障链走完（boost→absl→torch lib→benchmark 路径→atb_llm→hccl→
+  ATB_SPEED_HOME_PATH→_libatb_torch→_cpu_logits_handler），权重加载成功
+  进入 warmup。当前卡点：inference 线程停在
+  `FlashQwen2ForCausalLM.init_ascend_weight`(flash_causal_qwen2.py:289,
+  acl_encoder_operation.set_weight) 单线程 99.9% 空转；8B 和 0.6B 均在
+  同帧 >40min-1h 无进展、kernel_meta 零写入；曾观测到内核栈呈
+  do_mem_abort/sigreturn fault-retry 特征。缩小 warmup
+  (maxPrefillTokens=256/maxIterTimes=8/maxSeqLen=512) 重试中。
+  注意：mindie config 有两处 maxInputTokenLen（ModelDeployConfig 顶层
+  + ScheduleConfig）都要 ≤maxPrefillTokens；daemon 不能套 setsid
+  （自管进程组冲突报 MIE04E01011C）。
+
 ## 第二轮（E3b/E4b/E6/E7/issues）状态与踩坑
 
 ### 已完成
