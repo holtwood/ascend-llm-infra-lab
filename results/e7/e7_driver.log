@@ -1,0 +1,36 @@
+===== [1/3] monolithic arm: SKIPPED (SKIP_MONO=1) =====
+===== [2/3] PD arm: P:23700 + D:23701 + proxy:28081 =====
+{"status":"ok","prefill_instances":1,"decode_instances":1,"request_num":0}
+=== bench pd_c8 port=28081 in=512 out=128 c=8 np=64 ===
+Successful requests:                     46        
+Request throughput (req/s):              0.16      
+Output token throughput (tok/s):         16.06     
+Peak output token throughput (tok/s):    20.00     
+Total token throughput (tok/s):          99.82     
+Mean TTFT (ms):                          22460.32  
+P99 TTFT (ms):                           42807.27  
+Mean TPOT (ms):                          262.61    
+P99 TPOT (ms):                           1032.86   
+=== bench pd_c32 port=28081 in=512 out=128 c=32 np=128 ===
+Successful requests:                     63        
+Request throughput (req/s):              0.16      
+Output token throughput (tok/s):         13.76     
+Peak output token throughput (tok/s):    20.00     
+Total token throughput (tok/s):          97.72     
+Mean TTFT (ms):                          78707.06  
+P99 TTFT (ms):                           99767.48  
+Mean TPOT (ms):                          355.17    
+P99 TPOT (ms):                           1034.77   
+=== bench pd_l16 port=28081 in=2048 out=128 c=16 np=64 ===
+Successful requests:                     30        
+Request throughput (req/s):              0.08      
+Output token throughput (tok/s):         10.39     
+Peak output token throughput (tok/s):    12.00     
+Total token throughput (tok/s):          173.29    
+Mean TTFT (ms):                          86600.94  
+P99 TTFT (ms):                           120282.70 
+Mean TPOT (ms):                          95.03     
+P99 TPOT (ms):                           97.76     
+===== [3/3] restore plain serve =====
+serve qwen35-4b pid 22932 -> /data/llm-infra-lab/results/serve_m1_restore.log
+E7 ALL DONE -> /data/llm-infra-lab/results/e7
