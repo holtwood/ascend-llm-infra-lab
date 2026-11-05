@@ -1,0 +1,140 @@
+{
+ "Version": "1.0.0",
+ "ServerConfig": {
+  "ipAddress": "127.0.0.1",
+  "managementIpAddress": "127.0.0.2",
+  "port": 1025,
+  "managementPort": 1026,
+  "metricsPort": 1027,
+  "allowAllZeroIpListening": false,
+  "maxLinkNum": 1000,
+  "httpsEnabled": false,
+  "fullTextEnabled": false,
+  "tlsCaPath": "security/ca/",
+  "tlsCaFile": [
+   "ca.pem"
+  ],
+  "tlsCert": "security/certs/server.pem",
+  "tlsPk": "security/keys/server.key.pem",
+  "tlsPkPwd": "security/pass/key_pwd.txt",
+  "tlsCrlPath": "security/certs/",
+  "tlsCrlFiles": [
+   "server_crl.pem"
+  ],
+  "managementTlsCaFile": [
+   "management_ca.pem"
+  ],
+  "managementTlsCert": "security/certs/management/server.pem",
+  "managementTlsPk": "security/keys/management/server.key.pem",
+  "managementTlsPkPwd": "security/pass/management/key_pwd.txt",
+  "managementTlsCrlPath": "security/management/certs/",
+  "managementTlsCrlFiles": [
+   "server_crl.pem"
+  ],
+  "metricsTlsCaFile": [
+   "metrics_ca.pem"
+  ],
+  "metricsTlsCert": "security/certs/metrics/server.pem",
+  "metricsTlsPk": "security/keys/metrics/server.key.pem",
+  "metricsTlsPkPwd": "security/pass/metrics/key_pwd.txt",
+  "metricsTlsCrlPath": "security/metrics/certs/",
+  "metricsTlsCrlFiles": [
+   "server_crl.pem"
+  ],
+  "kmcKsfMaster": "tools/pmt/master/ksfa",
+  "kmcKsfStandby": "tools/pmt/standby/ksfb",
+  "inferMode": "standard",
+  "interCommTLSEnabled": true,
+  "interCommPort": 1121,
+  "interCommTlsCaPath": "security/grpc/ca/",
+  "interCommTlsCaFiles": [
+   "ca.pem"
+  ],
+  "interCommTlsCert": "security/grpc/certs/server.pem",
+  "interCommPk": "security/grpc/keys/server.key.pem",
+  "interCommPkPwd": "security/grpc/pass/key_pwd.txt",
+  "interCommTlsCrlPath": "security/grpc/certs/",
+  "interCommTlsCrlFiles": [
+   "server_crl.pem"
+  ],
+  "openAiSupport": "vllm",
+  "tokenTimeout": 600,
+  "e2eTimeout": 600,
+  "distDPServerEnabled": false
+ },
+ "BackendConfig": {
+  "backendName": "mindieservice_llm_engine",
+  "modelInstanceNumber": 1,
+  "npuDeviceIds": [
+   [
+    0
+   ]
+  ],
+  "tokenizerProcessNumber": 8,
+  "multiNodesInferEnabled": false,
+  "multiNodesInferPort": 1120,
+  "interNodeTLSEnabled": true,
+  "interNodeTlsCaPath": "security/grpc/ca/",
+  "interNodeTlsCaFiles": [
+   "ca.pem"
+  ],
+  "interNodeTlsCert": "security/grpc/certs/server.pem",
+  "interNodeTlsPk": "security/grpc/keys/server.key.pem",
+  "interNodeTlsPkPwd": "security/grpc/pass/mindie_server_key_pwd.txt",
+  "interNodeTlsCrlPath": "security/grpc/certs/",
+  "interNodeTlsCrlFiles": [
+   "server_crl.pem"
+  ],
+  "interNodeKmcKsfMaster": "tools/pmt/master/ksfa",
+  "interNodeKmcKsfStandby": "tools/pmt/standby/ksfb",
+  "kvPoolConfig": {
+   "backend": "",
+   "configPath": ""
+  },
+  "ModelDeployConfig": {
+   "maxSeqLen": 512,
+   "maxInputTokenLen": 256,
+   "truncation": false,
+   "ModelConfig": [
+    {
+     "modelInstanceType": "Standard",
+     "modelName": "qwen3",
+     "modelWeightPath": "/data1/mindie-7/models/Qwen3-0.6B",
+     "worldSize": 1,
+     "cpuMemSize": 0,
+     "npuMemSize": 35,
+     "backendType": "atb",
+     "trustRemoteCode": false,
+     "async_scheduler_wait_time": 120,
+     "kv_trans_timeout": 10,
+     "kv_link_timeout": 1080
+    }
+   ],
+   "maxInputLen": 256
+  },
+  "ScheduleConfig": {
+   "templateType": "Standard",
+   "templateName": "Standard_LLM",
+   "cacheBlockSize": 128,
+   "maxPrefillBatchSize": 50,
+   "maxPrefillTokens": 256,
+   "prefillTimeMsPerReq": 150,
+   "prefillPolicyType": 0,
+   "decodeTimeMsPerReq": 50,
+   "decodePolicyType": 0,
+   "maxBatchSize": 64,
+   "maxIterTimes": 8,
+   "maxPreemptCount": 0,
+   "supportSelectBatch": false,
+   "maxQueueDelayMicroseconds": 5000,
+   "maxFirstTokenWaitTime": 2500,
+   "maxInputTokenLen": 256
+  }
+ },
+ "LogConfig": {
+  "dynamicLogLevel": "",
+  "dynamicLogLevelValidHours": 2,
+  "dynamicLogLevelValidTime": ""
+ },
+ "EnableDynamicAdjustTimeoutConfig": false
+}
