@@ -397,3 +397,11 @@
 - E28 长上下文并行：4k 178→63k 41 tok/s，TTFT 527ms→4.59s，TPOT 仅 1.4×
   ——与 E16 串行互证
 - 坑：ssh 多层传 JSON 引号必被吃→改参数文件；M2/D 模型路径是 /data/models
+
+### 通宵方案（第八轮末）
+
+- docs/night-shift-plan.md：四机 8-9h 满载排程（M1 soak 8.2h / M2 网格+混合
+  soak 7.8h / M3 ctx+换租疲劳 8.0h / D 量化矩阵+soak 8.3h）
+- 脚本 night_{common,m1_soak,m2_grid,m3_ctx,d_quant}.sh + night_collect.py
+- 坑：pkill -f night_ 自匹配杀 ssh 会话（文档命令已用 night_[m]1 括号技巧）；
+  VAR=x func 的环境变量会残留在 shell（restore_default 已强制 MAXLEN=8192）

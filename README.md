@@ -63,6 +63,11 @@
 | — | 手写 MHA+KV cache（0 diff 验证） | ✅ | examples/mha_from_scratch.py |
 | — | SLO/成本换算模型 | ✅ | docs/slo-cost-model.md |
 
+## 通宵实验
+
+- `docs/night-shift-plan.md` — 8-9 小时四机满载方案（启动/监控/收集/恢复）
+- `scripts/night_*.sh` — 四条任务线；`scripts/night_collect.py` — 早晨汇总
+
 ## 目录结构
 
 - `docs/environment.md` — 环境盘点与已知限制
