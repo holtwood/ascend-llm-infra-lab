@@ -48,3 +48,18 @@ request's conv state updates outside the captured graph.
 3. Document that hybrid linear-attention models (Qwen3.5 family, gated-deltanet
    layers) currently pay this penalty on NPU — it's non-obvious that "serve works
    but ITL p99 is 10× the median" traces back to a missing kernel symbol.
+
+## 更新（2026-11-05 复查上游历史）
+
+上游已解决此问题，**不建议再提 PR**：
+
+- PR #5984（已合并）：Triton 版 `causal_conv1d_update_npu` 首次实现
+- commit `8e5a61a`（#8842）：用 **AscendC 实现替换 Triton 版**
+- commit `f0a938956`（#14620）：`Remove causal_conv1d_update_npu` ——符号整体移除
+- `432743d83`/`ce9da92ce`："Move GDN conv1d metadata to device tensors" ——
+  上游消灭 host sync 的正解是把元数据放 device 侧
+
+本仓库 pin 的 v0.30.0rc2 中 `patch_triton.py` 仍 try-import 该已删除符号，
+属版本残留绑定。正确行动：**升级 vllm-ascend**，而非补函数。
+
+面试启示：给上游提 PR 前先查 mainline 历史——目标符号可能已被移除/重构。

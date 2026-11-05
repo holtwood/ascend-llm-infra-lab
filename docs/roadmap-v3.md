@@ -17,7 +17,7 @@
 
 | 项 | 面试原题 | 成本 | 依据 |
 |---|---|---|---|
-| **D1. 修 conv1d fallback 并提 PR** | "给开源提过什么？" | 1–2 天 | `vllm_ascend/ops/triton/mamba/causal_conv1d.py` 只有 `extract_last_width`，`causal_conv1d_update_npu` 真缺；补齐后消掉每请求同步（E14 已实测其放大 MTP 开销）。issue 草稿已有，做成修复 PR 是最强信号 |
+| ~~D1. 修 conv1d fallback 并提 PR~~ → **已否决**（2026-11-05） | — | — | 上游历史：#5984 实现 → 8e5a61a/#8842 换 AscendC → f0a938956/#14620 整体移除符号。rc2 的 patch 仍在 try-import 已删符号=版本残留。正解是升级版本，非补函数；教训记入 issue3 |
 | **D2. 提交 3 个 issue 草稿** | 开源参与度 | ~1h | docs/issues/ 已就绪，只需英文校对后提交 vllm-ascend |
 | **D3. prefix-aware 路由** | "多副本怎么路由？sticky session？" | 半天 | 替换 nginx least_conn → 按 prompt 前缀 hash 选副本，复用 E4 拓扑；测 prefix-cache 命中率与 TTFT 变化，对比 least_conn 基线（数据已有） |
 

@@ -222,3 +222,10 @@
 - **新坑**：睡眠方仍持有 stream/CQ → 共卡引擎 ACL capture 报
   EE1023 too many streams（=issue2 207005 同根因）→ 共卡方须 eager
 - FRACTAL_NZ 回灌需 rl_config.enabled；/sleep 需 VLLM_SERVER_DEV_MODE=1
+
+### D1 否决（2026-11-05）
+
+- 目标函数 upstream 已写又删：#5984 实现 → 8e5a61a(#8842) AscendC 替换
+  → f0a938956(#14620) 移除；rc2 patch_triton.py try-import 已删符号 =
+  版本残留。补函数=重加上游主动移除代码，接受率≈0 → 改记为版本升级建议
+- 教训：PR 前查 mainline 历史（git log --all --grep）
