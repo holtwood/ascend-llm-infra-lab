@@ -36,14 +36,14 @@ L1-L2 已被现有实验覆盖（E1/E8b/E8c/E8d/E3/E3b/E10/E11）。
 
 ### S 级：直接命中最高频考点，且环境可支撑
 
-**E14 APC/prefix caching 定量**（旧环境，~半天）
+**E15 APC/prefix caching 定量**（旧环境，~半天）
 - 内容：`--enable-prefix-caching` 开/关 × 共享 system prompt 长度
   (256/1024/4096) × 并发，测 TTFT 降幅 + hit rate。
 - 面试价值：高频题"prefix caching 能省多少"——行业口径 40-60%，
-  你能给 NPU 实测数。是 E15 的基线。
+  你能给 NPU 实测数。是 E16 的基线。
 - 风险：低，vLLM V1 APC 默认可用。
 
-**E15 prefix-cache-aware 路由**（旧环境，1-2 天，**hero 级**）
+**E16 prefix-cache-aware 路由**（旧环境，1-2 天，**hero 级**）
 - 内容：E4 的 3-4 副本 + D 上写 sticky-prefix 路由器
   （对 prompt 前缀 hash → 固定副本），对照 round-robin：
   每副本 APC 命中率、TTFT p99、吞吐。就是 llm-d
@@ -70,31 +70,31 @@ L1-L2 已被现有实验覆盖（E1/E8b/E8c/E8d/E3/E3b/E10/E11）。
 
 ### A 级：差异化强，成本中等
 
-**E16 KV 分级卸载（sparse_kv_offload）**（旧环境，1-2 天）
+**E17 KV 分级卸载（sparse_kv_offload）**（旧环境，1-2 天）
 - vllm-ascend 自带 `sparse_kv_offload` connector——Mooncake 式
   HBM→DRAM 分级 KV 在 Ascend 上的实测，目前几乎没人有这数据。
 - 测：长 prompt 重问场景下 L1 DRAM 命中率、TTFT 变化、显存节省。
 - 面试价值：KV-centric 架构（Mooncake/PrisKV/llm-d）是 2026 面试新贵。
 
-**E17 Ascend 独有调度器矩阵**（旧环境，1 天）
+**E18 Ascend 独有调度器矩阵**（旧环境，1 天）
 - `short_request_first`（SRF/最短优先） vs `batch_job_aware`（E13 已测）
   vs `recompute` vs `dyntra_lb`，混合负载下 SLO 对比。
 - 面试价值：调度策略是 L3 核心考点，而且这是 Ascend 独有资产，
   别人没测过——"我对比了四种调度器在混合负载下的 SLO 表现"。
 
-**E18 multi-LoRA serving**（旧环境，1 天+找 LoRA）
+**E19 multi-LoRA serving**（旧环境，1 天+找 LoRA）
 - 单引擎挂 2-3 个 LoRA adapter，测 per-request adapter 路由、
   切换开销、LoRA-aware 公平性（llm-d roadmap 里明确列为新方向）。
 - 风险：需 Qwen3 LoRA 权重（HF 现找或快速训一个小的）。
 
-**E19 guided/structured decoding 开销**（旧环境，半天）
+**E20 guided/structured decoding 开销**（旧环境，半天）
 - guided JSON/regex vs freeform：mask 计算对 TPOT 的影响。
   SGLang xgrammar 宣称 10×——你在 Ascend 上量一版真实数。
 - 面试价值：structured output 是 agentic serving 的显学，差异化强。
 
 ### B 级：看剩余时间
 
-- **E20 aclgraph on/off** decode 延迟（Ascend 版 cudagraph capture 实测，
+- **E21 aclgraph on/off** decode 延迟（Ascend 版 cudagraph capture 实测，
   呼应已写的 cudagraph issue）
 - **级联路由 demo**：0.6B 快答 + 8B 兜底的质量路由原型
   （成本/token 故事，偏设计轮素材）
@@ -113,18 +113,18 @@ L1-L2 已被现有实验覆盖（E1/E8b/E8c/E8d/E3/E3b/E10/E11）。
 
 | lane | 接什么 |
 |---|---|
-| **腾讯云 agent**（旧环境） | E14 APC → **E15 cache-aware 路由（hero）** → E16 KV 分级 → E17 调度器矩阵 → E18/E19 |
+| **腾讯云 agent**（旧环境） | E15 APC → **E16 cache-aware 路由（hero）** → E17 KV 分级 → E18 调度器矩阵 → E19/E20 |
 | **本 lane**（新环境+源码） | 源码 walkthrough 文档 → 上游 issue 落地 → （可选）E8e attention 变体手写 |
 | MindSpore/其他 | 暂缓 |
 
 ## 5. 一条线的叙事闭环
 
-如果只做三件事：**E15 + walkthrough + upstream issues**。
+如果只做三件事：**E16 + walkthrough + upstream issues**。
 它们刚好合成一个故事：
 
 > "我在 4×910B 上用 vLLM-ascend 做 serving 实验。把请求从 HTTP 到 token
 > 的路径在源码里走通了一遍（walkthrough）；在此之上把多副本的轮询路由
-> 升级成 prefix-cache-aware 路由，实测 APC 命中率和 TTFT 的变化（E15）；
+> 升级成 prefix-cache-aware 路由，实测 APC 命中率和 TTFT 的变化（E16）；
 > 过程中发现的三个引擎 bug 已整理成 issue 提给 vllm-ascend 上游（开源足迹）。
 > 配套的微观数据：HCCL 延迟底 160μs 解释了为什么选副本不选 TP，
 > 手写的 spec-decode 解释了 ngram 负收益的机制边界。"
