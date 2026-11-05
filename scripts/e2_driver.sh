@@ -7,10 +7,11 @@ PATH_=$1; NAME=$2; TAG=$3; shift 3
 source /data/llm-infra-lab/scripts/env.sh
 OUT=/data/llm-infra-lab/results/e2; mkdir -p "$OUT"
 
-$M1 'for p in $(pgrep -f "bin/vllm serve"); do kill $p 2>/dev/null; done
-for i in $(seq 1 60); do pgrep -f "bin/vllm serve" >/dev/null || break; sleep 3; done
-for p in $(pgrep -f "bin/vllm serve"); do kill -9 $p; done; sleep 8
-cd /data/llm-infra-lab && LOG=/data/llm-infra-lab/results/serve_'$TAG'.log bash scripts/serve.sh '$PATH_' '$NAME' 8000 --max-model-len 8192 '$*''
+SRV_EXTRA=$(printf '%q ' "$@")
+$M1 'for p in $(pgrep -f "bin[/]vllm serve"); do kill $p 2>/dev/null; done
+for i in $(seq 1 60); do pgrep -f "bin[/]vllm serve" >/dev/null || break; sleep 3; done
+for p in $(pgrep -f "bin[/]vllm serve"); do kill -9 $p; done; sleep 8
+cd /data/llm-infra-lab && LOG=/data/llm-infra-lab/results/serve_'$TAG'.log bash scripts/serve.sh '"$PATH_ $NAME"' 8000 --max-model-len 8192 '"$SRV_EXTRA"
 
 for i in $(seq 1 240); do
   curl -s --max-time 2 http://localhost:8001/v1/models 2>/dev/null | grep -q "$NAME" && break

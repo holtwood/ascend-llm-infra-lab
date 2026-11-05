@@ -6,7 +6,7 @@ D="ssh -p 40083 root@223.111.149.165"
 N=$1  # 副本数: 1/2/3
 
 # 1) D 上建隧道（幂等：先杀旧隧道）
-$D 'for p in $(pgrep -f "ssh.*-L 800"); do kill $p 2>/dev/null; done
+$D 'for p in $(pgrep -f "[s]sh.*-L 800"); do kill $p 2>/dev/null; done
 nohup ssh -p 40019 -N -L 8001:localhost:8000 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 root@223.111.149.177 >/dev/null 2>&1 &
 [ '"$N"' -ge 2 ] && nohup ssh -p 40010 -N -L 8002:localhost:8000 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 root@223.92.35.244 >/dev/null 2>&1 &
 [ '"$N"' -ge 3 ] && nohup ssh -p 40019 -N -L 8003:localhost:8000 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 root@223.92.35.253 >/dev/null 2>&1 &

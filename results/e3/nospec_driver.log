@@ -1,2 +1,35 @@
 === [nospec_sonnet_c8] stopping old server ===
 === [nospec_sonnet_c8] starting server:  ===
+scripts/e3_ablation.sh: line 27: one: command not found
+=== [nospec_sonnet_c8] server up, benching ===
+tip: install termplotlib and gnuplot to plot the metrics
+============ Serving Benchmark Result ============
+Successful requests:                     64        
+Failed requests:                         0         
+Maximum request concurrency:             8         
+Benchmark duration (s):                  18.28     
+Total input tokens:                      32465     
+Total generated tokens:                  8192      
+Request throughput (req/s):              3.50      
+Output token throughput (tok/s):         448.16    
+Peak output token throughput (tok/s):    576.00    
+Peak concurrent requests:                16.00     
+Total token throughput (tok/s):          2224.22   
+---------------Time to First Token----------------
+Mean TTFT (ms):                          422.52    
+Median TTFT (ms):                        451.38    
+P99 TTFT (ms):                           658.59    
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          14.65     
+Median TPOT (ms):                        14.45     
+P99 TPOT (ms):                           15.59     
+---------------Inter-token Latency----------------
+Mean ITL (ms):                           14.65     
+Median ITL (ms):                         14.13     
+P99 ITL (ms):                            16.56     
+----------------End-to-end Latency----------------
+Mean E2EL (ms):                          2283.50   
+Median E2EL (ms):                        2254.92   
+P99 E2EL (ms):                           2619.26   
+==================================================
+=== [nospec_sonnet_c8] done ===

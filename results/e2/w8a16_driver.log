@@ -1,0 +1,1 @@
+serve qwen27b-w8a16 pid 5232 -> /data/llm-infra-lab/results/serve_w8a16.log
