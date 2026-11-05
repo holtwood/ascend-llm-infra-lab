@@ -9,7 +9,7 @@ export NODE_TAG=m2
 source /data/llm-infra-lab/scripts/night_common.sh
 MODEL=/data/models/Qwen3.5-4B
 PORT=8000
-SOAK_RUNS=${SOAK_RUNS:-550}
+LINE_MIN=${LINE_MIN:-360}
 
 log "M2 phase A: 3D grid"
 serve $PORT "$MODEL" grid_base || exit 1
@@ -36,11 +36,13 @@ for C in 16 64; do
   done
 done
 
-log "M2 phase D: mixed-length soak ($SOAK_RUNS runs)"
-for i in $(seq 1 "$SOAK_RUNS"); do
+log "M2 phase D: mixed-length soak (until +${LINE_MIN}min)"
+T0=$(date +%s); END=$(( T0 + LINE_MIN * 60 )); i=0
+while [ "$(date +%s)" -lt "$END" ]; do
+  i=$((i + 1))
   $PYBIN scripts/e13_mixedjob.py >/dev/null 2>&1
   echo "{\"tag\":\"mix_$(printf %04d "$i")\",\"ts\":$(date +%s)}" >> "$RES/mix_runs.jsonl"
-  [ $((i % 100)) -eq 0 ] && log "mix soak $i/$SOAK_RUNS"
+  [ $((i % 100)) -eq 0 ] && log "mix soak $i elapsed $(( ($(date +%s)-T0)/60 ))/${LINE_MIN}min"
 done
 
 log "M2 all done"

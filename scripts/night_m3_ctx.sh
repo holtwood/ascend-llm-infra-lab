@@ -10,7 +10,7 @@ source /data/llm-infra-lab/scripts/night_common.sh
 MODEL=/model/Qwen3.5-4B
 PORT=8000
 CYCLES=${CYCLES:-300}
-SOAK_WAVES=${SOAK_WAVES:-700}
+LINE_MIN=${LINE_MIN:-360}   # 实测 16k soak 波 11s+7s
 
 log "M3 phase A: ctx grid"
 MAXLEN=81920 serve $PORT "$MODEL" ctx_base || exit 1
@@ -56,11 +56,13 @@ for C in 8 16 32; do
   sample "wall_ctx16k_c${C}" $PORT
 done
 
-log "M3 phase D: long-ctx soak ctx16k c4 ($SOAK_WAVES waves)"
-for i in $(seq 1 "$SOAK_WAVES"); do
+log "M3 phase D: long-ctx soak ctx16k c4 (until +${LINE_MIN}min)"
+T0=$(date +%s); END=$(( T0 + LINE_MIN * 60 )); i=0
+while [ "$(date +%s)" -lt "$END" ]; do
+  i=$((i + 1))
   bench $PORT "ctxsoak_w$(printf %04d "$i")" 4 32 16000 64
   sample "ctxsoak_w$(printf %04d "$i")" $PORT
-  [ $((i % 50)) -eq 0 ] && log "ctx soak $i/$SOAK_WAVES"
+  [ $((i % 50)) -eq 0 ] && log "ctx soak $i elapsed $(( ($(date +%s)-T0)/60 ))/${LINE_MIN}min"
 done
 
 log "M3 all done"

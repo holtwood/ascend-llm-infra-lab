@@ -7,7 +7,7 @@ export NODE_TAG=d
 source /data/llm-infra-lab/scripts/night_common.sh
 PORT=8010
 M4B=/data/models/Qwen3.5-4B
-WAVES=${WAVES:-420}
+LINE_MIN=${LINE_MIN:-360}   # 实测 c32/n512 波 40s+7s
 
 log "D phase A: quant-vs-size matrix"
 for M in "/model/Qwen3.8-27B-w8a8|w8a8_27b" "/model/Qwen3-8B|bf16_8b" "$M4B|bf16_4b" "/model/Qwen3-0.6B|bf16_0p6b"; do
@@ -20,13 +20,14 @@ for M in "/model/Qwen3.8-27B-w8a8|w8a8_27b" "/model/Qwen3-8B|bf16_8b" "$M4B|bf16
   done
 done
 
-log "D phase B: soak ($WAVES waves)"
+log "D phase B: soak (until +${LINE_MIN}min)"
 serve $PORT "$M4B" soak_base || exit 1
-T0=$(date +%s)
-for i in $(seq 1 "$WAVES"); do
+T0=$(date +%s); END=$(( T0 + LINE_MIN * 60 )); i=0
+while [ "$(date +%s)" -lt "$END" ]; do
+  i=$((i + 1))
   bench $PORT "dsoak_w$(printf %04d "$i")" 32 512 256 96
   sample "dsoak_w$(printf %04d "$i")" $PORT
-  [ $((i % 50)) -eq 0 ] && log "d soak $i/$WAVES elapsed $(( ($(date +%s)-T0)/60 ))min"
+  [ $((i % 50)) -eq 0 ] && log "d soak $i elapsed $(( ($(date +%s)-T0)/60 ))/${LINE_MIN}min"
 done
 
 log "D all done"

@@ -15,9 +15,13 @@
 3. 启动后 5 分钟确认四条线都进入 cluster phase（grep 'cluster phase start'
    各节点 results/night/<tag>.log），没进入就看 <tag>_run.log 排查。
 
-【运行期】
-4. 每小时巡检一次：各节点 results/night/<tag>.log 尾部 + summary.jsonl 最新
-   3 行；记录进度到 docs/status.md（一行即可）。
+【运行期（每小时一轮，务必做）】
+4. 巡检 + 落盘推送：
+   a) 各节点 results/night/<tag>.log 尾部 + summary.jsonl 最新 3 行
+   b) 跑 python3 scripts/night_collect.py --local results/night（拉回增量）
+   c) 把增量结果 + docs/status.md 进度行 commit+push（先 fetch+rebase），
+      保证机器中途挂掉也不丢数据
+   d) 记录一行进度到 docs/status.md（如 "01:30 集群段 200 波，聚合 4.4k tok/s"）
 5. 某条线死亡（进程不在且未到结束时间）→ 按该节点脚本重启续跑，保留已有
    JSONL 不覆盖；连续两次起不来则停该线并在报告注明，其余三条继续。
 6. 不干预正在跑的线；不要重启 vllm，除非该线已死。
