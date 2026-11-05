@@ -11,12 +11,15 @@ exec > >(tee -a "$LOG") 2>&1
 WS=/data1/pytroch-7/vllm-workspace
 MIRROR=https://pypi.tuna.tsinghua.edu.cn/simple
 
-echo "[1/4] wait in-flight wheel install (max 40min)"
-for i in $(seq 1 240); do
+echo "[1/4] wait in-flight transfers/install (max 150min)"
+# tar stream copy of /vllm-workspace + models must settle first
+for i in $(seq 1 900); do
+    pgrep -f "tar xzf.*pytroch-7" >/dev/null || \
     pgrep -f "install_stack.sh" >/dev/null || break
     sleep 10
 done
 tail -5 /tmp/stack_install.log 2>/dev/null
+ls "$WS" 2>/dev/null
 
 echo "[2/4] vllm import check"
 if python3 -c "import vllm" 2>/dev/null; then

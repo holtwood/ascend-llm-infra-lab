@@ -10,9 +10,12 @@ set -u
 export TZ=Asia/Shanghai
 
 # CANN env (non-login shell skips .bashrc) + all 8 NPUs visible
+# vendor env scripts reference unbound vars -> source outside set -u
+set +u
 source /usr/local/Ascend/ascend-toolkit/set_env.sh 2>/dev/null
 source /usr/local/Ascend/cann-9.0.0/share/info/ascendnpu-ir/bin/set_env.sh 2>/dev/null
 source /usr/local/Ascend/nnal/atb/set_env.sh 2>/dev/null
+set -u
 export ASCEND_RT_VISIBLE_DEVICES="0,1,2,3,4,5,6,7"
 
 BASE=/data1/pytroch-7/overnight
@@ -56,12 +59,8 @@ log "=== overnight queue start, budget ${BUDGET_HOURS}h, out=$OUT_DIR ==="
 
 run env_probe 300 "TASKS_DIR=$TASKS_DIR OUT_DIR=$OUT_DIR bash $TASKS_DIR/env_probe.sh"
 
-# --- Block A: vllm bring-up (bounded) --------------------------------------
-if [ "${SKIP_VLLM:-0}" != "1" ]; then
-    run finish_install 3600 "TASKS_DIR=$TASKS_DIR OUT_DIR=$OUT_DIR bash $TASKS_DIR/finish_install.sh"
-fi
-
-# --- Block B: torch-level matrices (guaranteed runnable) -------------------
+# --- Block A: torch-level matrices (need NOTHING but torch_npu) ------------
+# Run FIRST: transfers (models/source tar) still in flight; these don't wait.
 run hccl_pairs 3000 \
     "python3 $TASKS_DIR/hccl_pairs.py --world 8 --port 29711 --out $OUT_DIR/hccl_pairs.json"
 run kv_quant_matrix 5400 \
@@ -70,6 +69,11 @@ run paged_gather 2700 \
     "python3 $TASKS_DIR/paged_gather_matrix.py --out $OUT_DIR/paged_gather.json"
 run copy_bw 2400 \
     "python3 $TASKS_DIR/copy_bw_matrix.py --out $OUT_DIR/copy_bw.json"
+
+# --- Block B: vllm bring-up (last, gives transfers max time to land) -------
+if [ "${SKIP_VLLM:-0}" != "1" ]; then
+    run finish_install 3600 "TASKS_DIR=$TASKS_DIR OUT_DIR=$OUT_DIR bash $TASKS_DIR/finish_install.sh"
+fi
 
 # --- Block C: serving-level (only if vllm came up) --------------------------
 if vllm_gate; then

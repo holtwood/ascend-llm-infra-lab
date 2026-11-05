@@ -15,11 +15,15 @@ NQ = 32  # query heads
 
 
 def sdpa(q, k, v):
-    # q: [B,NQ,S,1,D] decode step (Sq=1); expand KV heads for GQA
-    k = k.repeat_interleave(NQ // NKV, dim=1)
-    v = v.repeat_interleave(NQ // NKV, dim=1)
-    return torch.nn.functional.scaled_dot_product_attention(
-        q.transpose(1, 2), k.transpose(1, 2), v.transpose(1, 2))
+    # GQA via batch-dim broadcast (no KV materialization, no enable_gqa:
+    # torch_npu's SDPA backend rejects enable_gqa)
+    Bq, S = q.shape[0], k.shape[2]
+    G = NQ // NKV
+    qq = q.view(Bq, NKV, G, 1, D).reshape(Bq * NKV, G, 1, D)
+    kk = k.reshape(Bq * NKV, 1, S, D)
+    vv = v.reshape(Bq * NKV, 1, S, D)
+    out = torch.nn.functional.scaled_dot_product_attention(qq, kk, vv)
+    return out.reshape(Bq, NQ, 1, D)
 
 
 def quant_i8(t):
@@ -42,11 +46,11 @@ def bench(fn, iters=20, warmup=5):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", required=True)
-    ap.add_argument("--max-kv-gb", type=float, default=6.0)
+    ap.add_argument("--max-kv-gb", type=float, default=10.0)
     args = ap.parse_args()
     torch_npu.npu.set_device(0)
     results = []
-    for S in [1024, 2048, 4096, 8192, 16384]:
+    for S in [128, 256, 512, 1024, 2048, 4096, 8192, 16384]:
         for B in [1, 8, 32, 64]:
             kv_gb = 2 * B * S * NKV * D * 2 / 1e9
             if kv_gb > args.max_kv_gb:

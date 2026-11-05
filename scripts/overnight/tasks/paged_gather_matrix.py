@@ -14,10 +14,13 @@ NQ = 32
 
 
 def sdpa(q, k, v):
-    k = k.repeat_interleave(NQ // NKV, dim=1)
-    v = v.repeat_interleave(NQ // NKV, dim=1)
-    return torch.nn.functional.scaled_dot_product_attention(
-        q.transpose(1, 2), k.transpose(1, 2), v.transpose(1, 2))
+    Bq, S = q.shape[0], k.shape[2]
+    G = NQ // NKV
+    qq = q.view(Bq, NKV, G, 1, D).reshape(Bq * NKV, G, 1, D)
+    kk = k.reshape(Bq * NKV, 1, S, D)
+    vv = v.reshape(Bq * NKV, 1, S, D)
+    out = torch.nn.functional.scaled_dot_product_attention(qq, kk, vv)
+    return out.reshape(Bq, NQ, 1, D)
 
 
 def bench(fn, iters=20, warmup=5):
