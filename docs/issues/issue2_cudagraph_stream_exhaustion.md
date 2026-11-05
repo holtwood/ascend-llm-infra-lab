@@ -13,7 +13,8 @@
 ```bash
 vllm serve /model/Qwen3.8-27B-w8a8 \
   --served-model-name qwen27b-w8a8 --port 8000 --max-model-len 8192
-# i.e. DEFAULT compilation_config -> cudagraph_capture_sizes auto-expands to ~48 entries (1..512)
+# i.e. DEFAULT compilation_config -> cudagraph_capture_sizes auto-expands
+# (1..256 step 8 = 35 entries in our run; up to 64 entries with MTP/spec enabled)
 ```
 
 ## Expected
@@ -44,10 +45,11 @@ Driver plog shows the true resource exhaustion:
 ## Analysis
 
 Each ACL graph capture allocates SQ/CQ (stream-queue) pairs on the device. The
-default `cudagraph_capture_sizes` list (~48 entries) requires ~48 concurrent capture
-streams, which exceeds the SQ/CQ budget on 910B2 — especially with a 30GB model
-already holding device memory. The surface error (`Failed to apply for memory`)
-is misleading: the exhausted resource is hardware queues, not DRAM.
+default `cudagraph_capture_sizes` list (35–64 entries depending on config)
+requires that many concurrent capture streams, which exceeds the SQ/CQ budget
+on 910B2 — especially with a 30GB model already holding device memory. The
+surface error (`Failed to apply for memory`) is misleading: the exhausted
+resource is hardware queues, not DRAM.
 
 ## Workaround (verified)
 
