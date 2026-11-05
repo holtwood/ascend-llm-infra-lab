@@ -2302,3 +2302,1629 @@ WARNING 11-05 18:50:10 [ascend_config.py:382] RL config requires weight_nz_mode=
 (EngineCore pid=342398) INFO 11-05 18:57:43 [scheduler.py:2600] setting pause state to PAUSED_NEW
 (EngineCore pid=342398) INFO 11-05 18:57:43 [block_pool.py:854] Successfully reset prefix cache
 (EngineCore pid=342398) INFO 11-05 18:57:43 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:57:45 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:57:45 [abstract.py:346] It took 1.731706 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:34970 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:57:45 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:57:45 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:57:45 [abstract.py:364] It took 0.101908 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:57:45 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:34972 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:34974 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:57:45 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:57:45 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:57:45 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:57:47 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:57:47 [abstract.py:346] It took 1.720436 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:34976 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:57:47 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:57:47 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:57:47 [abstract.py:364] It took 0.103914 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:57:47 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:34978 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:34980 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:57:47 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:57:47 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:57:47 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(APIServer pid=342253) INFO 11-05 18:57:48 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 2.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 18:57:49 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:57:49 [abstract.py:346] It took 1.726250 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:34982 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:57:49 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:57:49 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:57:49 [abstract.py:364] It took 0.095681 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:57:49 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:34984 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:34986 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:57:49 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:57:49 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:57:49 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:57:51 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:57:51 [abstract.py:346] It took 1.727324 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:34988 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:57:51 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:57:51 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:57:51 [abstract.py:364] It took 0.104674 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:57:51 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:34990 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:34992 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:57:51 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:57:51 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:57:51 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:57:53 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:57:53 [abstract.py:346] It took 1.732052 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:34994 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:57:53 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:57:53 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:57:53 [abstract.py:364] It took 0.113116 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:57:53 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:34996 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:34998 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:57:53 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:57:53 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:57:53 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:57:55 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:57:55 [abstract.py:346] It took 1.750137 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35000 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:57:55 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:57:55 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:57:55 [abstract.py:364] It took 0.096147 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:57:55 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35002 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35004 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:57:55 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:57:55 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:57:55 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:57:57 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:57:57 [abstract.py:346] It took 1.722654 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35006 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:57:57 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:57:57 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:57:57 [abstract.py:364] It took 0.095703 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:57:57 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35008 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35010 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:57:57 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:57:57 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:57:57 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(APIServer pid=342253) INFO 11-05 18:57:58 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 2.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 18:57:59 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:57:59 [abstract.py:346] It took 1.777494 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35012 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:57:59 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:57:59 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:57:59 [abstract.py:364] It took 0.105199 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:57:59 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35014 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35016 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:57:59 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:57:59 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:57:59 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:01 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:01 [abstract.py:346] It took 1.736723 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35018 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:01 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:01 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:01 [abstract.py:364] It took 0.104311 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:01 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35020 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35022 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:01 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:01 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:02 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:03 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:03 [abstract.py:346] It took 1.730536 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35024 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:03 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:03 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:03 [abstract.py:364] It took 0.104405 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:03 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35026 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35028 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:04 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:04 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:04 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:05 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:05 [abstract.py:346] It took 1.768726 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35030 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:05 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:05 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:05 [abstract.py:364] It took 0.103865 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:05 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35032 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35034 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:06 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:06 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:06 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:07 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:07 [abstract.py:346] It took 1.721202 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35036 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:07 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:07 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:07 [abstract.py:364] It took 0.103282 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:07 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35038 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35040 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:08 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:08 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:08 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(APIServer pid=342253) INFO 11-05 18:58:08 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 2.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 18:58:09 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:09 [abstract.py:346] It took 1.765904 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35042 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:09 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:09 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:10 [abstract.py:364] It took 0.094890 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:10 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35044 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35046 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:10 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:10 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:10 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:11 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:11 [abstract.py:346] It took 1.724903 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35048 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:11 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:12 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:12 [abstract.py:364] It took 0.104795 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:12 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35050 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35054 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:12 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:12 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:12 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:14 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:14 [abstract.py:346] It took 1.718692 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35056 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:14 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:14 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:14 [abstract.py:364] It took 0.103416 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:14 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35058 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35060 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:14 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:14 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:14 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:16 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:16 [abstract.py:346] It took 1.730738 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35062 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:16 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:16 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:16 [abstract.py:364] It took 0.104406 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:16 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35064 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35066 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:16 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:16 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:16 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:18 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:18 [abstract.py:346] It took 1.814608 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35068 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:18 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:18 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(APIServer pid=342253) INFO 11-05 18:58:18 [loggers.py:315] Engine 000: Avg prompt throughput: 0.4 tokens/s, Avg generation throughput: 1.6 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 18:58:18 [abstract.py:364] It took 0.104748 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:18 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35070 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35072 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:18 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:18 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:18 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:20 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:20 [abstract.py:346] It took 1.777042 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35074 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:20 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:20 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:20 [abstract.py:364] It took 0.098676 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:20 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35076 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35078 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:20 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:20 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:20 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:22 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:22 [abstract.py:346] It took 1.735290 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35080 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:22 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:22 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:22 [abstract.py:364] It took 0.112552 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:22 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35082 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35084 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:22 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:22 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:22 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:24 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:24 [abstract.py:346] It took 1.719326 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35086 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:24 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:24 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:24 [abstract.py:364] It took 0.104084 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:24 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35088 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35090 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:24 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:24 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:24 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:26 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:26 [abstract.py:346] It took 1.727454 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35092 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:26 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:26 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:26 [abstract.py:364] It took 0.095161 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:26 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35094 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35096 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:26 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:26 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:26 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(APIServer pid=342253) INFO 11-05 18:58:28 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 2.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 18:58:28 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:28 [abstract.py:346] It took 1.721208 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35098 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:28 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:28 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:28 [abstract.py:364] It took 0.104160 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:28 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35100 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35102 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:28 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:28 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:28 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:30 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:30 [abstract.py:346] It took 1.752858 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35106 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:30 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:30 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:30 [abstract.py:364] It took 0.102337 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:30 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35108 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35110 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:30 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:30 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:30 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:32 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:32 [abstract.py:346] It took 1.721637 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35112 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:32 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:32 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:32 [abstract.py:364] It took 0.103789 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:32 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35114 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35116 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:32 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:32 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:32 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:34 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:34 [abstract.py:346] It took 1.719476 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35118 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:34 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:34 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:34 [abstract.py:364] It took 0.103712 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:34 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35120 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35122 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:34 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:34 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:34 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:36 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:36 [abstract.py:346] It took 1.726327 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35124 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:36 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:36 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:36 [abstract.py:364] It took 0.103779 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:36 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35126 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35128 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:36 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:36 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:37 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(APIServer pid=342253) INFO 11-05 18:58:38 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 2.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 18:58:38 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:38 [abstract.py:346] It took 1.730720 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35130 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:38 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:38 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:38 [abstract.py:364] It took 0.104122 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:38 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35132 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35134 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:39 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:39 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:39 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:40 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:40 [abstract.py:346] It took 1.793640 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35136 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:40 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:40 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:40 [abstract.py:364] It took 0.114907 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:40 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35138 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35140 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:41 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:41 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:41 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:42 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:42 [abstract.py:346] It took 1.727437 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35142 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:42 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:42 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:43 [abstract.py:364] It took 0.094462 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:43 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35144 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35146 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:43 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:43 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:43 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:44 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:44 [abstract.py:346] It took 1.722013 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35148 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:44 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:44 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:45 [abstract.py:364] It took 0.103463 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:45 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35150 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35152 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35154 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35156 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35158 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35160 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:45 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:45 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:45 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:47 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:47 [abstract.py:346] It took 1.736581 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35162 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:47 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:47 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:47 [abstract.py:364] It took 0.101841 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:47 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35164 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35166 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:47 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:47 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:47 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(APIServer pid=342253) INFO 11-05 18:58:48 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 2.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 18:58:49 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:49 [abstract.py:346] It took 1.715083 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35168 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:49 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:49 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:49 [abstract.py:364] It took 0.096432 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:49 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35170 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35172 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:49 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:49 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:49 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:51 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:51 [abstract.py:346] It took 1.755048 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35174 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:51 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:51 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:51 [abstract.py:364] It took 0.104160 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:51 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35176 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35178 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:51 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:51 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:52 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:53 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:53 [abstract.py:346] It took 1.722600 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35182 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:53 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:53 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:53 [abstract.py:364] It took 0.104054 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:53 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35184 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35186 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:53 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:53 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:54 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:55 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:55 [abstract.py:346] It took 1.721537 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35188 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:55 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:55 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:55 [abstract.py:364] It took 0.099448 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:55 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35190 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35192 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:56 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:56 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:56 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:58:57 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:57 [abstract.py:346] It took 1.720250 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35194 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:57 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:57 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:57 [abstract.py:364] It took 0.095737 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:57 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35196 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35198 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:58:58 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:58:58 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:58:58 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(APIServer pid=342253) INFO 11-05 18:58:58 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 2.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 18:58:59 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:58:59 [abstract.py:346] It took 1.714316 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35200 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:58:59 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:58:59 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:58:59 [abstract.py:364] It took 0.102296 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:58:59 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35202 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35204 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:00 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:00 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:00 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:01 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:01 [abstract.py:346] It took 1.769633 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35206 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:01 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:01 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:01 [abstract.py:364] It took 0.104321 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:01 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35210 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35212 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:02 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:02 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:02 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:03 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:03 [abstract.py:346] It took 1.737823 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35214 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:03 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:03 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:04 [abstract.py:364] It took 0.102657 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:04 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35218 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35220 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:04 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:04 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:04 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:06 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:06 [abstract.py:346] It took 1.784342 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35222 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:06 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:06 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:06 [abstract.py:364] It took 0.105715 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:06 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35224 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35226 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:06 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:06 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:06 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:08 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:08 [abstract.py:346] It took 1.731881 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35228 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:08 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:08 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:08 [abstract.py:364] It took 0.113250 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:08 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35230 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:08 [loggers.py:315] Engine 000: Avg prompt throughput: 0.4 tokens/s, Avg generation throughput: 1.6 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(APIServer pid=342253) INFO:     127.0.0.1:35232 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:08 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:08 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:08 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:10 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:10 [abstract.py:346] It took 1.765712 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35234 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:10 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:10 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:10 [abstract.py:364] It took 0.104158 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:10 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35236 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35238 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:10 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:10 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:10 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:12 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:12 [abstract.py:346] It took 1.724142 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35240 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:12 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:12 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:12 [abstract.py:364] It took 0.098506 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:12 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35242 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35244 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:12 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:12 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:12 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:14 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:14 [abstract.py:346] It took 1.718843 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35246 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:14 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:14 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:14 [abstract.py:364] It took 0.104697 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:14 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35248 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35250 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:14 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:14 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:14 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:16 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:16 [abstract.py:346] It took 1.756973 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35252 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:16 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:16 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:16 [abstract.py:364] It took 0.096876 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:16 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35254 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35256 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:16 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:16 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:16 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(APIServer pid=342253) INFO 11-05 18:59:18 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 2.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 18:59:18 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:18 [abstract.py:346] It took 1.736915 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35260 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:18 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:18 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:18 [abstract.py:364] It took 0.105256 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:18 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35262 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35264 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:18 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:18 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:18 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:20 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:20 [abstract.py:346] It took 1.761688 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35266 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:20 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:20 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:20 [abstract.py:364] It took 0.098471 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:20 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35268 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35270 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:20 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:20 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:20 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:22 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:22 [abstract.py:346] It took 1.746024 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35272 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:22 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:22 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:22 [abstract.py:364] It took 0.113124 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:22 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35274 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35276 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:22 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:22 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:22 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:24 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:24 [abstract.py:346] It took 1.720694 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35278 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:24 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:24 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:24 [abstract.py:364] It took 0.094298 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:24 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35280 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35282 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:24 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:24 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:24 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:26 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:26 [abstract.py:346] It took 1.722233 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35284 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:26 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:26 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:26 [abstract.py:364] It took 0.094482 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:26 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35286 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35288 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:26 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:26 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:27 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(APIServer pid=342253) INFO 11-05 18:59:28 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 2.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 18:59:28 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:28 [abstract.py:346] It took 1.749492 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35290 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:28 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:28 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:28 [abstract.py:364] It took 0.104527 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:28 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35292 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35294 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:29 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:29 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:29 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:30 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:30 [abstract.py:346] It took 1.767102 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35296 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:30 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:30 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:30 [abstract.py:364] It took 0.100318 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:30 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35298 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35300 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:31 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:31 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:31 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:32 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:32 [abstract.py:346] It took 1.723477 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35302 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:32 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:32 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:32 [abstract.py:364] It took 0.112523 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:32 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35304 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35306 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:33 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:33 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:33 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:34 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:34 [abstract.py:346] It took 1.733649 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35308 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:34 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:34 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:35 [abstract.py:364] It took 0.114594 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:35 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35310 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35312 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:35 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:35 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:35 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:36 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:36 [abstract.py:346] It took 1.731152 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35314 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:36 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:36 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:37 [abstract.py:364] It took 0.093715 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:37 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35316 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35320 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:37 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:37 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:37 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(APIServer pid=342253) INFO 11-05 18:59:38 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 2.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 18:59:39 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:39 [abstract.py:346] It took 1.720241 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35322 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:39 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:39 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:39 [abstract.py:364] It took 0.104083 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:39 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35324 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35326 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:39 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:39 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:39 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:41 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:41 [abstract.py:346] It took 1.751831 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35328 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:41 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:41 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:41 [abstract.py:364] It took 0.101137 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:41 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35330 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35332 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:41 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:41 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:41 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:43 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:43 [abstract.py:346] It took 1.743783 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35334 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:43 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:43 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:43 [abstract.py:364] It took 0.101192 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:43 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35336 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35338 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:43 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:43 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:43 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:45 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:45 [abstract.py:346] It took 1.712131 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35340 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:45 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:45 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:45 [abstract.py:364] It took 0.103997 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:45 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35342 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35344 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:45 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:45 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:45 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:47 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:47 [abstract.py:346] It took 1.726518 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35346 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:47 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:47 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:47 [abstract.py:364] It took 0.109026 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:47 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35348 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35350 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:47 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:47 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:47 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(APIServer pid=342253) INFO 11-05 18:59:48 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 2.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 18:59:49 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:49 [abstract.py:346] It took 1.749168 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35352 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:49 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:49 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:49 [abstract.py:364] It took 0.112292 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:49 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35354 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35356 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:49 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:49 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:49 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:51 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:51 [abstract.py:346] It took 1.771644 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35358 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:51 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:51 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:51 [abstract.py:364] It took 0.102394 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:51 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35360 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35362 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:51 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:51 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:51 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:53 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:53 [abstract.py:346] It took 1.726057 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35364 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:53 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:53 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:53 [abstract.py:364] It took 0.103710 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:53 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35366 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35368 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:53 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:53 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:53 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:55 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:55 [abstract.py:346] It took 1.712919 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35370 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:55 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:55 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:55 [abstract.py:364] It took 0.094249 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:55 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35372 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35374 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:55 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:55 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:55 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 18:59:57 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:57 [abstract.py:346] It took 1.728166 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35376 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:57 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:57 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:57 [abstract.py:364] It took 0.095198 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:57 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35378 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35380 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:57 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:57 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:57 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(APIServer pid=342253) INFO 11-05 18:59:58 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 2.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 18:59:59 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 18:59:59 [abstract.py:346] It took 1.738214 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35382 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 18:59:59 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 18:59:59 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 18:59:59 [abstract.py:364] It took 0.093774 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 18:59:59 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35384 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35386 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 18:59:59 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 18:59:59 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 18:59:59 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:01 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:01 [abstract.py:346] It took 1.762953 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35388 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:01 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:01 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:01 [abstract.py:364] It took 0.103961 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:01 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35390 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35392 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:01 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:01 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:01 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:03 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:03 [abstract.py:346] It took 1.728960 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35394 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:03 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:03 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:03 [abstract.py:364] It took 0.103101 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:03 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35396 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35398 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:03 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:03 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:04 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:05 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:05 [abstract.py:346] It took 1.743229 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35400 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:05 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:05 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:05 [abstract.py:364] It took 0.103836 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:05 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35402 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35404 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:06 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:06 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:06 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:07 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:07 [abstract.py:346] It took 1.742227 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35406 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:07 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:07 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:07 [abstract.py:364] It took 0.104892 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:07 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35408 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35410 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:08 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:08 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:08 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(APIServer pid=342253) INFO 11-05 19:00:08 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 2.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 19:00:09 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:09 [abstract.py:346] It took 1.742134 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35412 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:09 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:09 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:09 [abstract.py:364] It took 0.095520 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:09 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35414 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35416 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:10 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:10 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:10 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:11 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:11 [abstract.py:346] It took 1.765516 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35420 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:11 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:11 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:12 [abstract.py:364] It took 0.105205 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:12 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35422 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35424 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:12 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:12 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:12 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:14 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:14 [abstract.py:346] It took 1.780477 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35426 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:14 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:14 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:14 [abstract.py:364] It took 0.104546 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:14 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35428 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35430 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:14 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:14 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:14 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:16 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:16 [abstract.py:346] It took 1.713281 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35432 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:16 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:16 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:16 [abstract.py:364] It took 0.101934 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:16 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35434 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35436 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:16 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:16 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:16 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:18 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:18 [abstract.py:346] It took 1.760030 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35438 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:18 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:18 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:18 [abstract.py:364] It took 0.101031 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:18 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35440 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:18 [loggers.py:315] Engine 000: Avg prompt throughput: 0.4 tokens/s, Avg generation throughput: 1.6 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(APIServer pid=342253) INFO:     127.0.0.1:35442 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:18 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:18 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:18 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:20 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:20 [abstract.py:346] It took 1.751478 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35444 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:20 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:20 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:20 [abstract.py:364] It took 0.104094 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:20 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35446 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35448 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:20 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:20 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:20 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:22 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:22 [abstract.py:346] It took 1.752821 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35450 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:22 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:22 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:22 [abstract.py:364] It took 0.103037 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:22 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35452 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35454 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:22 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:22 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:22 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:24 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:24 [abstract.py:346] It took 1.730742 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35458 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:24 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:24 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:24 [abstract.py:364] It took 0.095752 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:24 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35460 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35462 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:24 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:24 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:24 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:26 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:26 [abstract.py:346] It took 1.718023 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35464 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:26 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:26 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:26 [abstract.py:364] It took 0.101912 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:26 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35466 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35468 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:26 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:26 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:26 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(APIServer pid=342253) INFO 11-05 19:00:28 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 2.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 19:00:28 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:28 [abstract.py:346] It took 1.738731 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35470 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:28 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:28 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:28 [abstract.py:364] It took 0.100968 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:28 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35472 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35474 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35476 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35478 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35480 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35482 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:29 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:29 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:29 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:31 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:31 [abstract.py:346] It took 1.735403 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35484 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:31 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:31 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:31 [abstract.py:364] It took 0.095118 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:31 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35488 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35490 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:31 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:31 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:31 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:33 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:33 [abstract.py:346] It took 1.744235 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35492 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:33 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:33 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:33 [abstract.py:364] It took 0.094649 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:33 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35494 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35496 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:33 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:33 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:33 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:35 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:35 [abstract.py:346] It took 1.757278 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35498 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:35 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:35 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:35 [abstract.py:364] It took 0.103569 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:35 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35500 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35502 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:35 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:35 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:35 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:37 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:37 [abstract.py:346] It took 1.723929 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35504 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:37 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:37 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:37 [abstract.py:364] It took 0.094558 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:37 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35506 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35508 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:37 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:37 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:37 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(APIServer pid=342253) INFO 11-05 19:00:38 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 2.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 19:00:39 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:39 [abstract.py:346] It took 1.726999 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35510 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:39 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:39 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:39 [abstract.py:364] It took 0.103878 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:39 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35512 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35514 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:39 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:39 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:39 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:41 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:41 [abstract.py:346] It took 1.721546 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35516 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:41 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:41 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:41 [abstract.py:364] It took 0.111913 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:41 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35518 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35520 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:41 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:41 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:41 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:43 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:43 [abstract.py:346] It took 1.748358 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35522 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:43 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:43 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:43 [abstract.py:364] It took 0.102206 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:43 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35526 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35528 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:43 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:43 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:43 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:45 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:45 [abstract.py:346] It took 1.721311 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35530 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:45 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:45 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:45 [abstract.py:364] It took 0.104350 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:45 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35532 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35534 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:45 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:45 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:45 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:47 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:47 [abstract.py:346] It took 1.737440 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35536 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:47 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:47 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:47 [abstract.py:364] It took 0.095341 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:47 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35538 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35540 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:47 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:47 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:47 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(APIServer pid=342253) INFO 11-05 19:00:48 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 2.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 19:00:49 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:49 [abstract.py:346] It took 1.726076 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35542 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:49 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:49 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:49 [abstract.py:364] It took 0.104637 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:49 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35544 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35546 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:49 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:49 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:49 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:51 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:51 [abstract.py:346] It took 1.717786 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35548 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:51 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:51 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:51 [abstract.py:364] It took 0.104442 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:51 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35550 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35552 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:51 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:51 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:51 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:53 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:53 [abstract.py:346] It took 1.734046 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35554 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:53 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:53 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:53 [abstract.py:364] It took 0.102276 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:53 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35556 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35558 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:53 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:53 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:53 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:55 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:55 [abstract.py:346] It took 1.741294 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35560 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:55 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:55 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:55 [abstract.py:364] It took 0.119596 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:55 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35562 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35564 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:55 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:55 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:56 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:00:57 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:57 [abstract.py:346] It took 1.755184 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35566 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:57 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:57 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:57 [abstract.py:364] It took 0.102176 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:57 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35568 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35570 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:00:58 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:00:58 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:00:58 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(APIServer pid=342253) INFO 11-05 19:00:58 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 2.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 19:00:59 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:00:59 [abstract.py:346] It took 1.730437 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35572 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:00:59 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:00:59 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:00:59 [abstract.py:364] It took 0.098404 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:00:59 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35574 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35576 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:00 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:00 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:00 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:01 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:01 [abstract.py:346] It took 1.768656 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35578 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:01 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:01 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:01 [abstract.py:364] It took 0.097365 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:01 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35580 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35584 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:02 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:02 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:02 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:03 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:03 [abstract.py:346] It took 1.727662 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35586 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:03 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:03 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:04 [abstract.py:364] It took 0.104778 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:04 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35588 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35590 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:04 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:04 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:04 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:06 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:06 [abstract.py:346] It took 1.756241 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35592 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:06 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:06 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:06 [abstract.py:364] It took 0.101861 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:06 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35596 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35598 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:06 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:06 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:06 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:08 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:08 [abstract.py:346] It took 1.726165 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35600 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:08 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:08 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:08 [abstract.py:364] It took 0.105340 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:08 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35604 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:08 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 1.8 tokens/s, Running: 1 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.4%, Prefix cache hit rate: 0.0%
+(APIServer pid=342253) INFO:     127.0.0.1:35606 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:08 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:08 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:08 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:10 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:10 [abstract.py:346] It took 1.776539 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35608 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:10 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:10 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:10 [abstract.py:364] It took 0.102953 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:10 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35610 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35612 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:10 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:10 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:10 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:12 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:12 [abstract.py:346] It took 1.743903 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35614 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:12 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:12 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:12 [abstract.py:364] It took 0.095396 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:12 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35616 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35618 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:12 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:12 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:12 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:14 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:14 [abstract.py:346] It took 1.730998 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35620 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:14 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:14 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:14 [abstract.py:364] It took 0.095539 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:14 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35624 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35626 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:14 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:14 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:14 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:16 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:16 [abstract.py:346] It took 1.720591 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35628 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:16 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:16 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:16 [abstract.py:364] It took 0.104295 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:16 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35630 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35634 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:16 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:16 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:16 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(APIServer pid=342253) INFO 11-05 19:01:18 [loggers.py:315] Engine 000: Avg prompt throughput: 0.4 tokens/s, Avg generation throughput: 1.8 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 19:01:18 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:18 [abstract.py:346] It took 1.769497 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35636 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:18 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:18 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:18 [abstract.py:364] It took 0.123351 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:18 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35638 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35640 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:18 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:18 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:18 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:20 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:20 [abstract.py:346] It took 1.793019 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35642 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:20 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:20 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:20 [abstract.py:364] It took 0.095673 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:20 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35644 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35646 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:20 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:20 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:20 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:22 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:22 [abstract.py:346] It took 1.750338 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35648 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:22 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:22 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:22 [abstract.py:364] It took 0.095967 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:22 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35650 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35652 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:22 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:22 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:22 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:24 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:24 [abstract.py:346] It took 1.730737 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35654 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:24 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:24 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:24 [abstract.py:364] It took 0.103205 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:24 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35656 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35658 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:24 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:24 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:24 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:26 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:26 [abstract.py:346] It took 1.735799 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35660 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:26 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:26 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:26 [abstract.py:364] It took 0.096086 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:26 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35662 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35664 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:26 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:26 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:27 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(APIServer pid=342253) INFO 11-05 19:01:28 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 2.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 19:01:28 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:28 [abstract.py:346] It took 1.721209 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35666 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:28 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:28 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:28 [abstract.py:364] It took 0.110568 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:28 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35668 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35670 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:29 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:29 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:29 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:30 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:30 [abstract.py:346] It took 1.734548 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35672 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:30 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:30 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:30 [abstract.py:364] It took 0.102264 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:30 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35674 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35676 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:31 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:31 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:31 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:32 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:32 [abstract.py:346] It took 1.751529 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35678 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:32 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:32 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:32 [abstract.py:364] It took 0.096228 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:32 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35680 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35682 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:33 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:33 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:33 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:34 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:34 [abstract.py:346] It took 1.743196 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35684 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:34 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:34 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:34 [abstract.py:364] It took 0.104251 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:34 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35686 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35688 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:35 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:35 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:35 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:36 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:36 [abstract.py:346] It took 1.718854 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35690 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:36 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:36 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:37 [abstract.py:364] It took 0.112490 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:37 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35692 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35694 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:37 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:37 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:37 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(APIServer pid=342253) INFO 11-05 19:01:38 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 2.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 19:01:38 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:38 [abstract.py:346] It took 1.716893 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35696 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:38 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:38 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:39 [abstract.py:364] It took 0.103446 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:39 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35698 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35700 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:39 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:39 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:39 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:41 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:41 [abstract.py:346] It took 1.755064 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35702 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:41 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:41 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:41 [abstract.py:364] It took 0.121974 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:41 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35704 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35706 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:41 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:41 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:41 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:43 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:43 [abstract.py:346] It took 1.786555 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35708 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:43 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:43 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:43 [abstract.py:364] It took 0.094655 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:43 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35710 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35712 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:43 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:43 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:43 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:45 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:45 [abstract.py:346] It took 1.729705 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35714 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:45 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:45 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:45 [abstract.py:364] It took 0.094809 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:45 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35716 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35718 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:45 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:45 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:45 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:47 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:47 [abstract.py:346] It took 1.731723 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35720 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:47 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:47 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:47 [abstract.py:364] It took 0.104104 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:47 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35722 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35724 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:47 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:47 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:47 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(APIServer pid=342253) INFO 11-05 19:01:48 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 2.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 19:01:49 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:49 [abstract.py:346] It took 1.717278 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35726 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:49 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:49 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:49 [abstract.py:364] It took 0.114567 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:49 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35728 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35730 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:49 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:49 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:49 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:51 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:51 [abstract.py:346] It took 1.728476 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35732 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:51 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:51 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:51 [abstract.py:364] It took 0.102744 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:51 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35734 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35736 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:51 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:51 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:51 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:53 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:53 [abstract.py:346] It took 1.745537 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35738 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:53 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:53 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:53 [abstract.py:364] It took 0.104632 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:53 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35740 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35742 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:53 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:53 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:53 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:55 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:55 [abstract.py:346] It took 1.730236 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35744 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:55 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:55 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:55 [abstract.py:364] It took 0.103269 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:55 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35746 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35748 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:55 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:55 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:55 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:01:57 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:57 [abstract.py:346] It took 1.724307 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35750 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:57 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:57 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:57 [abstract.py:364] It took 0.104029 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:57 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35752 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35754 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:57 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:57 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:57 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(APIServer pid=342253) INFO 11-05 19:01:58 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 2.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 19:01:59 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:01:59 [abstract.py:346] It took 1.735876 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35756 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:01:59 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:01:59 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:01:59 [abstract.py:364] It took 0.104354 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:01:59 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35758 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35760 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:01:59 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:01:59 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:01:59 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:02:01 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:02:01 [abstract.py:346] It took 1.748036 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35762 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:02:01 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:02:01 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:02:01 [abstract.py:364] It took 0.104266 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:02:01 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35764 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35766 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:02:01 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:02:01 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:02:02 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:02:03 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:02:03 [abstract.py:346] It took 1.806792 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35768 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:02:03 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:02:03 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:02:03 [abstract.py:364] It took 0.096605 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:02:03 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35770 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35772 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:02:04 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:02:04 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:02:04 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:02:05 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:02:05 [abstract.py:346] It took 1.760877 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35774 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:02:05 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:02:05 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:02:05 [abstract.py:364] It took 0.104453 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:02:05 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35776 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35778 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:02:06 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:02:06 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:02:06 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:02:07 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:02:07 [abstract.py:346] It took 1.721354 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35780 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:02:07 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:02:07 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:02:08 [abstract.py:364] It took 0.103592 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:02:08 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35782 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35784 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:02:08 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:02:08 [block_pool.py:854] Successfully reset prefix cache
+(APIServer pid=342253) INFO 11-05 19:02:08 [loggers.py:315] Engine 000: Avg prompt throughput: 0.5 tokens/s, Avg generation throughput: 2.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(EngineCore pid=342398) INFO 11-05 19:02:08 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:02:10 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:02:10 [abstract.py:346] It took 1.771408 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35786 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:02:10 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:02:10 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:02:10 [abstract.py:364] It took 0.105870 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:02:10 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35788 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35790 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=342398) INFO 11-05 19:02:10 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=342398) INFO 11-05 19:02:10 [block_pool.py:854] Successfully reset prefix cache
+(EngineCore pid=342398) INFO 11-05 19:02:10 [camem.py:198] CaMem sleep: offloading 0/172 allocations (tags=())
+(EngineCore pid=342398) INFO 11-05 19:02:12 [worker.py:269] Sleep mode (level=2) freed 30.26 GiB memory, 1.34 GiB memory is still in use.
+(EngineCore pid=342398) INFO 11-05 19:02:12 [abstract.py:346] It took 1.733706 seconds to fall asleep.
+(APIServer pid=342253) INFO:     127.0.0.1:35794 - "POST /sleep?level=2 HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:02:12 [api_router.py:36] wake up the engine with tags: None
+(EngineCore pid=342398) INFO 11-05 19:02:12 [camem.py:233] CaMem wake_up: restoring 172/172 allocations (tags=all)
+(EngineCore pid=342398) INFO 11-05 19:02:12 [abstract.py:364] It took 0.103455 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=342398) INFO 11-05 19:02:12 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=342253) INFO:     127.0.0.1:35796 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35798 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35800 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35802 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35804 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO:     127.0.0.1:35806 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=342253) INFO 11-05 19:02:12 [launcher.py:129] [shutdown] API server: shutdown triggered
+(APIServer pid=342253) INFO 11-05 19:02:12 [launcher.py:145] [shutdown] API server: stopping engine client mode=abort timeout=0s
+(APIServer pid=342253) INFO 11-05 19:02:12 [core_client.py:744] [shutdown] MPClient: start timeout=0s
+(APIServer pid=342253) INFO 11-05 19:02:12 [core_client.py:746] [shutdown] MPClient: stopping engine manager
+(APIServer pid=342253) INFO 11-05 19:02:12 [utils.py:632] [shutdown] Process manager: send sigterm to process EngineCore
+(APIServer pid=342253) WARNING 11-05 19:02:12 [utils.py:652] [shutdown] Process manager: force killing remaining processes count=1
+(APIServer pid=342253) WARNING 11-05 19:02:12 [utils.py:657] [shutdown] Process manager: force killing remaining process EngineCore pid 342398
+(EngineCore pid=342398) INFO 11-05 19:02:12 [core.py:1342] [shutdown] EngineCore: trigger received signal=SIGTERM
+(EngineCore pid=342398) INFO 11-05 19:02:12 [core.py:1493] [shutdown] EngineCore: start mode=abort timeout=0s
+(EngineCore pid=342398) INFO 11-05 19:02:12 [core.py:1524] [shutdown] EngineCore: request processing complete; starting resource teardown
+(EngineCore pid=342398) INFO 11-05 19:02:12 [core.py:1355] [shutdown] EngineCore: exiting busy loop
+(APIServer pid=342253) INFO 11-05 19:02:12 [core_client.py:748] [shutdown] MPClient: engine manager stopped
+(APIServer pid=342253) INFO 11-05 19:02:12 [core_client.py:749] [shutdown] MPClient: cleaning up background resources
+(APIServer pid=342253) INFO 11-05 19:02:12 [core_client.py:751] [shutdown] MPClient: complete
+(APIServer pid=342253) ERROR 11-05 19:02:12 [async_llm.py:843] AsyncLLM output_handler failed.
+(APIServer pid=342253) ERROR 11-05 19:02:12 [async_llm.py:843] Traceback (most recent call last):
+(APIServer pid=342253) ERROR 11-05 19:02:12 [async_llm.py:843]   File "/vllm-workspace/vllm/vllm/v1/engine/async_llm.py", line 789, in output_handler
+(APIServer pid=342253) ERROR 11-05 19:02:12 [async_llm.py:843]     outputs = await engine_core.get_output_async()
+(APIServer pid=342253) ERROR 11-05 19:02:12 [async_llm.py:843]               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=342253) ERROR 11-05 19:02:12 [async_llm.py:843]   File "/vllm-workspace/vllm/vllm/v1/engine/core_client.py", line 1175, in get_output_async
+(APIServer pid=342253) ERROR 11-05 19:02:12 [async_llm.py:843]     raise self._format_exception(outputs) from None
+(APIServer pid=342253) ERROR 11-05 19:02:12 [async_llm.py:843] vllm.v1.engine.exceptions.EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.
+(APIServer pid=342253) INFO 11-05 19:02:12 [launcher.py:154] [shutdown] API server: engine client stopped
+(APIServer pid=342253) INFO 11-05 19:02:12 [launcher.py:157] [shutdown] API server: signalling HTTP server shutdown
+(APIServer pid=342253) INFO 11-05 19:02:12 [launcher.py:179] [shutdown] API server: shutting down FastAPI HTTP server
+(APIServer pid=342253) INFO:     Shutting down
+(APIServer pid=342253) INFO:     Waiting for application shutdown.
+(APIServer pid=342253) INFO:     Application shutdown complete.
+/usr/local/python3.12.13/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

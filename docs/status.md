@@ -461,3 +461,4 @@
 - 19:00 UTC 进度：M1 soak 8 波 / M2 已到 mnb 档 / M3 疲劳 150/300 / D 量化 8B 臂
 - 19:19 UTC M2 phase D 异常修复：e13_mixedjob.py 未同步到 M2（仅 M3 有）→ 6 分钟
   空转 7500 轮；已同步脚本 + 加 SKIP_ABC 开关，只重跑 phase D（LINE_MIN=320）
+- 20:20 UTC 巡检：M1 soak 92 波 / M2 混合 200 轮(47/320min) / M3 长上下文 424 波 / D 100 波(73/360min)

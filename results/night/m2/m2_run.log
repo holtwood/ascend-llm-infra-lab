@@ -388,3 +388,98 @@
 [18:57:04] serve[mnb512] ready
 [18:57:26] bench[mnb512_c16] c=16 n=128 in=256 out=96 done
 [18:57:41] bench[mnb512_c64] c=64 n=128 in=256 out=96 done
+[19:00:58] serve[mnb2048] ready
+[19:01:14] bench[mnb2048_c16] c=16 n=128 in=256 out=96 done
+[19:01:22] bench[mnb2048_c64] c=64 n=128 in=256 out=96 done
+[19:04:34] serve[mnb8192] ready
+[19:04:49] bench[mnb8192_c16] c=16 n=128 in=256 out=96 done
+[19:04:56] bench[mnb8192_c64] c=64 n=128 in=256 out=96 done
+[19:04:56] M2 phase C: output-length sweep
+[19:08:08] serve[outsweep_base] ready
+[19:08:12] bench[out32_c16] c=16 n=64 in=256 out=32 done
+[19:08:22] bench[out128_c16] c=16 n=64 in=256 out=128 done
+[19:08:56] bench[out512_c16] c=16 n=64 in=256 out=512 done
+[19:10:02] bench[out1024_c16] c=16 n=64 in=256 out=1024 done
+[19:10:05] bench[out32_c64] c=64 n=64 in=256 out=32 done
+[19:10:10] bench[out128_c64] c=64 n=64 in=256 out=128 done
+[19:10:26] bench[out512_c64] c=64 n=64 in=256 out=512 done
+[19:10:57] bench[out1024_c64] c=64 n=64 in=256 out=1024 done
+[19:10:57] M2 phase D: mixed-length soak (until +360min)
+[19:11:02] mix soak 100 elapsed 0/360min
+[19:11:08] mix soak 200 elapsed 0/360min
+[19:11:13] mix soak 300 elapsed 0/360min
+[19:11:19] mix soak 400 elapsed 0/360min
+[19:11:24] mix soak 500 elapsed 0/360min
+[19:11:29] mix soak 600 elapsed 0/360min
+[19:11:35] mix soak 700 elapsed 0/360min
+[19:11:40] mix soak 800 elapsed 0/360min
+[19:11:46] mix soak 900 elapsed 0/360min
+[19:11:51] mix soak 1000 elapsed 0/360min
+[19:11:57] mix soak 1100 elapsed 1/360min
+[19:12:02] mix soak 1200 elapsed 1/360min
+[19:12:08] mix soak 1300 elapsed 1/360min
+[19:12:13] mix soak 1400 elapsed 1/360min
+[19:12:18] mix soak 1500 elapsed 1/360min
+[19:12:24] mix soak 1600 elapsed 1/360min
+[19:12:29] mix soak 1700 elapsed 1/360min
+[19:12:35] mix soak 1800 elapsed 1/360min
+[19:12:40] mix soak 1900 elapsed 1/360min
+[19:12:46] mix soak 2000 elapsed 1/360min
+[19:12:51] mix soak 2100 elapsed 1/360min
+[19:12:56] mix soak 2200 elapsed 1/360min
+[19:13:02] mix soak 2300 elapsed 2/360min
+[19:13:07] mix soak 2400 elapsed 2/360min
+[19:13:13] mix soak 2500 elapsed 2/360min
+[19:13:18] mix soak 2600 elapsed 2/360min
+[19:13:24] mix soak 2700 elapsed 2/360min
+[19:13:29] mix soak 2800 elapsed 2/360min
+[19:13:34] mix soak 2900 elapsed 2/360min
+[19:13:40] mix soak 3000 elapsed 2/360min
+[19:13:45] mix soak 3100 elapsed 2/360min
+[19:13:51] mix soak 3200 elapsed 2/360min
+[19:13:56] mix soak 3300 elapsed 2/360min
+[19:14:02] mix soak 3400 elapsed 3/360min
+[19:14:07] mix soak 3500 elapsed 3/360min
+[19:14:13] mix soak 3600 elapsed 3/360min
+[19:14:18] mix soak 3700 elapsed 3/360min
+[19:14:23] mix soak 3800 elapsed 3/360min
+[19:14:29] mix soak 3900 elapsed 3/360min
+[19:14:34] mix soak 4000 elapsed 3/360min
+[19:14:40] mix soak 4100 elapsed 3/360min
+[19:14:45] mix soak 4200 elapsed 3/360min
+[19:14:51] mix soak 4300 elapsed 3/360min
+[19:14:56] mix soak 4400 elapsed 3/360min
+[19:15:01] mix soak 4500 elapsed 4/360min
+[19:15:07] mix soak 4600 elapsed 4/360min
+[19:15:12] mix soak 4700 elapsed 4/360min
+[19:15:18] mix soak 4800 elapsed 4/360min
+[19:15:24] mix soak 4900 elapsed 4/360min
+[19:15:30] mix soak 5000 elapsed 4/360min
+[19:15:36] mix soak 5100 elapsed 4/360min
+[19:15:42] mix soak 5200 elapsed 4/360min
+[19:15:48] mix soak 5300 elapsed 4/360min
+[19:15:53] mix soak 5400 elapsed 4/360min
+[19:15:59] mix soak 5500 elapsed 5/360min
+[19:16:04] mix soak 5600 elapsed 5/360min
+[19:16:09] mix soak 5700 elapsed 5/360min
+[19:16:15] mix soak 5800 elapsed 5/360min
+[19:16:20] mix soak 5900 elapsed 5/360min
+[19:16:26] mix soak 6000 elapsed 5/360min
+[19:16:31] mix soak 6100 elapsed 5/360min
+[19:16:36] mix soak 6200 elapsed 5/360min
+[19:16:42] mix soak 6300 elapsed 5/360min
+[19:16:47] mix soak 6400 elapsed 5/360min
+[19:16:53] mix soak 6500 elapsed 5/360min
+[19:16:58] mix soak 6600 elapsed 6/360min
+[19:17:04] mix soak 6700 elapsed 6/360min
+[19:17:09] mix soak 6800 elapsed 6/360min
+[19:17:14] mix soak 6900 elapsed 6/360min
+[19:17:20] mix soak 7000 elapsed 6/360min
+[19:17:25] mix soak 7100 elapsed 6/360min
+[19:17:31] mix soak 7200 elapsed 6/360min
+[19:17:36] mix soak 7300 elapsed 6/360min
+[19:17:42] mix soak 7400 elapsed 6/360min
+[19:17:47] mix soak 7500 elapsed 6/360min
+[19:17:53] mix soak 7600 elapsed 6/360min
+[19:17:58] mix soak 7700 elapsed 7/360min
+[19:18:03] mix soak 7800 elapsed 7/360min
