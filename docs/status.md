@@ -289,3 +289,9 @@
   ——short p90 4.85→3.10s(-36%)，44/64 快速429（<1ms），wall 3.7 vs 8.9s
 - issue 核实：#18978 是第三方 iwantknow1 在 10-16 独立提交的同缺陷，
   dedup 正确非误判；issue1/2 上游无重复（提交仍需 GitHub 账号）
+
+### sparse_kv_offload 探针（第七轮续）
+
+- `Sparse KV offload only support sparse attention model` —— SFA/DeepSeek
+  类专属，Qwen3.5-4B 不适用（同 E19 规律：Ascend 特性多有模型/部署前置）
+- 收尾文档：docs/war-stories.md（10 个 STAR 故事）+ docs/demo-runbook.md
