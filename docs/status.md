@@ -256,3 +256,11 @@
 - 坑：sdpa attn_mask 在 NPU 上要求 dtype 与 query 一致（float mask +
   bf16 q 直接 RuntimeError）；ssh 管道下 python stdout 块缓冲，
   要 `python3 -u` 或日志文件才能看进度
+
+### E19 调度器画像（第六轮续）
+
+- 4 个 scheduler_config 中 3 个有部署前置：recompute_scheduler/dyntra_lb
+  需 kv_role=kv_consumer（PD D 节点，非 PD-mixed）；profiling_chunk 需 PP>1
+- 单机唯一可用=short_request_first：short e2e 28.73→26.66s(-7.2%)，
+  long +3.3%；按 num_prompt_tokens<=threshold 分道+老化防饿死
+- dyntra_lb/recompute 是 PD 架构配套件，非通用优化
