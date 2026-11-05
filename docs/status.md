@@ -317,3 +317,12 @@
 - 坑：v1 实现让未完成 prefill 的请求参与 decode → 永久卡死（真实
   vLLM 也不会让 computed<in_len 的 req 产 token）；APC 命中请求 ttft
   未置位 → 负值 bug 已修
+
+### E8g 手写 FlashAttention（第八轮续）
+
+- online-softmax 分块实现 vs sdpa 对拍：S512-2048 max diff ~1e-2
+  （bf16 舍入），非整除边界 777/256 也过——算法正确
+- 诚实负结果：手写分块与 naive 同速（S8192 ~21ms vs 融合 0.94ms，
+  24×）——Python 够不到 SRAM 驻留，FA 加速是 kernel 层的事；
+  显存账 S²→S·Bc（S8192: 268→16.8MB，16×）才是真收益
+- interview-notes 补齐手撕系列 + walkthrough + 上游 issue 条目
