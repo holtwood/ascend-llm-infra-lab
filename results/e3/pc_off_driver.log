@@ -1,0 +1,34 @@
+=== [pc_off] stopping old server ===
+=== [pc_off] starting server: --no-enable-prefix-caching ===
+=== [pc_off] server up, benching ===
+tip: install termplotlib and gnuplot to plot the metrics
+============ Serving Benchmark Result ============
+Successful requests:                     128       
+Failed requests:                         0         
+Maximum request concurrency:             32        
+Benchmark duration (s):                  31.51     
+Total input tokens:                      294914    
+Total generated tokens:                  16384     
+Request throughput (req/s):              4.06      
+Output token throughput (tok/s):         519.95    
+Peak output token throughput (tok/s):    1567.00   
+Peak concurrent requests:                39.00     
+Total token throughput (tok/s):          9879.21   
+---------------Time to First Token----------------
+Mean TTFT (ms):                          1298.53   
+Median TTFT (ms):                        621.88    
+P99 TTFT (ms):                           5907.96   
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          51.28     
+Median TPOT (ms):                        55.49     
+P99 TPOT (ms):                           56.68     
+---------------Inter-token Latency----------------
+Mean ITL (ms):                           51.28     
+Median ITL (ms):                         20.86     
+P99 ITL (ms):                            159.88    
+----------------End-to-end Latency----------------
+Mean E2EL (ms):                          7810.48   
+Median E2EL (ms):                        7669.84   
+P99 E2EL (ms):                           12963.32  
+==================================================
+=== [pc_off] done ===
