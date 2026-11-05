@@ -461,11 +461,27 @@
 - 19:00 UTC 进度：M1 soak 8 波 / M2 已到 mnb 档 / M3 疲劳 150/300 / D 量化 8B 臂
 - 19:19 UTC M2 phase D 异常修复：e13_mixedjob.py 未同步到 M2（仅 M3 有）→ 6 分钟
   空转 7500 轮；已同步脚本 + 加 SKIP_ABC 开关，只重跑 phase D（LINE_MIN=320）
-- 20:20 UTC 巡检：M1 soak 92 波 / M2 混合 200 轮(47/320min) / M3 长上下文 424 波 / D 100 波(73/360min)
-- 21:13 UTC 巡检：M1 146 波 / M2 混合 ~485 轮（94+/320min）/ M3 723 波 / D 172 波
-- M3 换租疲劳 300 轮完成：sleep 1757.8ms（首末 1762.4→1764.5）、wake 118.1ms
-  （114.8→119.2）、首请求 124ms —— 零漂移
-- 21:50 UTC 关键发现：D 量化矩阵中 **8B(1301/1699) 在 c32/c64 快于 4B(1122/1313)**；
-  推测机制=4B hybrid 的 24 层 GDN conv1d 走 PyTorch fallback（每请求 host 同步，
-  与 issue3/D1 同源），高并发下放大；0.6B 2696 tok/s 为上限参照
-- 22:42 UTC 巡检：M1 237 波 / M2 混合 800 轮(188/320min) / M3 1229 波 / D 296 波，零错误
+
+### 通宵值守总结（远端 npt · 2026-11-05 15:47 → 23:38）
+
+跑完 8.5h 预算内全部可执行项，产物在 `results/overnight_20261105_160244/`：
+
+| 任务 | 结果 |
+|---|---|
+| hccl_pairs 8×8 全对矩阵 | ✅ 64MB 全对 19.7GB/s 对称；1MB ±20% 路径差；1KB 延迟底 150µs |
+| kv_quant S×B 网格 | ✅ 32 配置，mem 0.51×，err 随 S 收敛 0.0117→0.0007，税 1.5-3.0× |
+| paged_gather 块粒度 | ✅ 16 配置，S=4096 大块更差 2.73×，S≥8192 稳定 ~2.1× |
+| copy_bw | ✅ pageable D2H 4-5× 惩罚；**并发计算下 D2H −20%** |
+| TP decode 实测 | ✅ 真权重：tp=8 步时 **4.47×** 于单卡，通信占 71% |
+| HCCL 4h soak | ✅ 14330 样本，漂移 **+2.3%**，无热降频 |
+| W8A16 serve 冒烟 | ⚠️ 到 `/v1/models` 200 + 权重加载成功，死在 `aclnnScatterPaKvCache`（CANN 9.2 算子，远端 9.0 没有） |
+| tp_scaling serve | ⚠️ 同上，vllm serve 在 CANN 9.0 不可用（已用 torch 级 TP 模拟替代） |
+
+**关键工程结论**：vllm-ascend 0.30 的 paged attention 依赖 CANN 9.2 的
+`aclnnScatterPaKvCache`，9.0 环境无法服务——解释厂商为何在 9.0 容器配
+MindIE。踩坑全链路见 `docs/remote-vllm-bringup.md`（torch 钉版、三个
+CUDA 生态 stub、triton-ascend 华为镜像、CANN 版本 .so 不可跨机）。
+
+**队列工程教训**（已修入脚本）：`SimpleQueue.get()` 不支持 timeout（曾
+误标 timeout）；`all_gather_object` 在 HCCL 不可用；HCCL socket 端口需
+每组独立区间；pkill 未生效会污染后续测量（TP 首轮即因此重跑）。
