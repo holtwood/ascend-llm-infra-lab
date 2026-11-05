@@ -7,7 +7,7 @@ export NODE_TAG=m1
 source /data/llm-infra-lab/scripts/night_common.sh
 MODEL=/model/Qwen3.5-4B
 PORT=8000
-WAVES=${WAVES:-400}
+WAVES=${WAVES:-300}
 
 log "M1 soak start (waves=$WAVES)"
 serve $PORT "$MODEL" soak_base || exit 1

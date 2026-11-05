@@ -416,3 +416,11 @@
 - 脚本 night_{common,m1_soak,m2_grid,m3_ctx,d_quant}.sh + night_collect.py
 - 坑：pkill -f night_ 自匹配杀 ssh 会话（文档命令已用 night_[m]1 括号技巧）；
   VAR=x func 的环境变量会残留在 shell（restore_default 已强制 MAXLEN=8192）
+
+### 通宵方案 v2（集群段 + 独立段）
+
+- 新增 night_cluster_phase.sh：四机同为客户端打 D:8080（c32/机，聚合 c128），
+  前 2.5h 四卡协同；冒烟实测单客户端 c32 = 1735 tok/s、256 请求零错误
+- night_all.sh 包装：集群段 → 本机独立线；总 8.5-9h
+- 时长重配：M1 300 波 / M2 550 轮 / M3 700 波 / D 420 波
+- night_collect.py 增集群段统计（单机均值/漂移，聚合≈4×）

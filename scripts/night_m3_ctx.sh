@@ -10,7 +10,7 @@ source /data/llm-infra-lab/scripts/night_common.sh
 MODEL=/model/Qwen3.5-4B
 PORT=8000
 CYCLES=${CYCLES:-300}
-SOAK_WAVES=${SOAK_WAVES:-1000}
+SOAK_WAVES=${SOAK_WAVES:-700}
 
 log "M3 phase A: ctx grid"
 MAXLEN=81920 serve $PORT "$MODEL" ctx_base || exit 1

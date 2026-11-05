@@ -7,7 +7,7 @@ export NODE_TAG=d
 source /data/llm-infra-lab/scripts/night_common.sh
 PORT=8010
 M4B=/data/models/Qwen3.5-4B
-WAVES=${WAVES:-550}
+WAVES=${WAVES:-420}
 
 log "D phase A: quant-vs-size matrix"
 for M in "/model/Qwen3.8-27B-w8a8|w8a8_27b" "/model/Qwen3-8B|bf16_8b" "$M4B|bf16_4b" "/model/Qwen3-0.6B|bf16_0p6b"; do

@@ -9,7 +9,7 @@ export NODE_TAG=m2
 source /data/llm-infra-lab/scripts/night_common.sh
 MODEL=/data/models/Qwen3.5-4B
 PORT=8000
-SOAK_RUNS=${SOAK_RUNS:-750}
+SOAK_RUNS=${SOAK_RUNS:-550}
 
 log "M2 phase A: 3D grid"
 serve $PORT "$MODEL" grid_base || exit 1

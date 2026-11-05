@@ -69,6 +69,15 @@ def main():
         fatigue = load_jsonl(os.path.join(d, "fatigue.jsonl"))
         lines.append(f"\n## {node.upper()} — {len(summ)} bench 点 / {len(samples)} 采样\n")
 
+        clu = [s for s in summ if s.get("tag", "").startswith("clu_w") and "tok_s" in s]
+        if clu:
+            lines.append(f"- **集群段**: {len(clu)} 波，单机均值 {mean([c['tok_s'] for c in clu])} tok/s"
+                         f"（4 机聚合 ≈ 4×），TTFT {mean([c['ttft'] for c in clu])}ms，"
+                         f"错误 {sum(c.get('err', 0) for c in clu)}\n")
+            trc = trend([c["tok_s"] for c in clu])
+            if trc:
+                lines.append(f"- 集群段漂移：首10 {trc[0]} → 末10 {trc[1]} tok/s\n")
+
         soak = [s for s in summ if s.get("tag", "").startswith(("soak_", "dsoak_", "ctxsoak_"))
                 and "tok_s" in s]
         if soak:
