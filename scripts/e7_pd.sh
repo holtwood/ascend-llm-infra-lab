@@ -48,20 +48,26 @@ run_arm_bench() {  # $1=port $2=tag_prefix
   bench "$1" "${2}_l16" 2048 128 16 64
 }
 
+if [ "${SKIP_MONO:-0}" = "1" ]; then
+  echo "===== [1/3] monolithic arm: SKIPPED (SKIP_MONO=1) ====="
+else
 echo "===== [1/3] monolithic arm ====="
 kill_all
 nohup vllm serve "$MODEL" $COMMON --port 8000 --gpu-memory-utilization 0.70 \
   > "$OUT/serve_mono.log" 2>&1 &
 wait_ready 8000 || { echo "MONO SERVE FAIL"; tail -5 "$OUT/serve_mono.log"; exit 1; }
 run_arm_bench 8000 mono
+fi
 
 echo "===== [2/3] PD arm: P:23700 + D:23701 + proxy:28081 ====="
 kill_all
 nohup vllm serve "$MODEL" $COMMON --port 23700 --gpu-memory-utilization 0.35 \
+  --max-model-len 4096 \
   --kv-transfer-config '{"kv_connector":"MooncakeConnectorV1","kv_role":"kv_producer","kv_port":31000,"engine_id":"e7-prefill","kv_connector_extra_config":{"prefill":{"dp_size":1,"tp_size":1},"decode":{"dp_size":1,"tp_size":1}}}' \
   > "$OUT/serve_p.log" 2>&1 &
 P_PID=$!
 nohup vllm serve "$MODEL" $COMMON --port 23701 --gpu-memory-utilization 0.35 \
+  --max-model-len 4096 \
   --kv-transfer-config '{"kv_connector":"MooncakeConnectorV1","kv_role":"kv_consumer","kv_port":31100,"engine_id":"e7-decode","kv_connector_extra_config":{"prefill":{"dp_size":1,"tp_size":1},"decode":{"dp_size":1,"tp_size":1}}}' \
   > "$OUT/serve_d.log" 2>&1 &
 D_PID=$!

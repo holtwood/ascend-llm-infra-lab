@@ -70,4 +70,65 @@
    且 `prompt_lookup_max` 越大 draft 越贵，本例 5-token draft 的固定开销
    已经吃掉了全部潜在收益
 
-## 实验 3：Chunked Prefill / max_num_batched_tokens（待跑）
+## 实验 3：Chunked Prefill / `max_num_batched_tokens` 扫描（E3b）
+
+- 模型：qwen35-4b，单实例（M3:8000），`--max-model-len 8192`，其余默认
+  （`max_num_seqs=128`，vLLM 0.30 默认 `max_num_batched_tokens=2048`、
+  chunked prefill 常开）
+- 每档重启服务后跑 `vllm bench serve`（random 数据集，`--ignore-eos`）
+- 合法性边界：`mnb < max_model_len` 仅在 chunked prefill 开启时允许；
+  `mnb` 必须 `≥ max_num_seqs`（128）→ 扫描档位 256~8192
+
+### 主臂：长 prefill 负载（in=2048 / out=128 / c=32 / np=128）
+
+| mnb | TTFT mean | TTFT p99 | TPOT mean | TPOT p99 | 输出吞吐 tok/s |
+|---|---|---|---|---|---|
+| 256 | 13093.6 | 24090.1 | 87.46 | 94.17 | 162.2 |
+| 512 | 4686.2 | 21405.6 | **141.76** | 165.97 | 177.8 |
+| 1024 | 3485.6 | 17433.3 | 116.07 | 139.28 | 220.6 |
+| 2048 | 1499.6 | 6871.5 | 67.37 | 86.44 | 394.4 |
+| 4096 | 1062.9 | 4249.1 | 57.59 | 77.57 | **470.1** |
+| 8192 | 1097.2 | 4156.7 | 61.67 | 77.98 | 435.0 |
+
+### 对照臂：短 prefill / decode 重负载（in=256 / out=512 / c=32 / np=128）
+
+| mnb | TTFT mean | TTFT p99 | TPOT mean | TPOT p99 | 输出吞吐 tok/s |
+|---|---|---|---|---|---|
+| 256 | 655.0 | 3314.7 | **25.73** | 28.78 | **1108.1** |
+| 8192 | 407.2 | 932.2 | 32.57 | 36.03 | 881.5 |
+
+### 解读
+
+1. **TTFT ∝ prefill 每步能吃的 token 数（长 prefill 臂）**
+   in=2048 时 mnb=256 需要 ~8 个 chunk 才能完成一条 prefill，32 条并发排队
+   → mean TTFT 13.1s。mnb 翻倍 → 排队深度减半，单调降到 mnb=4096 的 1.06s
+   （约 12×）。mnb≥4096 后单条 prefill 已能一步装下（2048+decode 裕量），
+   曲线进入平台期（1063→1097ms，±3% 噪声）——**mnb 调到 ~2×典型 prompt
+   长度就吃饱了，再大无收益**。
+
+2. **TPOT 在长 prefill 臂呈非单调（512 档最差 141.8ms）**
+   chunked prefill 把 decode 和 prefill chunk 塞进同一个 token 预算：
+   每步 = 32 条 decode + (mnb−32) 的 prefill chunk。步时延 ≈ prefill chunk
+   的前向时间 → decode 的 ITL 被 chunk 大小直接绑架。
+   - mnb=256：chunk 小（~224 tok）→ 步子轻，ITL 反而尚可（87ms）
+   - mnb=512/1024：chunk 变大但仍需多步才完成一条 prefill →
+     持续"重步"挤压 decode，TPOT 最差
+   - mnb≥2048：单步装下整条 prefill，之后是纯 decode 步 → TPOT 恢复
+
+3. **对照臂方向反转 = 教科书 tradeoff 的直接证据**
+   decode 重负载下小 mnb 反而是优势配置：prefill 便宜（256 tok），
+   小预算保护 decode 步不被大 chunk 绑架 → TPOT 25.7ms、吞吐 1108 tok/s；
+   mnb=8192 让 32 条 prefill 挤进同一步形成巨型混合步 →
+   TPOT +27%、吞吐 −20%，只换来 TTFT −38%。
+   **结论：mnb 的最优点随负载 prefill/decode 配比移动，没有全局最优值。**
+
+4. **面试话术**
+   - chunked prefill 的本质：把"decode 优先 / prefill 独占"的离散调度，
+     变成可配速的 token 预算旋钮；`max_num_batched_tokens` 就是那个旋钮
+   - 调参公式：`mnb ≈ 2 × p50_prompt_len` 吃满 TTFT 收益；
+     decode 敏感型负载（agent 长生成、streaming）反而要压低 mnb 保 TPOT
+   - 观测 TPOT 尖峰是诊断"chunk 粒度与 prompt 长度失配"的信号
+
+原始数据：`e3b_mnb{256,512,1024,2048,4096,8192}.json`、
+`e3b_ctl{256,8192}.json`；驱动日志 `e3b_driver.log`；
+服务日志 `serve_e3b_mnb256.log`（其余档位同目录 serve_e3b_mnb*.log）

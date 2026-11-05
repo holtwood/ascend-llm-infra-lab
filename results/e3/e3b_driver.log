@@ -1,2 +1,85 @@
 ===== E3b 主臂：长prefill in2048/out128 c32 =====
 --- mnb=256 ---
+Successful requests:                     128       
+Request throughput (req/s):              1.25      
+Output token throughput (tok/s):         162.18    
+Peak output token throughput (tok/s):    528.00    
+Total token throughput (tok/s):          2734.21   
+Mean TTFT (ms):                          13093.63  
+P99 TTFT (ms):                           24090.05  
+Mean TPOT (ms):                          87.46     
+P99 TPOT (ms):                           94.17     
+--- mnb=512 ---
+Successful requests:                     128       
+Request throughput (req/s):              1.37      
+Output token throughput (tok/s):         177.78    
+Peak output token throughput (tok/s):    1235.00   
+Total token throughput (tok/s):          2997.13   
+Mean TTFT (ms):                          4686.20   
+P99 TTFT (ms):                           21405.57  
+Mean TPOT (ms):                          141.76    
+P99 TPOT (ms):                           165.97    
+--- mnb=1024 ---
+Successful requests:                     128       
+Request throughput (req/s):              1.70      
+Output token throughput (tok/s):         220.56    
+Peak output token throughput (tok/s):    1190.00   
+Total token throughput (tok/s):          3718.37   
+Mean TTFT (ms):                          3485.64   
+P99 TTFT (ms):                           17433.34  
+Mean TPOT (ms):                          116.07    
+P99 TPOT (ms):                           139.28    
+--- mnb=2048 ---
+Successful requests:                     128       
+Request throughput (req/s):              3.04      
+Output token throughput (tok/s):         394.36    
+Peak output token throughput (tok/s):    1361.00   
+Total token throughput (tok/s):          6648.57   
+Mean TTFT (ms):                          1499.58   
+P99 TTFT (ms):                           6871.53   
+Mean TPOT (ms):                          67.37     
+P99 TPOT (ms):                           86.44     
+--- mnb=4096 ---
+Successful requests:                     128       
+Request throughput (req/s):              3.62      
+Output token throughput (tok/s):         470.13    
+Peak output token throughput (tok/s):    1408.00   
+Total token throughput (tok/s):          7925.91   
+Mean TTFT (ms):                          1062.86   
+P99 TTFT (ms):                           4249.10   
+Mean TPOT (ms):                          57.59     
+P99 TPOT (ms):                           77.57     
+--- mnb=8192 ---
+Successful requests:                     128       
+Request throughput (req/s):              3.35      
+Output token throughput (tok/s):         434.98    
+Peak output token throughput (tok/s):    1184.00   
+Total token throughput (tok/s):          7333.32   
+Mean TTFT (ms):                          1097.19   
+P99 TTFT (ms):                           4156.71   
+Mean TPOT (ms):                          61.67     
+P99 TPOT (ms):                           77.98     
+===== E3b 对照臂：短prefill in256/out512 c32 =====
+--- ctl mnb=256 ---
+Successful requests:                     128       
+Request throughput (req/s):              2.14      
+Output token throughput (tok/s):         1108.06   
+Peak output token throughput (tok/s):    1632.00   
+Total token throughput (tok/s):          1657.49   
+Mean TTFT (ms):                          655.01    
+P99 TTFT (ms):                           3314.71   
+Mean TPOT (ms):                          25.73     
+P99 TPOT (ms):                           28.78     
+--- ctl mnb=8192 ---
+Successful requests:                     128       
+Request throughput (req/s):              1.70      
+Output token throughput (tok/s):         881.53    
+Peak output token throughput (tok/s):    1248.00   
+Total token throughput (tok/s):          1318.63   
+Mean TTFT (ms):                          407.20    
+P99 TTFT (ms):                           932.22    
+Mean TPOT (ms):                          32.57     
+P99 TPOT (ms):                           36.03     
+===== 恢复默认 serve =====
+default serve restored
+E3b ALL DONE -> /data/llm-infra-lab/results/e3
