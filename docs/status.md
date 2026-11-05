@@ -213,3 +213,12 @@
 - least_conn 基线本身有 ~50% 命中（同模板 8 请求散 4 副本，平均仍
   见 2 次），评测基线不能假设 0%
 - 并发到达的"第二波才命中"使命中率低于 (n-1)/n 理论上界
+
+### E17 sleep/wake 多租户换租（第六轮续）
+
+- 真实换租链路打通：A 冷启 169.4s → sleep2 1.77s（HBM 4480/65536）
+  → B 在腾出空间冷启 114.2s（eager，util0.3）→ B 在线时唤醒 A 0.139s
+  → 唤醒后首请求 0.129s 无 ramp；A、B 同卡共存
+- **新坑**：睡眠方仍持有 stream/CQ → 共卡引擎 ACL capture 报
+  EE1023 too many streams（=issue2 207005 同根因）→ 共卡方须 eager
+- FRACTAL_NZ 回灌需 rl_config.enabled；/sleep 需 VLLM_SERVER_DEV_MODE=1
