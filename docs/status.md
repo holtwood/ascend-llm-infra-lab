@@ -430,3 +430,16 @@
 - 标定实测：集群波 18-22s、M1 59s、D 40s、M2 最慢网格点 17s、M3 16k 波 11s、63k 点 6s
 - 四条线改为**时间上界循环**（CLUSTER_MIN=150 + LINE_MIN=360 = 510min=8.5h 确定性）
 - 预计 ~2900 个 bench 点；goal 指令加"每小时 collect+commit+push"防丢数据
+
+### 远端通宵队列 batch 1（run_20261105_160244）
+
+- 4 个 torch 级任务全 rc=0：p2p 全对矩阵 / int8-KV 网格 / paged gather /
+  copy bw；产物在 results/overnight_20261105_160244/
+- p2p 拓扑：64MB 全对 19.7GB/s **完全对称无慢链路**；1MB 有 ±20% 路径差
+  （1→0 7.6 vs 2→1 5.6）；1KB 延迟底 ~150µs
+- int8-KV：mem 恒 0.51×，err_max 随 S 收敛（0.0117@128 → 0.0007@16k），
+  naive 税 1.5-3.0×（与 E8k 的 6.5-8.5× 差异是实现口径，已在 README 注明）
+- paged gather：S=4096 时块越大越差（1.58×→2.73×），S≥8192 稳定 ~2.1×
+- copy bw：pageable D2H 4-5× 惩罚；**D2H 在并发 matmul 下 24.7→19.7GB/s(-20%)**
+- 队列教训：all_gather_object 在 HCCL 不可用→rank 各自落盘；torch_npu SDPA
+  拒绝 enable_gqa→用 batch 广播实现 GQA；非登录 ssh 不 source CANN env
