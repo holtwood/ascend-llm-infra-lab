@@ -1,5 +1,8 @@
 results/logs/
 *.tmp
 __pycache__/
+
+# 通宵结果：只留小汇总（JSONL/进度日志/SUMMARY）
 results/night/*/*.json
-!results/night/*/SUMMARY.md
+results/night/*/serve_*.log
+results/night/*/*_run.log
