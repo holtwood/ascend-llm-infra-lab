@@ -131,3 +131,19 @@
   得缩池（util→0.5）或关 chunked-prefill
 - KV 打满（99.1%）→ `num_preemptions_total` 计数真实抢占（recompute），
   请求不失败，代价在 p99 尾部（+28%）
+
+### 第四轮踩坑（A级：E10/E11/E13）
+
+- `/sleep` 404：sleep/wake/is_sleeping 路由在 `serve/dev/` 下，需
+  `VLLM_SERVER_DEV_MODE=1`；`--enable-sleep-mode` 只管模型侧
+- wake_up 500：`FRACTAL_NZ mode is enabled`——Ascend 权重 NZ 布局
+  无法回灌；`--additional-config '{"rl_config":{"enabled":true}}'` 自动
+  关 NZ 后正常。sleep2 释放 31.2G→1.0G（97%），wake 仅 84ms
+- vllm bench serve 需要 `--tokenizer <本地路径>`（model 名是 served 名
+  不是 HF id）；且 client 侧同样要 source env.sh（torch_npu 链）
+- Ascend 默认 `async_scheduling` 开启（BatchJobAware 自动选 Async 变体
+  佐证）；`--no-async-scheduling` 关闭做消融 → decode 重负载 TPOT
+  +65%（48.4 vs 29.4ms），吞吐 −38%
+- batch_job_aware 经 additional-config JSON 启用；同构负载无收益
+  （LPT/EWMA 无素材），混合 job 负载两类均 ~6% 改善
+- npu-smi 显存看「Process memory(MB)」表，芯片行是温度/利用率

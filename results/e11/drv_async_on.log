@@ -1,0 +1,56 @@
+INFO 11-05 10:47:08 [__init__.py:52] Available plugins for group vllm.platform_plugins:
+INFO 11-05 10:47:08 [__init__.py:54] - ascend -> vllm_ascend:register
+INFO 11-05 10:47:08 [__init__.py:57] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+/usr/local/python3.12.13/lib/python3.12/site-packages/triton/language/extra/cann/extension/math_ops.py:13: FutureWarning: triton.language.extra.cann.extension.atan2 is deprecated and will be removed in the next release; use triton.language.extra.cann.libdevice.atan2 instead.
+  @_deprecated(replacement="triton.language.extra.cann.libdevice.atan2")
+/usr/local/python3.12.13/lib/python3.12/site-packages/triton/language/extra/cann/extension/math_ops.py:35: FutureWarning: triton.language.extra.cann.extension.isfinited is deprecated and will be removed in the next release; use triton.language.extra.cann.libdevice.isfinited instead.
+  @_deprecated(replacement="triton.language.extra.cann.libdevice.isfinited")
+/usr/local/python3.12.13/lib/python3.12/site-packages/triton/language/extra/cann/extension/math_ops.py:49: FutureWarning: triton.language.extra.cann.extension.finitef is deprecated and will be removed in the next release; use triton.language.extra.cann.libdevice.finitef instead.
+  @_deprecated(replacement="triton.language.extra.cann.libdevice.finitef")
+INFO 11-05 10:47:09 [__init__.py:272] Platform plugin ascend is activated
+INFO 11-05 10:47:09 [platform.py:74] Breakable CUDAGraph on Ascend is opt-in; using VLLM_USE_BREAKABLE_CUDAGRAPH=0.
+INFO 11-05 10:47:25 [patch_indexer_kv_dtype.py:102] Patched AttentionConfig.indexer_kv_dtype to accept 'int8' (DeepSeek V4 Ascend indexer K cache dtype).
+INFO 11-05 10:47:25 [patch_kv_cache_dtype.py:117] Patched CacheConfig.cache_dtype to accept 'int8' and 'mxfp8' (Ascend KV cache dtypes).
+INFO 11-05 10:47:25 [__init__.py:112] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader`
+INFO 11-05 10:47:25 [__init__.py:112] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork`
+WARNING 11-05 10:47:26 [indexer_topk.py:29] Failed to import the DeepSelect extension (vllm._deepselect_C): No module named 'vllm._deepselect_C'
+Namespace(subparser='bench', bench_type='serve', dispatch_function=<function BenchmarkServingSubcommand.cmd at 0xfffd5288e2a0>, trust_remote_code=False, seed=0, num_prompts=192, dataset_name='random', no_stream=False, dataset_path=None, no_oversample=False, skip_chat_template=False, enable_multimodal_chat=False, disable_shuffle=False, custom_output_len=256, custom_ensure_client_side_data=False, spec_bench_output_len=256, spec_bench_category=None, sonnet_input_len=550, sonnet_output_len=150, sonnet_prefix_len=200, sharegpt_output_len=None, timed_trace_chunk_hash_size=16, timed_trace_sec_multiplier=1, timed_trace_label_timestamp='timestamp', timed_trace_label_input_length='input_length', timed_trace_label_output_length='output_length', timed_trace_label_hash_ids='hash_ids', blazedit_min_distance=0.0, blazedit_max_distance=1.0, asr_max_audio_len_sec=inf, asr_min_audio_len_sec=0.0, random_input_len=256, random_output_len=512, random_range_ratio='0.0', random_prefix_len=0, random_batch_size=1, no_reranker=False, random_mm_base_items_per_request=1, random_mm_num_mm_items_range_ratio=0.0, random_mm_limit_mm_per_prompt={'image': 255, 'video': 1}, random_mm_bucket_config={(256, 256, 1): 0.5, (720, 1280, 1): 0.5, (720, 1280, 16): 0.0}, hf_subset=None, hf_split=None, hf_name=None, hf_output_len=None, bfcl_categories=None, prefix_repetition_prefix_len=256, prefix_repetition_suffix_len=256, prefix_repetition_num_prefixes=10, prefix_repetition_output_len=128, speed_bench_dataset_subset='qualitative', speed_bench_output_len=4096, speed_bench_category=None, label=None, backend='openai', base_url='http://localhost:8000', host='127.0.0.1', port=8000, endpoint='/v1/completions', header=None, max_concurrency=64, model='qwen35-4b', input_len=None, output_len=None, tokenizer='/model/Qwen3.5-4B', tokenizer_mode='auto', use_beam_search=False, logprobs=None, request_rate=inf, burstiness=1.0, probe_request_rate=0.0, disable_tqdm=False, num_warmups=0, profile=False, save_result=True, save_detailed=False, append_result=False, metadata=None, result_dir=None, result_filename='/data/llm-infra-lab/results/e11/bench_async_on.json', ignore_eos=False, self_timed=None, percentile_metrics='ttft,tpot,itl,e2el', metric_percentiles='99', goodput=None, request_id_prefix='bench-e9e0116f-', top_p=None, top_k=None, min_p=None, temperature=None, frequency_penalty=None, presence_penalty=None, repetition_penalty=None, served_model_name=None, lora_modules=None, lora_assignment='random', ramp_up_strategy=None, ramp_up_start_rps=None, ramp_up_end_rps=None, ready_check_timeout_sec=0, chat_template_kwargs=None, extra_body=None, skip_tokenizer_init=False, insecure=False, plot_timeline=False, timeline_itl_thresholds='25,50', plot_dataset_stats=False)
+INFO 11-05 10:47:27 [utils.py:90] Sampling input_len from [256, 256] and output_len from [512, 512]
+WARNING: vllm bench serve no longer sets temperature==0 (greedy) in requests by default. The default will be determined on the server side and can be model/API specific. For the old behavior, include --temperature=0.
+Starting initial single prompt test run...
+Skipping endpoint ready check.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1.0 (Poisson process)
+Maximum request concurrency: 64
+  0%|          | 0/192 [00:00<?, ?it/s]  1%|          | 1/192 [00:15<50:41, 15.93s/it]  1%|          | 2/192 [00:16<21:09,  6.68s/it]  6%|▌         | 11/192 [00:16<02:25,  1.25it/s]  9%|▉         | 18/192 [00:16<01:12,  2.40it/s] 13%|█▎        | 25/192 [00:16<00:42,  3.91it/s] 17%|█▋        | 32/192 [00:16<00:27,  5.88it/s] 20%|██        | 39/192 [00:17<00:18,  8.31it/s] 24%|██▍       | 46/192 [00:17<00:13, 11.21it/s] 28%|██▊       | 53/192 [00:17<00:09, 14.46it/s] 31%|███▏      | 60/192 [00:17<00:07, 17.96it/s] 33%|███▎      | 64/192 [00:30<00:07, 17.96it/s] 34%|███▍      | 65/192 [00:31<01:31,  1.39it/s] 34%|███▍      | 66/192 [00:31<01:26,  1.46it/s] 39%|███▉      | 75/192 [00:31<00:44,  2.60it/s] 43%|████▎     | 82/192 [00:32<00:29,  3.78it/s] 46%|████▋     | 89/192 [00:32<00:19,  5.35it/s] 50%|█████     | 96/192 [00:32<00:13,  7.35it/s] 54%|█████▎    | 103/192 [00:32<00:09,  9.82it/s] 57%|█████▋    | 110/192 [00:32<00:06, 12.73it/s] 61%|██████    | 117/192 [00:33<00:04, 15.94it/s] 65%|██████▍   | 124/192 [00:33<00:03, 19.12it/s] 67%|██████▋   | 129/192 [00:47<00:44,  1.42it/s] 72%|███████▏  | 139/192 [00:47<00:22,  2.36it/s] 91%|█████████ | 174/192 [00:47<00:02,  7.02it/s]100%|██████████| 192/192 [00:47<00:00,  4.04it/s]
+tip: install termplotlib and gnuplot to plot the metrics
+============ Serving Benchmark Result ============
+Successful requests:                     192       
+Failed requests:                         0         
+Maximum request concurrency:             64        
+Benchmark duration (s):                  47.54     
+Total input tokens:                      49152     
+Total generated tokens:                  98304     
+Request throughput (req/s):              4.04      
+Output token throughput (tok/s):         2067.75   
+Peak output token throughput (tok/s):    2432.00   
+Peak concurrent requests:                101.00    
+Total token throughput (tok/s):          3101.62   
+---------------Time to First Token----------------
+Mean TTFT (ms):                          816.88    
+Median TTFT (ms):                        562.95    
+P99 TTFT (ms):                           2017.45   
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          29.35     
+Median TPOT (ms):                        29.52     
+P99 TPOT (ms):                           30.54     
+---------------Inter-token Latency----------------
+Mean ITL (ms):                           29.35     
+Median ITL (ms):                         26.83     
+P99 ITL (ms):                            181.05    
+----------------End-to-end Latency----------------
+Mean E2EL (ms):                          15816.17  
+Median E2EL (ms):                        15642.04  
+P99 E2EL (ms):                           17623.35  
+==================================================
