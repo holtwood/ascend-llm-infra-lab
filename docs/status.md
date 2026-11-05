@@ -73,15 +73,15 @@
 
 ### 进行中/卡点（新环境）
 
-- **E5R MindIE 复活战（阻塞中）**：glibc2.38+CANN8.5+MindIE2.3.0 条件全对，
-  9 步排障链走完（boost→absl→torch lib→benchmark 路径→atb_llm→hccl→
-  ATB_SPEED_HOME_PATH→_libatb_torch→_cpu_logits_handler），权重加载成功
-  进入 warmup。当前卡点：inference 线程停在
-  `FlashQwen2ForCausalLM.init_ascend_weight`(flash_causal_qwen2.py:289,
-  acl_encoder_operation.set_weight) 单线程 99.9% 空转；8B 和 0.6B 均在
-  同帧 >40min-1h 无进展、kernel_meta 零写入；曾观测到内核栈呈
-  do_mem_abort/sigreturn fault-retry 特征。缩小 warmup
-  (maxPrefillTokens=256/maxIterTimes=8/maxSeqLen=512) 重试中。
+- **E5R MindIE 复活战（定论：ATB set_weight 栈级挂死）**：glibc2.38+CANN8.5+
+  MindIE2.3.0 条件全对，9 步排障链走完，权重加载+KV分配成功进入 warmup。
+  卡点定位：inference 线程停在 `init_ascend_weight` 的
+  `acl_*_operation.set_weight` 单线程 99.9% 空转。
+  隔离证据链：8B/0.6B/缩 warmup/TinyLlama(llama类,不同graph文件) 全部
+  同帧挂死 → 非模型特有；kernel_meta 零写入、DEBUG plog 只剩
+  1Hz 重复 32B memcpy 轮询（等不到 device ack）→ 判定挂死而非慢编译。
+  详见 results/e5r/README.md（含 mindie_config_smallwarmup.json、
+  e5r_start_service.sh 复现入口）。
   注意：mindie config 有两处 maxInputTokenLen（ModelDeployConfig 顶层
   + ScheduleConfig）都要 ≤maxPrefillTokens；daemon 不能套 setsid
   （自管进程组冲突报 MIE04E01011C）。

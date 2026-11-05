@@ -62,15 +62,33 @@ Config traps found along the way: `maxInputTokenLen` exists in BOTH
 `maxInputTokenLen ≤ maxPrefillTokens`; `maxSeqLen`/`maxInputLen` are in
 `ModelDeployConfig` top-level. See `mindie_config_smallwarmup.json`.
 
-## Working hypotheses (for the next attempt)
+## Isolation: not qwen3-specific — ATB `set_weight` is broken stack-wide
 
-1. ATB `set_weight` builds a fused mega-op encoder for the warmup shape; the
-   aarch64 CANN 8.5.0 + atb-models 2.3.0 combo may hit a build-time fault on
-   qwen3's graph (e.g. `omni_attention`/`pattern_mask` path or a tiling loop).
-2. Warmup is mandatory in `mindie_llm` (no skip flag found in
-   `generator.py`); bypass would require patching `model_runner`/`generator`.
-3. A different model family (e.g. llama/qwen2.5 with a different ATB graph
-   file) could isolate whether this is qwen3-specific.
+Repointed the service at TinyLlama-1.1B (`modelName=llama`) → hangs at the
+**same call site in a different model file**:
+`FlashLlamaForCausalLM.init_ascend_weight` (flash_causal_llama.py:285).
+
+With `ASCEND_GLOBAL_LOG_LEVEL=0`, the debug plog shows the smoking gun:
+during `set_weight`, weight uploads complete (22 × 46MB/23MB/8MB copies)
+and then the runtime degenerates into a **1 Hz poll loop** of the identical
+32-byte `_drvMemcpyInner(dst=0xfffc0c000be0, src=0x12c041000000)` — a status
+word being re-read indefinitely, i.e. the host waiting on a device-side ack
+that never arrives. Combined with zero `kernel_meta`/opp output and the
+mem-abort/sigreturn kernel-stack frames, the picture is: **the fused-op
+build submitted to the device never completes; the host spins on a
+completion word.**
+
+Summary of evidence that this is a hang, not slow compilation:
+
+| Test | Outcome |
+|---|---|
+| Qwen3-8B, default warmup | same frame, >60 min |
+| Qwen3-0.6B, default warmup | same frame, >60 min |
+| Qwen3-0.6B, shrunk warmup (256 tok/8 iter/512 seq) | same frame, >15 min |
+| TinyLlama-1.1B (llama class, different graph file) | same frame at `flash_causal_llama.py:285` |
+| Compile-cache growth during spin | zero writes |
+| CANN debug plog during spin | only a repeating identical 32-byte poll memcpy |
+| Thread attribution | 1/483 threads at ~100%, rest idle |
 
 ## Interview value (why a failed bring-up still counts)
 
@@ -87,8 +105,14 @@ Config traps found along the way: `maxInputTokenLen` exists in BOTH
 
 ## What would close it
 
-- Try a different ATB model class (qwen2.5/llama) → isolates qwen3-graph bug.
-- Patch out warmup in mindie_llm to reach steady-state service directly.
-- Vendor ticket material: MindIE 2.3.0 + CANN 8.5.0 + Qwen3, py-spy frame,
-  fault-retry signature, config bundle (attached above).
+- ~~Try a different ATB model class~~ → done: llama hits the identical hang —
+  the fault is in the ATB op-build path itself, not a model graph.
+- Patch out warmup in `mindie_llm` to reach steady-state service directly
+  (the hang is triggered by the first forward regardless, so this needs the
+  op-build fault itself fixed).
+- Device/firmware angle: the never-arriving device ack + fault-retry frames
+  hint at an aicpu/driver-level issue on this host — checking driver version
+  vs CANN 8.5.0 compatibility matrix is the next vendor-side step.
+- Vendor ticket material: MindIE 2.3.0 + CANN 8.5.0 + 910B1, py-spy frame,
+  1 Hz 32-byte poll signature, config bundle (attached above).
 ```
