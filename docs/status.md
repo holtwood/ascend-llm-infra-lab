@@ -183,3 +183,11 @@
 - batch_job_aware 经 additional-config JSON 启用；同构负载无收益
   （LPT/EWMA 无素材），混合 job 负载两类均 ~6% 改善
 - npu-smi 显存看「Process memory(MB)」表，芯片行是温度/利用率
+
+### E14 探针结果（本轮）
+
+- Qwen3.5-4B 主权重内嵌 15 个 `mtp.*` 权重（`mtp_num_hidden_layers=1`）；
+  `--speculative-config '{"method":"mtp","num_speculative_tokens":3}'`
+  引擎可起，metrics 有 spec_decode 计数器。接受率 65.6%（5470/8343）
+  但 c8 decode 负载下 TPOT 36.5 vs 无 spec 15.6ms——草稿串行前向开销
+  吃掉接受收益，净负。告警：MTP 草稿未分到独立 KV cache group
