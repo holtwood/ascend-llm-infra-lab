@@ -76,3 +76,19 @@ $PY scripts/parse_bench.py 'results/eN/*.json'
 
 仓库在 gitee 有全量历史；M3 的 /data/llm-infra-lab 与工作区在
 `/data/models/`（Qwen3-0.6B/VL-7B/R1-32B 部分）。重建后 clone 仓库继续。
+
+---
+
+## 2026-07 新环境接入（第二轮实验）
+
+**拓扑**：跳板 `ssh -p 2243 ubuntu@42.194.206.190`（ubuntu，密码同腾讯云）→ 内网 `117.131.156.71`，三容器共享**一张 910B1，实验必须串行**：
+
+| 别名 | 端口 | 密码 | 数据目录 | 栈 |
+|---|---|---|---|---|
+| mindie | 2507 | mindie@2026 | /data1/mindie-7 | glibc2.38, CANN8.5.0, MindIE2.3.0（含 mindiebenchmark）|
+| mindspore | 2407 | mindspore@2026 | /data1/mindspore-7 | mindspore 2.10, py3.12 |
+| pytorch | 2307 | pytorch@2026 | /data1/pytorch-7 | torch2.10+torch_npu2.10, CANN9.0 |
+
+**免密**：跳板→容器已配 root key（跳板 ~/.ssh/id_ed25519）；本仓库会话机（M3）的 key 也已注入三容器，`ssh -J ubuntu@42.194.206.190:2243 -p 2507 root@117.131.156.71` 直连。腾讯云若要用：把腾讯云 key 同样推进三容器 authorized_keys。
+
+**注意**：三容器看到 8×910B1 是宿主机视角，实际调度限一卡；pytorch 容器需 `source /usr/local/Ascend/ascend-toolkit/set_env.sh` 才能 import torch_npu；外网 hf-mirror/pypi 直连可用，模型容器内下载即可。
