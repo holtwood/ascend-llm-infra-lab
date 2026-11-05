@@ -288,7 +288,9 @@
 - E20 控制面（stdlib，D:8092）：前缀亲和+SRF分道+per-class准入cap
   ——short p90 4.85→3.10s(-36%)，44/64 快速429（<1ms），wall 3.7 vs 8.9s
 - issue 核实：#18978 是第三方 iwantknow1 在 10-16 独立提交的同缺陷，
-  dedup 正确非误判；issue1/2 上游无重复（提交仍需 GitHub 账号）
+  dedup 正确非误判；issue1/2 上游无重复
+  （本 lane 已于 2026-11-05 用 holtwood 账号提交：
+  #21112 / #21113 / #18978 comment）
 
 ### sparse_kv_offload 探针（第七轮续）
 
@@ -296,9 +298,22 @@
   类专属，Qwen3.5-4B 不适用（同 E19 规律：Ascend 特性多有模型/部署前置）
 - 收尾文档：docs/war-stories.md（10 个 STAR 故事）+ docs/demo-runbook.md
 
+<<<<<<< HEAD
 ### issue 提交核实（第七轮，2026-11-05）
 
 - 全部三份草稿已由 holtwood 提交上游：#21112(w8a16) #21113(207005) +
   #18978 comment(issue3)；与 docs/issues/ready/ 逐字一致
 - 此前"需 PAT 才能提交"判断为乌龙——用户已自行提交
 - issue1 源码核验：_detect_quant_type 行号 326-382 与草稿一致，属实
+=======
+### E8f continuous batching 模拟器（第八轮）
+
+- 纯 Python 复刻 V1 调度循环（budget/admission/chunked prefill/队尾抢占/
+  APC 命中），负载同 E3/E16 形状
+- 最值钱格子：mnb=256 时 APC 使 TTFT 228.6→59.7（-74%）、吞吐
+  13.2→23.8（+80%）——APC 收益本质是放大 token 预算而非只省 TTFT
+- mnb=256 无 APC 比 static 还差（队头阻塞= E3b 复现）；KV 池=160 块
+  触发 34341 次抢占，吞吐腰斩（capacity 规划反面教材）
+- 坑：v1 实现让未完成 prefill 的请求参与 decode → 永久卡死（真实
+  vLLM 也不会让 computed<in_len 的 req 产 token）；APC 命中请求 ttft
+  未置位 → 负值 bug 已修

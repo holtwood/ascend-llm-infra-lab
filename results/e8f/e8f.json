@@ -1,0 +1,61 @@
+{
+  "static_baseline": {
+    "makespan": 596,
+    "throughput_tok_per_step": 20.6,
+    "ttft_mean": 129.5,
+    "ttft_p99": 213
+  },
+  "continuous_mnb256": {
+    "makespan": 933,
+    "throughput_tok_per_step": 13.16,
+    "ttft_mean": 228.6,
+    "ttft_p99": 531,
+    "preemptions": 0,
+    "prefix_hit_reqs": 0
+  },
+  "continuous_mnb1024": {
+    "makespan": 520,
+    "throughput_tok_per_step": 23.61,
+    "ttft_mean": 1.9,
+    "ttft_p99": 6,
+    "preemptions": 0,
+    "prefix_hit_reqs": 0
+  },
+  "continuous_mnb4096": {
+    "makespan": 518,
+    "throughput_tok_per_step": 23.7,
+    "ttft_mean": 0.0,
+    "ttft_p99": 0,
+    "preemptions": 0,
+    "prefix_hit_reqs": 0
+  },
+  "continuous_apc": {
+    "makespan": 518,
+    "throughput_tok_per_step": 23.7,
+    "ttft_mean": 0.0,
+    "ttft_p99": 0,
+    "preemptions": 0,
+    "prefix_hit_reqs": 68
+  },
+  "continuous_apc_mnb256": {
+    "makespan": 517,
+    "throughput_tok_per_step": 23.75,
+    "ttft_mean": 59.7,
+    "ttft_p99": 142,
+    "preemptions": 0,
+    "prefix_hit_reqs": 62
+  },
+  "continuous_kv_tight": {
+    "makespan": 1136,
+    "throughput_tok_per_step": 10.81,
+    "ttft_mean": 279.2,
+    "ttft_p99": 697,
+    "preemptions": 34341,
+    "prefix_hit_reqs": 0
+  },
+  "workload": {
+    "n": 128,
+    "shared_tpl_reqs": 96,
+    "in_len_mean": 1577
+  }
+}
