@@ -39,16 +39,23 @@ def pull(node, host, port, local):
 
 
 def load_jsonl(path):
+    """Tolerant reader: the npu field may contain newlines, splitting one
+    JSON object across several lines. Accumulate until a line parses."""
     out = []
     if not os.path.exists(path):
         return out
-    for line in open(path, errors="ignore"):
-        line = line.strip()
-        if line.startswith("{"):
-            try:
-                out.append(json.loads(line))
-            except Exception:
-                pass
+    buf = ""
+    for raw in open(path, errors="ignore"):
+        line = raw.rstrip("\n")
+        if not buf and not line.strip().startswith("{"):
+            continue
+        buf = (buf + " " + line.strip()) if buf else line.strip()
+        try:
+            out.append(json.loads(buf))
+            buf = ""
+        except Exception:
+            if len(buf) > 4000:   # give up on a runaway fragment
+                buf = ""
     return out
 
 

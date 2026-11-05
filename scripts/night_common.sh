@@ -58,6 +58,7 @@ sample() {  # $1 tag — AICore/HBM + server KV metrics
   run=$(curl -s -m 3 "http://127.0.0.1:$port/metrics" 2>/dev/null | grep "^vllm:num_requests_running" | awk '{print $2}')
   wait=$(curl -s -m 3 "http://127.0.0.1:$port/metrics" 2>/dev/null | grep "^vllm:num_requests_waiting" | awk '{print $2}')
   pre=$(curl -s -m 3 "http://127.0.0.1:$port/metrics" 2>/dev/null | grep "^vllm:num_preemptions_total" | awk '{print $2}')
+  npu=$(echo "$npu" | tr '\n' ';' | tr -s ' ')
   echo "{\"tag\":\"$tag\",\"ts\":$(date +%s),\"npu\":\"$npu\",\"kv\":\"$kv\",\"run\":\"$run\",\"wait\":\"$wait\",\"pre\":\"$pre\"}" >> "$RES/samples.jsonl"
 }
 
