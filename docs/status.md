@@ -112,3 +112,22 @@
 - spec-decode 两条可选路线均否决：clef-flash joint_head 是 schema 决策头
   非 next-token 草稿头；Qwen3-0.6B draft 与 qwen35-4b 词表不一致
   (151643 vs 248044)——draft_model 方法要求同 vocab
+
+### 第三轮踩坑（E8/S级连跑）
+
+- M3 `results/` 下未提交文件曾被清（疑外部 `git clean`/reset；lab 目录本身
+  是 git 仓库停在旧 commit）：pressure_c64/c384 JSON + 脚本一度消失——
+  **结果要随测随拷回本地仓库**，远端只当过夜缓存
+- 同卡双 vLLM 实例：默认 0.92 util 下第二个 4B 实例引擎初始化直接失败
+  （权重 8.6G 放不进剩余 ~10%）→ E8 复用现成副本，需小 KV 池时重启降 util
+- python3 环境 torch 自动加载 torch_npu → 缺 libhccl.so：
+  `TORCH_DEVICE_BACKEND_AUTOLOAD=0` 可纯 CPU 跑 torch 脚本
+- Qwen3.5-4B 顶层 AutoConfig 全 None：架构字段嵌在 `text_config`；
+  且是 hybrid 模型——KV 按 8×full_attention 层算不是 32 层
+- hybrid 统一分页：block 128→attention block 640 token，mamba 页 +22.14%
+  填充对齐 → 有效 48.7KB/token（>纯 attention 理论 32.8KB）
+- **容量边界 ≠ 首发瓶颈**：0.92 池 c384 峰值 running=142/KV 73%/0 抢占
+  ——chunked-prefill 准入速率让 running 稳态停在容量界下；要打满 KV
+  得缩池（util→0.5）或关 chunked-prefill
+- KV 打满（99.1%）→ `num_preemptions_total` 计数真实抢占（recompute），
+  请求不失败，代价在 p99 尾部（+28%）

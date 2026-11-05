@@ -1,0 +1,21 @@
+{
+  "tag": "c256o256u50",
+  "concurrency": 256,
+  "prompt_words": 3600,
+  "max_tokens": 256,
+  "ok": 256,
+  "fail": 0,
+  "wall_s": 144.7,
+  "lat_mean": 106.43,
+  "lat_p50": 111.8,
+  "lat_p90": 142.26,
+  "lat_p99": 143.63,
+  "peak_kv_usage": 0.9911937377690803,
+  "peak_running": 84.0,
+  "peak_waiting": 249.0,
+  "preemptions_delta": 3.0,
+  "errors": [],
+  "status_hist": {
+    "200": 256
+  }
+}

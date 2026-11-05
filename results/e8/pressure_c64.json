@@ -1,0 +1,20 @@
+{
+  "tag": "c64",
+  "concurrency": 64,
+  "prompt_words": 3600,
+  "max_tokens": 64,
+  "ok": 64,
+  "fail": 0,
+  "wall_s": 34.0,
+  "lat_mean": 25.72,
+  "lat_p50": 27.14,
+  "lat_p90": 33.13,
+  "lat_p99": 33.37,
+  "peak_kv_usage": 0.11958851264466352,
+  "peak_running": 23.0,
+  "peak_waiting": 60.0,
+  "preemptions_delta": 0.0,
+  "errors": [],
+  "status_hist": {"200": 64},
+  "note": "reconstructed from driver output after data-dir file loss (see status.md)"
+}
