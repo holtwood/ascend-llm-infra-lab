@@ -1,0 +1,49 @@
+{
+  "tag": "arm_lpr",
+  "entry": "http://127.0.0.1:8090/v1/completions",
+  "n_req": 64,
+  "templates": 8,
+  "wall_s": 6.8,
+  "ok": 64,
+  "err_n": 0,
+  "lat_mean": 1.68,
+  "lat_p50": 1.55,
+  "lat_p90": 2.28,
+  "per_backend": {
+    "8010": {
+      "vllm:prefix_cache_hits_total": 17920.0,
+      "vllm:prefix_cache_queries_total": 28709.0,
+      "vllm:time_to_first_token_seconds_sum": 17.7328,
+      "vllm:time_to_first_token_seconds_count": 32.0,
+      "hit_rate": 0.6242,
+      "ttft_mean_s": 0.5542
+    },
+    "8001": {
+      "vllm:prefix_cache_hits_total": 4480.0,
+      "vllm:prefix_cache_queries_total": 7112.0,
+      "vllm:time_to_first_token_seconds_sum": 2.5494,
+      "vllm:time_to_first_token_seconds_count": 8.0,
+      "hit_rate": 0.6299,
+      "ttft_mean_s": 0.3187
+    },
+    "8002": {
+      "vllm:prefix_cache_hits_total": 8960.0,
+      "vllm:prefix_cache_queries_total": 14452.0,
+      "vllm:time_to_first_token_seconds_sum": 8.9659,
+      "vllm:time_to_first_token_seconds_count": 16.0,
+      "hit_rate": 0.62,
+      "ttft_mean_s": 0.5604
+    },
+    "8003": {
+      "vllm:prefix_cache_hits_total": 4480.0,
+      "vllm:prefix_cache_queries_total": 7389.0,
+      "vllm:time_to_first_token_seconds_sum": 6.3173,
+      "vllm:time_to_first_token_seconds_count": 8.0,
+      "hit_rate": 0.6063,
+      "ttft_mean_s": 0.7897
+    }
+  },
+  "tot_queries": 57662.0,
+  "tot_hits": 35840.0,
+  "hit_rate_total": 0.6216
+}

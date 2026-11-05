@@ -201,3 +201,15 @@
   include_usage）；词→token 按 ~1.5 估算
 - 63k ctx 每请求 KV ~3.1GB（48.7KB/tok），TPOT 19→62ms 随 ctx 4x 增长
   ——长上下文容量瓶颈从调度准入切回 KV 字节
+
+### D3 prefix-aware 路由（第六轮）
+
+- D 节点无 fastapi/aiohttp → 路由用 stdlib `http.server`+`http.client` 手写；
+  前缀指纹 = 前 2048 字符 sha1，亲和表 + inflight+2 降级 least-load
+- 两臂必须用不同 seed 生成模板，否则第二臂继承第一臂缓存（已踩，
+  补 --seed 参数后重跑）
+- 结果：~6k tok 前缀命中率 53.8%→84.0%；~900 tok 42.5%→62.2%；
+  客户端 p50 2.51→1.87s 但 p90 持平——排队主导 + 亲和倾斜稀释收益
+- least_conn 基线本身有 ~50% 命中（同模板 8 请求散 4 副本，平均仍
+  见 2 次），评测基线不能假设 0%
+- 并发到达的"第二波才命中"使命中率低于 (n-1)/n 理论上界
