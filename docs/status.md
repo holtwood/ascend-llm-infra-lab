@@ -109,3 +109,6 @@
 - M1 `e6_ppl_cpu.py`（PID 25027）bf16-27B CPU NLL，~13min/chunk × 27，
   增量写盘 results/e6/ppl_bf16-27b.json —— 取部分 chunk 即可配对
 - M1 `serve_e4b_m1.log` qwen35-4b:8000 在跑（E4 集群第 4 副本角色）
+- spec-decode 两条可选路线均否决：clef-flash joint_head 是 schema 决策头
+  非 next-token 草稿头；Qwen3-0.6B draft 与 qwen35-4b 词表不一致
+  (151643 vs 248044)——draft_model 方法要求同 vocab
