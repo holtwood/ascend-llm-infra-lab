@@ -387,6 +387,17 @@
 - 注意：该 checkout 是 detached HEAD @v0.30.0rc2、多 lane 共享工作树——
   分支提交不动文件内容，对其他 lane 无影响
 - PR 前置缺口：fork 推送权限 + 真人 review/提交 + HTTP serve 冒烟（等卡）
+
+## 通宵任务套件（scripts/overnight/，设计见 docs/overnight-runbook.md）
+
+- 一键：`deploy.sh`（推送+启动）/ `observe.sh`（进度）/ `observe.sh --fetch`（回收）
+- 队列：env_probe→finish_install(vllm)-->hccl_pairs(8×8拓扑矩阵)-->kv_quant(S×B网格)
+  -->paged_gather(块粒度)-->copy_bw(含计算并发衰减)-->serve_smoke(#21112终验)
+  -->tp_scaling(首测TP1/2/4)-->hccl_soak(填余量~8.5h)
+- 远端坑已内建：CANN env 三个 set_env.sh 必须 source；.bashrc 默认
+  ASCEND_RT_VISIBLE_DEVICES=6 只露一卡→master 强制 0-7；vllm wheel 硬钉
+  torch==2.13.0 会破坏 torch_npu 2.10.0→--no-deps+剔 torch* 依赖清单；
+  SSH 掉线→全部 nohup+落盘；任务级 timeout+孤儿回收（修 e8i 教训）
 - warm 696.6 → post-wake 694.9 tok/s（TPOT 18.9→19.3ms）——无稳态损失
 - sleep2 1.74s / wake 0.125s；drill-cards 卡5 缺口已补
 
