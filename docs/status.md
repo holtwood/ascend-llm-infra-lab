@@ -47,3 +47,4 @@
 
 - 服务端口约定：vLLM :8000 / LB :8080
 - vllm serve 启动命令模板见 scripts/serve.sh（待补）
+- e2_driver 远端 kill 循环 `pgrep -f "vllm serve"` 会匹配远端 wrapper 自身 cmdline（self-match，本次发生于远端 bash）→ 统一改 `bin/vllm serve` 模式

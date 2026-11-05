@@ -24,5 +24,23 @@
 
 原始数据：`e3_pc_on.json` / `e3_pc_off.json`
 
-## 实验 2：ngram Spec Decode（待跑）
+## 实验 2：ngram Speculative Decoding
+
+### 2a. random 数据集（负结果——方法论教训）
+
+- 配置：`--speculative-config {"method":"ngram","num_speculative_tokens":5,prompt_lookup_max:4,prompt_lookup_min:1}`
+- 负载：random 数据集 c=8（512in/128out）
+
+| | TTFT | TPOT | 备注 |
+|---|---|---|---|
+| 基线（无 spec, E1 c=8） | 292ms | 23.4ms | |
+| **ngram spec** | 1261ms | **86.9ms (3.7×恶化)** | 接受率仅 ~1-8% |
+
+**根因**：随机 token 序列没有任何可复现 n-gram → draft 几乎全被拒
+（serve 日志 `Avg Draft acceptance rate` 实测 0-8%），draft 前向纯属浪费算力。
+**教训：spec decode 的收益 = f(接受率) = f(负载可预测性)**；ngram 只对
+有重复模式的文本有效（代码/模板化输出/多轮重复），random 数据必然负收益。
+
+### 2b. sonnet 数据集（真实文本，待补对照）
+
 ## 实验 3：Chunked Prefill / max_num_batched_tokens（待跑）

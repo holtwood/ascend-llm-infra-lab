@@ -12,7 +12,7 @@ MODEL=/model/Qwen3.5-4B; NAME=qwen35-4b; PORT=8000
 OUT=/data/llm-infra-lab/results/e3; mkdir -p "$OUT"
 
 echo "=== [$TAG] stopping old server ==="
-for p in $(pgrep -f "vllm serve"); do kill "$p" 2>/dev/null; done
+for p in $(pgrep -f "bin/vllm serve"); do kill "$p" 2>/dev/null; done
 sleep 8
 
 echo "=== [$TAG] starting server: $EXTRA ==="

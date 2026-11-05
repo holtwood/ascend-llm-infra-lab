@@ -1,3 +1,34 @@
 === [spec_ngram_c8] stopping old server ===
 === [spec_ngram_c8] starting server: --speculative-config {"method":"ngram","num_speculative_tokens":5,"prompt_lookup_max":4,"prompt_lookup_min":1} ===
 === [spec_ngram_c8] server up, benching ===
+Total token throughput (tok/s):          400.26    
+---------------Time to First Token----------------
+Mean TTFT (ms):                          1260.75   
+Median TTFT (ms):                        265.21    
+P99 TTFT (ms):                           8843.29   
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          86.90     
+Median TPOT (ms):                        87.92     
+P99 TPOT (ms):                           101.08    
+---------------Inter-token Latency----------------
+Mean ITL (ms):                           89.83     
+Median ITL (ms):                         102.05    
+P99 ITL (ms):                            178.56    
+----------------End-to-end Latency----------------
+Mean E2EL (ms):                          12322.88  
+Median E2EL (ms):                        11543.73  
+P99 E2EL (ms):                           21018.16  
+---------------Speculative Decoding---------------
+Acceptance rate (%):                     5.97      
+Acceptance length:                       1.28      
+Drafts:                                  1023      
+Draft tokens:                            4837      
+Accepted tokens:                         289       
+Per-position acceptance (%):
+  Position 0:                            12.90     
+  Position 1:                            5.57      
+  Position 2:                            3.71      
+  Position 3:                            3.32      
+  Position 4:                            2.74      
+==================================================
+=== [spec_ngram_c8] done ===
