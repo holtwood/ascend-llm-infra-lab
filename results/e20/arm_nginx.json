@@ -1,0 +1,28 @@
+{
+ "tag": "arm_nginx",
+ "entry": "http://127.0.0.1:8080/v1/completions",
+ "n": 64,
+ "concurrency": 32,
+ "wall_s": 8.9,
+ "per_class": {
+  "short": {
+   "ok": 30,
+   "rej429": 0,
+   "err": 0,
+   "mean": 4.11,
+   "p50": 4.36,
+   "p90": 4.85,
+   "max": 5.5
+  },
+  "long": {
+   "ok": 34,
+   "rej429": 0,
+   "err": 0,
+   "mean": 4.13,
+   "p50": 3.87,
+   "p90": 5.39,
+   "max": 6.06
+  }
+ },
+ "rejected": 0
+}

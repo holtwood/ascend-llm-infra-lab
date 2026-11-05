@@ -1,0 +1,28 @@
+{
+ "tag": "arm_cp",
+ "entry": "http://127.0.0.1:8092/v1/completions",
+ "n": 64,
+ "concurrency": 32,
+ "wall_s": 3.7,
+ "per_class": {
+  "short": {
+   "ok": 12,
+   "rej429": 20,
+   "err": 0,
+   "mean": 2.95,
+   "p50": 3.09,
+   "p90": 3.1,
+   "max": 3.64
+  },
+  "long": {
+   "ok": 8,
+   "rej429": 24,
+   "err": 0,
+   "mean": 3.18,
+   "p50": 3.14,
+   "p90": 3.67,
+   "max": 3.68
+  }
+ },
+ "rejected": 44
+}

@@ -279,3 +279,13 @@
   #18978 comment causal_conv1d —— 三条已发，含 AI 辅助披露
 - 提交前二次 dedup 抓到 #2265/#4267/#9564/#17491 并已写入正文引用，
   避免被 maintainer 当场指出漏查
+### 第七轮（E15 MTP扫参 + E20 控制面）
+
+- MindIE 项已由并行 lane E5R 封顶（ATB set_weight hang=vendor 级，
+  1Hz 32B 轮询等 device ack，零 compile 产出）——不再重复
+- E15：MTP k=1/2 补测，接受率 88.7%/75.8% 但 TPOT 27.6/36.1ms 全负
+  ——k=1 也亏，草稿头固定前向成本是常量项；单调恶化跳 k=5
+- E20 控制面（stdlib，D:8092）：前缀亲和+SRF分道+per-class准入cap
+  ——short p90 4.85→3.10s(-36%)，44/64 快速429（<1ms），wall 3.7 vs 8.9s
+- issue 核实：#18978 是第三方 iwantknow1 在 10-16 独立提交的同缺陷，
+  dedup 正确非误判；issue1/2 上游无重复（提交仍需 GitHub 账号）
