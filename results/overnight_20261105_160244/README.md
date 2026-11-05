@@ -53,3 +53,34 @@ KV offload / PD 传输带宽预算不能按空载峰值算。
 
 见 env.txt：8×NPU 可见、torch 2.10.0+cpu、torch_npu 2.10.0、CANN 9.0.0、
 transformers 4.51.0；vllm 当时未装（finish_install 排队中）。
+
+## E8i-ext2：TP decode 步时实测（tp_decode.json，真 Qwen3-0.6B 权重）
+
+单卡 8 卡独占，按行并行切分真实权重，decode 步（bs=1,seq=1）含每层 3 次
+allreduce（qkv/o/down 后各一次，1KB 级消息）：
+
+| TP | 步时 (µs) | 相对 tp=1 | 单次 allreduce | 通信占比 |
+|---|---|---|---|---|
+| 1 | 201 | 1.00× | — | 0% |
+| 2 | 740 | **3.68×** | 177 µs | 72% |
+| 4 | 845 | 4.20× | 197 µs | 70% |
+| 8 | 881 | **4.39×** | 238 µs | 81% |
+
+**结论**：0.6B 级模型的 decode 步，TP 的通信税**压过计算收益**——
+8 卡比单卡慢 4.4×。计算本身从 201µs 只降到 ~167µs（权重切片后 matvec
+本就受带宽限制，切分不省时），而 3×238µs 的 allreduce 直接吃掉 81% 步时。
+
+与 E8i（HCCL 原始延迟底 ~150µs）和 E8d（TP 通信税不随卡数降）完全自洽：
+**小模型 decode 用副本不用 TP**，这是第三条独立证据链。
+
+复现：`scripts/overnight/tasks/tp_decode_sim.py`（torch 级，不需要 vllm）。
+
+## 远端 vllm-ascend serve 结论：CANN 9.0 硬版本墙
+
+vllm+vllm_ascend 在远端成功安装并激活 `PLATFORM npu`、W8A16 模型权重
+加载成功、`/v1/models` 返回 200——但首次前向死在
+`aclnnScatterPaKvCache`（CANN 9.2 才有的内置算子，9.0 缺失）。
+这不是配置问题：paged KV scatter 是 9.2 新增能力，vllm-ascend 0.30
+的 paged attention 依赖它。也解释了厂商为何在 9.0 容器里配 MindIE。
+
+踩坑全记录：`docs/remote-vllm-bringup.md`。
