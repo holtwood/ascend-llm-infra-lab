@@ -7,7 +7,7 @@ PATH_=$1; NAME=$2; TAG=$3; shift 3
 source /data/llm-infra-lab/scripts/env.sh
 OUT=/data/llm-infra-lab/results/e2; mkdir -p "$OUT"
 
-SRV_EXTRA=$(printf '%q ' "$@")
+SRV_EXTRA=""; [ $# -gt 0 ] && SRV_EXTRA=$(printf '%q ' "$@")
 $M1 'for p in $(pgrep -f "bin[/]vllm serve"); do kill $p 2>/dev/null; done
 for i in $(seq 1 60); do pgrep -f "bin[/]vllm serve" >/dev/null || break; sleep 3; done
 for p in $(pgrep -f "bin[/]vllm serve"); do kill -9 $p; done; sleep 8
@@ -23,7 +23,7 @@ echo "[$TAG] M1 up -> bench"
 for C in 8 32 64; do
   NP=$((C * 4)); [ $NP -gt 256 ] && NP=256
   vllm bench serve --endpoint /v1/completions --base-url http://localhost:8001 \
-    --model "$NAME" --tokenizer "$PATH_" \
+    --model "$NAME" --tokenizer /model/Qwen3.5-4B \
     --dataset-name random --random-input-len 512 --random-output-len 128 --random-range-ratio 0.2 \
     --num-prompts $NP --max-concurrency $C --ignore-eos \
     --percentile-metrics ttft,tpot,itl,e2el \

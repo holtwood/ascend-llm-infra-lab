@@ -1,0 +1,19 @@
+Successful requests:                     32        
+Output token throughput (tok/s):         281.40    
+Peak output token throughput (tok/s):    448.00    
+Total token throughput (tok/s):          1422.76   
+Mean TTFT (ms):                          897.82    
+Mean TPOT (ms):                          20.02     
+Successful requests:                     128       
+Output token throughput (tok/s):         818.94    
+Peak output token throughput (tok/s):    1344.00   
+Total token throughput (tok/s):          5991.27   
+Mean TTFT (ms):                          399.22    
+Mean TPOT (ms):                          33.82     
+Successful requests:                     256       
+Output token throughput (tok/s):         1317.52   
+Peak output token throughput (tok/s):    2304.00   
+Total token throughput (tok/s):          6588.98   
+Mean TTFT (ms):                          477.02    
+Mean TPOT (ms):                          42.62     
+bf16 sweep done

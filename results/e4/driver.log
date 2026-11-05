@@ -3,3 +3,56 @@ tunnel 8001 UP
 tunnel 8002 down
 nginx: configuration file /etc/nginx/nginx.conf test is successful
 LB_READY:N=1
+Successful requests:                     128       
+Request throughput (req/s):              6.00      
+Output token throughput (tok/s):         778.00    
+Peak output token throughput (tok/s):    2436.00   
+Total token throughput (tok/s):          3862.53   
+Mean TTFT (ms):                          1169.40   
+Mean TPOT (ms):                          28.42     
+Successful requests:                     55        
+Request throughput (req/s):              2.81      
+Output token throughput (tok/s):         329.62    
+Peak output token throughput (tok/s):    1376.00   
+Total token throughput (tok/s):          1773.16   
+Mean TTFT (ms):                          4496.48   
+Mean TPOT (ms):                          109.11    
+===== N=2 =====
+tunnel 8001 UP
+tunnel 8002 UP
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+LB_READY:N=2
+Successful requests:                     128       
+Request throughput (req/s):              2.63      
+Output token throughput (tok/s):         341.17    
+Peak output token throughput (tok/s):    1311.00   
+Total token throughput (tok/s):          1693.79   
+Mean TTFT (ms):                          650.63    
+Mean TPOT (ms):                          85.32     
+Successful requests:                     256       
+Request throughput (req/s):              4.78      
+Output token throughput (tok/s):         616.67    
+Peak output token throughput (tok/s):    2048.00   
+Total token throughput (tok/s):          3084.00   
+Mean TTFT (ms):                          2847.25   
+Mean TPOT (ms):                          178.12    
+===== N=3 =====
+tunnel 8001 UP
+tunnel 8002 UP
+sful
+LB_READY:N=3
+Successful requests:                     128       
+Request throughput (req/s):              4.92      
+Output token throughput (tok/s):         638.73    
+Peak output token throughput (tok/s):    1350.00   
+Total token throughput (tok/s):          3171.08   
+Mean TTFT (ms):                          1630.69   
+Mean TPOT (ms):                          34.39     
+Successful requests:                     256       
+Request throughput (req/s):              13.31     
+Output token throughput (tok/s):         1718.41   
+Peak output token throughput (tok/s):    4564.00   
+Total token throughput (tok/s):          8593.82   
+Mean TTFT (ms):                          1474.92   
+Mean TPOT (ms):                          55.83     
+E4 done -> /data/llm-infra-lab/results/e4
