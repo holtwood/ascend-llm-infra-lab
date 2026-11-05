@@ -1,0 +1,36 @@
+WARNING 11-05 13:01:35 [indexer_topk.py:29] Failed to import the DeepSelect extension (vllm._deepselect_C): No module named 'vllm._deepselect_C'
+(APIServer pid=1697143) INFO 11-05 13:01:35 [api_utils.py:286] non-default args: {'model_tag': '/model/Qwen3.5-4B', 'port': 23701, 'model': '/model/Qwen3.5-4B', 'max_model_len': 4096, 'enforce_eager': True, 'served_model_name': ['qwen35-4b'], 'block_size': 128, 'gpu_memory_utilization': 0.4, 'enable_prefix_caching': False, 'max_num_batched_tokens': 4096, 'kv_transfer_config': KVTransferConfig(kv_connector='MooncakeConnectorV1', engine_id='e18-decode', kv_buffer_device='npu', kv_buffer_size=1000000000.0, kv_role='kv_consumer', kv_rank=None, kv_parallel_size=1, kv_ip='127.0.0.1', kv_port=31100, kv_connector_extra_config={'prefill': {'dp_size': 1, 'tp_size': 1}, 'decode': {'dp_size': 1, 'tp_size': 1}}, kv_connector_module_path=None, enable_permute_local_kv=False, kv_load_failure_policy='fail')}
+(EngineCore pid=1777364) WARNING 11-05 13:02:26 [indexer_topk.py:29] Failed to import the DeepSelect extension (vllm._deepselect_C): No module named 'vllm._deepselect_C'
+(EngineCore pid=1777364) INFO 11-05 13:03:10 [factory.py:62] Creating v1 connector with name: MooncakeConnector and engine_id: e18-decode-6eb68fe0245d4a8d94f0f06181b279ce
+W1105 13:03:10.613411 1777364 transfer_engine_py.cpp:96] Using default malloc/free for protocol: ascend
+I1105 13:03:10.613570 1777364 transfer_engine_impl.cpp:811] Metrics reporting is disabled (set MC_TE_METRIC=1 to enable)
+I1105 13:03:10.613595 1777364 transfer_engine_impl.cpp:115] Transfer Engine parseHostNameWithPort. server_name: 127.0.0.1 port: 12001
+I1105 13:03:10.613672 1777364 transfer_engine_impl.cpp:182] Transfer Engine RPC using P2P handshake, listening on 127.0.0.1:16352
+I1105 13:03:10.613986 1777364 transfer_executor_base.cpp:80] Set transfer timeout to:33064
+I1105 13:03:10.615073 1777364 transfer_executor_base.cpp:200] Set GlobalResourceConfig to:{"comm_resource_config.qos": 1}
+I1105 13:03:11.685344 1777364 transfer_executor_base.cpp:227] Success to initialize adxl engine:127.0.0.1:20488, pid:1777364
+(EngineCore pid=1777364) INFO 11-05 13:03:11 [mooncake_connector.py:2623] num_blocks: 711
+(EngineCore pid=1777364) WARNING 11-05 13:03:11 [mooncake_connector.py:2503] Coalesced 4 overlapping Mooncake KV registration ranges into 1 ranges.
+I1105 13:03:11.780897 1777364 transfer_executor_base.cpp:452] TransferExecutor register mem addr:0x12d526200000, length:14910750720, mem type:device, engine index:0
+(EngineCore pid=1777364) WARNING 11-05 13:03:13 [worker.py:954] Bind cpus failed in rank0: CPUs available in 'Cpus_allowed_list' conflict with NUMA affinity. Skip binding cpu.
+(EngineCore pid=1777364) INFO 11-05 13:03:13 [factory.py:62] Creating v1 connector with name: MooncakeConnector and engine_id: e18-decode-6eb68fe0245d4a8d94f0f06181b279ce
+(EngineCore pid=1777364) INFO 11-05 13:03:13 [mooncake_connector.py:1748] Initializing Mooncake Scheduler e18-decode-6eb68fe0245d4a8d94f0f06181b279ce
+(EngineCore pid=1777364) INFO 11-05 13:03:13 [mooncake_connector.py:2103] MooncakeConnector set_xfer_handshake_metadata: worker_count=1, updated={'0': {'host': '127.0.0.1', 'engine_id': 'e18-decode-6eb68fe0245d4a8d94f0f06181b279ce', 'handshake_port': 31100}}, multi_nodes_meta_mapping={'0': {'host': '127.0.0.1', 'engine_id': 'e18-decode-6eb68fe0245d4a8d94f0f06181b279ce', 'handshake_port': 31100}}
+E1105 13:03:27.388336 1898073 transfer_metadata_plugin.cpp:961] SocketHandShakePlugin: connect()127.0.0.1:16401: Connection refused [111]
+(EngineCore pid=1777364) ERROR 11-05 13:03:27 [mooncake_connector.py:1044] Mooncake transfer failed for request. remote_request_id=cmpl-921bc710-57df-4849-9ff5-45a002c45837-0-b1780b85, ret=-1. 
+(EngineCore pid=1777364) ERROR 11-05 13:03:27 [mooncake_connector.py:741] Failed to transfer KV cache for request cmpl-921bc710-57df-4849-9ff5-45a002c45837-0-b1780b85: Mooncake transfer failed, ret: -1
+(EngineCore pid=1777364) ERROR 11-05 13:03:27 [mooncake_connector.py:741] Traceback (most recent call last):
+(EngineCore pid=1777364) ERROR 11-05 13:03:27 [mooncake_connector.py:741]   File "/vllm-workspace/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_p2p/mooncake_connector.py", line 736, in _handle_request
+(EngineCore pid=1777364) ERROR 11-05 13:03:27 [mooncake_connector.py:741]     self._transfer_kv_cache_all_groups(req_meta)
+(EngineCore pid=1777364) ERROR 11-05 13:03:27 [mooncake_connector.py:741]   File "/vllm-workspace/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_p2p/mooncake_connector.py", line 1049, in _transfer_kv_cache_all_groups
+(EngineCore pid=1777364) ERROR 11-05 13:03:27 [mooncake_connector.py:741]     raise RuntimeError(f"Mooncake transfer failed, ret: {ret}")
+(EngineCore pid=1777364) ERROR 11-05 13:03:27 [mooncake_connector.py:741] RuntimeError: Mooncake transfer failed, ret: -1
+I1105 13:04:37.058535 1898073 transfer_engine_py.cpp:550] Sync batch data transfer timeout after 30072484951ns
+(EngineCore pid=1777364) ERROR 11-05 13:04:37 [mooncake_connector.py:1044] Mooncake transfer failed for request. remote_request_id=cmpl-66f079cf-58af-4a93-b0fb-e5b02cdc1572-0-8e1d3a3c, ret=-1. 
+(EngineCore pid=1777364) ERROR 11-05 13:04:37 [mooncake_connector.py:741] Failed to transfer KV cache for request cmpl-66f079cf-58af-4a93-b0fb-e5b02cdc1572-0-8e1d3a3c: Mooncake transfer failed, ret: -1
+(EngineCore pid=1777364) ERROR 11-05 13:04:37 [mooncake_connector.py:741] Traceback (most recent call last):
+(EngineCore pid=1777364) ERROR 11-05 13:04:37 [mooncake_connector.py:741]   File "/vllm-workspace/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_p2p/mooncake_connector.py", line 736, in _handle_request
+(EngineCore pid=1777364) ERROR 11-05 13:04:37 [mooncake_connector.py:741]     self._transfer_kv_cache_all_groups(req_meta)
+(EngineCore pid=1777364) ERROR 11-05 13:04:37 [mooncake_connector.py:741]   File "/vllm-workspace/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_p2p/mooncake_connector.py", line 1049, in _transfer_kv_cache_all_groups
+(EngineCore pid=1777364) ERROR 11-05 13:04:37 [mooncake_connector.py:741]     raise RuntimeError(f"Mooncake transfer failed, ret: {ret}")
+(EngineCore pid=1777364) ERROR 11-05 13:04:37 [mooncake_connector.py:741] RuntimeError: Mooncake transfer failed, ret: -1

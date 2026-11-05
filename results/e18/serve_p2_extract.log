@@ -1,0 +1,21 @@
+WARNING 11-05 13:01:18 [indexer_topk.py:29] Failed to import the DeepSelect extension (vllm._deepselect_C): No module named 'vllm._deepselect_C'
+(APIServer pid=271931) INFO 11-05 13:01:18 [api_utils.py:286] non-default args: {'model_tag': '/model/Qwen3.5-4B', 'port': 23700, 'model': '/model/Qwen3.5-4B', 'max_model_len': 4096, 'enforce_eager': True, 'served_model_name': ['qwen35-4b'], 'block_size': 128, 'gpu_memory_utilization': 0.4, 'enable_prefix_caching': False, 'max_num_batched_tokens': 4096, 'kv_transfer_config': KVTransferConfig(kv_connector='MooncakeConnectorV1', engine_id='e18-prefill', kv_buffer_device='npu', kv_buffer_size=1000000000.0, kv_role='kv_producer', kv_rank=None, kv_parallel_size=1, kv_ip='127.0.0.1', kv_port=31000, kv_connector_extra_config={'prefill': {'dp_size': 1, 'tp_size': 1}, 'decode': {'dp_size': 1, 'tp_size': 1}}, kv_connector_module_path=None, enable_permute_local_kv=False, kv_load_failure_policy='fail')}
+(EngineCore pid=272117) WARNING 11-05 13:02:05 [indexer_topk.py:29] Failed to import the DeepSelect extension (vllm._deepselect_C): No module named 'vllm._deepselect_C'
+(EngineCore pid=272117) INFO 11-05 13:02:44 [factory.py:62] Creating v1 connector with name: MooncakeConnector and engine_id: e18-prefill-af639cdc9b2f4aa698664d165049fbeb
+W1105 13:02:44.671854 272117 transfer_engine_py.cpp:96] Using default malloc/free for protocol: ascend
+I1105 13:02:44.672005 272117 transfer_engine_impl.cpp:811] Metrics reporting is disabled (set MC_TE_METRIC=1 to enable)
+I1105 13:02:44.672025 272117 transfer_engine_impl.cpp:115] Transfer Engine parseHostNameWithPort. server_name: 127.0.0.1 port: 12001
+I1105 13:02:44.672096 272117 transfer_engine_impl.cpp:182] Transfer Engine RPC using P2P handshake, listening on 127.0.0.1:16401
+I1105 13:02:44.672446 272117 transfer_executor_base.cpp:80] Set transfer timeout to:33064
+I1105 13:02:44.674295 272117 transfer_executor_base.cpp:200] Set GlobalResourceConfig to:{"comm_resource_config.qos": 1}
+I1105 13:02:46.927543 272117 transfer_executor_base.cpp:227] Success to initialize adxl engine:127.0.0.1:20778, pid:272117
+(EngineCore pid=272117) INFO 11-05 13:02:47 [mooncake_connector.py:2623] num_blocks: 711
+(EngineCore pid=272117) WARNING 11-05 13:02:47 [mooncake_connector.py:2503] Coalesced 4 overlapping Mooncake KV registration ranges into 1 ranges.
+I1105 13:02:47.019434 272117 transfer_executor_base.cpp:452] TransferExecutor register mem addr:0x12d526200000, length:14910750720, mem type:device, engine index:0
+(EngineCore pid=272117) INFO 11-05 13:02:47 [mooncake_connector.py:312] KVCacheSendingThread started listening on path: tcp://127.0.0.1:31000. Thread: tp_rank=0, pp_rank=0, pcp_rank=0
+(EngineCore pid=272117) WARNING 11-05 13:02:51 [worker.py:954] Bind cpus failed in rank0: CPUs available in 'Cpus_allowed_list' conflict with NUMA affinity. Skip binding cpu.
+(EngineCore pid=272117) INFO 11-05 13:02:51 [factory.py:62] Creating v1 connector with name: MooncakeConnector and engine_id: e18-prefill-af639cdc9b2f4aa698664d165049fbeb
+(EngineCore pid=272117) INFO 11-05 13:02:51 [mooncake_connector.py:1748] Initializing Mooncake Scheduler e18-prefill-af639cdc9b2f4aa698664d165049fbeb
+(EngineCore pid=272117) INFO 11-05 13:02:51 [mooncake_connector.py:2103] MooncakeConnector set_xfer_handshake_metadata: worker_count=1, updated={'0': {'host': '127.0.0.1', 'engine_id': 'e18-prefill-af639cdc9b2f4aa698664d165049fbeb', 'handshake_port': 31000}}, multi_nodes_meta_mapping={'0': {'host': '127.0.0.1', 'engine_id': 'e18-prefill-af639cdc9b2f4aa698664d165049fbeb', 'handshake_port': 31000}}
+(EngineCore pid=272117) INFO 11-05 13:03:27 [mooncake_connector.py:2051] Delaying free of 4 blocks for request cmpl-921bc710-57df-4849-9ff5-45a002c45837-0-b1780b85
+(EngineCore pid=272117) INFO 11-05 13:04:06 [mooncake_connector.py:2051] Delaying free of 4 blocks for request cmpl-66f079cf-58af-4a93-b0fb-e5b02cdc1572-0-8e1d3a3c

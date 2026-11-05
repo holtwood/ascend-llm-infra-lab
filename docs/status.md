@@ -264,3 +264,11 @@
 - 单机唯一可用=short_request_first：short e2e 28.73→26.66s(-7.2%)，
   long +3.3%；按 num_prompt_tokens<=threshold 分道+老化防饿死
 - dyntra_lb/recompute 是 PD 架构配套件，非通用优化
+
+### E18 PD 跨节点（第六轮末）
+
+- 节点间仅 ssh 端口互通；P 广播容器 IP 172.17.0.5 → VLLM_HOST_IP=127.0.0.1
+  + ssh -L 隧道修通 ZMQ 元数据层；TE-RPC 动态口（16401/16352）再补隧道
+- 数据面 device-mem transfer ret:-1——SSH 隧道托不起 NPU DMA 语义；
+  **请求仍 200 返回垃圾 token（静默劣化）**——PD 监控必须看输出质量
+- 节点间互信：id_nodekey 已放到 M3/M1 供 ssh -L 用
