@@ -365,3 +365,21 @@
 [18:38:39] cluster phase done: 340 waves
 [18:46:35] M1 soak start (LINE_MIN=360min)
 [18:46:35] M1 soak start (LINE_MIN=360min)
+[18:49:51] serve[soak_base] ready
+[18:49:51] serve[soak_base] ready
+[18:50:50] bench[soak_w0001] c=16 n=512 in=256 out=96 done
+[18:50:50] bench[soak_w0001] c=16 n=512 in=256 out=96 done
+[18:51:49] bench[soak_w0002] c=16 n=512 in=256 out=96 done
+[18:51:49] bench[soak_w0002] c=16 n=512 in=256 out=96 done
+[18:52:48] bench[soak_w0003] c=16 n=512 in=256 out=96 done
+[18:52:48] bench[soak_w0003] c=16 n=512 in=256 out=96 done
+[18:53:47] bench[soak_w0004] c=16 n=512 in=256 out=96 done
+[18:53:47] bench[soak_w0004] c=16 n=512 in=256 out=96 done
+[18:54:46] bench[soak_w0005] c=16 n=512 in=256 out=96 done
+[18:54:46] bench[soak_w0005] c=16 n=512 in=256 out=96 done
+[18:55:45] bench[soak_w0006] c=16 n=512 in=256 out=96 done
+[18:55:45] bench[soak_w0006] c=16 n=512 in=256 out=96 done
+[18:56:44] bench[soak_w0007] c=16 n=512 in=256 out=96 done
+[18:56:44] bench[soak_w0007] c=16 n=512 in=256 out=96 done
+[18:57:43] bench[soak_w0008] c=16 n=512 in=256 out=96 done
+[18:57:43] bench[soak_w0008] c=16 n=512 in=256 out=96 done

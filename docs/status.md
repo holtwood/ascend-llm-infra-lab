@@ -455,3 +455,7 @@
 - 18:38-18:46 UTC 事故：M1 soak 脚本残留 `$WAVES` 引用 + `set -u` → 启动即退；
   修复（改 log 行）后重启该线，JSONL 保留；其余三线正常进入 phase A
 - 集群段收官：M1 340 / M2 336 / M3 336 / D 336 波，零错误
+- 18:49 UTC D 的 27B-w8a8 臂启动失败：EE1023 "Too many streams are created"
+  （graph capture 流耗尽，非显存；与 issue2 同族）→ 该臂跳过，D 线继续跑 8B/4B/0.6B；
+  收尾后可用 --enforce-eager 补测
+- 19:00 UTC 进度：M1 soak 8 波 / M2 已到 mnb 档 / M3 疲劳 150/300 / D 量化 8B 臂

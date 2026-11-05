@@ -353,3 +353,9 @@
 [18:44:33] bench[clu_w0336] c=32 n=256 in=256 out=96 done
 [18:44:36] cluster phase done: 336 waves
 [18:44:36] D phase A: quant-vs-size matrix
+[18:53:09] serve[quant_w8a8_27b] FAILED
+[18:53:09] serve failed w8a8_27b
+[18:55:49] serve[quant_bf16_8b] ready
+[18:56:13] bench[q_bf16_8b_c8] c=8 n=96 in=256 out=96 done
+[18:56:21] bench[q_bf16_8b_c32] c=32 n=96 in=256 out=96 done
+[18:56:27] bench[q_bf16_8b_c64] c=64 n=96 in=256 out=96 done

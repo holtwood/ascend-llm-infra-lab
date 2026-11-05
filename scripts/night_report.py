@@ -71,9 +71,10 @@ def main():
         sm = mean([x["tok_s"] for x in tail])
         steady.append(sm or 0)
         dr = drift([x["tok_s"] for x in w])
+        dtxt = f"{dr[0]} → {dr[1]}" if dr else "n/a"
         L.append(f"| {n} | {len(w)} | **{sm}** | {mean([x['ttft'] for x in w])} | "
                  f"{mean([x['tpot'] for x in w])} | "
-                 f"{dr[0]} → {dr[1]} | {sum(x.get('err', 0) for x in w)} |\n")
+                 f"{dtxt} | {sum(x.get('err', 0) for x in w)} |\n")
     if steady:
         L.append(f"\n**聚合（稳态）= {round(sum(steady), 1)} tok/s**，"
                  f"≈ {round(sum(steady) / max(1, len(steady)), 1)} × 单机。\n")
@@ -85,8 +86,12 @@ def main():
     if soak:
         dr = drift([x["tok_s"] for x in soak])
         dttft = drift([x["ttft"] for x in soak])
-        L.append(f"- {len(soak)} 波，吞吐 {dr[0]} → {dr[1]} tok/s（末10 vs 首10），"
-                 f"TTFT {dttft[0]} → {dttft[1]} ms\n")
+        if dr and dttft:
+            L.append(f"- {len(soak)} 波，吞吐 {dr[0]} → {dr[1]} tok/s（末10 vs 首10），"
+                     f"TTFT {dttft[0]} → {dttft[1]} ms\n")
+        else:
+            L.append(f"- {len(soak)} 波，均值 {mean([x['tok_s'] for x in soak])} tok/s"
+                     f"（波数不足 20，漂移待测）\n")
         L.append(f"- 累计错误 {sum(x.get('err', 0) for x in soak)}，"
                  f"TPOT {mean([x['tpot'] for x in soak])} ms\n")
     else:
@@ -139,7 +144,8 @@ def main():
     ds = tag_group(d.get("summ", []), "dsoak_w")
     if ds:
         dr = drift([x["tok_s"] for x in ds])
-        L.append(f"\nD soak：{len(ds)} 波，{dr[0]} → {dr[1]} tok/s\n")
+        txt = f"{dr[0]} → {dr[1]}" if dr else f"均值 {mean([x['tok_s'] for x in ds])}"
+        L.append(f"\nD soak：{len(ds)} 波，{txt} tok/s\n")
 
     L.append("\n## 六、失败 / 跳过项\n\n"
              "（收尾时人工补：serve 失败、显存不足、线路中断等）\n")

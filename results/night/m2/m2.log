@@ -355,3 +355,36 @@
 [18:43:53] M2 phase A: 3D grid
 [18:47:15] serve[grid_base] ready
 [18:47:24] bench[g_c8_i256_o64] c=8 n=64 in=256 out=64 done
+[18:47:56] bench[g_c8_i256_o256] c=8 n=64 in=256 out=256 done
+[18:48:06] bench[g_c8_i1024_o64] c=8 n=64 in=1024 out=64 done
+[18:48:38] bench[g_c8_i1024_o256] c=8 n=64 in=1024 out=256 done
+[18:48:51] bench[g_c8_i4096_o64] c=8 n=64 in=4096 out=64 done
+[18:49:25] bench[g_c8_i4096_o256] c=8 n=64 in=4096 out=256 done
+[18:49:31] bench[g_c16_i256_o64] c=16 n=64 in=256 out=64 done
+[18:49:49] bench[g_c16_i256_o256] c=16 n=64 in=256 out=256 done
+[18:49:56] bench[g_c16_i1024_o64] c=16 n=64 in=1024 out=64 done
+[18:50:15] bench[g_c16_i1024_o256] c=16 n=64 in=1024 out=256 done
+[18:50:23] bench[g_c16_i4096_o64] c=16 n=64 in=4096 out=64 done
+[18:50:43] bench[g_c16_i4096_o256] c=16 n=64 in=4096 out=256 done
+[18:50:47] bench[g_c32_i256_o64] c=32 n=64 in=256 out=64 done
+[18:50:58] bench[g_c32_i256_o256] c=32 n=64 in=256 out=256 done
+[18:51:03] bench[g_c32_i1024_o64] c=32 n=64 in=1024 out=64 done
+[18:51:15] bench[g_c32_i1024_o256] c=32 n=64 in=1024 out=256 done
+[18:51:21] bench[g_c32_i4096_o64] c=32 n=64 in=4096 out=64 done
+[18:51:35] bench[g_c32_i4096_o256] c=32 n=64 in=4096 out=256 done
+[18:51:42] bench[g_c64_i256_o64] c=64 n=128 in=256 out=64 done
+[18:51:58] bench[g_c64_i256_o256] c=64 n=128 in=256 out=256 done
+[18:52:05] bench[g_c64_i1024_o64] c=64 n=128 in=1024 out=64 done
+[18:52:22] bench[g_c64_i1024_o256] c=64 n=128 in=1024 out=256 done
+[18:52:32] bench[g_c64_i4096_o64] c=64 n=128 in=4096 out=64 done
+[18:52:53] bench[g_c64_i4096_o256] c=64 n=128 in=4096 out=256 done
+[18:52:59] bench[g_c128_i256_o64] c=128 n=128 in=256 out=64 done
+[18:53:11] bench[g_c128_i256_o256] c=128 n=128 in=256 out=256 done
+[18:53:18] bench[g_c128_i1024_o64] c=128 n=128 in=1024 out=64 done
+[18:53:31] bench[g_c128_i1024_o256] c=128 n=128 in=1024 out=256 done
+[18:53:40] bench[g_c128_i4096_o64] c=128 n=128 in=4096 out=64 done
+[18:53:57] bench[g_c128_i4096_o256] c=128 n=128 in=4096 out=256 done
+[18:53:57] M2 phase B: mnb sweep
+[18:57:04] serve[mnb512] ready
+[18:57:26] bench[mnb512_c16] c=16 n=128 in=256 out=96 done
+[18:57:41] bench[mnb512_c64] c=64 n=128 in=256 out=96 done

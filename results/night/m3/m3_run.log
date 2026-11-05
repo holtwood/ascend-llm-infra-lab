@@ -355,3 +355,22 @@
 [18:44:17] M3 phase A: ctx grid
 [18:47:18] serve[ctx_base] ready
 [18:47:26] bench[ctx4000_c1] c=1 n=8 in=4000 out=64 done
+[18:47:32] bench[ctx4000_c2] c=2 n=8 in=4000 out=64 done
+[18:47:35] bench[ctx4000_c4] c=4 n=8 in=4000 out=64 done
+[18:47:37] bench[ctx4000_c8] c=8 n=8 in=4000 out=64 done
+[18:47:46] bench[ctx16000_c1] c=1 n=8 in=16000 out=64 done
+[18:47:51] bench[ctx16000_c2] c=2 n=8 in=16000 out=64 done
+[18:47:55] bench[ctx16000_c4] c=4 n=8 in=16000 out=64 done
+[18:47:57] bench[ctx16000_c8] c=8 n=8 in=16000 out=64 done
+[18:48:07] bench[ctx32000_c1] c=1 n=8 in=32000 out=64 done
+[18:48:13] bench[ctx32000_c2] c=2 n=8 in=32000 out=64 done
+[18:48:17] bench[ctx32000_c4] c=4 n=8 in=32000 out=64 done
+[18:48:20] bench[ctx32000_c8] c=8 n=8 in=32000 out=64 done
+[18:48:33] bench[ctx63000_c1] c=1 n=8 in=63000 out=64 done
+[18:48:39] bench[ctx63000_c2] c=2 n=8 in=63000 out=64 done
+[18:48:44] bench[ctx63000_c4] c=4 n=8 in=63000 out=64 done
+[18:48:49] bench[ctx63000_c8] c=8 n=8 in=63000 out=64 done
+[18:48:49] M3 phase B: sleep/wake fatigue (300 cycles)
+[18:53:34] fatigue 50/300
+[18:55:17] fatigue 100/300
+[18:57:01] fatigue 150/300
