@@ -18,10 +18,13 @@
 - [x] D 重建为 vLLM 镜像并接入（**验证 /model 为宿主共享缓存**，73 项模型无需搬运）
 - [x] 4 机免密 SSH 全部打通（含新 D）
 
-## 进行中
+## 进行中（迁移交接点 05:30）
 
-- [ ] E2 w8a8 服务在 M1 加载中（修了 libatb.so 缺失：env.sh 补 ATB 路径）
-- [ ] M3→M2 模型拷贝：Qwen3.5-4B（副本 3 预备）
+- [ ] E3 spec-ngram c=8 压测中（random 数据集对 ngram 不公平→改用 sonnet 重测，见 handoff.md）
+- [ ] E2 W8A16 sweep（M1，driver 在 M3 跑）
+- [x] M2 副本就绪 qwen35-4b:8000；D nginx 装好；e4_cluster.sh 就绪
+
+## 待做（接手指引见 docs/handoff.md）
 
 ## 踩坑记录（已修）
 

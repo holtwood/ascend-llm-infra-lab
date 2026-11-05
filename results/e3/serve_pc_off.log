@@ -296,3 +296,33 @@ INFO 11-05 05:07:36 [ascend_config.py:768] FlashComm1 is disabled. Using flashin
 (APIServer pid=18680) INFO:     127.0.0.1:51576 - "GET /metrics HTTP/1.1" 200 OK
 (APIServer pid=18680) INFO 11-05 05:10:08 [loggers.py:315] Engine 000: Avg prompt throughput: 7372.6 tokens/s, Avg generation throughput: 567.4 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
 (APIServer pid=18680) INFO 11-05 05:10:18 [loggers.py:315] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 0.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(APIServer pid=18680) INFO 11-05 05:14:03 [launcher.py:129] [shutdown] API server: shutdown triggered
+(APIServer pid=18680) INFO 11-05 05:14:03 [launcher.py:145] [shutdown] API server: stopping engine client mode=abort timeout=0s
+(APIServer pid=18680) INFO 11-05 05:14:03 [core_client.py:744] [shutdown] MPClient: start timeout=0s
+(APIServer pid=18680) INFO 11-05 05:14:03 [core_client.py:746] [shutdown] MPClient: stopping engine manager
+(APIServer pid=18680) INFO 11-05 05:14:03 [utils.py:632] [shutdown] Process manager: send sigterm to process EngineCore
+(APIServer pid=18680) WARNING 11-05 05:14:03 [utils.py:652] [shutdown] Process manager: force killing remaining processes count=1
+(APIServer pid=18680) WARNING 11-05 05:14:03 [utils.py:657] [shutdown] Process manager: force killing remaining process EngineCore pid 18889
+(EngineCore pid=18889) INFO 11-05 05:14:03 [core.py:1342] [shutdown] EngineCore: trigger received signal=SIGTERM
+(EngineCore pid=18889) INFO 11-05 05:14:03 [core.py:1493] [shutdown] EngineCore: start mode=abort timeout=0s
+(EngineCore pid=18889) INFO 11-05 05:14:03 [core.py:1524] [shutdown] EngineCore: request processing complete; starting resource teardown
+(EngineCore pid=18889) INFO 11-05 05:14:03 [core.py:1355] [shutdown] EngineCore: exiting busy loop
+(APIServer pid=18680) INFO 11-05 05:14:03 [core_client.py:748] [shutdown] MPClient: engine manager stopped
+(APIServer pid=18680) INFO 11-05 05:14:03 [core_client.py:749] [shutdown] MPClient: cleaning up background resources
+(APIServer pid=18680) INFO 11-05 05:14:03 [core_client.py:751] [shutdown] MPClient: complete
+(APIServer pid=18680) ERROR 11-05 05:14:03 [async_llm.py:843] AsyncLLM output_handler failed.
+(APIServer pid=18680) ERROR 11-05 05:14:03 [async_llm.py:843] Traceback (most recent call last):
+(APIServer pid=18680) ERROR 11-05 05:14:03 [async_llm.py:843]   File "/vllm-workspace/vllm/vllm/v1/engine/async_llm.py", line 789, in output_handler
+(APIServer pid=18680) ERROR 11-05 05:14:03 [async_llm.py:843]     outputs = await engine_core.get_output_async()
+(APIServer pid=18680) ERROR 11-05 05:14:03 [async_llm.py:843]               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=18680) ERROR 11-05 05:14:03 [async_llm.py:843]   File "/vllm-workspace/vllm/vllm/v1/engine/core_client.py", line 1175, in get_output_async
+(APIServer pid=18680) ERROR 11-05 05:14:03 [async_llm.py:843]     raise self._format_exception(outputs) from None
+(APIServer pid=18680) ERROR 11-05 05:14:03 [async_llm.py:843] vllm.v1.engine.exceptions.EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.
+(APIServer pid=18680) INFO 11-05 05:14:03 [launcher.py:154] [shutdown] API server: engine client stopped
+(APIServer pid=18680) INFO 11-05 05:14:03 [launcher.py:157] [shutdown] API server: signalling HTTP server shutdown
+(APIServer pid=18680) INFO 11-05 05:14:03 [launcher.py:179] [shutdown] API server: shutting down FastAPI HTTP server
+(APIServer pid=18680) INFO:     Shutting down
+(APIServer pid=18680) INFO:     Waiting for application shutdown.
+(APIServer pid=18680) INFO:     Application shutdown complete.
+/usr/local/python3.12.13/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
