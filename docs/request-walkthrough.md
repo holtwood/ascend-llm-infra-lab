@@ -210,7 +210,7 @@ find_longest_cache_hit`（L741-835）：**按 block 哈希链顺序探测**
     `torch_npu.npu_fused_infer_attention_score`（TND layout + block_table +
     `sparse_mode`，滑窗 sparse_mode=4 L956-972）——**FIA 是 Ascend 的
     FlashAttention 对应物**，单 kernel 吃 prefill/chunked/decode 三种态。
-- KV cache 形状：`get_kv_cache_shape`（108-118）默认
+- KV cache 形状：`get_kv_cache_shape`（109-118）默认
   `[2, num_blocks, block_size, num_kv_heads, head_size]`（BSHD）；
   **kernel block_size=128**（`get_supported_kernel_block_sizes` L147-151）。
   分配时是原始 int8 字节 buffer + 2MiB 对齐（model_runner_v1.py:4946+，
@@ -223,7 +223,7 @@ find_longest_cache_hit`（L741-835）：**按 block 哈希链顺序探测**
 - capture：`torch.npu.graph` 在**专用 stream**（307-335，与后台 kernel
   隔离）录制 `self.runnable`，产物按 BatchDescriptor 存
   `concrete_aclgraph_entries`（124）。
-- replay：FULL 模式走 `_updatable_graph_replay`（297-319）——
+- replay：FULL 模式走 `_updatable_graph_replay`（304-319）——
   **UpdatableGraph 可以在不重录的情况下改 FIA 参数**（seq_lens/
   block_table），`use_updatable_graph`（utils.py:1896-1901）仅
   AscendAttentionBackend 类为真。这就是"图模式下 seq 变了不用重录"
