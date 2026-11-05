@@ -349,3 +349,30 @@
 - 接受率 88.3% 全程不变；草稿头成本随 batch 同比例增长→无摊薄拐点
 - 产出 docs/drill-cards.md：10 张追问链卡片（30s 回答+数据+L1-L3+诚实缺口）
 
+
+### E25 唤醒后稳态（第七轮末·对端 lane）
+
+- warm 696.6 → post-wake 694.9 tok/s（TPOT 18.9→19.3ms）——无稳态损失
+- sleep2 1.74s / wake 0.125s；drill-cards 卡5 缺口已补
+
+## 本 lane · 硬件窗口期增量（E8h/E8i/E-W8A16）
+
+- **E8i HCCL 全矩阵**（远端 8×910B1）：allreduce 延迟底 ~146-189μs（≤2MB 平坦）、
+  bus 带宽 w2/w4/w8 = 37/137/520 GB/s、p2p 单链路 ~19.9 GB/s 恒定。修正 E8d 结论：
+  TP 通信税随卡数**不减**（延迟底不是 hop 线性），decode 消息全在延迟平台区。
+  坑：mp.spawn 子进程崩→父进程死等 q.get()，HCCL 程序要加超时兜底
+- **E8h 可观测性**：被动抓活引擎 /metrics 时序，拿到 c=64 burst 的
+  running/waiting/kv%(峰值11%)/preempt(0) 全轨迹 + 97 指标清单→监控语义表。
+  `prefix_cache_hits=0` 反推压测方用 random 数据集
+- **E-W8A16（#21112 落地）**：单元级精确复现 detector 穿透 NotImplementedError；
+  patch（镜像上游 _is_wNa16_group_channel 口径加 _is_w8a16）→
+  AscendW8A16LinearMethod；回归确认 w8a8-dynamic/w4a16 路径不变。
+  真权重验证：make_w8a16_ckpt.py 建 0.6B int8 weight-only checkpoint，
+  serve 权重加载成功（0.73G int8），NPU 实测 npu_weight_quant_batchmatmul
+  vs dequant ref rel diff 0.13%；HTTP serve 被共卡 HBM 争用挡（warmup OOM）。
+  验证证据+patch 已 comment 到 #21112（comment-6660784746）
+- 拓扑确认：本容器=腾讯云 lane davinci7（910B2×1, CANN9.2, vllm 可编辑）；
+  远端 npt=另一台 8×910B1（CANN9.0, torch only, 无 vllm）
+- 坑：8001 是对端 SSH 隧道不是本机口；裸 /vllm-workspace PYTHONPATH 致
+  import vllm 变 namespace 包；合并冲突脚本丢段——status.md 追加要用
+  明确锚点不要用尾部盲并
