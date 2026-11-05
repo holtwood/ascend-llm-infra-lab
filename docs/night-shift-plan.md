@@ -24,6 +24,11 @@
 
 合计 **~8.5-9h**；若想缩短：`CLUSTER_MIN=60` + 各线 `WAVES/SOAK_RUNS` 减半。
 
+## 一点五、Goal 指令（复制给 agent 用）
+
+启动、巡检、收尾的完整指令在 **`docs/night-shift-goal.md`**——晚上把它整段
+粘给 agent 即可自主执行到结果落盘；本文档是它的执行手册。
+
 ## 二、启动前检查（2 分钟）
 
 ```bash
