@@ -1,0 +1,8 @@
+[env] cpuset=[8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175]
+[affinity-orig]    64 MB  d2h pageable   0.69 | d2h pinned  26.77 | h2d pageable   0.73 | h2d pinned  23.73  GB/s (p50)
+[affinity-orig]   256 MB  d2h pageable   0.74 | d2h pinned  28.13 | h2d pageable   4.66 | h2d pinned  24.78  GB/s (p50)
+[affinity-orig]  1024 MB  d2h pageable   4.32 | d2h pinned  28.49 | h2d pageable   4.26 | h2d pinned  24.81  GB/s (p50)
+[affinity-orig]  4096 MB  d2h pageable   1.26 | d2h pinned  28.59 | h2d pageable   1.27 | h2d pinned  24.98  GB/s (p50)
+[numa] right_node0 cores=[8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] 1GB D2H pinned 28.52 GB/s
+[numa] wrong_node6 cores=[155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167] 1GB D2H pinned 19.35 GB/s
+[N9] wrote /data/results/n9_copybench.json

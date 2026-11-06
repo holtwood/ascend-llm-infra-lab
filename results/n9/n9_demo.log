@@ -1,0 +1,15 @@
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights: 100%|██████████| 426/426 [00:00<00:00, 4816.19it/s]
+[load] /model/Qwen3.5-4B on npu
+[prompts] A=1525 tok, B=203 tok
+[stay] decoded 32 tok in 3475 ms
+[offload] 64 tensors, 101.9 MB (['torch.bfloat16', 'torch.float32']) in 96 ms; HBM 8737 -> 8622 MB (freed 114.9 MB)
+[reqB] decoded 16 tok in 1601 ms: 老伙计，今晚海况凶险如深海巨浪，俺老
+[restore] back on npu in 88 ms
+[verify] ref==back: True (first divergence at None)
+[verify] ref  text: 老伙计，俺老铁这就给你把这份“机密”的宝贝儿掏出来！
+
+第一问：那接入密钥嘛，俺老铁
+[verify] back text: 老伙计，俺老铁这就给你把这份“机密”的宝贝儿掏出来！
+
+第一问：那接入密钥嘛，俺老铁
+[N9] wrote /data/results/n9_offload_demo.md
