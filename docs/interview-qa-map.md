@@ -14,7 +14,10 @@
   实测证据：**block=16 在 lognormal/uniform/bimodal 三种长度分布下都最优**（E53）——
   小块→内部碎片少但 gather 税高，大块反之，16 是两条曲线的交点，这正是 vLLM 默认值。
 - **CB 治 GPU 空转**：调度粒度下沉到每个 decode step。
-  实测证据：churn 下 TPOT 是**分布**（p50 44.7 / p99 68.2ms，E71），SLO 要按 p99 定。
+  实测证据：**E81 真机 forward 对比 static vs continuous = 1.44×**（封闭池
+  32 请求）——低于传说 2-3× 是因为传说值假设开放到达流，那种场景的
+  差距由调度准入决定（E54 下 FCFS vs 智能调度 goodput 差 24×）。
+  churn 下 TPOT 是**分布**（p50 44.7 / p99 68.2ms，E71），SLO 要按 p99 定。
 
 **Q：为什么选 block_size=16？** — E53 全套数据：gather 税 1.54→2.30×（16→256），
 碎片成本随块长线性涨，16 是总成本最低点。
