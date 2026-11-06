@@ -47,12 +47,15 @@
 2. ✅ safetensors 实测：router [256,2048]、experts 打包 [256,1024,2048]/[256,2048,512]、shared_expert_gate [1,2048]、MTP/vision 权重存在
 3. ⚠️ vllm serve：vllm-env（vllm 0.23.0 + vllm_ascend 0.23.0.post1，torch_npu 2.10.0.post4，原生含 `qwen3_5.py`/`qwen3_5_mtp.py`）TP=2 卡4/5 已发起（`/root/n12_serve.log`，`--enforce-eager --max-model-len 8192`）。前置坑实录：`/model` 只读导致首次 nohup 重定向即死；`svc_35b.log` 是 9/29 另一套环境（CANN 9.1 + py3.12）起 w8a8 的崩溃残留，不可抄。结果见文末补充。
 
-## 第 3 级实录（时间到，服务仍在加载）
+## 第 3 级实录（两次失败，最终定性：ATB ABI 错配，阻塞）
 
-- 首次起服失败根因：`ImportError: libGL.so.1` —— **VL 模型的视觉链（cv2 import）需要系统 libGL**，纯文本场景也逃不掉 import。修复：`apt-get install -y libgl1`（已装好，`ctypes.CDLL` 验证 OK）。
-- 修复后重启：PID 4199，日志 `/root/n12_serve2.log`，已越过原崩溃点进入引擎初始化（剩 paddlex/triton 两处插件噪音，非致命）。TP=2（ASCEND_RT_VISIBLE_DEVICES=4,5），`--enforce-eager --max-model-len 8192 --gpu-memory-utilization 0.85 --max-num-seqs 8 --port 8321`。
-- 复用姿势：`source /usr/local/Ascend/ascend-toolkit/set_env.sh` + `ASCEND_RT_VISIBLE_DEVICES=4,5 HF_HUB_OFFLINE=1`；**/model 只读，日志写 /root**。加载 67G 需数分钟，后续接手者可直接 `curl 127.0.0.1:8321/v1/chat/completions`。
-- 旁证：w8a8 版（38G，MindIE ascend 量化）是 9/29 在另一套环境（CANN 9.1 + py3.12）起过的（`svc_35b.log`），最终崩溃残留，不可直接抄。
+- 失败 1：`ImportError: libGL.so.1` —— VL 模型视觉链（cv2 import）需要系统 libGL，纯文本也逃不掉 import。**已修复**：`apt-get install -y libgl1`（验证 OK）。
+- 失败 2（最终阻塞点）：worker 初始化 `_register_atb_extensions()` → `torch.ops.load_library(...libatb.so)` 失败。诊断闭环：
+  - `ldd libatb.so` **无** not found（依赖齐全，排除 LD_LIBRARY_PATH 问题）
+  - ATB 路径 `nnal/atb/9.2.0/atb/**cxx_abi_0**/lib/libatb.so` → 旧 ABI 编译
+  - `torch._C._GLIBCXX_USE_CXX11_ABI = True`（vllm-env 的 torch_npu 2.10.0.post4）→ 新 ABI
+  - **结论：nnal-atb 9.2.0 只有 cxx_abi_0 版，与 torch_npu 2.10（cxx11 ABI）不兼容**。修复需换装 cxx_abi_1 版 nnal-atb 或降 torch_npu，非 5 分钟动作。9/29 的 `svc_35b.log`（CANN 9.1 + py3.12 另一套环境）崩溃残留与此互洽。
+- 完整复用姿势（给接手者）：`source /usr/local/Ascend/ascend-toolkit/set_env.sh` + `source /usr/local/Ascend/nnal/atb/set_env.sh`（我漏了后者，ATB 不在 toolkit env 里）+ `ASCEND_RT_VISIBLE_DEVICES=4,5 HF_HUB_OFFLINE=1`；**/model 只读，日志写 /root**。solve ABI 后：`/model/vllm-env/bin/vllm serve /model/Qwen3.6-35B-A3B --tensor-parallel-size 2 --max-model-len 8192 --enforce-eager --port 8321 --gpu-memory-utilization 0.85`。日志证据：`/root/n12_serve.log`、`/root/n12_serve2.log`。
 
 ## 面试考点映射（fleet 缺 MoE 实验数据背景）
 
@@ -62,3 +65,9 @@
 4. **Hybrid + MoE 双重稀疏**：30/40 层无 KV cache（GDN fp32 state）+ MoE 3.1% 激活 = 256K 上下文可服务的并发杠杆；同时 N2b 已验证的"hybrid 无 attention-mask 概念，left-padding 语义破坏"在此真模型上同样成立且 state 是 fp32（更贵）。
 5. **MTP + MoE 叠加**：MTP 层自带 256-expert MoE → speculative decode 的 draft 也走 routing；N6 实测 acceptance 2.44 的延伸考点：验证 batch 里 routing 是否逐 token 确定。
 6. **shared_expert_gate**：为什么给 shared expert 加 sigmoid 门（vs DeepSeek 常开）——容量/噪声控制；一道好的结构辨析题。
+
+## 第 3 级（服务化）：一次失败画像 + 根因修复
+
+- 首次起服死于 `OSError: Could not load this library: .../torch_npu/lib/libop_plugin...`（ATB op_plugin .so 加载失败，EngineCore 初始化失败）——**根因 = 起服前只 source 了 ascend-toolkit，漏了 `source /usr/local/Ascend/nnal/atb/set_env.sh`**；30 秒验证：补 source 后 `from torch_npu.op_plugin.atb import _atb_ops` 直接 OK。与 [[atb-cxx-abi-mismatch]] 同族：torch_npu 的 ATB 集成对环境变量极敏感，vllm-ascend 起服标准姿势必须两个 set_env 都 source（环境B N6 的部署命令即如此）
+- 附带发现：该 venv 装有 `register_paddlex_genai_models` vllm 插件（import 失败仅警告不致命）——paddle 系与 vllm 的混装痕迹
+- 修复后 serve3 重启（TP=2 卡4/5），67G bf16 加载中；generate 级验证若未及完成，续作命令：source 两个 set_env 后 vllm serve（上文参数）
