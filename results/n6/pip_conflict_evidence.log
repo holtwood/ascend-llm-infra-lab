@@ -1,0 +1,210 @@
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple, https://mirrors.huaweicloud.com/ascend/repos/pypi/variant
+Collecting vllm==0.18.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/37/f8/d677aef63536b54d8d0268241dc50a4fe01efcf162ef26190b9ed4bed109/vllm-0.18.0-cp38-abi3-manylinux_2_31_aarch64.whl (385.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 385.6/385.6 MB 2.5 MB/s eta 0:00:00
+Collecting vllm-ascend==0.18.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/43/34/45a1b2d99d2f0a04593e816a32c55726e9227e64e8d3cefc5a64213979df/vllm_ascend-0.18.0-cp310-cp310-manylinux_2_24_aarch64.whl (29.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29.0/29.0 MB 2.1 MB/s eta 0:00:00
+Collecting pybase64
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/0b/e6/0e3c23edd690ade7b6a42c07408d36b6d268aab6c497cde2edbecc00bbc1/pybase64-1.5.1-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (81 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81.3/81.3 KB 127.7 kB/s eta 0:00:00
+Collecting torchaudio==2.10.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/9b/d6/41f25f9ae9b37c191bed4cd474e403626685d2be8f7d20d011e6601fede1/torchaudio-2.10.0-cp310-cp310-manylinux_2_28_aarch64.whl (390 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 390.4/390.4 KB 645.3 kB/s eta 0:00:00
+Collecting regex
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/7c/98/41fe60ae6ccf3e166fe7bc73495aa15e9a1a7fe3a1f9f0f95a3d64a2df0f/regex-2026.9.29-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (793 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 793.1/793.1 KB 1.9 MB/s eta 0:00:00
+Collecting aiohttp>=3.13.3
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/61/5f/3271cad1b34347e8bf27abee20d501ebdc56cec97e8ae59cd3fabb23d917/aiohttp-3.14.5-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (1.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 2.1 MB/s eta 0:00:00
+Collecting cloudpickle
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/88/39/799be3f2f0f38cc727ee3b4f1445fe6d5e4133064ec2e4115069418a5bb6/cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+Collecting prometheus_client>=0.18.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/eb/a3/b69efbf4143b5b9859b977770bbbabcc2796b702fa69dc40271e45cd5a56/prometheus_client-0.26.0-py3-none-any.whl (64 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 64.5/64.5 KB 71.5 kB/s eta 0:00:00
+Collecting depyf==0.20.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/cf/65/4df6936130b56e1429114e663e7c1576cf845f3aef1b2dd200c0a5d19dba/depyf-0.20.0-py3-none-any.whl (39 kB)
+Collecting psutil
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/63/65/37648c0c158dc222aba51c089eb3bdfa238e621674dc42d48706e639204f/psutil-7.2.2-cp36-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (156 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 157.0/157.0 KB 914.6 kB/s eta 0:00:00
+Collecting fastapi[standard]>=0.115.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/b4/4f/3f2c25c9b43970b5e9a08beb5e04776247edea684ddc0930f4f02f0bb6cb/fastapi-0.162.0-py3-none-any.whl (148 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 148.9/148.9 KB 1.0 MB/s eta 0:00:00
+Collecting torch==2.10.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/0c/1a/c61f36cfd446170ec27b3a4984f072fd06dab6b5d7ce27e11adb35d6c838/torch-2.10.0-cp310-cp310-manylinux_2_28_aarch64.whl (146.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 146.0/146.0 MB 3.1 MB/s eta 0:00:00
+Collecting gguf>=0.17.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/b3/bb/d71d6da82763528c2c2ed6b59a9d6142c6595545a4c448e2085d155e88c2/gguf-0.19.0-py3-none-any.whl (118 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 118.5/118.5 KB 2.4 MB/s eta 0:00:00
+Collecting partial-json-parser
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/42/32/658973117bf0fd82a24abbfb94fe73a5e86216e49342985e10acce54775a/partial_json_parser-0.2.1.1.post7-py3-none-any.whl (10 kB)
+Collecting xgrammar<1.0.0,>=0.1.32
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/de/5b/fdc88db44bf413e5d78802bfcd7b73f4535a03b14b5a26224a14387301e3/xgrammar-0.2.8-cp310-cp310-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 1.7 MB/s eta 0:00:00
+Collecting opencv-python-headless>=4.13.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/3a/98/1a28a7101e31801042b3098871a74b76c61581d328ef40774ff4edb53a56/opencv_python_headless-5.0.0.93-cp37-abi3-manylinux_2_28_aarch64.whl (39.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 39.6/39.6 MB 4.1 MB/s eta 0:00:00
+Collecting pydantic>=2.12.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/72/b8/b864503789ef5c58597d2a7b4adbee62c26440ab1e682581fc6838df8947/pydantic-2.14.3-py3-none-any.whl (494 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 494.1/494.1 KB 2.8 MB/s eta 0:00:00
+Collecting lark==1.2.2
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/2d/00/d90b10b962b4277f5e64a78b6609968859ff86889f5b898c1a778c06ec00/lark-1.2.2-py3-none-any.whl (111 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 111.0/111.0 KB 3.8 MB/s eta 0:00:00
+Collecting typing_extensions>=4.10
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 KB 2.9 MB/s eta 0:00:00
+Collecting llguidance<1.4.0,>=1.3.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/aa/11/44389d3d1526d7a5c38ffd587a5ebc61d7bee443ac1dea95f2089ad58f5f/llguidance-1.3.0-cp39-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (2.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.8/2.8 MB 3.9 MB/s eta 0:00:00
+Collecting einops
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/2a/09/f8d8f8f31e4483c10a906437b4ce31bdf3d6d417b73fe33f1a8b59e34228/einops-0.8.2-py3-none-any.whl (65 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.6/65.6 KB 2.1 MB/s eta 0:00:00
+Collecting flashinfer-python==0.6.6
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/e0/61/385d06755f3ab66333018285657adf0daf8a90a129448231fd09e315bd2e/flashinfer_python-0.6.6-py3-none-any.whl (7.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.8/7.8 MB 2.5 MB/s eta 0:00:00
+Collecting filelock>=3.16.1
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/ee/86/032133892a5de43b5a98200b01aadcad68cc255e274a762f08b8a76d2912/filelock-4.1.0-py3-none-any.whl (133 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.0/133.0 KB 513.9 kB/s eta 0:00:00
+Collecting py-cpuinfo
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/e0/a9/023730ba63db1e494a271cb018dcd361bd2c917ba7004c3e49d5daf795a2/py_cpuinfo-9.0.0-py3-none-any.whl (22 kB)
+Collecting pyyaml
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/43/f7/0e6a5ae5599c838c696adb4e6330a59f463265bfa1e116cfd1fbb0abaaae/pyyaml-6.0.3-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (740 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 740.6/740.6 KB 608.7 kB/s eta 0:00:00
+Collecting lm-format-enforcer==0.11.3
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/a0/ef/11292bb0b85cf4c93447cab5a29f64576ed14d3ab4280e35ddd23486594a/lm_format_enforcer-0.11.3-py3-none-any.whl (45 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.4/45.4 KB 493.2 kB/s eta 0:00:00
+Collecting opentelemetry-exporter-otlp>=1.27.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/19/27/fcc3b725ddbfa274fbf6098c9583032557671d35aa8d5e08d7e7277fb126/opentelemetry_exporter_otlp-1.45.2-py3-none-any.whl (6.7 kB)
+Collecting prometheus-fastapi-instrumentator>=7.0.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/44/b9/91a2246e6cf01b7ccb14479803c8a50f9c258ae5c6a0f16ba3294820632b/prometheus_fastapi_instrumentator-8.1.0-py3-none-any.whl (19 kB)
+Collecting tokenizers>=0.21.1
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/15/fc/ae987741829b1cd547668c4c94be732ae3eefd1d74344e64c3d2ca714acd/tokenizers-0.23.3-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (3.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.5/3.5 MB 591.7 kB/s eta 0:00:00
+Collecting diskcache==5.6.3
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/3f/27/4570e78fc0bf5ea0ca45eb1de3818a23787af9b390c0b0a0033a1b8236f9/diskcache-5.6.3-py3-none-any.whl (45 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.5/45.5 KB 978.6 kB/s eta 0:00:00
+Collecting opentelemetry-semantic-conventions-ai>=0.4.1
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/55/22/41fb05f1dc5fda2c468e05a41814c20859016c85117b66c8a257cae814f6/opentelemetry_semantic_conventions_ai-0.5.1-py3-none-any.whl (11 kB)
+Collecting numpy
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/eb/17/96a3acd228cec142fcb8723bd3cc39c2a474f7dcf0a5d16731980bcafa95/numpy-2.2.6-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (14.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.3/14.3 MB 2.0 MB/s eta 0:00:00
+Collecting cachetools
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/29/aa/e54a49d0927b2fa7b86bc94dbde57125e38e8cfca7a31b6764e8dbf35e9f/cachetools-7.3.0-py3-none-any.whl (19 kB)
+Collecting opentelemetry-sdk>=1.27.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/9f/a5/9a3b793ef48245f2336a16beb2324c2397dbb3f987cd68942f77cca06156/opentelemetry_sdk-1.45.2-py3-none-any.whl (141 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 141.8/141.8 KB 1.4 MB/s eta 0:00:00
+Collecting protobuf!=6.30.*,!=6.31.*,!=6.32.*,!=6.33.0.*,!=6.33.1.*,!=6.33.2.*,!=6.33.3.*,!=6.33.4.*,>=5.29.6
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/b6/ea/91fdf7c2b8bbd49cde056f00a9df6773532987e1c00fe2830b895af95c7e/protobuf-7.36.2-cp310-abi3-manylinux2014_aarch64.whl (344 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 344.2/344.2 KB 3.2 MB/s eta 0:00:00
+Collecting watchfiles
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/5a/61/f277cd5ead05f5d37b98b41fbdd0c943ee0c04d49738f62e902cb291cf43/watchfiles-1.3.0-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (454 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 455.0/455.0 KB 1.4 MB/s eta 0:00:00
+Collecting tqdm
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/a7/03/921a3d3c75785aca9ebfbfcabfbc3a1be12e2ab5265deb026d55a5a3f83e/tqdm-4.70.1-py3-none-any.whl (80 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.2/80.2 KB 3.1 MB/s eta 0:00:00
+Collecting python-json-logger
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/dc/55/6467fde553886cb293e41538f3a8b4e4fd4688c6df242cf982162d8367fb/python_json_logger-4.2.0-py3-none-any.whl (14 kB)
+Collecting transformers<5,>=4.56.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/03/b8/e484ef633af3887baeeb4b6ad12743363af7cce68ae51e938e00aaa0529d/transformers-4.57.6-py3-none-any.whl (12.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 1.8 MB/s eta 0:00:00
+Collecting model-hosting-container-standards<1.0.0,>=0.1.13
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/07/ef/6eabeb251d2a0598cb5f9a274159e05ae07a1e3fe6a1473bf6035793252a/model_hosting_container_standards-0.1.16-py3-none-any.whl (125 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.7/125.7 KB 1.4 MB/s eta 0:00:00
+Collecting requests>=2.26.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/a0/f4/c67b0b3f1b9245e8d266f0f112c500d50e5b4e83cb6f3b71b6528104182a/requests-2.34.2-py3-none-any.whl (73 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.1/73.1 KB 1.2 MB/s eta 0:00:00
+Collecting numba==0.61.2
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/e3/27/797b2004745c92955470c73c82f0e300cf033c791f45bdecb4b33b12bdea/numba-0.61.2-cp310-cp310-manylinux_2_28_aarch64.whl (3.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.5/3.5 MB 1.1 MB/s eta 0:00:00
+Collecting anthropic>=0.71.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/38/0b/705a05ab68558914e725cf1143d7e409fa3bb596c35bca1eceab42402abe/anthropic-2.6.0-py3-none-any.whl (2.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.4/2.4 MB 2.3 MB/s eta 0:00:00
+Collecting torchvision==0.25.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/64/68/dc7a224f606d53ea09f9a85196a3921ec3a801b0b1d17e84c73392f0c029/torchvision-0.25.0-cp310-cp310-manylinux_2_28_aarch64.whl (2.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 1.8 MB/s eta 0:00:00
+Collecting quack-kernels>=0.2.7
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/73/d8/f5e56c38b286308d115a171e3c5c44f24e9d03980c3cfd22588df40261fa/quack_kernels-0.6.5-py3-none-any.whl (729 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 729.6/729.6 KB 2.1 MB/s eta 0:00:00
+Collecting cbor2
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/45/41/e843113881a5be23d4dc9eb88d64c4d09e750873246401963f5972c175ac/cbor2-6.2.0.post2-cp310-cp310-manylinux_2_28_aarch64.whl (463 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 463.8/463.8 KB 1.9 MB/s eta 0:00:00
+Collecting outlines_core==0.2.11
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/d1/3c/d7cb3eac6870a68b9034854fbfa07e67abfa1fa0d92198b9fee83fe6d044/outlines_core-0.2.11-cp310-cp310-manylinux_2_28_aarch64.whl (2.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 2.6 MB/s eta 0:00:00
+Collecting pillow
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/07/50/b5d688cc9c52d4482f3d5bcab6ce20bc2a74a85d2343841c907444a3be2c/pillow-12.3.0-cp310-cp310-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (6.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 3.1 MB/s eta 0:00:00
+Collecting openai-harmony>=0.0.3
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/d3/d2/ce6953ca87db9cae3e775024184da7d1c5cb88cead19a2d75b42f00a959c/openai_harmony-0.0.8-cp38-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (2.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.9/2.9 MB 3.1 MB/s eta 0:00:00
+Collecting ninja
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/35/54/7368ce188625e39acc03ee362bb86cc9bfa6ad15e25c50889ae36e2889b3/ninja-1.13.2-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (177 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 177.2/177.2 KB 6.1 MB/s eta 0:00:00
+Collecting tiktoken>=0.6.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/3d/e9/8e18cbee0c3ae8321c7e9696bef6090a24eed99a4a75a4c4a7f5115e5a2f/tiktoken-0.14.0-cp310-cp310-manylinux_2_28_aarch64.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 1.8 MB/s eta 0:00:00
+Collecting pyzmq>=25.0.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/18/d3/09bd7c80db92a5a269f9b1caaf34f6adfa7871b39a3d99b03402bcee5da2/pyzmq-27.3.0-cp310-cp310-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl (788 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 788.0/788.0 KB 1.7 MB/s eta 0:00:00
+Collecting compressed-tensors==0.13.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/0b/b5/61ac2563c62490922b603c09113a083fd74af3630ec3931e769484d6dcb5/compressed_tensors-0.13.0-py3-none-any.whl (192 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 192.6/192.6 KB 2.9 MB/s eta 0:00:00
+Collecting opentelemetry-api>=1.27.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/a9/2d/610db864d7513158cebb8f36cc88e67e73bd6c7aa1905ef18d89e1281c81/opentelemetry_api-1.45.2-py3-none-any.whl (60 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.3/60.3 KB 2.1 MB/s eta 0:00:00
+Collecting setproctitle
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/75/d4/565f624a49e2e49b4907f3b5131cdda20027d45312ce2b538a0e3985b549/setproctitle-1.3.8-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (32 kB)
+Collecting mcp
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/20/d7/4a2878f128df729db3ca04e71bfce26405cc2e0c9ebe19c592feeb4c61b9/mcp-2.3.0-py3-none-any.whl (368 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 368.7/368.7 KB 315.4 kB/s eta 0:00:00
+Collecting msgspec
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/eb/dd/bd4131da741aa349656fe32a5cca0c4266c58d7b5ad75485bed29565f7cd/msgspec-0.22.0-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (222 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 222.9/222.9 KB 551.9 kB/s eta 0:00:00
+Collecting nvidia-cudnn-frontend<1.19.0,>=1.13.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/86/be/f5a1e633c524c13c0182213ab27dab42dca29a3c785be5ff74d2d185aed1/nvidia_cudnn_frontend-1.18.0-cp310-cp310-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (2.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 744.3 kB/s eta 0:00:00
+Collecting sentencepiece
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/9c/1e/1d29b3b0c6d7c924842f75a99a01722e6fb0faf632834b9108941f4ac8e2/sentencepiece-0.2.3-cp310-cp310-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (1.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 1.5 MB/s eta 0:00:00
+Collecting nvidia-cutlass-dsl>=4.4.0.dev1
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/bd/ce/a590b929285faf0aa285c5ccee2b88e0b5259fb39a6326206e0f140ea3fc/nvidia_cutlass_dsl-4.8.1-py3-none-any.whl (10 kB)
+Collecting blake3
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/29/31/6930151db134347b3d4a40a26fa0abb2339056661a27ce6264ae520b7b8f/blake3-1.0.10-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (375 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 375.4/375.4 KB 1.7 MB/s eta 0:00:00
+Collecting mistral_common[image]>=1.10.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/c0/78/2881bae14f5d79c6d4626439e74f1bc1591d0f10a9eb7eea5a408ecdb877/mistral_common-1.12.0-py3-none-any.whl (6.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 1.5 MB/s eta 0:00:00
+Collecting ijson
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/5b/90/0fc29e6d68bb425e75b96bfcbdc295cd09d40fb15964a7077a68b7ad5265/ijson-3.6.0-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (134 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.7/134.7 KB 1.5 MB/s eta 0:00:00
+Collecting openai<2.25.0,>=1.99.1
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/c9/30/844dc675ee6902579b8eef01ed23917cc9319a1c9c0c14ec6e39340c96d0/openai-2.24.0-py3-none-any.whl (1.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 2.2 MB/s eta 0:00:00
+Collecting cmake>=3.26
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/76/0a/f6c1119b24ca4b81476f9398e90f3f8175756dfe16e082c691b12992c991/cmake-4.4.4-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (30.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 30.3/30.3 MB 3.8 MB/s eta 0:00:00
+Collecting memcache_hybrid==1.0.4
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/94/fb/bb836532a2c09c59365ca90324b9cf196ac044715a64bacd302d22b0bb1f/memcache_hybrid-1.0.4-cp310-cp310-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl (3.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 2.4 MB/s eta 0:00:00
+Collecting quart
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/7e/e9/cc28f21f52913adf333f653b9e0a3bf9cb223f5083a26422968ba73edd8d/quart-0.20.0-py3-none-any.whl (77 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.0/78.0 KB 31.0 MB/s eta 0:00:00
+Collecting msgpack
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/86/16/bbb47e6732a2b812dca695dc8f6f5eed69219422ef946088295e1cb7f865/msgpack-1.2.4-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (451 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 451.1/451.1 KB 903.1 kB/s eta 0:00:00
+Collecting numpy
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/fc/a5/4beee6488160798683eed5bdb7eead455892c3b4e1f78d79d8d3f3b084ac/numpy-1.26.4-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (14.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.2/14.2 MB 2.4 MB/s eta 0:00:00
+INFO: pip is looking at multiple versions of <Python from Requires-Python> to determine which version is compatible with other requirements. This could take a while.
+INFO: pip is looking at multiple versions of vllm to determine which version is compatible with other requirements. This could take a while.
+ERROR: Cannot install vllm-ascend==0.18.0 and vllm==0.18.0 because these package versions have conflicting dependencies.
+
+The conflict is caused by:
+    vllm 0.18.0 depends on torchvision==0.25.0
+    vllm-ascend 0.18.0 depends on torchvision==0.24.0
+
+To fix this you could try to:
+1. loosen the range of package versions you've specified
+2. remove package versions to allow pip attempt to solve the dependency conflict
+
+ERROR: ResolutionImpossible: for help visit https://pip.pypa.io/en/latest/topics/dependency-resolution/#dealing-with-dependency-conflicts

@@ -82,7 +82,7 @@
 | N7 | PD 分离慢互联账本：32K ctx 传 1GB KV@16.3GB/s=63ms≈0.6 decode 步；层级传输 288µs×32 层握手税 > 传输本身；DistServe 前提在本机不成立 | ✅ | results/n7 |
 | N3b | cache 干预六条件：清 GDN state 无影响（它是 decode 递推器），清 KV 机制性塌缩（均匀注意力=有效上下文归零）；**轴向与 arXiv 2609.04434 相反** | ✅ | results/n3b |
 | N1b | 引擎阶梯基准：L0/L2 = 4.4×→9.6×（随长度放大），L2 对 ctx 脱敏（+2.2%/16×），**手写比 transformers 快 8-10%**（88-90ms vs 96-98ms/步），30 token 严格等价 | ✅ | results/n1 |
-| N6 | vllm-ascend 0.18 部署 + MTP 扫描（实验C）+ TP=2 对比（实验J） | 🔄 | — |
+| N6 | vllm-ascend 0.18 部署 27B-w8a8（CANN 8.5.1 兼容组合）+ MTP 扫描：c=1 TPOT **−39%**（73.6→45.1ms）但 c=16 吞吐**净负 15%**——TPOT 改善≠吞吐改善 + TP=2 跨NUMA：全面净负（c=16 TPOT +54%/吞吐 −35%），验证 N4 推论 | ✅ | results/n6 |
 | N8 | TileLang-Ascend 算子融合：量化 N2 "eager 小算子 68.9%" 的融合收益（降级路径 torch.compile graph 收益） | 🔄 卡0 | — |
 | N2b | batch 扫描：decode **白嫖 32.5×**（b32 每步 108.7ms ≈ b1 的 110.3ms，host-bound 自洽）；两个发现：bf16 大 batch 形状敏感确定性翻边（B=16 全槽第 10 步同步翻，修正 E83 边界）+ **left-padding 在 hybrid GDN 上语义性失效**（pad 进 conv/递推 → 必须 varlen） | ✅ | results/n2b |
 | N9 | KV offload 账本：pinned vs pageable **25.5×**、跨NUMA 税 1.47×、等效重算带宽仅 91MB/s（**无条件 offload 划算**，pinned 往返=294×）；102MB cache 换出→跑B→换回 **bit-exact**，pinned 换入 10ms | ✅ | results/n9 |

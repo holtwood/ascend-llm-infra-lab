@@ -117,4 +117,20 @@
 - **bf16 的 batch-size 形状敏感**：B=16 时全部 16 槽在第 10 步**同步**翻边（logits 漂移 0.14–0.16，GEMM tile 形状变→归约顺序变），同配置重跑 bit 一致——**确定性漂移不是随机噪声**。逐位复现需要固定 batch 组合；对 E83 结论（同 batch 内 concat bit-identical）的边界补充：跨 batch 大小不 bit-identical
 - **left-padding 在 hybrid 模型上语义性失效**：GDN 层没有 attention-mask 概念，pad token 直接进 CausalConv 滑窗和 recurrent 递推，槽 0（无 pad）也从第 0 步分叉——纯 Transformer 的 padding+mask 套路在 hybrid 上是错的，batch serving 必须变长拼接（vLLM 用 cu_seqlens varlen 的原因，一手实证）
 
-（N6 MTP/TP、N8 TileLang、N10 KV-int8、N11 chunk 扫描：进行中，数据回来后补条目。）
+## 投机解码的负载敏感性（N6/实验C，27B 真服务实测）
+
+**Q: MTP 投机解码什么时候帮什么时候伤？**
+- vllm-ascend 0.18 + Qwen3.8-27B-w8a8（自带量化 MTP 头，drafter 共享 embedding，总权重 32.4GB），acceptance length **2.44**：
+  - **c=1：TPOT −39%（73.6→45.1ms）**——低负载时每步多验证 2.44 个 token 纯赚
+  - **c=16：吞吐净负 15%**——批量大了 draft+verify 的显存/算力挤压超过接受收益
+- 核心讲法：**TPOT 改善 ≠ 吞吐改善**（单请求视角 vs 系统视角）；MTP 是"用空闲算力换延迟"，系统一忙空闲就没了。与环境A E14（MTP 接受率 65.6% 但净负）跨版本互证
+- 部署侧冷知识：vllm-ascend 的 qwen3_5_mtp 会自动规范化为 mtp、torchair 图编译 4-6 分钟冷启动、cudagraph capture 扩到 128
+
+## TP=2 真模型验证（N6/实验J，验证 N4 推论）
+
+**Q: 慢互联上 TP=2 实际赚吗？**
+- 27B-w8a8 跨 NUMA TP=2 vs TP=1：**全面净负**——c=16 TPOT +54%、吞吐 −35%
+- N4 微基准的推论（每层 2 次 all-reduce ≥576µs 固定税 = 计算的 2-4 倍）被真模型端到端实锤；27B 单卡 61GB 本就放得下，TP 纯为通信付税
+- 附带：TP=2 冒烟 6 条正常但 1 条 greedy 早期输出退化为 "!!!"（孤立发散）——分布式数值边界的观察点
+
+（N8 TileLang、N10 KV-int8、N11 chunk 扫描：进行中，数据回来后补条目。）

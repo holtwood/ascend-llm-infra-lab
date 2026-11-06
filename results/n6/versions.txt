@@ -1,0 +1,26 @@
+# N6 最终可用版本组合（cp310 aarch64, CANN 8.5.1, Ascend 910B2）
+vllm            0.18.0        (pypi wheel --no-deps 安装)
+vllm_ascend     0.18.0        (pypi)
+torch           2.9.0+cpu     (aarch64 pypi wheel 即 cpu build)
+torchvision     0.24.0
+torchaudio      2.9.0
+torch_npu       2.9.0.post1+git4c901a4  (官方 dev wheel, vllm-ascend OBS)
+triton-ascend   3.2.0.dev20260322       (官方 dev wheel, vllm-ascend OBS)
+numpy           1.26.4
+transformers    (vllm deps 解析版本)
+setuptools      80.10.2       (必须 <81, torchair 需要 pkg_resources)
+
+# 为什么不能一键 pip install vllm==0.18.0 vllm-ascend==0.18.0：
+# pypi vllm 0.18.0 (2026-03-20 上传) 钉 torch==2.10.0/torchvision==0.25.0,
+# 而 vllm-ascend 0.18.0 METADATA 钉 torch==2.9.0/torchvision==0.24.0
+# -> ResolutionImpossible (torchvision 冲突)。
+# 官方 Dockerfile (v0.18.0 tag) 的路径 = torch 2.9 栈 + vllm 源码 VLLM_TARGET_DEVICE=empty
+# 我们等价的 pip 路径:
+#   1) pip install torch==2.9.0 torchvision==0.24.0 torchaudio==2.9.0
+#   2) pip install -r vllm_deps.txt        (vllm 0.18.0 requires_dist 去掉 torch*)
+#   3) pip install vllm==0.18.0 --no-deps
+#   4) pip install vllm-ascend==0.18.0
+#   5) pip install <OBS dev wheels: triton_ascend + torch_npu>
+#   6) pip install "setuptools<81"         (pkg_resources, 否则 torchair import 崩)
+# vllm 0.18.0 pypi wheel 自带 cpu 版 C 扩展在 torch 2.9.0 上 import 正常(实测),
+# 无需源码 empty 安装。
