@@ -852,3 +852,38 @@ bf16 模型一次前向验证，取最长匹配前缀 + target 的下一 token�
   一次性大传输（每 op 开销 ~0.7ms 相对 15MB 传输可忽略）；
 - **与 E32 结论一致但更精确**：swap 在 >4k 上下文胜出，但 2k 处基本打平——
   抢占策略应**按上下文长度自适应**（短上下文直接重算，长的换出）。
+
+## E71 · 连续批处理下的 TPOT 分布（tpot_churn.json）
+
+真实 decode 28 层逐 step 跑，bs 在 [1,64] 随机游走（ctx=4096）：
+
+| 场景 | p50 | p90 | p99/max |
+|---|---|---|---|
+| 纯 churn（bs 7-38） | 44.7ms | 60.3ms | 68.2ms |
+| churn + 每 12 步插 2048 prefill（decode 步） | 29.2ms | 44.7ms | 52.4ms |
+| 同上（含 prefill 的步） | 33.2ms | 40.7ms | 40.7ms |
+
+**结论**：
+- **TPOT 是分布不是常数**：仅"同租请求数"波动就让 TPOT 从 ~30ms（bs≤8）
+  涨到 ~68ms（bs≈36），p99/p50 ≈ 1.5×——SLO 余量要按 p99 定，不是按均值；
+- **chunked prefill 注入每步只加 ~4ms（+14%）**，与 E63 的 +23% 一致量级——
+  发射受限栈里 prefill chunk 大部分藏进启动间隙；
+- 又一次冷启动污染教训：**t=0 步 372ms**（首次分配/编译），若不排除会把
+  p99 假报成 8×——所有 step-trace 都必须舍掉首步。
+
+## E72 · 分层 APC：前缀恢复的三级路径（apc_tier.json）
+
+共享前缀 KV 的恢复成本，三条路径同形状实测：
+
+| L | KV 体积 | CPU reload（pinned H2D） | 重算 prefill | reload/recompute |
+|---|---|---|---|---|
+| 2048 | 235MB | 10.0ms | 34.7ms | **0.29×** |
+| 8192 | 940MB | 36.1ms | 98.5ms | **0.37×** |
+| 32768 | 3.76GB | 203.2ms | 960.3ms | **0.21×** |
+
+**结论**：**HBM hit（≈0）≫ CPU tier reload ≫ recompute**。
+CPU 层恢复只要重算的 21-37%——这意味着**前缀缓存不该因 HBM 不够就驱逐到底，
+值得常驻 pinned CPU 池做二级缓存**：8k 前缀 CPU 命中 36ms vs 重算 98ms vs
+HBM 命中 ≈0。这是 docs/design/kv-tiering.md 分级模型的实测常数。
+
+复现：`scripts/overnight/tasks/tpot_churn.py`、`tiered_apc.py`。

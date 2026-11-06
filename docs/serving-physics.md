@@ -39,7 +39,9 @@
 | 采样税 | argmax 免费；朴素 top-p（词表排序）bs=128 时 **78ms > 整个 decode step** | E67 |
 | Roofline | 实测峰值 ~321 TFLOPS；每算子 **24µs 发射地板**；m≥2048 才到算力受限 | E68 |
 | 投机解码实测 | w8a16 draft 接受率 ~95-100%；q=8 全接受 → **9 token/前向**；α 决定最优 q | E69 |
-| KV swap 边界 | 20-26 GB/s，pinned≈pageable；2k 打平、8k 胜 1.2×、32k 胜 ~2.7× | E70 |
+| KV swap 边界 | 20-26 GB/s，pinned≈pageable（已验证 is_pinned）；2k 打平、8k 胜 1.2×、32k 胜 ~2.7× | E70 |
+| TPOT 分布 | churn 下 p50 44.7 / p99 68.2ms——SLO 按 p99 定；prefill 注入仅 +14%/步 | E71 |
+| 分层 APC | CPU reload = 重算的 **21-37%**：前缀 KV 值得常驻 pinned CPU 二级缓存 | E72 |
 
 ## 1. decode 为什么慢：三道墙，按顺序撞
 

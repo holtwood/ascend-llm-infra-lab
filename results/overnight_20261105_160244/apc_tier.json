@@ -1,0 +1,29 @@
+{
+  "rows": [
+    {
+      "L": 2048,
+      "kv_mb": 235.0,
+      "hbm_hit_ms": 0.0,
+      "cpu_reload_ms": 10.04,
+      "recompute_ms": 34.73,
+      "reload_over_recompute": 0.289
+    },
+    {
+      "L": 8192,
+      "kv_mb": 940.0,
+      "hbm_hit_ms": 0.0,
+      "cpu_reload_ms": 36.11,
+      "recompute_ms": 98.51,
+      "reload_over_recompute": 0.367
+    },
+    {
+      "L": 32768,
+      "kv_mb": 3758.0,
+      "hbm_hit_ms": 0.0,
+      "cpu_reload_ms": 203.17,
+      "recompute_ms": 960.34,
+      "reload_over_recompute": 0.212
+    }
+  ],
+  "note": "kv/token=114688B. reload uses pinned H2D; recompute = real 28-layer prefill (SDPA, causal)"
+}
