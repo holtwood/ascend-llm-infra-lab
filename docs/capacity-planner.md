@@ -81,6 +81,91 @@ goodput             492 tok/s
 **注意：bs≤16 时步时恒为 ~30ms，地板掩盖一切——规划器在低并发区的 attention
 项基本不可观测。**
 
+
+## 容量矩阵（可直接读表）
+
+生成：`python3 scripts/overnight/tasks/capacity_matrix.py [--graph-captured]`
+单位 = goodput tok/s（括号内为满足 SLO 的并发数）。
+
+### 图捕获后（真实引擎的常态，如 vLLM ACLGraph）
+
+# 容量矩阵（goodput tok/s @ SLO，graph-captured）
+
+
+## TPOT SLO = 50 ms
+
+| model | ctx 2048 | ctx 8192 | ctx 32768 |
+|---|---|---|---|
+| 0.6B (28L, 8kv, bf16) | 5,056 (244seq) | 1,232 (61seq) | 100 (5seq) |
+| 4B (36L, 8kv, bf16) | 3,541 (168seq) | 642 (32seq) | 52 (2seq) |
+| 8B (36L, 8kv, bf16) | 3,044 (142seq) | 510 (25seq) | 46 (2seq) |
+| 8B w8a16 (36L) | 3,356 (158seq) | 588 (29seq) | 50 (2seq) |
+| 32B (64L, 8kv, bf16) | OOM | OOM | OOM |
+
+## TPOT SLO = 100 ms
+
+| model | ctx 2048 | ctx 8192 | ctx 32768 |
+|---|---|---|---|
+| 0.6B (28L, 8kv, bf16) | 5,056 (244seq) | 1,232 (61seq) | 178 (15seq) |
+| 4B (36L, 8kv, bf16) | 3,541 (168seq) | 732 (42seq) | 103 (10seq) |
+| 8B (36L, 8kv, bf16) | 3,044 (142seq) | 604 (35seq) | 86 (8seq) |
+| 8B w8a16 (36L) | 3,356 (158seq) | 679 (39seq) | 95 (9seq) |
+| 32B (64L, 8kv, bf16) | OOM | OOM | OOM |
+
+## TPOT SLO = 200 ms
+
+| model | ctx 2048 | ctx 8192 | ctx 32768 |
+|---|---|---|---|
+| 0.6B (28L, 8kv, bf16) | 5,056 (244seq) | 1,232 (61seq) | 178 (15seq) |
+| 4B (36L, 8kv, bf16) | 3,541 (168seq) | 732 (42seq) | 103 (10seq) |
+| 8B (36L, 8kv, bf16) | 3,044 (142seq) | 604 (35seq) | 86 (8seq) |
+| 8B w8a16 (36L) | 3,356 (158seq) | 679 (39seq) | 95 (9seq) |
+| 32B (64L, 8kv, bf16) | OOM | OOM | OOM |
+
+### eager（无图捕获，29ms 发射地板）
+
+# 容量矩阵（goodput tok/s @ SLO，eager (29ms floor)）
+
+
+## TPOT SLO = 50 ms
+
+| model | ctx 2048 | ctx 8192 | ctx 32768 |
+|---|---|---|---|
+| 0.6B (28L, 8kv, bf16) | 2,061 (103seq) | 261 (13seq) | 23 (1seq) |
+| 4B (36L, 8kv, bf16) | 1,163 (58seq) | 83 (4seq) | SLO✗ |
+| 8B (36L, 8kv, bf16) | 502 (25seq) | 41 (2seq) | SLO✗ |
+| 8B w8a16 (36L) | 862 (43seq) | 63 (3seq) | SLO✗ |
+| 32B (64L, 8kv, bf16) | OOM | OOM | OOM |
+
+## TPOT SLO = 100 ms
+
+| model | ctx 2048 | ctx 8192 | ctx 32768 |
+|---|---|---|---|
+| 0.6B (28L, 8kv, bf16) | 3,158 (244seq) | 777 (61seq) | 92 (9seq) |
+| 4B (36L, 8kv, bf16) | 2,198 (168seq) | 486 (42seq) | 51 (5seq) |
+| 8B (36L, 8kv, bf16) | 1,877 (142seq) | 403 (35seq) | 42 (4seq) |
+| 8B w8a16 (36L) | 2,077 (158seq) | 451 (39seq) | 50 (5seq) |
+| 32B (64L, 8kv, bf16) | OOM | OOM | OOM |
+
+## TPOT SLO = 200 ms
+
+| model | ctx 2048 | ctx 8192 | ctx 32768 |
+|---|---|---|---|
+| 0.6B (28L, 8kv, bf16) | 3,158 (244seq) | 777 (61seq) | 132 (15seq) |
+| 4B (36L, 8kv, bf16) | 2,198 (168seq) | 486 (42seq) | 80 (10seq) |
+| 8B (36L, 8kv, bf16) | 1,877 (142seq) | 403 (35seq) | 66 (8seq) |
+| 8B w8a16 (36L) | 2,077 (158seq) | 451 (39seq) | 73 (9seq) |
+| 32B (64L, 8kv, bf16) | OOM | OOM | OOM |
+
+**读表要点**：
+- 同一模型，上下文 2k→32k，goodput 掉 **28-50×**（0.6B：5056 → 100 @50ms）
+- SLO 从 200ms 收紧到 50ms，8B@8k 的 goodput 从 604 掉到 510（图捕获下影响小），
+  但 eager 下从 403 掉到 41（10×）——**地板会放大 SLO 收紧的代价**
+- 32B bf16 在 64GB 卡上直接 OOM（权重就 64GB）→ 必须量化或换卡，
+  这是"模型选型先于调优"的定量提醒
+- 8B w8a16 相比 bf16：goodput +10%（图捕获 588 vs 510 @8k/50ms），
+  与 E41 的"容量收益为主"一致
+
 ## 已知局限
 
 - attention 效率曲线（19%→50%）是 0.6B/GQA-8 头实测，其他形状需重测
