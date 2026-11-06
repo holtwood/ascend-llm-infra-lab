@@ -1,0 +1,4 @@
+{"L": 1024, "bf16_ms": 0.141, "int8_ms": 0.212, "speedup": 0.67, "bf16_us_per_tok": 0.14, "int8_us_per_tok": 0.21}
+{"L": 4096, "bf16_ms": 0.323, "int8_ms": 0.381, "speedup": 0.85, "bf16_us_per_tok": 0.08, "int8_us_per_tok": 0.09}
+{"L": 8192, "bf16_ms": 0.601, "int8_ms": 0.684, "speedup": 0.88, "bf16_us_per_tok": 0.07, "int8_us_per_tok": 0.08}
+{"L": 16384, "bf16_ms": 1.339, "int8_ms": 1.483, "speedup": 0.9, "bf16_us_per_tok": 0.08, "int8_us_per_tok": 0.09}

@@ -587,3 +587,27 @@ long（2048-4096）。SLO = TTFT ≤ 2s 且 TPOT ≤ 100ms。
 再给这三条曲线的取舍；不要一上来就说"加机器"或"限流"。
 
 复现：`scripts/overnight/tasks/multi_tenant_sched.py --rate 12`。
+
+## E58 · W8A16 在 prefill 负载下也没提速（w8a16_prefill.jsonl）
+
+E41 说 decode 上 W8A16 是负收益（发射地板支配）。prefill 是相反区间
+（大 M、算力受限），理论上量化应该有用——实测却仍然更慢：
+
+| L | bf16 | int8 | 加速比 |
+|---|---|---|---|
+| 1024 | 0.141 ms | 0.212 ms | 0.67× |
+| 4096 | 0.323 ms | 0.381 ms | 0.85× |
+| 8192 | 0.601 ms | 0.684 ms | 0.88× |
+| 16384 | 1.339 ms | 1.483 ms | 0.90× |
+
+bf16 在 L=16384 时 MLP 达 **225 TFLOPS**（算力受限区间），int8 反而只有 204 TFLOPS。
+
+**结论：`npu_weight_quant_batchmatmul` 在本环境（CANN 9.0 / torch_npu 2.10）
+没有用上 int8 张量核的高吞吐**，所以 W8A16 在两个区间（decode 与 prefill）
+都没有速度收益，**唯一确定收益是容量**（E41：权重 −29%）。
+
+这是一个有价值的负结果：它说明"量化提速"不是免费的，取决于后端 kernel 是否
+真正走了低精度计算路径。要拿到速度收益，需要更好的融合 kernel
+（这也解释了为什么 vLLM 的量化收益高度依赖具体后端实现）。
+
+复现：`scripts/overnight/tasks/w8a16_prefill.py`。
