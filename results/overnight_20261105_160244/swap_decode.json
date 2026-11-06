@@ -1,0 +1,323 @@
+{
+  "pre": {
+    "p50": 45.9,
+    "p90": 46.2,
+    "max": 46.3,
+    "n": 14
+  },
+  "during": {
+    "p50": 45.7,
+    "p90": 45.9,
+    "max": 46.0,
+    "n": 30
+  },
+  "post": {
+    "p50": 45.7,
+    "p90": 45.9,
+    "max": 45.9,
+    "n": 15
+  },
+  "blk_mb": 15.0,
+  "trace": [
+    {
+      "t": 0,
+      "ms": 412.4,
+      "swap": false
+    },
+    {
+      "t": 1,
+      "ms": 46.1,
+      "swap": false
+    },
+    {
+      "t": 2,
+      "ms": 46.1,
+      "swap": false
+    },
+    {
+      "t": 3,
+      "ms": 46.1,
+      "swap": false
+    },
+    {
+      "t": 4,
+      "ms": 46.2,
+      "swap": false
+    },
+    {
+      "t": 5,
+      "ms": 46.2,
+      "swap": false
+    },
+    {
+      "t": 6,
+      "ms": 46.3,
+      "swap": false
+    },
+    {
+      "t": 7,
+      "ms": 31.1,
+      "swap": false
+    },
+    {
+      "t": 8,
+      "ms": 45.6,
+      "swap": false
+    },
+    {
+      "t": 9,
+      "ms": 45.6,
+      "swap": false
+    },
+    {
+      "t": 10,
+      "ms": 45.6,
+      "swap": false
+    },
+    {
+      "t": 11,
+      "ms": 45.6,
+      "swap": false
+    },
+    {
+      "t": 12,
+      "ms": 45.8,
+      "swap": false
+    },
+    {
+      "t": 13,
+      "ms": 45.8,
+      "swap": false
+    },
+    {
+      "t": 14,
+      "ms": 45.9,
+      "swap": false
+    },
+    {
+      "t": 15,
+      "ms": 31.2,
+      "swap": true
+    },
+    {
+      "t": 16,
+      "ms": 45.8,
+      "swap": true
+    },
+    {
+      "t": 17,
+      "ms": 45.7,
+      "swap": true
+    },
+    {
+      "t": 18,
+      "ms": 45.7,
+      "swap": true
+    },
+    {
+      "t": 19,
+      "ms": 45.7,
+      "swap": true
+    },
+    {
+      "t": 20,
+      "ms": 45.8,
+      "swap": true
+    },
+    {
+      "t": 21,
+      "ms": 45.8,
+      "swap": true
+    },
+    {
+      "t": 22,
+      "ms": 45.9,
+      "swap": true
+    },
+    {
+      "t": 23,
+      "ms": 31.1,
+      "swap": true
+    },
+    {
+      "t": 24,
+      "ms": 45.7,
+      "swap": true
+    },
+    {
+      "t": 25,
+      "ms": 45.7,
+      "swap": true
+    },
+    {
+      "t": 26,
+      "ms": 45.7,
+      "swap": true
+    },
+    {
+      "t": 27,
+      "ms": 45.7,
+      "swap": true
+    },
+    {
+      "t": 28,
+      "ms": 45.8,
+      "swap": true
+    },
+    {
+      "t": 29,
+      "ms": 45.8,
+      "swap": true
+    },
+    {
+      "t": 30,
+      "ms": 45.9,
+      "swap": true
+    },
+    {
+      "t": 31,
+      "ms": 30.8,
+      "swap": true
+    },
+    {
+      "t": 32,
+      "ms": 45.7,
+      "swap": true
+    },
+    {
+      "t": 33,
+      "ms": 45.6,
+      "swap": true
+    },
+    {
+      "t": 34,
+      "ms": 45.7,
+      "swap": true
+    },
+    {
+      "t": 35,
+      "ms": 45.7,
+      "swap": true
+    },
+    {
+      "t": 36,
+      "ms": 45.8,
+      "swap": true
+    },
+    {
+      "t": 37,
+      "ms": 45.9,
+      "swap": true
+    },
+    {
+      "t": 38,
+      "ms": 46.0,
+      "swap": true
+    },
+    {
+      "t": 39,
+      "ms": 31.2,
+      "swap": true
+    },
+    {
+      "t": 40,
+      "ms": 45.7,
+      "swap": true
+    },
+    {
+      "t": 41,
+      "ms": 45.7,
+      "swap": true
+    },
+    {
+      "t": 42,
+      "ms": 45.7,
+      "swap": true
+    },
+    {
+      "t": 43,
+      "ms": 45.7,
+      "swap": true
+    },
+    {
+      "t": 44,
+      "ms": 45.8,
+      "swap": true
+    },
+    {
+      "t": 45,
+      "ms": 45.8,
+      "swap": false
+    },
+    {
+      "t": 46,
+      "ms": 45.9,
+      "swap": false
+    },
+    {
+      "t": 47,
+      "ms": 31.0,
+      "swap": false
+    },
+    {
+      "t": 48,
+      "ms": 45.7,
+      "swap": false
+    },
+    {
+      "t": 49,
+      "ms": 45.6,
+      "swap": false
+    },
+    {
+      "t": 50,
+      "ms": 45.7,
+      "swap": false
+    },
+    {
+      "t": 51,
+      "ms": 45.6,
+      "swap": false
+    },
+    {
+      "t": 52,
+      "ms": 45.7,
+      "swap": false
+    },
+    {
+      "t": 53,
+      "ms": 45.8,
+      "swap": false
+    },
+    {
+      "t": 54,
+      "ms": 45.9,
+      "swap": false
+    },
+    {
+      "t": 55,
+      "ms": 31.0,
+      "swap": false
+    },
+    {
+      "t": 56,
+      "ms": 45.6,
+      "swap": false
+    },
+    {
+      "t": 57,
+      "ms": 45.6,
+      "swap": false
+    },
+    {
+      "t": 58,
+      "ms": 45.6,
+      "swap": false
+    },
+    {
+      "t": 59,
+      "ms": 45.7,
+      "swap": false
+    }
+  ]
+}

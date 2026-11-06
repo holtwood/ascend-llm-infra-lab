@@ -87,6 +87,9 @@ E78 直接答——bs=64 @ ctx=4k decode 基线 p50=80.9ms，16k prompt 到达�
   vLLM v1 默认 recompute 就是吃"短上下文居多"的分布。
 - 附赠事实：Ascend 上 **pinned≈pageable**（is_pinned 验证为真，E70）——
   别照搬 GPU 经验。
+- 追问"换出会不会拖慢 running 请求"——**E80：不会**。边换出边 decode，
+  TPOT p50 45.9→45.7 零变化（每步持续 15MB D2H）；异步换出免费，
+  同步换出才亏——vLLM async swap worker 的正确性被实测证实。
 
 **Q：KV offload 到 CPU/NVMe 值不值？**
 
