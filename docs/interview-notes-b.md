@@ -57,4 +57,20 @@
 - 判据链：wall vs device 合计 → host gap 占比；算子次数/步 → 下发税；Core Type 分布 → 计算形态；TransData 占比 → 格式搬运税
 - 长上下文实验必须 `logits_to_keep=1`：全序列 lm_head 在 65536 ctx 会申请 30GB（65536×248320×2B）直接 OOM——这本身就是"引擎只对最后位置算 logits"的原因的直观演示
 
-（N1b 阶梯基准 / N3b cache 干预 / N6 vllm-ascend 部署：进行中，数据回来后补条目。）
+## PD 分离（N7，账本分析）
+
+**Q: PD 分离什么时候值得？KV 传输开销多大？**
+- 核心比值 = **KV 体积 ÷ 互联带宽 vs 一个 decode 步时间**。我用 N3/N4 实测数据算过账（results/n7/n7_pd_ledger.md）：跨 NUMA PCIe 16.3GB/s 下，4B hybrid @32K 传 1GB KV 要 63ms ≈ 0.6 个 decode 步（勉强可行）；@128K 传 4GB 要 250ms ≈ 2.5 步（收益被吃掉大半）——DistServe "传输<一步"的结论依赖 NVLink/PCIe5，慢互联不成立
+- 层级传输（Splitwise 式逐层搬运）在慢互联上有隐藏税：每层 KV 只有几十 KB，落在 N4 实测的 288µs 固定延迟平台，32 层握手税 9.2ms > 层传输本身
+- 吞吐公式：T_PD = max(I/mP, O/nD) 只有 P/D 各自差异化调优后才可能赢融合式的 (a+b)/(m+n)，否则纯亏（多一份模型副本+传输）；SGLang 文档原话"不做差异化优化，PD 分离吞吐反而更低"
+- hybrid 模型的新难点：GDN 的 S 矩阵（49.5MB/请求，fp32）**不可分块/部分回滚，必须原子交接**（TreeWY 论文的动机）——KV cache 可按页传，RNN state 不行
+
+## DeepSeek 昇腾组件开源（2026-09-30，生态认知题）
+
+**Q: 你知道 DeepSeek 给昇腾开源的那套组件吗？能直接用吗？**
+- 六件套：TileLang 昇腾后端 + DeepGEMM-Ascend + DeepEP-Ascend + TileKernels + FlashMLA + DeepSelect，与英伟达版一一对应 API
+- **五个性能组件全部绑定 Ascend 950（dav-3510）+ CANN 9.2/9.20 bisheng 编译器**：DeepGEMM 要 CANN 9.20、DeepEP 要 950 独有的 UBMEM/URMA 通道、FlashMLA 昇腾 decode 只收 FP8/FP4 KV、TileKernels Requirements 写死 950+CANN≥9.2——**910B/910C 存量卡（含我实验用的 910B2）无一能跑**，且宿主机 HDK 25.2 驱动也升不到 CANN 9.2
+- 唯一例外：**tilelang-ascend 适配器仓**（tile-ai 社区线，非 DeepSeek 主线后端）覆盖 A2/A3（910B/C），CANN ≥8.3 即可——我在 CANN 8.5.1 上具备实验条件（用 TileLang DSL 手写融合算子，接 N2 的"eager 小算子未融合占 68.9%"做融合收益量化）
+- 面试加分点：昇腾算子开发三条路线之争（TileLang DSL vs Ascend C 原生 vs CATLASS 模板）、DeepGEMM-Ascend 的 1 Cube+2 Vector 混合核、scale 格式差异（UE8M0 对打包 int16）——能讲出"为什么这批内核 910 存量卡用不了"的人极少
+
+（N1b 阶梯基准 / N3b cache 干预 / N6 vllm-ascend 部署+MTP+TP：进行中，数据回来后补条目。）
