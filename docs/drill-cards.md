@@ -207,6 +207,12 @@ rl_config.enabled（FRACTAL_NZ 回灌）。
 → 反直觉：接近饱和时**平滑到达（cv0.5）尾部更差**（p99 42.9s）than 突发（cv6 20.1s），
 反序复测一致（35.5 vs 19.3s）；机制=平滑到达让队列永不排空。
 
+**L3 补充：prefill→decode 干扰的块大小消融（E34）**
+→ 4 decode 流 + 4k prefill 注入：基线 ITL 14.4ms，注入后 p99 187ms（13×）。
+→ budget=512 不省 p99（173ms，"浅而长"，44 个超阈值 token）；budget=8192
+p99 仅 110ms 但**基线 ITL 抬升 56%**（14.4→22.5ms）。教科书"chunk 越小
+stall 越小"只对 max 尖峰成立；四维权衡：尖峰深度×干扰时长×稳态 ITL×注入 TTFT。
+
 **L3 补充：通宵部署网格 + 模型选型（M2/D）**
 → c×in×out 30 点：c128/in256/out256 = 2724 tok/s；c128/in4096/out256 = 1987
 （TTFT 3.6s）；c64/in256/out256 = 2063。

@@ -587,3 +587,11 @@ pkill 未生效会污染后续测量（TP 首轮即因此重跑）。
 - R1 显示 on +7~15%，R2 反转 on −12%；两个 off 臂自身差 8.7% → 纯噪声
 - 修正 E32/issue #18978 表述：sync 税的是 capture/eager 路径，非回放稳态
 - 已回滚补丁、恢复默认副本；E32 算子保留（数值+算子级收益真实）
+
+### E34 prefill→decode 干扰消融（2026-11-06）
+
+- scripts/e34_prefill_stall.py：4 流 SSE 逐 token ITL + 4k prefill 注入
+- 基线 14.4ms → 注入 p99 187ms；budget 消融：512=173ms/44 elevated、
+  默认=187/60、8192=110/8 但基线 14.4→22.5ms
+- 结论：小 chunk 只降 max 尖峰不降 p99；大 chunk 省 p99 但抬稳态 →
+  四维权衡（尖峰深度/干扰时长/稳态 ITL/注入 TTFT）
