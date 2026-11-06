@@ -47,3 +47,9 @@
 ## 手撕防身（examples/）
 
 `mha_from_scratch.py`（0-diff）· `engine_np/`（hybrid 引擎全链）· `moe_router_sampler.py`（router+采样器，全部自测）· `scheduler.py`（continuous batching 调度器）
+
+## 终局附录（2026-11-06 收官快照）
+
+- 机器池 8 台于 ~18:35 前全部回收；最后一批数据 = L3 16 请求 8.47×（压哨）
+- 两个可提上游 issue 的素材：tilelang-ascend npuir transcendental 数值损坏（rsqrt/sqrt 崩溃 + exp/log 静默算错，二分证据 scripts/n8_rescue/）；vllm-ascend 起服的 ATB cxx_abi 双向症状对照（旧torch+新ATB=挂死 / 新torch+旧ATB=OSError）
+- 全部续作入口：memory（npu-machine-fleet-2026-11）+ 各 results/*/md 末段的"续作命令"
