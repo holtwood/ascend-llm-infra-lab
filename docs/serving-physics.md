@@ -44,6 +44,9 @@
 | 分层 APC | CPU reload = 重算的 **21-37%**：前缀 KV 值得常驻 pinned CPU 二级缓存 | E72 |
 | 流并发 | D2H 传输 **99% 可藏进计算**（独立 DMA）；D2D 并发反 −24%（与 GEMM 抢 HBM） | E75 |
 | Attention 后端 | SDPA 只在 prefill 快（17×）；decode q_len=1 反被 manual 超 **9×** → prefill/decode 必须用不同后端 | E76 |
+| HCCL 重叠 | allreduce **~80-87% 可藏进 GEMM**（独立链引擎）；naive TP 串行吃满税 | E77 |
+| 巨型 prompt 注入 | 16k 整段 → 64 路 decode 单步 TPOT 4×（321ms）；chunked → +31% 有界 | E78 |
+| 前缀分叉收益 | 省成本 ≈ 复用比例线性函数；p 越小收益归零；block-16 短前缀损失 20% | E79 |
 
 ## 1. decode 为什么慢：三道墙，按顺序撞
 

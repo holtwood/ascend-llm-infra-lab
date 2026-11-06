@@ -1,0 +1,8 @@
+{
+  "mbytes": 4,
+  "gemm_ms": 51.61,
+  "ar_ms": 0.323,
+  "seq_ms": 51.8,
+  "par_ms": 51.53,
+  "hidden_pct": 86.5
+}
