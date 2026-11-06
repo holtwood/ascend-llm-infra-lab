@@ -106,4 +106,15 @@
 - 三个真实活锁 bug（都留了墓志注释）：① dataclass 默认按值相等 → 调度池 remove 移错元素（要 eq=False 走 id）；② 逐出 WAITING 不释放任何 KV 却返回"成功"→死循环；③ 收录失败就抢占 running → 抢-复录-再抢震荡（tight-KV 24 请求 5000 步只完成 6 个），改成**收录失败只等待**后 6 轮干净收敛
 - vLLM 语义对应：preemption 是最后手段（decode 推进不了才抢）；被抢占者 recompute（丢 KV 保 output）vs swap（N9 的账本是 swap 路线的成本依据）
 
-（N6 MTP/TP、N8 TileLang：进行中，数据回来后补条目。）
+## Decode batching 的"免费午餐"（N2b，batch 扫描）
+
+**Q: 为什么 decode 靠 batching 白嫖吞吐？prefill 为什么不能？**
+- 实测（4B，30 步稳态）：b1→b32 每步 110.3→**108.7 ms（batch 变大反而略快）**，吞吐 9→294 tok/s = **32.5×，白嫖系数 1.015**
+- 机制闭环：N2 已证每步 2935 次算子下发、79% host 开销、device 只忙 24ms——固定开销不随 B 涨，空闲 device 吸收 B 倍计算，GEMV 变 GEM 后权重仍只读一遍
+- **诚实修正**："prefill 不能白嫖"的准确说法是"饱和点之后不能"——短 prompt（324 tok）的 prefill 也在 host-bound 段，同样吃 10× 摊薄；N2 的 8K ctx 2765 tok/s 才是 compute-bound 证据。面试先问"你的 prompt 长到哪段了"再下结论
+
+**Q: batching 会改变模型输出吗？**（两道只有真跑过才答得出的题）
+- **bf16 的 batch-size 形状敏感**：B=16 时全部 16 槽在第 10 步**同步**翻边（logits 漂移 0.14–0.16，GEMM tile 形状变→归约顺序变），同配置重跑 bit 一致——**确定性漂移不是随机噪声**。逐位复现需要固定 batch 组合；对 E83 结论（同 batch 内 concat bit-identical）的边界补充：跨 batch 大小不 bit-identical
+- **left-padding 在 hybrid 模型上语义性失效**：GDN 层没有 attention-mask 概念，pad token 直接进 CausalConv 滑窗和 recurrent 递推，槽 0（无 pad）也从第 0 步分叉——纯 Transformer 的 padding+mask 套路在 hybrid 上是错的，batch serving 必须变长拼接（vLLM 用 cu_seqlens varlen 的原因，一手实证）
+
+（N6 MTP/TP、N8 TileLang、N10 KV-int8、N11 chunk 扫描：进行中，数据回来后补条目。）
