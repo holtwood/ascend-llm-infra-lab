@@ -59,7 +59,22 @@ def quant_kv_int8(t):
     return (q.to(t.dtype) * scale)
 
 
-def forward_logits(ids, W, cfg, dev, nlayers, hq, nkv, hd, hidden, kv_int8=False):
+def quant_kv_int4(t, group=32):
+    """int4 quantization. group=None -> per-token-per-head scale (naive);
+    group=32 -> per-group-of-32-channels scale (KIVI-style)."""
+    if group is None:
+        scale = t.abs().amax(dim=-1, keepdim=True).clamp_min(1e-8) / 7.0
+        q = torch.round(t / scale).clamp(-7, 7).to(torch.int8)
+        return (q.to(t.dtype) * scale)
+    L, H, D = t.shape
+    tg = t.view(L, H, D // group, group)
+    scale = tg.abs().amax(dim=-1, keepdim=True).clamp_min(1e-8) / 7.0
+    q = torch.round(tg / scale).clamp(-7, 7).to(torch.int8)
+    return (q.to(t.dtype) * scale).view(L, H, D)
+
+
+def forward_logits(ids, W, cfg, dev, nlayers, hq, nkv, hd, hidden, kv_int8=False,
+                   kv_int4=False, kv4_group=None):
     G = hq // nkv
     x = W["model.embed_tokens.weight"][ids]              # [L, hidden]
     L = x.shape[0]
@@ -77,6 +92,9 @@ def forward_logits(ids, W, cfg, dev, nlayers, hq, nkv, hd, hidden, kv_int8=False
         if kv_int8:
             k = quant_kv_int8(k)
             v = quant_kv_int8(v.view(L, nkv, hd)).view(L, -1)
+        elif kv_int4:
+            k = quant_kv_int4(k, group=kv4_group)
+            v = quant_kv_int4(v.view(L, nkv, hd), group=kv4_group).view(L, -1)
         qh = q.view(1, L, hq, hd).transpose(1, 2)
         kh = k.view(1, L, nkv, hd).transpose(1, 2).repeat_interleave(G, dim=1)
         vh = v.view(1, L, nkv, hd).transpose(1, 2).repeat_interleave(G, dim=1)
@@ -132,14 +150,18 @@ def main():
     hidden = cfg["hidden_size"]
     res = {"tokens": int(ids.shape[0])}
     outs = {}
-    runs = [("bf16", args.bf16, False, False),
-            ("w8a16", args.int8, True, False),
-            ("bf16_kv8", args.bf16, False, True),
-            ("w8a16_kv8", args.int8, True, True)]
-    for tag, path, dq, kvq in runs:
+    runs = [("bf16", args.bf16, False, 0),
+            ("w8a16", args.int8, True, 0),
+            ("bf16_kv8", args.bf16, False, 8),
+            ("bf16_kv4", args.bf16, False, -4),
+            ("bf16_kv4g32", args.bf16, False, -40),
+            ("w8a16_kv8", args.int8, True, 8)]
+    for tag, path, dq, kvb in runs:
         W = load(path, dev, dequant=dq)
         with torch.no_grad():
-            lg = forward_logits(ids, W, cfg, dev, nlayers, hq, nkv, hd, hidden, kv_int8=kvq)
+            lg = forward_logits(ids, W, cfg, dev, nlayers, hq, nkv, hd, hidden,
+                                kv_int8=(kvb == 8), kv_int4=(kvb < 0),
+                                kv4_group=(32 if kvb == -40 else None))
         p, nll = ppl(lg, ids)
         outs[tag] = lg
         res[f"{tag}_ppl"] = round(p, 3)
@@ -148,7 +170,7 @@ def main():
         del W
         torch.npu.empty_cache()
     base = outs["bf16"].argmax(-1)
-    for tag in ["w8a16", "bf16_kv8", "w8a16_kv8"]:
+    for tag in ["w8a16", "bf16_kv8", "bf16_kv4", "bf16_kv4g32", "w8a16_kv8"]:
         if tag in outs:
             agree = 100 * (base == outs[tag].argmax(-1)).float().mean().item()
             res[f"{tag}_top1_agree_pct"] = round(agree, 2)
