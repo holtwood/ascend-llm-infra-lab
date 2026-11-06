@@ -1,0 +1,54 @@
+{
+  "prompt_len": 12,
+  "cycles": [
+    {
+      "q": 2,
+      "cycles": 12,
+      "tokens": 34,
+      "accept_per_pos": [
+        0.917,
+        0.917
+      ],
+      "mean_tokens_per_tgt_fwd": 2.83,
+      "draft_fwds": 24,
+      "tgt_fwds": 12,
+      "wall_s": 2.6
+    },
+    {
+      "q": 4,
+      "cycles": 7,
+      "tokens": 32,
+      "accept_per_pos": [
+        1.0,
+        0.857,
+        0.857,
+        0.857
+      ],
+      "mean_tokens_per_tgt_fwd": 4.57,
+      "draft_fwds": 28,
+      "tgt_fwds": 7,
+      "wall_s": 2.0
+    },
+    {
+      "q": 8,
+      "cycles": 4,
+      "tokens": 34,
+      "accept_per_pos": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.75,
+        0.75
+      ],
+      "mean_tokens_per_tgt_fwd": 8.5,
+      "draft_fwds": 32,
+      "tgt_fwds": 4,
+      "wall_s": 2.1
+    }
+  ],
+  "sample": " the first line should be about the quantum state of a particle, the second line",
+  "note": "draft==target size (same 0.6B): acceptance real, wall-clock speedup NOT real (draft isn't smaller). Speedup model uses E45 verify costs + measured acceptance."
+}

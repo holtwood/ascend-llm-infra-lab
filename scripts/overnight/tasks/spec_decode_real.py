@@ -88,6 +88,7 @@ def main():
     ap.add_argument("--int8", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--max-new", type=int, default=48)
+    ap.add_argument("--prompt", default=None)
     args = ap.parse_args()
 
     dev = "npu:0"
@@ -96,7 +97,7 @@ def main():
            "nkv": hf.num_key_value_heads,
            "hd": getattr(hf, "head_dim", hf.hidden_size // hf.num_attention_heads)}
     tok = AutoTokenizer.from_pretrained(args.bf16)
-    prompt = ("大型语言模型推理系统的核心挑战是显存带宽与调度的权衡。"
+    prompt = args.prompt or ("大型语言模型推理系统的核心挑战是显存带宽与调度的权衡。"
               "在企业级部署中，我们需要")
     ids = tok(prompt, return_tensors="pt").input_ids[0].tolist()
     S_max = len(ids) + args.max_new + 16
