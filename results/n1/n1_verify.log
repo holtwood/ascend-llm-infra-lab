@@ -1,0 +1,8 @@
+== released checkpoint /model/Qwen3.5-4B (npu, torch.bfloat16) ==
+prompt: 24 tokens
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights: 100%|██████████| 426/426 [00:00<00:00, 5098.02it/s]
+  prefill last-position logits: max|diff|=1.5625e-01 (rel 8.39e-03), top-1 agree=True
+  transformers: [1710, 198, 16, 13, 220, 96525, 95874, 100721]
+  our engine  : [1710, 198, 16, 13, 220, 96525, 95874, 100721]
+  [OK ] greedy generation identical
+  decoded: '。\n1. 算子差异'

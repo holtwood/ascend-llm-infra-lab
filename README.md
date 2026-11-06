@@ -68,6 +68,18 @@
 - `docs/night-shift-plan.md` — 8-9 小时四机满载方案（启动/监控/收集/恢复）
 - `scripts/night_*.sh` — 四条任务线；`scripts/night_collect.py` — 早晨汇总
 
+## 环境B：白盒实验线（3×910B2 单容器，torch 2.9/torch_npu 2.9/CANN 8.5.1）
+
+与环境A（vllm 服务化黑盒）互补的白盒线：算子级剖析、手写实现、新架构实测。规划见 `docs/experiment-plan-b.md`。
+
+| # | 实验 | 状态 | 产出 |
+|---|------|------|------|
+| N2 | profiler 白盒剖析：eager 下 decode 79% 是 host 开销（device 仅忙 24ms/步，2935 次算子下发） | ✅ | results/n2 |
+| N3 | Hybrid GDN 显存曲线：KV 32KB/token 实测=理论（6 点全吻合），GDN state 恒 49.5MB(fp32)，1/4 斜率 vs 全注意力 | ✅ | results/n3 |
+| N4 | 跨 NUMA PCIe all-reduce：裸延迟 288µs barrier 主导（4KB-256KB 与大小无关），饱和 16.3GB/s，TP decode 通信=计算 2-4× | ✅ | results/n4 |
+| N5 | w8a8 解剖：msModelSlim per-channel int8 对称 + per-token 动态激活量化，覆盖 84.5%，GDN out_proj/lm_head 排除 | ✅ | results/n5 |
+| N1 | 手写推理引擎（L0-L5 阶梯）：Qwen3.5-4B hybrid 前向 + KV/RNN state cache + naive 引擎；**真机 4B 权重 greedy 逐 token 一致**（rel diff 8e-3 ∈ bf16 噪声） | ✅ 骨架+验证 | examples/engine_np, results/n1 |
+
 ## 目录结构
 
 - `docs/environment.md` — 环境盘点与已知限制

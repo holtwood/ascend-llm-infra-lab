@@ -1,0 +1,18 @@
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights: 100%|██████████| 426/426 [00:00<00:00, 4990.67it/s]
+[cache type] DynamicCache
+  layer0: {'number_of_states': 'int', 'conv_states': 'dict', 'recurrent_states': 'dict', 'is_conv_states_initialized': 'dict', 'is_recurrent_states_initialized': 'dict', 'has_previous_state': 'dict', 'conv_kernel_size': 'dict', 'device': 'device', 'dtype': 'dtype', 'record_past': 'bool'}
+  layer1: {'number_of_states': 'int', 'conv_states': 'dict', 'recurrent_states': 'dict', 'is_conv_states_initialized': 'dict', 'is_recurrent_states_initialized': 'dict', 'has_previous_state': 'dict', 'conv_kernel_size': 'dict', 'device': 'device', 'dtype': 'dtype', 'record_past': 'bool'}
+  layer2: {'number_of_states': 'int', 'conv_states': 'dict', 'recurrent_states': 'dict', 'is_conv_states_initialized': 'dict', 'is_recurrent_states_initialized': 'dict', 'has_previous_state': 'dict', 'conv_kernel_size': 'dict', 'device': 'device', 'dtype': 'dtype', 'record_past': 'bool'}
+
+| ctx_tokens | attn_KV(MB) | GDN_state(MB) | other(MB) | KV_theory(MB) | wall_prefill_last_chunk(ms) |
+|---:|---:|---:|---:|---:|---:|
+| 512 | 16.0 | 49.5 | 0.00 | 16.0 | 500 |
+| 2048 | 64.0 | 49.5 | 0.00 | 64.0 | 821 |
+| 8192 | 256.0 | 49.5 | 0.00 | 256.0 | 2102 |
+| 32768 | 1024.0 | 49.5 | 0.00 | 1024.0 | 7394 |
+| 65536 | 2048.0 | 49.5 | 0.00 | 2048.0 | 31928 |
+| 131072 | 4096.0 | 49.5 | 0.00 | 4096.0 | 77021 |
+
+[GDN state theory] 24层×32头×128×128×2B = 24.0 MB (应恒定)
+[KV slope] 实测 32..32 KB/token; 全注意力对照模型应为 4x
+N3_KV_OK
