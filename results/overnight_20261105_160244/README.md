@@ -910,3 +910,30 @@ HBM 命中 ≈0。这是 docs/design/kv-tiering.md 分级模型的实测常数�
   没有第二条路可走。
 
 复现：`scripts/overnight/tasks/stream_overlap.py`。
+
+## E76 · 融合 attention 不是永远更快：SDPA 是"prefill kernel"（attn_backend.json）
+
+同形状下 SDPA vs 手写（matmul+softmax+matmul，物化 scores）：
+
+| 场景 | SDPA | manual | 倍数 |
+|---|---|---|---|
+| prefill L=512 | 0.12ms | 0.26ms | **SDPA 2.1×** |
+| prefill L=2048 | 0.23ms | 1.24ms | **5.3×** |
+| prefill L=8192 | 1.82ms | 27.8ms | **15.3×** |
+| prefill L=16384 | 6.84ms | 118.7ms | **17.4×** |
+| decode bs=16 ctx=4k | 3.99ms | 0.43ms | **manual 9.3×** |
+| decode bs=64 ctx=4k | 15.4ms | 1.65ms | **manual 9.3×** |
+| decode bs=16 ctx=32k | 31.5ms | 3.41ms | **manual 9.2×** |
+
+**结论——"融合 kernel 更快"只在 prefill 形状成立**：
+- prefill 下 SDPA 避免物化 [H,L,S] scores，L 越大收益越大（2→17×），
+  这是 FlashAttention 的经典收益；
+- **decode（q_len=1）下 SDPA 比两个朴素 matmul 慢 9×**——torch_npu 的
+  SDPA 路径显然按大 query tile 优化，1-token query 走了低效分支；
+- 这解释了为什么真实引擎**给 prefill 和 decode 用不同 attention 后端**
+  （vLLM-Ascend 的 paged/decode kernel，不是朴素 SDPA）——
+  **backend 选择是形状相关的，"统一融合 kernel"是伪命题**；
+- 注：decode 的 SDPA 慢也部分抬高了 E29-E39  eager decode 的步时读数，
+  生产 paged-attention kernel 下绝对值会更低（相对结论不受影响）。
+
+复现：`scripts/overnight/tasks/attn_backend.py`。

@@ -1,0 +1,58 @@
+{
+  "prefill": [
+    {
+      "L": 512,
+      "sdpa_ms": 0.123,
+      "manual_ms": 0.262,
+      "speedup": 2.13
+    },
+    {
+      "L": 2048,
+      "sdpa_ms": 0.232,
+      "manual_ms": 1.236,
+      "speedup": 5.33
+    },
+    {
+      "L": 8192,
+      "sdpa_ms": 1.818,
+      "manual_ms": 27.794,
+      "speedup": 15.29
+    },
+    {
+      "L": 16384,
+      "sdpa_ms": 6.841,
+      "manual_ms": 118.697,
+      "speedup": 17.35
+    }
+  ],
+  "decode": [
+    {
+      "bs": 1,
+      "ctx": 4096,
+      "sdpa_ms": 0.274,
+      "manual_ms": 0.139,
+      "speedup": 0.51
+    },
+    {
+      "bs": 16,
+      "ctx": 4096,
+      "sdpa_ms": 3.988,
+      "manual_ms": 0.434,
+      "speedup": 0.11
+    },
+    {
+      "bs": 64,
+      "ctx": 4096,
+      "sdpa_ms": 15.425,
+      "manual_ms": 1.646,
+      "speedup": 0.11
+    },
+    {
+      "bs": 16,
+      "ctx": 32768,
+      "sdpa_ms": 31.485,
+      "manual_ms": 3.413,
+      "speedup": 0.11
+    }
+  ]
+}
