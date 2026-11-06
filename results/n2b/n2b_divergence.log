@@ -1,0 +1,5 @@
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights: 100%|██████████| 426/426 [00:00<00:00, 4899.98it/s]
+[load] base 324 tok
+[B=8] slots_diverging=0/8 first_div=[None, None, None, None]... mismatch_ratio=0.000 | logits_drift=0.1641 top1_same=1 | rerun_bit_equal=True within_run_equal=True
+[B=16] slots_diverging=16/16 first_div=[10, 10, 10, 10]... mismatch_ratio=0.677 | logits_drift=0.1406 top1_same=1 | rerun_bit_equal=True within_run_equal=True
+[PROBE] wrote /data/results/n2b_divergence.json

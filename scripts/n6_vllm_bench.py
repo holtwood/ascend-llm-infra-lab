@@ -40,35 +40,52 @@ async def one_request(session, url, model, prompt, max_tokens):
     t0 = time.perf_counter()
     ttft = None
     ntok = 0
+    usage_ntok = None
     body = {
         "model": model,
         "messages": [{"role": "user", "content": prompt}],
         "max_tokens": max_tokens,
         "temperature": 0.0,
         "stream": True,
+        # 关闭思考模式（Qwen3.8 默认 <think>，否则 100 token 全被 think 吃掉）
+        "chat_template_kwargs": {"enable_thinking": False},
+        # 流式末尾返回 usage，用 completion_tokens 精确计数
+        "stream_options": {"include_usage": True},
     }
     try:
         async with session.post(url, json=body) as resp:
+            buf = b""
             async for raw in resp.content:
-                line = raw.decode("utf-8", errors="replace").strip()
-                if not line.startswith("data:"):
-                    continue
-                payload = line[5:].strip()
-                if payload == "[DONE]":
-                    break
-                try:
-                    obj = json.loads(payload)
-                except json.JSONDecodeError:
-                    continue
-                delta = obj["choices"][0].get("delta", {})
-                content = delta.get("content")
-                if content:
-                    if ttft is None:
-                        ttft = time.perf_counter() - t0
-                    ntok += 1
+                buf += raw
+                # 按 SSE 行解析（MTP 一次验证接受多 token 时多个 data: 行
+                # 会落在同一个网络包里，按包迭代会把它们当成一行导致计数失真）
+                while b"\n" in buf:
+                    line_b, buf = buf.split(b"\n", 1)
+                    line = line_b.decode("utf-8", errors="replace").strip()
+                    if not line.startswith("data:"):
+                        continue
+                    payload = line[5:].strip()
+                    if payload == "[DONE]":
+                        break
+                    try:
+                        obj = json.loads(payload)
+                    except json.JSONDecodeError:
+                        continue
+                    if obj.get("usage"):
+                        usage_ntok = obj["usage"].get("completion_tokens")
+                    if not obj.get("choices"):
+                        continue
+                    delta = obj["choices"][0].get("delta", {})
+                    content = delta.get("content")
+                    if content:
+                        if ttft is None:
+                            ttft = time.perf_counter() - t0
+                        ntok += 1
     except Exception as e:  # noqa: BLE001
         return {"error": str(e)}
     total = time.perf_counter() - t0
+    if usage_ntok:
+        ntok = usage_ntok
     if ttft is None or ntok <= 1:
         return {"error": f"no tokens (ttft={ttft}, ntok={ntok})"}
     tpot = (total - ttft) / (ntok - 1)

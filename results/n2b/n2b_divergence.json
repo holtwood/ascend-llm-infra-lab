@@ -1,0 +1,41 @@
+{
+ "base_prompt_tok": 324,
+ "batches": {
+  "8": {
+   "first_div_step_per_slot": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "slots_diverging": 0,
+   "mismatch_token_ratio_after_all_steps": 0.0,
+   "prefill_logits_max_abs_diff_slot0_vs_b1": 0.16406,
+   "prefill_top1_slot0_same_as_b1": true,
+   "rerun_same_B_bit_equal": true,
+   "slots_bit_equal_within_run": true
+  },
+  "16": {
+   "first_div_step_per_slot": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "slots_diverging": 16,
+   "mismatch_token_ratio_after_all_steps": 0.6774,
+   "prefill_logits_max_abs_diff_slot0_vs_b1": 0.14062,
+   "prefill_top1_slot0_same_as_b1": true,
+   "rerun_same_B_bit_equal": true,
+   "slots_bit_equal_within_run": true
+  }
+ }
+}

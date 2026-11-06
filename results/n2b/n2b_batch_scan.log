@@ -1,0 +1,9 @@
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights: 100%|██████████| 426/426 [00:00<00:00, 4778.12it/s]
+[load] /model/Qwen3.5-4B on npu, base prompt 324 tok, pad_id=248044
+[B= 1] decode   110.3 ms/step |       9 tok/s | amort 110.34 ms | prefill   504.0 ms | eq_match=True pad_match=None
+[B= 2] decode   107.8 ms/step |      19 tok/s | amort  53.90 ms | prefill   495.8 ms | eq_match=True pad_match=False
+[B= 4] decode   110.1 ms/step |      36 tok/s | amort  27.51 ms | prefill   513.8 ms | eq_match=True pad_match=False
+[B= 8] decode   109.0 ms/step |      73 tok/s | amort  13.63 ms | prefill   505.0 ms | eq_match=True pad_match=False
+[B=16] decode   108.3 ms/step |     148 tok/s | amort   6.77 ms | prefill   832.2 ms | eq_match=False pad_match=False
+[B=32] decode   108.7 ms/step |     294 tok/s | amort   3.40 ms | prefill  1583.3 ms | eq_match=False pad_match=False
+[N2B] wrote /data/results/n2b_batch_scan.md + /data/results/n2b_batch_scan.json
