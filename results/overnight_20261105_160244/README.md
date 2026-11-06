@@ -181,3 +181,46 @@ int8 349 GB/s，但 int8 只读一半字节 → 端到端 **1.21×**；若发射
 与 E5R（ATB `set_weight` 挂死）合起来，MindIE 在本容器有两种独立失败模式，
 均为 vendor 栈问题。**结论：MindIE 2.3.0 + CANN 8.5.0 在此环境不可用**，
 MindIE 对比实验只能留给能拿到可用 MindIE 镜像的场景。
+
+## E30 · KV 容量与并发规划模型（capacity.json，真分配验证）
+
+公式：`max_seqs = (HBM可用 − 权重 − 开销) / (kv_per_token × ctx)`
+Qwen3-0.6B：kv_per_token = **114,688 B**（2 × 28 层 × 8 KV头 × 128 × 2B）。
+
+实测（910B1 61GB 可用，真分配到 OOM）：
+
+| 上下文 | KV/序列 | 最大并发 | 实测占用 |
+|---|---|---|---|
+| 2k | 235 MB | **271** | 63.7 GB |
+| 8k | 940 MB | **68** | 63.9 GB |
+| 32k | 3758 MB | **17** | 63.9 GB |
+
+**与公式完全吻合**（271×235MB≈63.7GB 等）。这就是"8k 上下文能服务多少并发"
+的可验证答案：**68 路**（0.6B，64GB 卡，全给 KV）。
+
+推论：并发数与上下文长度**成反比**；把 ctx 从 8k 降到 2k 换来 4× 并发。
+面试可现场推导：`并发 = 可用HBM / (2·L层·n_kv·d_head·2B·ctx)`。
+
+## E31 · Prefill 与 Decode 的不对称性（PD 分离的物理依据）
+
+同一权重、同一张卡，prefill（整段前向）vs decode（逐 token）：
+
+| 场景 | tok/s | 每 token 成本 |
+|---|---|---|
+| prefill L=512, bs=1 | 15.0k | 66.7 µs |
+| prefill L=512, bs=4 | **60.1k**（4×） | 16.6 µs |
+| prefill L=8192, bs=1 | 84.6k | 11.8 µs |
+| decode bs=1（E29） | **34** | 29,400 µs |
+| decode bs=64（E29） | 2,204 | 454 µs |
+
+**核心不对称**：prefill 是**算力受限**——加大 batch 直接换吞吐（bs 1→4 得 4×）；
+decode 是**权重读受限**——加 batch 只摊薄权重读，单请求延迟（TPOT）不变。
+prefill 每 token 比 decode 快 **250×**（11.8µs vs 29ms）。
+
+**这解释了 PD 分离为什么存在**：两者吃不同资源（算力 vs HBM 带宽），
+混跑时 decode 的长尾会被 prefill 的计算洪峰打断；拆开后各自按最优 batch 跑。
+也解释了 chunked prefill 的价值：把长 prefill 切碎插入 decode 间隙，
+用 TPOT 的轻微抖动换 TTFT 的显著改善。
+
+注：L≤2048 的 prefill 步时被 ~30ms 的 launch 开销地板支配（同 E29），
+因此短 prompt 的 tok/s 是发射受限而非算力受限。

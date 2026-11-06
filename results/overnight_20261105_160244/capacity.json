@@ -1,0 +1,88 @@
+{
+  "model": "/data1/pytroch-7/models/Qwen3-0.6B",
+  "nlayers": 28,
+  "hq": 16,
+  "nkv": 8,
+  "hd": 128,
+  "kv_bytes_per_token": 114688,
+  "kv_gb_per_1k_tokens": 0.1147,
+  "kv_capacity": [
+    {
+      "ctx": 2048,
+      "max_seqs_fit": 271,
+      "bytes_per_seq": 234881024,
+      "measured_total_gb": 63.65
+    },
+    {
+      "ctx": 8192,
+      "max_seqs_fit": 68,
+      "bytes_per_seq": 939524096,
+      "measured_total_gb": 63.89
+    },
+    {
+      "ctx": 32768,
+      "max_seqs_fit": 17,
+      "bytes_per_seq": 3758096384,
+      "measured_total_gb": 63.89
+    }
+  ],
+  "weight_gb": 1.503,
+  "prefill": [
+    {
+      "len": 128,
+      "bs": 1,
+      "ms": 94.9,
+      "tok_s": 1349.2,
+      "per_tok_us": 741.2
+    },
+    {
+      "len": 128,
+      "bs": 4,
+      "ms": 29.2,
+      "tok_s": 17553.9,
+      "per_tok_us": 57.0
+    },
+    {
+      "len": 512,
+      "bs": 1,
+      "ms": 34.1,
+      "tok_s": 14998.2,
+      "per_tok_us": 66.7
+    },
+    {
+      "len": 512,
+      "bs": 4,
+      "ms": 34.1,
+      "tok_s": 60129.5,
+      "per_tok_us": 16.6
+    },
+    {
+      "len": 2048,
+      "bs": 1,
+      "ms": 33.9,
+      "tok_s": 60487.7,
+      "per_tok_us": 16.5
+    },
+    {
+      "len": 2048,
+      "bs": 4,
+      "ms": 63.5,
+      "tok_s": 129054.2,
+      "per_tok_us": 7.7
+    },
+    {
+      "len": 8192,
+      "bs": 1,
+      "ms": 96.8,
+      "tok_s": 84603.7,
+      "per_tok_us": 11.8
+    },
+    {
+      "len": 8192,
+      "bs": 4,
+      "ms": 380.5,
+      "tok_s": 86110.8,
+      "per_tok_us": 11.6
+    }
+  ]
+}
