@@ -43,6 +43,7 @@
 | TPOT 分布 | churn 下 p50 44.7 / p99 68.2ms——SLO 按 p99 定；prefill 注入仅 +14%/步 | E71 |
 | 分层 APC | CPU reload = 重算的 **21-37%**：前缀 KV 值得常驻 pinned CPU 二级缓存 | E72 |
 | 流并发 | D2H 传输 **99% 可藏进计算**（独立 DMA）；D2D 并发反 −24%（与 GEMM 抢 HBM） | E75 |
+| Attention 后端 | SDPA 只在 prefill 快（17×）；decode q_len=1 反被 manual 超 **9×** → prefill/decode 必须用不同后端 | E76 |
 
 ## 1. decode 为什么慢：三道墙，按顺序撞
 
