@@ -514,3 +514,10 @@ pkill 未生效会污染后续测量（TP 首轮即因此重跑）。
   maxPrefillTokens≥maxInputTokenLen）后仍 core dump，dmesg 见
   `stranded cqe`/`hdcdrv` 驱动级故障——与 E5R 的 ATB set_weight 挂死是
   两种独立的 vendor 栈失败。MindIE 对比实验在此环境不可行。
+### 通宵实验收官（2026-11-06 01:09 UTC）
+
+- 四条线全部完成并自动恢复副本：M1 367 波 / M2 网格 30 点+mnb+输出长度+混合 1300 轮 /
+  M3 ctx 16 点+300 轮疲劳+准入墙+2052 波 / D 量化 9 点+501 波
+- 集群段：聚合 4394 tok/s（≈4×1098.5），单机 1076-1109；d/m3 各有 24/9 个早期错误（启动窗口）
+- M1 soak 367 波：847.5 → 846.3 tok/s（−0.1%），零错误
+- 四副本+nginx 全 200；报告见 results/night/README.md（含 serving 面试用法章节）

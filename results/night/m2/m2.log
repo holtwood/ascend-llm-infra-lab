@@ -511,3 +511,11 @@
 [23:37:39] mix soak 1100 elapsed 258/320min
 [00:01:10] mix soak 1200 elapsed 282/320min
 [00:01:10] mix soak 1200 elapsed 282/320min
+[00:24:39] mix soak 1300 elapsed 305/320min
+[00:24:39] mix soak 1300 elapsed 305/320min
+[00:39:01] M2 all done
+[00:39:01] M2 all done
+[00:42:07] serve[restore_default] ready
+[00:42:07] serve[restore_default] ready
+[00:42:07] M2 restore done
+[00:42:07] M2 restore done

@@ -1039,3 +1039,85 @@
 [00:13:08] bench[soak_w0329] c=16 n=512 in=256 out=96 done
 [00:14:07] bench[soak_w0330] c=16 n=512 in=256 out=96 done
 [00:14:07] bench[soak_w0330] c=16 n=512 in=256 out=96 done
+[00:15:07] bench[soak_w0331] c=16 n=512 in=256 out=96 done
+[00:15:07] bench[soak_w0331] c=16 n=512 in=256 out=96 done
+[00:16:06] bench[soak_w0332] c=16 n=512 in=256 out=96 done
+[00:16:06] bench[soak_w0332] c=16 n=512 in=256 out=96 done
+[00:17:05] bench[soak_w0333] c=16 n=512 in=256 out=96 done
+[00:17:05] bench[soak_w0333] c=16 n=512 in=256 out=96 done
+[00:18:05] bench[soak_w0334] c=16 n=512 in=256 out=96 done
+[00:18:05] bench[soak_w0334] c=16 n=512 in=256 out=96 done
+[00:19:04] bench[soak_w0335] c=16 n=512 in=256 out=96 done
+[00:19:04] bench[soak_w0335] c=16 n=512 in=256 out=96 done
+[00:20:04] bench[soak_w0336] c=16 n=512 in=256 out=96 done
+[00:20:04] bench[soak_w0336] c=16 n=512 in=256 out=96 done
+[00:21:04] bench[soak_w0337] c=16 n=512 in=256 out=96 done
+[00:21:04] bench[soak_w0337] c=16 n=512 in=256 out=96 done
+[00:22:04] bench[soak_w0338] c=16 n=512 in=256 out=96 done
+[00:22:04] bench[soak_w0338] c=16 n=512 in=256 out=96 done
+[00:23:04] bench[soak_w0339] c=16 n=512 in=256 out=96 done
+[00:23:04] bench[soak_w0339] c=16 n=512 in=256 out=96 done
+[00:24:03] bench[soak_w0340] c=16 n=512 in=256 out=96 done
+[00:24:03] bench[soak_w0340] c=16 n=512 in=256 out=96 done
+[00:25:01] bench[soak_w0341] c=16 n=512 in=256 out=96 done
+[00:25:01] bench[soak_w0341] c=16 n=512 in=256 out=96 done
+[00:26:00] bench[soak_w0342] c=16 n=512 in=256 out=96 done
+[00:26:00] bench[soak_w0342] c=16 n=512 in=256 out=96 done
+[00:26:59] bench[soak_w0343] c=16 n=512 in=256 out=96 done
+[00:26:59] bench[soak_w0343] c=16 n=512 in=256 out=96 done
+[00:27:58] bench[soak_w0344] c=16 n=512 in=256 out=96 done
+[00:27:58] bench[soak_w0344] c=16 n=512 in=256 out=96 done
+[00:28:58] bench[soak_w0345] c=16 n=512 in=256 out=96 done
+[00:28:58] bench[soak_w0345] c=16 n=512 in=256 out=96 done
+[00:29:57] bench[soak_w0346] c=16 n=512 in=256 out=96 done
+[00:29:57] bench[soak_w0346] c=16 n=512 in=256 out=96 done
+[00:30:58] bench[soak_w0347] c=16 n=512 in=256 out=96 done
+[00:30:58] bench[soak_w0347] c=16 n=512 in=256 out=96 done
+[00:31:57] bench[soak_w0348] c=16 n=512 in=256 out=96 done
+[00:31:57] bench[soak_w0348] c=16 n=512 in=256 out=96 done
+[00:32:58] bench[soak_w0349] c=16 n=512 in=256 out=96 done
+[00:32:58] bench[soak_w0349] c=16 n=512 in=256 out=96 done
+[00:33:57] bench[soak_w0350] c=16 n=512 in=256 out=96 done
+[00:33:57] bench[soak_w0350] c=16 n=512 in=256 out=96 done
+[00:33:58] progress 350 waves elapsed 344/360min
+[00:33:58] progress 350 waves elapsed 344/360min
+[00:34:57] bench[soak_w0351] c=16 n=512 in=256 out=96 done
+[00:34:57] bench[soak_w0351] c=16 n=512 in=256 out=96 done
+[00:35:56] bench[soak_w0352] c=16 n=512 in=256 out=96 done
+[00:35:56] bench[soak_w0352] c=16 n=512 in=256 out=96 done
+[00:36:55] bench[soak_w0353] c=16 n=512 in=256 out=96 done
+[00:36:55] bench[soak_w0353] c=16 n=512 in=256 out=96 done
+[00:37:54] bench[soak_w0354] c=16 n=512 in=256 out=96 done
+[00:37:54] bench[soak_w0354] c=16 n=512 in=256 out=96 done
+[00:38:54] bench[soak_w0355] c=16 n=512 in=256 out=96 done
+[00:38:54] bench[soak_w0355] c=16 n=512 in=256 out=96 done
+[00:39:53] bench[soak_w0356] c=16 n=512 in=256 out=96 done
+[00:39:53] bench[soak_w0356] c=16 n=512 in=256 out=96 done
+[00:40:53] bench[soak_w0357] c=16 n=512 in=256 out=96 done
+[00:40:53] bench[soak_w0357] c=16 n=512 in=256 out=96 done
+[00:41:52] bench[soak_w0358] c=16 n=512 in=256 out=96 done
+[00:41:52] bench[soak_w0358] c=16 n=512 in=256 out=96 done
+[00:42:51] bench[soak_w0359] c=16 n=512 in=256 out=96 done
+[00:42:51] bench[soak_w0359] c=16 n=512 in=256 out=96 done
+[00:43:50] bench[soak_w0360] c=16 n=512 in=256 out=96 done
+[00:43:50] bench[soak_w0360] c=16 n=512 in=256 out=96 done
+[00:44:49] bench[soak_w0361] c=16 n=512 in=256 out=96 done
+[00:44:49] bench[soak_w0361] c=16 n=512 in=256 out=96 done
+[00:45:48] bench[soak_w0362] c=16 n=512 in=256 out=96 done
+[00:45:48] bench[soak_w0362] c=16 n=512 in=256 out=96 done
+[00:46:48] bench[soak_w0363] c=16 n=512 in=256 out=96 done
+[00:46:48] bench[soak_w0363] c=16 n=512 in=256 out=96 done
+[00:47:47] bench[soak_w0364] c=16 n=512 in=256 out=96 done
+[00:47:47] bench[soak_w0364] c=16 n=512 in=256 out=96 done
+[00:48:45] bench[soak_w0365] c=16 n=512 in=256 out=96 done
+[00:48:45] bench[soak_w0365] c=16 n=512 in=256 out=96 done
+[00:49:44] bench[soak_w0366] c=16 n=512 in=256 out=96 done
+[00:49:44] bench[soak_w0366] c=16 n=512 in=256 out=96 done
+[00:50:43] bench[soak_w0367] c=16 n=512 in=256 out=96 done
+[00:50:43] bench[soak_w0367] c=16 n=512 in=256 out=96 done
+[00:50:44] M1 soak done: 367 waves in 360min
+[00:50:44] M1 soak done: 367 waves in 360min
+[00:53:50] serve[restore_default] ready
+[00:53:50] serve[restore_default] ready
+[00:53:50] M1 restore done
+[00:53:50] M1 restore done

@@ -77,7 +77,7 @@ def main():
                  f"{dtxt} | {sum(x.get('err', 0) for x in w)} |\n")
     if steady:
         L.append(f"\n**聚合（稳态）= {round(sum(steady), 1)} tok/s**，"
-                 f"≈ {round(sum(steady) / max(1, len(steady)), 1)} × 单机。\n")
+                 f"≈ {len(steady)} × {round(sum(steady) / max(1, len(steady)), 1)}（单机稳态）。\n")
 
     # ---- M1 soak ----
     L.append("\n## 二、M1 长稳 soak（c16/n512 连续）\n")
@@ -211,7 +211,24 @@ def main():
                  "其 conv1d 走 PyTorch fallback 每请求 host 同步（issue3 同源），"
                  "高并发下被放大；选型不能只看参数量。\n")
 
-    L.append("\n## 七、失败 / 跳过项\n")
+    L.append("\n## 七、对 AI Infra serving 面试的用法\n")
+    L.append("\n**主叙事（只讲这三条，各 2 分钟）**\n")
+    L.append("- **扩容效率**：4 卡集群聚合 ≈ 4×单机稳态，瓶颈在注入不在副本；"
+             "配套 E23 的\"两把尺子\"（vllm-bench 2193 vs bench_openai 3632）证明"
+             "我先怀疑的是自己的测量。\n")
+    L.append("- **长上下文成本结构**：ctx 4k→63k 时 TTFT ×2.6、吞吐 ÷2.5，"
+             "但 TPOT 只 ×2.2 且绝对值 14→31ms——**优化点在 prefill（chunked/前缀缓存），不在 decode**。\n")
+    L.append("- **引擎内部机制**：8B 反超 4B——hybrid 模型 24 层 GDN 的 conv1d "
+             "走 PyTorch fallback（每请求 host 同步），高并发放大；这是我能指到"
+             "源码行号的引擎级解释（issue #21112/#21113 同源）。\n")
+    L.append("\n**追问储备（被问到再展开）**\n")
+    L.append("- 长稳压测 367 波零退化（−0.1%）；换租 300 轮 wake 无漂移；"
+             "mnb/输出长度扫描；准入墙；节点间 11% 方差。\n")
+    L.append("\n**本批数据的局限（主动说，别等被问）**\n")
+    L.append("- 合成负载（random/sonnet），未做真实 trace 回放；"
+             "单卡无 RDMA，TP/EP/PD 跨节点不可行（E18）；成本单价为假设值。\n")
+
+    L.append("\n## 八、失败 / 跳过项\n")
     L.append("- D 的 27B-w8a8 臂：启动失败 `EE1023 Too many streams are created`"
              "（graph capture 流耗尽，非显存；issue2 同族）→ 跳过，"
              "可用 `--enforce-eager` 补测\n")
