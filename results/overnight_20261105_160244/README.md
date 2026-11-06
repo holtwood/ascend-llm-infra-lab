@@ -937,3 +937,51 @@ HBM 命中 ≈0。这是 docs/design/kv-tiering.md 分级模型的实测常数�
   生产 paged-attention kernel 下绝对值会更低（相对结论不受影响）。
 
 复现：`scripts/overnight/tasks/attn_backend.py`。
+
+## E77 · HCCL allreduce 与计算的并发（hccl_ovl64/hccl_ovl4.json）
+
+2-rank allreduce + 51ms GEMM 链，async_op 重叠 vs 串行：
+
+| 消息 | AR 单独 | 串行 | 重叠 | 隐藏率 |
+|---|---|---|---|---|
+| 64MB | 3.53ms | 55.2ms | 52.4ms | **78.6%** |
+| 4MB | 0.32ms | 51.8ms | 51.5ms | **86.5%** |
+
+**结论**：HCCL 与 D2H 一样走独立链引擎（HCCS），**~80-87% 可藏进计算**——
+这是真实 TP 实现做 comm/compute overlap 的物理基础；naive eager TP
+把 AR 串在依赖链里所以税收满（呼应 tp_decode 的 3.64×）。
+注意与 E75 对比：D2D 并发反而 −24%（抢 HBM），
+**"能藏的是跨链路传输，不能藏的是设备内搬运"**。
+
+## E78 · 面经原题：巨型 prompt 进 64 路 decode（giant_pf.json）
+
+bs=64 decode @ ctx=4k，基线 p50=80.9ms；16k prompt 在 t=15 被调度进来：
+
+| 策略 | TPOT 变化 |
+|---|---|
+| ungoverned（整段进一个 step） | **下一步 320.8ms（4×）**，单步尖峰 |
+| chunked 2048 | 连续 8 步 ~106ms（**+31%**），无尖峰 |
+
+**面试答法**：chunked prefill 不改变总功（8×25ms ≈ 200ms vs 一次 240ms），
+**改变的是 TPOT 违约的形状**——4× 尖峰 vs 有界的 +30%；
+对 SLO 而言后者可接受，这就是 max_num_batched_tokens 的物理意义。
+
+## E79 · 面经原题：前缀分叉点对复用收益的影响（prefix_div.json）
+
+8k prompt，共享前缀在位置 p 分叉后还能省多少 prefill：
+
+| 共享 p | 复用比例 | 实测省 prefill |
+|---|---|---|
+| 1024 | 12.5% | 12% |
+| 4096 | 50.0% | 47% |
+| 7168 | 87.5% | 80% |
+| 8176 | 99.8% | 82%（饱和：新 token 仍要全量 attention） |
+
+**结论**：
+- 省成本 ≈ 复用比例的**线性函数**——system prompt 头部插时间戳，
+  p 掉到几十 → 收益归零（"前缀必须逐 token 相同"的量化含义）；
+- vLLM block-16 对齐对长前缀几乎无损（尾差 ≤15 tok），
+  但短前缀相对损失大（p=40 时命中 32 vs radix 40 = −20%）——
+  RadixAttention 的 token 粒度优势集中在短共享前缀场景。
+
+复现：`scripts/overnight/tasks/{hccl_overlap,giant_prefill_trace,prefix_divergence}.py`。

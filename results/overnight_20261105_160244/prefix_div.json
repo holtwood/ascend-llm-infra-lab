@@ -1,0 +1,56 @@
+{
+  "L": 8192,
+  "full_ms": 133.91,
+  "rows": [
+    {
+      "shared_p": 1024,
+      "new_tokens": 7168,
+      "append_ms": 118.19,
+      "saved_ms": 15.72,
+      "saved_frac": 0.117
+    },
+    {
+      "shared_p": 2048,
+      "new_tokens": 6144,
+      "append_ms": 101.96,
+      "saved_ms": 31.95,
+      "saved_frac": 0.239
+    },
+    {
+      "shared_p": 4096,
+      "new_tokens": 4096,
+      "append_ms": 71.46,
+      "saved_ms": 62.45,
+      "saved_frac": 0.466
+    },
+    {
+      "shared_p": 6144,
+      "new_tokens": 2048,
+      "append_ms": 43.57,
+      "saved_ms": 90.34,
+      "saved_frac": 0.675
+    },
+    {
+      "shared_p": 7168,
+      "new_tokens": 1024,
+      "append_ms": 27.16,
+      "saved_ms": 106.76,
+      "saved_frac": 0.797
+    },
+    {
+      "shared_p": 8000,
+      "new_tokens": 192,
+      "append_ms": 25.35,
+      "saved_ms": 108.57,
+      "saved_frac": 0.811
+    },
+    {
+      "shared_p": 8176,
+      "new_tokens": 16,
+      "append_ms": 24.49,
+      "saved_ms": 109.43,
+      "saved_frac": 0.817
+    }
+  ],
+  "note": "vLLM APC reuses floor(p/16)*16; radix reuses all p. saved cost measured as full-prefill minus append-prefill"
+}
