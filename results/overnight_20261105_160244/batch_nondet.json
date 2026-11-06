@@ -1,0 +1,10 @@
+{
+  "prompt": "The capital of France is",
+  "L": 5,
+  "top1_agree_pct": 100.0,
+  "max_abs_logit_diff": 0.0,
+  "mean_abs_logit_diff": 0.0,
+  "bs1_next_token": " Paris",
+  "bs8_next_token": " Paris",
+  "note": "bs=8 = same prompt x8 concatenated; reduction order differs"
+}

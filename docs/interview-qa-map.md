@@ -288,3 +288,15 @@ E72/E80 实测： pinned CPU 二级缓存——resume 时 reload = 重算的
 21-37%（8k 前缀 36ms vs 98ms），且 D2H 换出对 running decode
 完全透明（E80：TPOT 不变）。
 → **工具等待期间 park 到 CPU，回来 reload，比重算便宜 3-5×**。
+
+**Q："temperature=0 的两个相同请求输出不同，为什么？"（batch nondeterminism）**
+
+机制答案：greedy 下输出只依赖 argmax(logits)，但 logits 的数值随
+**kernel 调度/批形状**变化——不同 batch 组成会选不同分块/归约顺序，
+末位漂移在 logits 接近时翻转 argmax，之后逐 token 发散。
+E83 实测注记：`batch_nondet.py`（`batch_nondet.json`）——同一 prompt
+拼接 8 份跑 8L 序列，**bit-identical 输出（Δlogit=0，top-1=100%）**。
+说明：简单堆叠同序列不会改变前 L 位的归约顺序；真实漂移来自
+**变长 batch 的 padding + kernel dispatch 差异**，不是"batch 本身"。
+答题要点：temp=0 ≠ 确定性系统；要稳定复现需固定 batch 组成或
+用 batch-invariant kernel。
