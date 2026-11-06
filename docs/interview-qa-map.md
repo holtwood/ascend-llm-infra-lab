@@ -218,3 +218,73 @@ E78 直接答——bs=64 @ ctx=4k decode 基线 p50=80.9ms，16k prompt 到达�
   MindIE 容器驱动级故障；Qwen3-8B 就位但引擎起不来。
 - NVMe 级 KV 三缓（HBM→DRAM→NVMe）——只测到 DRAM 层。
 - MLA（DeepSeek 式）KV 压缩——无对应 checkpoint。
+
+---
+
+## 八、算术题（带实测常数的 worked answers）
+
+**Q：Little's law——10 req/s、300 输出、TPOT 45ms，多少请求在飞？KV 装得下吗？**
+
+N = λ·W = 10 × (0.05 + 300×0.045) ≈ **136 路在飞**。
+KV = 136 × ctx × 114688B：2k→**31.8GB**（65GB 卡勉强）；4k→**63.7GB（爆）**。
+→ 4k 场景要么 int8 KV（32GB 达标）、要么限并发到 ~64 路——
+**Little's law 直接换算成显存可行性**。
+
+**Q：1M 上下文一条请求，KV 多大？**
+
+本模型 kv/token=114688B → **115GB，一张 65GB 卡装不下**（~2 张）。
+真 70B GQA-8（kv/token≈327KB）→ **327GB/条**——
+"max_context 标称"和"能不能服务"是两回事，先算 KV 再说。
+
+**Q：滑窗+全局混合层，128k KV 省多少？**
+
+24 层 W=4096 + 4 层全局 128k → 71.4GB vs 全全局 421GB，**省 83%**。
+滑窗层 KV 只随 W 长不随 L 长——这就是 hybrid 模型的容量杠杆。
+
+**Q：TP 超过 KV 头数会怎样？**
+
+8-kv-head 模型 TP=16 → KV 头数不够切，**每个 rank 复制一份（浪费 50%）**。
+→ TP 上限 ≈ kv 头数（GQA 模型常见 8，所以 TP 到 8 是 KV 友好的边界）；
+TP=16 时要么复制 KV（浪费）要么换 KV 并行策略（sp）。
+
+**Q：MoE 671B/37B 激活，为什么 bs=64 的 decode 读的不止 37B？**
+
+每个 token 路由到自己的 top-k 专家，**batch 内 64 个 token 激活的专家并集
+远大于 37B**——decode 权重读由"并集"决定，不是"每 token 参数"。
+这就是 MoE 大 batch 下有效参数逼近全量的原因（也是 E62 的 GQA 类比：
+省的是容量不是读量……的反面）。
+
+**Q："decode 步时该是 4.8ms 实测 12ms，最可能三个原因？"**
+
+用我的实测答：
+1. **发射地板**——每算子 ~24µs × 每层 ~15 算子 × 28 层 ≈ 10ms（E68/E29，
+   eager 栈最常见主因）；
+2. **attention 后端选错**——q_len=1 走 SDPA 慢 **9×**（E76）；
+3. **隐性税**——KV 反量化 fp32 中间态 6.5×（E8k）、
+   top-p 采样 bs=128 时 78ms > 整个前向（E67）、
+   torch.cat/expand 触发隐藏拷贝（E52 的教训）。
+
+**Q："长上下文时 KV 读何时超过权重读？"**
+
+权重读/step ≈ 模型权重字节；KV 读 = bs×ctx×kv/token。
+本模型：权重 1.5GB → 交叉点 ctx = 1.5e9/(bs×114688)：
+bs=1→**13.1k**、bs=16→**819**、bs=64→**205**。
+E37 实测吻合（~1k 起 attention 超权重读）。
+→ **batch 越大，越早进入 attention-bound**——长上下文服务的 batch 甜点被前移。
+
+**Q：FP8 KV 需要什么 scale？误差在哪最大？**
+
+E66 实测表：**fp8 e4m3 per-token-per-head scale → ppl +0.23%、top-1 96.1%**，
+同字节全面优于 int8（+1.52%/91.5%）——
+浮点指数保住了 int8 线性网格浪费在 outlier 上的动态范围。
+误差最大处：**K 的通道级 outlier**（E66 int4 实验证明，
+per-token 定标会被通道 outlier 带崩；KIVI 的 per-channel-K 是解药）。
+验证方法：测 ppl + **top-1 一致率**（ppl 会被简单 token 稀释，
+一致率才是逐 token 扰动的真相）。
+
+**Q：多轮对话调工具时 KV 放哪？**
+
+E72/E80 实测： pinned CPU 二级缓存——resume 时 reload = 重算的
+21-37%（8k 前缀 36ms vs 98ms），且 D2H 换出对 running decode
+完全透明（E80：TPOT 不变）。
+→ **工具等待期间 park 到 CPU，回来 reload，比重算便宜 3-5×**。
