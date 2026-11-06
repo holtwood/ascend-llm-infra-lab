@@ -529,3 +529,27 @@ pkill 未生效会污染后续测量（TP 首轮即因此重跑）。
 - 同节点背靠背（M1）：default 180s/1218/1866 → **b10 162s(−10%)/1227(+0.7%)/1898(+1.7%)**；
   b4 掉 5-9% → 甜点=2 的幂 9 档；机制=未捕获 batch 退 eager
 - 已部署四台（platform.py.e30bak 备份，可 --revert）；PR-ready 未提交上游
+
+### Serving 物理批次（E29-E48，面向 AI Infra serving 岗）
+
+全部在远端 910B1 + Qwen3-0.6B 真权重上实测，产物在
+`results/overnight_20261105_160244/`，汇总见 `docs/serving-physics.md`：
+
+| 实验 | 核心数字 |
+|---|---|
+| E29 decode 天花板 | 裸 matvec 1412 GB/s（HBM 94%）= 939 tok/s；eager 逐层只 30-34 tok/s（3.6%），差 31× 全是发射开销 |
+| E30 KV 容量 | kv/token=114688B；真分配验证 2k/8k/32k → 271/68/17 路并发 |
+| E31 prefill vs decode | prefill 11.8µs/token vs decode 29400µs/token，**差 250×** |
+| E32 抢占经济学 | swap（线性）vs recompute（含二次项）；交叉点 ~4k，32k 时 swap 便宜 2.27× |
+| E33 APC 收益 | 短 prefix **负收益**（0.83-0.85×），8k 时 2.76×；解释 vLLM 上"中位数变差 p99 改善" |
+| E34 chunked prefill | chunk=2048 甜点：+13% 总时长换 3.5× 干扰降低；地板 = 一个 decode step |
+| E37 长上下文 attention | 1k 起就超权重读（1.9×），32k 13×，128k 53×；KV 读仅 19% HBM 峰值 |
+| E39 长上下文批处理 | 每序列成本降 2.7-3.5×，但 KV 带宽 bs≈16 饱和于 ~47% |
+| E41 W8A16 | 速度 **负收益**（0.8-0.99×）；容量省 29%；精度 0.9-1.6% |
+| E44 P/D 干扰 | 8k chunk 使并发 decode 膨胀 **16-34×**；双流不改善→真争用→同卡 PD 无效（互证 E18） |
+| E45 投机解码验证 | q=1→512 只涨 1.30×（机制上验证几乎免费） |
+| E48 prefill 成本模型 | 二次项 4.66e-8 ms/tok²；16k 时 attention 占 prefill 86% |
+
+**贯穿性结论**：本栈（eager）里几乎一切都先撞**发射开销地板**（~30ms/step），
+所以"优化"的顺序是 ①图捕获 ②attention 访存效率 ③真实带宽。这条主线把
+12 个实验串成一个故事。
