@@ -87,16 +87,11 @@ PYTHONPATH=/model/py311tl:/model/tl015 /model/tlasc-env/bin/python script.py
 ```
 
 `scripts/n8_rmsnorm_bench.py` 里烂尾时写好的 `make_tl_add_rmsnorm`（T.alloc_ub/T.tile.*
-新版 API）正是 0.1.15 风格 —— 烂尾的技术路线其实是对的，只是当时没有能跑的环境。
-本轮用 overlay 已跑到：`tilelang.jit(out_idx=[3,4], pass_configs=..., mode="lazy")` ——
-
-- `PassConfigKey` 四个 key（TL_ASCEND_AUTO_CV_COMBINE 等）在该 0.1.15 build 中全部不存在
-  （自动过滤后 pass_configs={}），说明**烂尾时针对的 0.1.15 与机器上这份 0.1.15 仍有 API 漂移**；
-- 剩最后一步：`out_idx` 需 lazy mode，但 jit 装饰器无公开 `mode=` kwarg，mode 由
-  `_is_lazy_style`（AST 检查"函数是否显式 return PrimFunc"）推断 —— 对本脚本的
-  双层嵌套 def 判成了 eager。两条修法（续作 5 分钟内可试）：
-  1. 把 kernel 改成 `T.empty()` 声明输出的 eager 风格（去掉 out_idx）；
-  2. 看 `_is_lazy_style` 的 AST 判定条件，调整 `make_tl_add_rmsnorm` 的 return 形式。
+新版 API）正是 0.1.15 风格 —— 但经完整验证（见上节"最终真相"），机器上这份 0.1.15
+是 950-only build，烂尾脚本的 API（`is_npu=True`、`PassConfigKey.TL_ASCEND_*`）在它
+上面全部不存在；把它移植到 950 dialect（1-D grid + SimtVF）后编译通过、910B2 运行
+即 ERR99999。**overlay 路线的价值：证明了 0.1.15 生态在机器上可 import、tvm_ffi 完整，
+为"源码 build 910B2 目标"路线省掉了依赖探底。**
 
 ## 五、产出物
 
@@ -105,7 +100,9 @@ PYTHONPATH=/model/py311tl:/model/tl015 /model/tlasc-env/bin/python script.py
 - `scripts/n8_rescue/tl_vops.py` — v*/npuir_* intrinsics 烟测
 - `scripts/n8_rescue/tl_rmsnorm_v4.py` — 完整 RMSNorm（手写树归约，死于 rsqrt）
 - `scripts/n8_rescue/tl_rms_sqrt.py` — sqrt 绕开尝试（死于编译期）
-- `scripts/n8_rescue/tl_015_rms.py` — 0.1.15 overlay 路线主脚本（差 lazy 一步）
+- `scripts/n8_rescue/tl_015_rms.py` — 0.1.15 overlay 路线主脚本（后暴露 950-only）
+- `scripts/n8_rescue/tl_explog.py` — **完整 fused RMSNorm（编译+运行通，exp/log 数值错）**
+- `scripts/n8_rescue/tl_diag.py` — log/exp 单独归因诊断（未及跑，机器回收）
 - 远端 `/tmp/tlrun/` 为可写运行目录（/model 只读，tilelang 编译产物落 CWD）
 
 ## 六、N8 续作启动命令

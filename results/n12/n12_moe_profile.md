@@ -68,6 +68,6 @@
 
 ## 第 3 级（服务化）：一次失败画像 + 根因修复
 
-- 首次起服死于 `OSError: Could not load this library: .../torch_npu/lib/libop_plugin...`（ATB op_plugin .so 加载失败，EngineCore 初始化失败）——**根因 = 起服前只 source 了 ascend-toolkit，漏了 `source /usr/local/Ascend/nnal/atb/set_env.sh`**；30 秒验证：补 source 后 `from torch_npu.op_plugin.atb import _atb_ops` 直接 OK。与 [[atb-cxx-abi-mismatch]] 同族：torch_npu 的 ATB 集成对环境变量极敏感，vllm-ascend 起服标准姿势必须两个 set_env 都 source（环境B N6 的部署命令即如此）
+- 首次起服死于 `OSError: Could not load this library: .../torch_npu/lib/libop_plugin...`（ATB op_plugin .so 加载失败，EngineCore 初始化失败）——**根因定案（agent 闭环诊断）：ATB C++ ABI 错配，硬阻塞**——机器的 nnal/atb/9.2.0 是 `cxx_abi_0/`（旧 ABI）目录，而 vllm-env 的 torch_npu 2.10.0.post4 是 `_GLIBCXX_USE_CXX11_ABI=True`（新 ABI）：`ldd` 无缺依赖（排除路径），worker 里 `torch.ops.load_library(libatb.so)` 直接 OSError。注意：source set_env 后 Python 层 `_atb_ops` import 会 OK——**import OK ≠ .so 真加载成功**，真加载在 worker 才发生（主线曾据 import OK 误判为漏 source，此处修正）。修复 = 换装 cxx_abi_1 版 nnal-atb 或降 torch_npu，非分钟级。**双向 ABI 实证**：[[atb-cxx-abi-mismatch]] 是旧 torch+新 ATB=ostream 死循环挂死，本次是新 torch+旧 ATB=load_library 直接 OSError——两种错配两种症状，成一对照
 - 附带发现：该 venv 装有 `register_paddlex_genai_models` vllm 插件（import 失败仅警告不致命）——paddle 系与 vllm 的混装痕迹
 - 修复后 serve3 重启（TP=2 卡4/5），67G bf16 加载中；generate 级验证若未及完成，续作命令：source 两个 set_env 后 vllm serve（上文参数）
