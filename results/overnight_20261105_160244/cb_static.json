@@ -1,0 +1,52 @@
+{
+  "lengths": [
+    114,
+    70,
+    133,
+    198,
+    44,
+    50,
+    242,
+    169,
+    56,
+    125,
+    181,
+    46,
+    161,
+    86,
+    41,
+    54,
+    143,
+    139,
+    49,
+    93,
+    55,
+    173,
+    140,
+    47,
+    243,
+    176,
+    63,
+    89,
+    193,
+    192,
+    181,
+    47
+  ],
+  "static": {
+    "total_s": 14.3,
+    "mean_active_bs": 16.0,
+    "steps": 485,
+    "lat_p50_steps": null,
+    "lat_max_steps": null
+  },
+  "continuous": {
+    "total_s": 9.9,
+    "mean_active_bs": 11.2,
+    "steps": 338,
+    "lat_p50_steps": 125,
+    "lat_max_steps": 243
+  },
+  "speedup": 1.44,
+  "note": "32 reqs, out_len U[32,256], cap=16, ctx=2048"
+}

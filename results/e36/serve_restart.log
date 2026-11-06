@@ -298,3 +298,6 @@ mki_log delete old file:/root/ascend/log/atb/atb_246072_20261105103255.log
 (APIServer pid=481702) INFO:     127.0.0.1:51500 - "GET /metrics HTTP/1.1" 200 OK
 (APIServer pid=481702) INFO:     127.0.0.1:51502 - "GET /metrics HTTP/1.1" 200 OK
 (APIServer pid=481702) INFO:     127.0.0.1:51504 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=481702) INFO 11-06 04:22:57 [loggers.py:315] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 77.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(APIServer pid=481702) INFO 11-06 04:23:07 [loggers.py:315] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 0.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, NPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%
+(APIServer pid=481702) INFO:     127.0.0.1:51506 - "GET /v1/models HTTP/1.0" 200 OK
