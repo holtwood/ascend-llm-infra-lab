@@ -549,6 +549,9 @@ pkill 未生效会污染后续测量（TP 首轮即因此重跑）。
 | E44 P/D 干扰 | 8k chunk 使并发 decode 膨胀 **16-34×**；双流不改善→真争用→同卡 PD 无效（互证 E18） |
 | E45 投机解码验证 | q=1→512 只涨 1.30×（机制上验证几乎免费） |
 | E48 prefill 成本模型 | 二次项 4.66e-8 ms/tok²；16k 时 attention 占 prefill 86% |
+| E51 延迟-负载曲线 | 拐点 8-12 req/s；吞吐 +38% 而 goodput −95%（21×），TTFT 60ms→44.8s 而 TPOT 不变 |
+| E52 规划器校验 | 实测 vs 预测 −7%～−40%；反推 bs=64 时 attention 效率 86%（非 50%），据此三点校准 |
+| 容量规划器 | `scripts/serving_capacity_planner.py`：输入模型/上下文/SLO → 容量+步时分解+TTFT+goodput，系数全部可追溯 |
 
 **贯穿性结论**：本栈（eager）里几乎一切都先撞**发射开销地板**（~30ms/step），
 所以"优化"的顺序是 ①图捕获 ②attention 访存效率 ③真实带宽。这条主线把
