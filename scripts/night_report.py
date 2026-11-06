@@ -64,7 +64,7 @@ def main():
     L.append("|---|---|---|---|---|---|---|\n")
     steady = []
     for n, d in data.items():
-        w = tag_group(d["summ"], "clu_w")
+        w = [x for x in tag_group(d["summ"], "clu_w") if not x.get("err")]
         if not w:
             continue
         tail = w[int(len(w) * 0.8):] or w
@@ -260,6 +260,11 @@ def main():
     L.append("- M2 phase D 首轮空转：`e13_mixedjob.py` 未同步到 M2，"
              "6 分钟 7500 次空跑 → 同步脚本后加 `SKIP_ABC=1` 断点重跑\n")
     L.append("- M1 首轮启动即退：`set -u` 下残留 `$WAVES` 引用 → 修复后重启\n")
+    L.append("- 集群段收尾窗口错误：d 24 / m3 9 个，集中在 `clu_w0335-336`"
+             "（先到点的节点重启副本，其余客户端打到空后端）→ "
+             "**滚动重启必须先从网关摘流量**；稳态统计已剔除这些波次\n")
+    L.append("- 采样陷阱：`samples.jsonl` 逐波采样在 bench 结束后取，中位数 0%，"
+             "不能用于判断利用率（已改为负载中采样）\n")
 
     out = os.path.join(args.local, "README.md")
     open(out, "w").write("".join(L))

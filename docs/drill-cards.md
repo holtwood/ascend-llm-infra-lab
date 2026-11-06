@@ -205,7 +205,7 @@ rl_config.enabled（FRACTAL_NZ 回灌）。
 → c×in×out 30 点：c128/in256/out256 = 2724 tok/s；c128/in4096/out256 = 1987
 （TTFT 3.6s）；c64/in256/out256 = 2063。
 → 模型规模矩阵（c8/c32/c64）：0.6B 667/1837/2696、4B 505/1122/1313、
-8B 405/1301/1699 tok/s——**8B 在 c32/c64 反超 4B**（4B hybrid 的 24 层 GDN
+8B 405/1301/1699 tok/s（c32 复测 1406，两次差 8% 属运行间波动）——**8B 在 c32/c64 反超 4B**（4B hybrid 的 24 层 GDN
 conv1d 走 PyTorch fallback，每请求 host 同步，高并发放大；issue3 同源）。
 
 **L3 和引擎内调度器什么关系？**
