@@ -1,0 +1,54 @@
+{
+ "results": [
+  {
+   "L": 1024,
+   "chunk": 32,
+   "ms_per_call": 23.996,
+   "n_chunks": 32
+  },
+  {
+   "L": 1024,
+   "chunk": 64,
+   "ms_per_call": 21.012,
+   "n_chunks": 16
+  },
+  {
+   "L": 1024,
+   "chunk": 128,
+   "ms_per_call": 28.861,
+   "n_chunks": 8
+  },
+  {
+   "L": 1024,
+   "chunk": 256,
+   "ms_per_call": 50.186,
+   "n_chunks": 4
+  },
+  {
+   "L": 4096,
+   "chunk": 32,
+   "ms_per_call": 75.842,
+   "n_chunks": 128
+  },
+  {
+   "L": 4096,
+   "chunk": 64,
+   "ms_per_call": 46.679,
+   "n_chunks": 64
+  },
+  {
+   "L": 4096,
+   "chunk": 128,
+   "ms_per_call": 41.142,
+   "n_chunks": 32
+  },
+  {
+   "L": 4096,
+   "chunk": 256,
+   "ms_per_call": 119.67,
+   "n_chunks": 16
+  }
+ ],
+ "done": 8,
+ "planned": 8
+}

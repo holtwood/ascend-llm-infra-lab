@@ -1,0 +1,15 @@
+[n11] device=Ascend910B2 shape=(1,32,128/128) warmup=10 iters=50
+[check] chunk=64: max|out-ref|=1.22e-04 max|state-ref|=1.49e-07
+[check] chunk=128: max|out-ref|=1.22e-04 max|state-ref|=1.79e-07
+[check] chunk=256: max|out-ref|=1.22e-04 max|state-ref|=1.49e-07
+[row] {"L": 1024, "chunk": 32, "ms_per_call": 23.996, "n_chunks": 32}
+[row] {"L": 1024, "chunk": 64, "ms_per_call": 21.012, "n_chunks": 16}
+[row] {"L": 1024, "chunk": 128, "ms_per_call": 28.861, "n_chunks": 8}
+[row] {"L": 1024, "chunk": 256, "ms_per_call": 50.186, "n_chunks": 4}
+[row] {"L": 4096, "chunk": 32, "ms_per_call": 75.842, "n_chunks": 128}
+[row] {"L": 4096, "chunk": 64, "ms_per_call": 46.679, "n_chunks": 64}
+[row] {"L": 4096, "chunk": 128, "ms_per_call": 41.142, "n_chunks": 32}
+[row] {"L": 4096, "chunk": 256, "ms_per_call": 119.67, "n_chunks": 16}
+[best] L=1024: chunk=64 (21.012 ms)
+[best] L=4096: chunk=128 (41.142 ms)
+[n11] done

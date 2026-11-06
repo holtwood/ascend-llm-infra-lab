@@ -21,13 +21,20 @@ Run correctness self-check (CPU, tiny random model):
     python3 examples/engine_np/batch_engine.py --selftest
 
 KNOWN ISSUE (NPU, environment reclamation deadline hit before resolution):
-the heterogeneous-decode path (per-slot (B,1,1,L) bool mask) trips an
-aclnnFlashAttentionScore inner error on torch_npu 2.9.0 even when the SDPA
-call is wrapped in sdpa_kernel([SDPBackend.MATH]) — the NPU dispatcher
-appears not to honor the math-backend override. CPU selftest passes fully
-(batched==single); debugging needs ASCEND_LAUNCH_BLOCKING=1 for the real
-stack. Next steps: (a) additive float mask instead of bool, (b) pad-column
-K=-inf trick, or (c) custom attention instead of SDPA for the decode path.
+the heterogeneous-decode path (per-slot (B,1,1,L) mask) fails on torch_npu
+2.9.0 in two distinct ways depending on mask format:
+  (a) bool mask  -> aclnnFlashAttentionScore inner error, and wrapping the
+      call in sdpa_kernel([SDPBackend.MATH]) does NOT bypass it (the NPU
+      dispatcher appears not to honor the backend override);
+  (b) additive float mask -> aclnnInplaceAdd broadcast error "[1,16,1,256]
+      vs [1,1,1,257]" inside SDPA — and (c) manually expanding KV / dropping
+      enable_gqa does NOT clear it, so the fault is not the gqa path either.
+      257 = max_len+1 and the mismatch surviving fix (c) suggest the async
+      stack is misleading (aclnnInplaceAdd may be fired by an earlier op);
+      the real culprit needs ASCEND_LAUNCH_BLOCKING=1 to pin down.
+CPU selftest passes fully (batched==single, all mask paths). Untried:
+(d) custom attention math (no SDPA at all) for the decode path, (e) rerun
+demo with ASCEND_LAUNCH_BLOCKING=1 for the truthful stack.
 """
 
 import argparse
