@@ -1023,3 +1023,38 @@ vLLM 用 async swap worker 是正确设计；代价只在换出方恢复时。
   开放负载下差距由调度准入决定，可以远大于此**。
 
 复现：`scripts/overnight/tasks/static_vs_continuous.py`。
+
+## E82 · TP-straggler：一个 rank 的 prefill 拖住所有 rank（tp_straggler.json）
+
+2-rank 循环 [decode work + allreduce]；rank0 在第 10-17 步插一个
+~10× 的 prefill burst。**rank1 每步做完全相同的工作**，任何变慢
+纯粹是等待：
+
+| rank1 | 正常 | rank0 prefill 期间 |
+|---|---|---|
+| 步时中位数 | 0.5ms | **4.3ms（8.6×）** |
+| 最大值 | — | **478ms**（首步） |
+
+**结论**：集合通信把"最慢 rank"变成所有人的步时下限——
+DP-attention 场景一个 rank 收长 prompt，其他 rank 的 decode
+全部在 allreduce 上等待。**这是 PD 分离/请求路由必须按
+prompt 长度均衡的物理原因**，也是 chunked prefill 的另一动机
+（把尖峰切碎，降低单步 straggler）。
+
+## E66 补全 · KV 精度质量总表（ppl5.json）
+
+新增 fp8 e4m3（逐位模拟，per-token-per-head scale）：
+
+| KV 精度 | B/token | ppl 变化 | top-1 一致率 | 可交付性 |
+|---|---|---|---|---|
+| bf16 | 2 | — | 100% | — |
+| **fp8 e4m3** | **1** | **+0.23%** | **96.08%** | **最优** |
+| int8 | 1 | +1.52% | 91.50% | 零技巧保底 |
+| int4 KIVI | 0.5 | +0.27% | 84.31% | 需 per-channel-K |
+| int4 group-32 | 0.5 | +328% | 43.79% | 不可用 |
+| int4 naive | 0.5 | +15M% | 3.92% | 毁模型 |
+
+**结论**：**fp8 KV 在两大指标上同时碾压 int8**（同字节、
+ppl 好 7 倍、一致率高 5pt）——浮点指数保住了被 int8 线性
+网格浪费掉的动态范围。若硬件/kernel 支持 fp8 KV 读，
+就没有理由用 int8；不支持则 int8 是保底，int4 必须 KIVI。
