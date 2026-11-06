@@ -19,6 +19,15 @@ cost is exactly the L4 paged-KV motivation (block tables remove them).
 
 Run correctness self-check (CPU, tiny random model):
     python3 examples/engine_np/batch_engine.py --selftest
+
+KNOWN ISSUE (NPU, environment reclamation deadline hit before resolution):
+the heterogeneous-decode path (per-slot (B,1,1,L) bool mask) trips an
+aclnnFlashAttentionScore inner error on torch_npu 2.9.0 even when the SDPA
+call is wrapped in sdpa_kernel([SDPBackend.MATH]) — the NPU dispatcher
+appears not to honor the math-backend override. CPU selftest passes fully
+(batched==single); debugging needs ASCEND_LAUNCH_BLOCKING=1 for the real
+stack. Next steps: (a) additive float mask instead of bool, (b) pad-column
+K=-inf trick, or (c) custom attention instead of SDPA for the decode path.
 """
 
 import argparse
@@ -90,7 +99,7 @@ class SlotHybridCaches:
     def __init__(self, config: Qwen35Config, max_b: int, max_len: int,
                  device: str, dtype=torch.bfloat16):
         self.config, self.max_b, self.seq_len = config, max_b, 0
-        self.slot_seq_lens = torch.zeros(max_b, dtype=torch.long)
+        self.slot_seq_lens = torch.zeros(max_b, dtype=torch.long, device=device)
         conv_dim = config.linear_key_dim * 2 + config.linear_value_dim
         self._pools = {}                                   # layer -> pooled tensors
         for i in range(config.num_hidden_layers):
@@ -118,8 +127,11 @@ class SlotHybridCaches:
                 self.layers[i] = _GDNSlot(pool[0], pool[1], slots,
                                           self.config.linear_conv_kernel_dim, phase)
         self.slots, self.phase = slots, phase
-        self.seq_len = int(self.slot_seq_lens[torch.tensor(slots)].max()) \
-            if slots else 0                                # model reads it for
+        if slots:
+            sidx = torch.tensor(slots, device=self.slot_seq_lens.device)
+            self.seq_len = int(self.slot_seq_lens[sidx].max())
+        else:
+            self.seq_len = 0                               # model reads it for
         return self                                        # default position_ids
 
 

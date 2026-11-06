@@ -388,9 +388,21 @@ class Attention(nn.Module):
             attn_mask = (k_pos[None, :] <= q_pos[:, None])   # bool, True=attend
             is_causal = False
 
-        attn = F.scaled_dot_product_attention(
-            q, k, v, attn_mask=attn_mask, is_causal=is_causal,
-            scale=self.scaling, enable_gqa=True)
+        if seq_len == 1 and valid is not None:
+            # NPU FA kernel rejects the (B,1,1,L) per-slot mask (L3 finding:
+            # aclnnFlashAttentionScore inner error); fall back to the math
+            # backend for the heterogeneous-decode path only.
+            from torch.nn.attention import SDPBackend, sdpa_kernel
+            with sdpa_kernel([SDPBackend.MATH]):
+                attn = F.scaled_dot_product_attention(
+                    q, k, v, attn_mask=attn_mask, is_causal=False,
+                    scale=self.scaling, enable_gqa=True)
+        else:
+            from torch.nn.attention import SDPBackend, sdpa_kernel
+            with sdpa_kernel([SDPBackend.MATH]):
+                attn = F.scaled_dot_product_attention(
+                    q, k, v, attn_mask=attn_mask, is_causal=is_causal,
+                    scale=self.scaling, enable_gqa=True)
 
         attn = attn.transpose(1, 2).reshape(batch, seq_len, -1)
         attn = attn * torch.sigmoid(gate)                # output gate, no norm

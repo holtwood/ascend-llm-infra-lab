@@ -133,4 +133,11 @@
 - N4 微基准的推论（每层 2 次 all-reduce ≥576µs 固定税 = 计算的 2-4 倍）被真模型端到端实锤；27B 单卡 61GB 本就放得下，TP 纯为通信付税
 - 附带：TP=2 冒烟 6 条正常但 1 条 greedy 早期输出退化为 "!!!"（孤立发散）——分布式数值边界的观察点
 
-（N8 TileLang、N10 KV-int8、N11 chunk 扫描：进行中，数据回来后补条目。）
+## 算子融合的收益与幻觉（N8，RMSNorm 单链 A/B）
+
+**Q: 算子融合值多少？torch.compile 能解决 NPU 的小算子问题吗？**
+- 把引擎的 RMSNorm 9-op 链单独拎出测：eager 下 **sync ≈ host-only（211µs 里 device 几乎为零）**——这条链 100% 是 launch 开销，是 N2 "decode 79% host 开销"的算子级单元。32 层 × 2 处 ≈ 每步仅 norm 家族就吃掉 ~12.8ms host 预算
+- **torch.compile (inductor+triton-ascend) 在 NPU 上反慢 39–107%**（499µs vs eager 360µs；host-only 也 470µs+）：inductor 生成的 kernel launch 更重且没有有效融合——跨后端移植编译器不保证收益，这是昇腾自研 torchair/TileLang 原生融合路线的一手实证
+- 融合的理论上限 = 9 次 launch → 1 次（省 ~200µs/链），device 真算力只值几 µs——所以第一优先级是 graph capture/原生融合 kernel，不是"优化 norm 的数学"
+
+（N11 GDN chunk 扫描未及执行；L3 NPU 端 aclnnFA per-slot mask 兼容问题已记录待修。）

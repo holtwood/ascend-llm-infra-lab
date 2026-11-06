@@ -1,0 +1,60 @@
+
+== N=2560 (bf16, eps=1e-06) ==
+  -- M=1 --
+    eager.rms_chain                    sync     217.4 us | host-only     220.7 us
+    eager.add_rms_chain                sync     242.8 us | host-only     238.3 us
+    [tl] FAILED: No module named 'tilelang'
+    [compile] FAILED: backend='inductor' raised:
+ModuleNotFoundError: No module named 'triton'
+
+Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"
+
+  -- M=8 --
+    eager.rms_chain                    sync     212.7 us | host-only     209.5 us
+    eager.add_rms_chain                sync     227.2 us | host-only     225.2 us
+    [tl] FAILED: No module named 'tilelang'
+    [compile] FAILED: backend='inductor' raised:
+ModuleNotFoundError: No module named 'triton'
+
+Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"
+
+  -- M=64 --
+    eager.rms_chain                    sync     212.1 us | host-only     210.8 us
+    eager.add_rms_chain                sync     230.2 us | host-only     231.2 us
+    [tl] FAILED: No module named 'tilelang'
+    [compile] FAILED: backend='inductor' raised:
+ModuleNotFoundError: No module named 'triton'
+
+Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"
+
+  -- M=512 --
+    eager.rms_chain                    sync     213.7 us | host-only     211.2 us
+    eager.add_rms_chain                sync     229.4 us | host-only     228.6 us
+    [tl] FAILED: No module named 'tilelang'
+    [compile] FAILED: backend='inductor' raised:
+ModuleNotFoundError: No module named 'triton'
+
+Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"
+
+  -- M=2048 --
+    eager.rms_chain                    sync     214.4 us | host-only     214.0 us
+    eager.add_rms_chain                sync     233.5 us | host-only     231.3 us
+    [tl] FAILED: No module named 'tilelang'
+    [compile] FAILED: backend='inductor' raised:
+ModuleNotFoundError: No module named 'triton'
+
+Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"
+
+
+== N=9216 (bf16, eps=1e-06) ==
+  -- M=64 --
+    eager.rms_chain                    sync     211.3 us | host-only     210.8 us
+    eager.add_rms_chain                sync     229.2 us | host-only     229.6 us
+    [tl] FAILED: No module named 'tilelang'
+    [compile] FAILED: backend='inductor' raised:
+ModuleNotFoundError: No module named 'triton'
+
+Set TORCHDYNAMO_VERBOSE=1 for the internal stack trace (please do this especially if you're reporting a bug to PyTorch). For even more developer context, set TORCH_LOGS="+dynamo"
+
+
+[done] wrote n8_rmsnorm_bench.json

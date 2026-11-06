@@ -1,0 +1,49 @@
+
+== N=2560 (bf16, eps=1e-06) ==
+  -- M=1 --
+    eager.rms_chain                    sync     222.0 us | host-only     226.6 us
+    eager.add_rms_chain                sync     247.6 us | host-only     241.8 us
+    [tl] FAILED: No module named 'tilelang'
+W1106 08:34:34.623000 37436 torch/_inductor/debug.py:507] [0/0] model__1_inference_3 debug trace: /data/n8/torch_compile_debug/run_2026_11_06_08_34_04_320238-pid_37436/torchinductor/model__1_inference_3.0
+[W1106 08:34:34.214785996 compiler_depend.ts:164] Warning: Device do not support double dtype now, dtype cast replace with float. (function operator())
+    [compile] add_rms_chain max|dy|=1.562e-02
+    compile.add_rms_chain              sync     502.3 us | host-only     500.6 us
+  -- M=8 --
+    eager.rms_chain                    sync     221.4 us | host-only     259.8 us
+    eager.add_rms_chain                sync     243.9 us | host-only     250.1 us
+    [tl] FAILED: No module named 'tilelang'
+W1106 08:34:41.188000 37436 torch/_inductor/debug.py:507] [0/1] model__2_inference_4 debug trace: /data/n8/torch_compile_debug/run_2026_11_06_08_34_04_320238-pid_37436/torchinductor/model__2_inference_4.1
+    [compile] add_rms_chain max|dy|=1.562e-02
+    compile.add_rms_chain              sync     461.5 us | host-only     457.3 us
+  -- M=64 --
+    eager.rms_chain                    sync     210.5 us | host-only     207.6 us
+    eager.add_rms_chain                sync     225.2 us | host-only     231.9 us
+    [tl] FAILED: No module named 'tilelang'
+W1106 08:35:20.003000 37436 torch/_inductor/debug.py:507] [0/2] model__3_inference_5 debug trace: /data/n8/torch_compile_debug/run_2026_11_06_08_34_04_320238-pid_37436/torchinductor/model__3_inference_5.2
+    [compile] add_rms_chain max|dy|=3.125e-02
+    compile.add_rms_chain              sync     475.2 us | host-only     470.7 us
+  -- M=512 --
+    eager.rms_chain                    sync     232.5 us | host-only     226.8 us
+    eager.add_rms_chain                sync     360.3 us | host-only     236.0 us
+    [tl] FAILED: No module named 'tilelang'
+W1106 08:36:35.615000 37436 torch/_inductor/debug.py:507] [0/3] model__4_inference_6 debug trace: /data/n8/torch_compile_debug/run_2026_11_06_08_34_04_320238-pid_37436/torchinductor/model__4_inference_6.3
+    [compile] add_rms_chain max|dy|=3.125e-02
+    compile.add_rms_chain              sync     499.8 us | host-only     493.7 us
+  -- M=2048 --
+    eager.rms_chain                    sync     221.7 us | host-only     221.8 us
+    eager.add_rms_chain                sync     248.7 us | host-only     252.3 us
+    [tl] FAILED: No module named 'tilelang'
+W1106 08:37:50.637000 37436 torch/_inductor/debug.py:507] [0/4] model__5_inference_7 debug trace: /data/n8/torch_compile_debug/run_2026_11_06_08_34_04_320238-pid_37436/torchinductor/model__5_inference_7.4
+    [compile] add_rms_chain max|dy|=3.125e-02
+    compile.add_rms_chain              sync     875.1 us | host-only     514.2 us
+
+== N=9216 (bf16, eps=1e-06) ==
+  -- M=64 --
+    eager.rms_chain                    sync     259.2 us | host-only     258.1 us
+    eager.add_rms_chain                sync     279.4 us | host-only     269.0 us
+    [tl] FAILED: No module named 'tilelang'
+W1106 08:38:28.629000 37436 torch/_inductor/debug.py:507] [0/5] model__6_inference_8 debug trace: /data/n8/torch_compile_debug/run_2026_11_06_08_34_04_320238-pid_37436/torchinductor/model__6_inference_8.5
+    [compile] add_rms_chain max|dy|=3.125e-02
+    compile.add_rms_chain              sync     630.4 us | host-only     715.5 us
+
+[done] wrote n8_rmsnorm_bench.json

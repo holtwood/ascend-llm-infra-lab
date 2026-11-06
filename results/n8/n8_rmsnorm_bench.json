@@ -1,0 +1,44 @@
+{
+ "eps": 1e-06,
+ "m_scan": [
+  1,
+  8,
+  64,
+  512,
+  2048
+ ],
+ "warmup": 10,
+ "iters": 100,
+ "sections": {
+  "N2560": {
+   "eager.rms_chain": {
+    "t_sync_ms": 0.22166834212839603,
+    "t_async_ms": 0.22175863850861788
+   },
+   "eager.add_rms_chain": {
+    "t_sync_ms": 0.24874464143067598,
+    "t_async_ms": 0.25233611930161715
+   },
+   "tilelang.error": "ModuleNotFoundError(\"No module named 'tilelang'\")",
+   "compile.add_rms_chain": {
+    "t_sync_ms": 0.8750945003703237,
+    "t_async_ms": 0.5142228584736586
+   }
+  },
+  "N9216": {
+   "eager.rms_chain": {
+    "t_sync_ms": 0.2591998828575015,
+    "t_async_ms": 0.2580987475812435
+   },
+   "eager.add_rms_chain": {
+    "t_sync_ms": 0.2794255316257477,
+    "t_async_ms": 0.2690195897594094
+   },
+   "tilelang.error": "ModuleNotFoundError(\"No module named 'tilelang'\")",
+   "compile.add_rms_chain": {
+    "t_sync_ms": 0.6303618475794792,
+    "t_async_ms": 0.7155304402112961
+   }
+  }
+ }
+}
