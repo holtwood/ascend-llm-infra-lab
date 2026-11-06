@@ -25,3 +25,19 @@
    - 分页不物化（E8j: 3-16× 税）
    - 量化不反物化（E8k: 6.5-8.5× 税）
    - 窗口不用 mask（E8e: 26× 税）
+
+## 扩展（通宵队列，含中间态精度对照）
+
+`results/overnight_20261105_160244/kv_quant_matrix.json`（S 128-16k × B 1-64，
+32 配置）：
+
+- mem_ratio 恒 0.51（int8 + bf16 scale）
+- err_max 随 S 收敛：0.0117@S=128 → 0.0007@S=16384（token 越多量化噪声越被平均）
+- **naive 税 1.5–3.0×，而非本文的 6.5–8.5×**——原因已定位到代码：
+  本文 `(q.float() * scale.float()).to(bf16)` 用 **float32 中间态**，
+  扩展实验用 `q.to(bf16) * scale`（bf16 中间态）
+
+**结论细化：naive 反量化税随中间态精度变化——fp32 中间态 6.5–8.5×，
+bf16 中间态 1.6–3.0×。引用时必须说明中间态精度。**
+
+局限：扩展实验的 scale 是 per-token-per-head，非真实 C8 的 per-channel 方案。

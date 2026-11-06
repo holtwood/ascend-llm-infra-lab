@@ -22,3 +22,17 @@
 4. 对上 walkthrough §5：vLLM block manager 的 `paged` 实现走
    `reshape_and_cache` 原位写页 + attention kernel 按 block_table 寻址——
    两步都零物化，本实验给出了"如果做错会差多少"的量化下界
+
+## 扩展（通宵队列，含页序对照）
+
+`results/overnight_20261105_160244/paged_gather.json` + `paged_gather_v2.json`
+（S 4k-32k × block 16-128，B=4，GQA 广播）：
+
+- 税 2.1–2.7×，比本文的 3.3–15.6× 低
+- **对照实验证明页序（randperm vs arange）几乎无影响**（差 <0.1×）
+- 差异来源已定位：本文的 pool 布局是 `[page,H,bs,D]`（gather 后需 permute），
+  扩展实验是 `[page,bs,H,D]`（gather 后只需 transpose 视图）；且本文用
+  repeat_interleave 展开 GQA（ref 更贵），扩展实验用 batch 广播（ref 更便宜）
+
+**方法学教训：报告"分页税"必须同时报告页内布局与 GQA 实现，否则 2× 和 16×
+都可以是"对的"。**

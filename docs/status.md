@@ -435,14 +435,17 @@
 
 - 4 个 torch 级任务全 rc=0：p2p 全对矩阵 / int8-KV 网格 / paged gather /
   copy bw；产物在 results/overnight_20261105_160244/
-- p2p 拓扑：64MB 全对 19.7GB/s **完全对称无慢链路**；1MB 有 ±20% 路径差
+- p2p 拓扑：64MB 全对 19.7GB/s **完全对称无慢链路**（注意：19.9GB/s 只是
+  ≥16MB 的饱和值，1MB 时仅 6.0-7.6GB/s）；1MB 有 ±20% 路径差
   （1→0 7.6 vs 2→1 5.6）；1KB 延迟底 ~150µs
 - int8-KV：mem 恒 0.51×，err_max 随 S 收敛（0.0117@128 → 0.0007@16k），
   naive 税 1.5-3.0×（与 E8k 的 6.5-8.5× 差异是实现口径，已在 README 注明）
 - paged gather：S=4096 时块越大越差（1.58×→2.73×），S≥8192 稳定 ~2.1×
 - copy bw：pageable D2H 4-5× 惩罚；**D2H 在并发 matmul 下 24.7→19.7GB/s(-20%)**
-- 队列教训：all_gather_object 在 HCCL 不可用→rank 各自落盘；torch_npu SDPA
-  拒绝 enable_gqa→用 batch 广播实现 GQA；非登录 ssh 不 source CANN env
+- 队列教训：`SimpleQueue.get(timeout=)` 在 py3.12 **不支持 timeout 参数**
+  （TypeError），被我误标为 "timeout"——rank 各自落盘是更稳的写法（此前
+  关于 "all_gather_object 在 HCCL 不可用" 的判断**未经证实，已撤回**）；
+  torch_npu SDPA 拒绝 enable_gqa→用 batch 广播实现 GQA；非登录 ssh 不 source CANN env
 ### 通宵执行（进行中）
 
 - 16:13-16:15 四条线启动（setsid nohup），全部进入集群段
@@ -469,8 +472,8 @@
 | 任务 | 结果 |
 |---|---|
 | hccl_pairs 8×8 全对矩阵 | ✅ 64MB 全对 19.7GB/s 对称；1MB ±20% 路径差；1KB 延迟底 150µs |
-| kv_quant S×B 网格 | ✅ 32 配置，mem 0.51×，err 随 S 收敛 0.0117→0.0007，税 1.5-3.0× |
-| paged_gather 块粒度 | ✅ 16 配置，S=4096 大块更差 2.73×，S≥8192 稳定 ~2.1× |
+| kv_quant S×B 网格 | ✅ 32 配置，mem 0.51×，err 随 S 收敛 0.0117→0.0007，税 1.5-3.0×（bf16 中间态；E8k 的 6.5-8.5× 是 fp32 中间态，代码级定位） |
+| paged_gather 块粒度 | ✅ 32 配置（含页序对照），S=4096 大块更差 2.73×，S≥8192 稳定 ~2.1×；**页序无影响，税取决于页内布局/GQA 实现** |
 | copy_bw | ✅ pageable D2H 4-5× 惩罚；**并发计算下 D2H −20%** |
 | TP decode 实测 | ✅ 真权重：tp=8 步时 **4.47×** 于单卡，通信占 71% |
 | HCCL 4h soak | ✅ 14330 样本，漂移 **+2.3%**，无热降频 |
