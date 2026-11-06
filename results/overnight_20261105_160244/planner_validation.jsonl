@@ -1,0 +1,4 @@
+{"bs": 1, "ctx": 4096, "measured_ms": 29.5, "pred_weight_ms": 1.06, "pred_attn_ms": 1.8, "pred_floor_ms": 29.0, "predicted_ms": 31.8, "error_pct": -7.3}
+{"bs": 8, "ctx": 4096, "measured_ms": 30.4, "pred_weight_ms": 1.06, "pred_attn_ms": 8.0, "pred_floor_ms": 29.0, "predicted_ms": 38.0, "error_pct": -20.0}
+{"bs": 8, "ctx": 8192, "measured_ms": 30.6, "pred_weight_ms": 1.06, "pred_attn_ms": 15.9, "pred_floor_ms": 29.0, "predicted_ms": 46.0, "error_pct": -33.5}
+{"bs": 16, "ctx": 8192, "measured_ms": 31.0, "pred_weight_ms": 1.06, "pred_attn_ms": 21.3, "pred_floor_ms": 29.0, "predicted_ms": 51.4, "error_pct": -39.7}

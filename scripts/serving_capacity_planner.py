@@ -8,6 +8,7 @@ Every coefficient below comes from a real measurement in this repo
   LAUNCH_FLOOR_MS     29     eager decode step, ~420 kernel launches  (E29)
   ATTN_EFF_BS1        0.19   decode attention KV read / HBM peak      (E37)
   ATTN_EFF_BS16       0.50   same at batch>=16                        (E39)
+  ATTN_EFF_BS64       0.86   same at batch>=64 (E52 back-solved)      (E52)
   PREFILL_QUAD        4.66e-8 ms/token^2 per layer                    (E48)
   PREFILL_LIN_US      0.09   µs/token per layer (MLP+proj)            (E48)
   PREFILL_FLOOR_MS    0.10   per layer                                (E48)
@@ -26,18 +27,25 @@ HBM_ACHIEVED_GBPS = 1412.0
 LAUNCH_FLOOR_MS = 29.0
 ATTN_EFF_BS1 = 0.19
 ATTN_EFF_BS16 = 0.50
+ATTN_EFF_BS64 = 0.86
 PREFILL_QUAD = 4.66e-8      # ms/token^2 per layer
 PREFILL_LIN_US = 0.09       # us/token per layer
 PREFILL_FLOOR_MS = 0.10     # ms per layer
 
 
 def attn_eff(batch):
-    """Linear ramp from bs=1 (19%) to bs>=16 (50%) — E37/E39."""
+    """Piecewise ramp calibrated against measurements (E37/E39/E52).
+
+    bs=1 -> 19% (E37), bs=16 -> 50% (E39), bs>=64 -> 86% (E52 back-solved
+    from the measured 54.6ms step at bs=64/ctx=4096).
+    """
     if batch <= 1:
         return ATTN_EFF_BS1
-    if batch >= 16:
-        return ATTN_EFF_BS16
-    return ATTN_EFF_BS1 + (ATTN_EFF_BS16 - ATTN_EFF_BS1) * (batch - 1) / 15.0
+    if batch < 16:
+        return ATTN_EFF_BS1 + (ATTN_EFF_BS16 - ATTN_EFF_BS1) * (batch - 1) / 15.0
+    if batch < 64:
+        return ATTN_EFF_BS16 + (ATTN_EFF_BS64 - ATTN_EFF_BS16) * (batch - 16) / 48.0
+    return ATTN_EFF_BS64
 
 
 def plan(args):

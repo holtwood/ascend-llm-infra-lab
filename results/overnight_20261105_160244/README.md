@@ -498,3 +498,33 @@ SLO = TTFT ≤ 2s 且 TPOT ≤ 100ms。
    可解释的机理与量化曲线。
 
 复现：`scripts/overnight/tasks/latency_vs_load.py`（可调模型规模/上下文/SLO）。
+
+## E52 · 容量规划器的实测校验（planner_validation.jsonl）
+
+用真机全模型 decode 步时校验规划器公式（`weight_read + attention + floor`）：
+
+| bs | ctx | 实测 | 预测（原模型） | 误差 |
+|---|---|---|---|---|
+| 1 | 4k | 29.5 ms | 31.8 ms | −7% |
+| 8 | 4k | 30.4 ms | 38.0 ms | −20% |
+| 8 | 8k | 30.6 ms | 46.0 ms | −34% |
+| 16 | 8k | 31.0 ms | 51.4 ms | −40% |
+
+**校验暴露了两件事**：
+
+1. **bs≤16 时步时恒定 ~30ms**——发射地板（29ms）完全支配，attention 成本被掩盖。
+   规划器在这区间"高估"attention，实际影响可忽略。
+2. **高 batch 时 attention 效率远高于模型假设**：用 bs=64/ctx=4096 的实测步时
+   （54.6ms）反推，KV 读达 **1220 GB/s ≈ HBM 峰值 86%**，而非模型假设的 50%。
+
+**据此校准规划器**：attention 效率曲线改为 bs=1 → 19%（E37）、bs=16 → 50%（E39）、
+bs≥64 → 86%（E52 反推）。校准后：
+- 0.6B @8k：最大并发 61，SLO(TPOT 50ms) 运行点 13 路 → goodput 261 tok/s
+- 0.6B @2k：最大并发 244，SLO 运行点 103 路 → goodput **2061 tok/s**
+
+**方法学记录**：第一次校验时我用 `torch.cat` 每层拼 KV，测出 +290% 的假误差；
+改为预分配原地写后恢复正常。另注意：带 `synchronize()` 的逐算子剖析会把队列
+等待算进 attention 名下（曾误得 attention=26.5ms / 其余=5.6ms），
+**逐算子剖析与整步测量不可混用**。
+
+复现：`scripts/overnight/tasks/planner_validation.py` + `scripts/serving_capacity_planner.py`。
