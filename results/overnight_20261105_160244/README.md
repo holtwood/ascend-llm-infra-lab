@@ -443,3 +443,29 @@ MLP 的算力需求远未触及（512×3072 matmul 仍在发射地板下）。
 **这个区分本身就是很好的面试答案**。
 
 复现：`scripts/overnight/tasks/spec_verify_economics.py`。
+
+## E48 · Prefill 成本模型：线性项与二次项的分离（prefill_model.jsonl）
+
+单层分解（attention / MLP / projections），L 从 1k 到 16k：
+
+| L | attention | 每 token | MLP | 每 token | proj |
+|---|---|---|---|---|---|
+| 1k | 0.14 ms | 0.13 µs | 0.14 ms | 0.13 µs | 0.07 ms |
+| 4k | 0.85 ms | 0.21 µs | 0.32 ms | 0.08 µs | 0.13 ms |
+| 8k | 3.24 ms | 0.40 µs | 0.60 ms | 0.07 µs | 0.24 ms |
+| 16k | **12.63 ms** | 0.77 µs | 1.37 ms | 0.08 µs | 0.59 ms |
+
+**拟合结果**：attention 的二次项系数 **c = 4.66×10⁻⁸ ms/token²**；
+MLP/proj 是纯线性（每 token 恒定 0.08 / 0.04 µs）。
+
+**结论**：
+1. **16k 上下文的 prefill 有 86% 花在 attention 上**（1k 时只有 ~40%）。
+   所以"优化 prefill"在不同上下文长度下是不同的事：
+   短 prompt 优化 MLP/投影（权重读），长 prompt 优化 attention（二次项）。
+2. 二次项意味着**上下文翻倍 → attention 时间 4×**。16k 时 attention 已是
+   MLP 的 9.2×，这解释了 E31 里 prefill 在 8k 后 tok/s 不再上涨。
+3. 容量规划公式（0.6B/910B1）：
+   `T_prefill(L) ≈ 28 × (0.10 + 0.09·L·1e-3 + 4.66e-8·L²) ms`
+   —— 16k 时约 **340 ms**，与 E31 实测（8k 97ms）同量级吻合。
+
+复现：`scripts/overnight/tasks/prefill_cost_model.py`。

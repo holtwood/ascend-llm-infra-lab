@@ -26,6 +26,7 @@
 | W8A16 容量收益 | 权重 −29%；8B 模型 ≈ +8.5 路 @8k | E41 |
 | prefill chunk 干扰 | 8k chunk 使并发 decode 膨胀 **16-34×**，512 只 1.25-1.41× | E44 |
 | 投机解码验证成本 | q=1→512 只涨 **1.30×**（机制上验证几乎免费） | E45 |
+| prefill 二次项系数 | **4.66e-8 ms/token²**；16k 时 attention 占 prefill 86% | E48 |
 
 ## 1. decode 为什么慢：三道墙，按顺序撞
 
@@ -64,6 +65,8 @@
 ## 4. Prefill 与 Decode 的不对称（PD 分离的物理依据）
 
 - prefill：算力受限，bs 1→4 得 4× 吞吐（15k → 60k tok/s），每 token 11.8µs
+- prefill 成本模型：`28 × (0.10 + 0.09·L/1000 + 4.66e-8·L²) ms`；
+  16k 时 attention 占 86%（短 prompt 时 MLP 占多数）
 - decode：权重读受限，每 token **29,400µs**（bs=1）
 - **每 token 差 250×** → 混跑时 decode 的长尾会被 prefill 洪峰打断
 
