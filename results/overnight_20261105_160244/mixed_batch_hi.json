@@ -1,0 +1,24 @@
+{
+  "ctx": 4096,
+  "dec_bs": 8,
+  "rows": [
+    {
+      "prefill_tokens": 4096,
+      "decode_bs": 8,
+      "decode_only_ms": 33.54,
+      "mixed_ms": 57.35,
+      "prefill_cost_in_mix_ms": 23.81,
+      "tpot_ms": 57.35,
+      "prefill_tok_per_s": 71420.0
+    },
+    {
+      "prefill_tokens": 8192,
+      "decode_bs": 8,
+      "decode_only_ms": 33.54,
+      "mixed_ms": 113.66,
+      "prefill_cost_in_mix_ms": 80.11,
+      "tpot_ms": 113.66,
+      "prefill_tok_per_s": 72075.0
+    }
+  ]
+}

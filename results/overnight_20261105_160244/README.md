@@ -663,3 +663,31 @@ E17 在真实 vLLM 上测得冷启动 **169.4s**（4B 模型）。本实验在�
 **它是为了在固定显存下把并发/上下文做上去**。
 
 复现：`scripts/overnight/tasks/gqa_ratio.py`。
+
+## E63 · 全模型混批：chunked prefill 一步的真实代价（mixed_batch*.json）
+
+一个调度步里同时跑 8 条 decode（ctx=4k）和一个 prefill chunk，实测整步时延：
+
+| prefill chunk | 步时 | prefill 增量 | **TPOT** | prefill 吞吐 |
+|---|---|---|---|---|
+| 0（纯 decode） | 33.5 ms | — | 34 ms | — |
+| 512 | 42.8 ms | +8.2 ms | 43 ms | 12k tok/s |
+| **2048** | 42.6 ms | +8.0 ms | **43 ms（+23%）** | 48k tok/s |
+| 4096 | 57.4 ms | +23.8 ms | 57 ms（+71%） | 71k tok/s |
+| 8192 | 113.7 ms | +80.1 ms | **114 ms（+239%）** | 72k tok/s |
+
+**结论**：
+1. **chunk=2048 时，混批只让 TPOT 涨 23%**——因为整步仍是发射受限（34ms 地板），
+   prefill 的计算被塞进已有的发射间隙里，**几乎免费**。
+2. **chunk=8192 时 TPOT 涨 3.4×**，prefill 吞吐稳定在 72k tok/s。
+   这与 E34（chunk=2048 是甜点）和 E44（8k chunk 造成 attention 层 16-34× 干扰）
+   在量级上互相印证：**chunk 超过 ~4k 后干扰急剧上升**。
+3. **与 E44 的差异要说清楚**：E44 只测 attention 算子（无发射间隙可藏），
+   8k chunk 造成 33× 膨胀；E63 测整模型（发射受限），2k chunk 只 +23%。
+   **"chunked prefill 贵不贵"取决于栈是发射受限还是带宽受限**——
+   eager 栈里它便宜，图捕获后它会变贵（没有发射间隙可藏了）。
+
+**方法学**：首版用 `expand`+`reshape` 做 chunk 内 causal attention，
+触发了 O(P²) 物化（2048 chunk 虚高到 512ms）；改为纯广播后降到 42.6ms。
+
+复现：`scripts/overnight/tasks/mixed_batch_step.py`。
