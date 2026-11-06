@@ -153,6 +153,13 @@ D soak：502 波，1167.2 → 1271.0 tok/s
 
 **5) 模型规模/量化选型**：bf16_0p6b@c32=1836.9 bf16_0p6b@c64=2696.3 bf16_0p6b@c8=667.5 bf16_4b@c32=1122.4 bf16_4b@c64=1313.4 bf16_4b@c8=505.1 bf16_8b@c32=1301.3 bf16_8b@c64=1699.4 bf16_8b@c8=404.9 。注意 8B 在 c32/c64 反超 4B——4B 是 hybrid（24 层 GDN），其 conv1d 走 PyTorch fallback 每请求 host 同步（issue3 同源），高并发下被放大；选型不能只看参数量。
 
+### 利用率证据（方法与数字）
+- **负载中采样**（c32/n1000，每 2s 采 20 次）：AICore 均值 **48.0%**、峰值 51%；功率 87W（空载）→ 196-242W。4B decode 是 memory-bound，~50% AICore 即该负载饱和点。
+- 注意：`samples.jsonl` 里的逐波采样在 bench **结束后**取，中位数为 0%（空转间隙）——**不要用逐波采样判断利用率**，这是本次踩到的采样陷阱。
+
+### 复核：8B vs 4B（同节点背靠背 A/B）
+- c32/n96/in256/out96：4B(hybrid) **1196 tok/s / TPOT 20.5ms / TTFT 607ms** vs 8B(dense) **1406 tok/s / 19.6ms / 318ms** → 8B 快 **17.6%**，且 4B 的 TTFT 反而更差。机制：4B 的 24 层 GDN conv1d 走 PyTorch fallback（每请求 host 同步），prefill/decode 双输。
+
 ## 七、对 AI Infra serving 面试的用法
 
 **主叙事（只讲这三条，各 2 分钟）**

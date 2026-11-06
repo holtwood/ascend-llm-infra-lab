@@ -226,6 +226,16 @@ def main():
                  "其 conv1d 走 PyTorch fallback 每请求 host 同步（issue3 同源），"
                  "高并发下被放大；选型不能只看参数量。\n")
 
+    L.append("\n### 利用率证据（方法与数字）\n")
+    L.append("- **负载中采样**（c32/n1000，每 2s 采 20 次）：AICore 均值 **48.0%**、峰值 51%；"
+             "功率 87W（空载）→ 196-242W。4B decode 是 memory-bound，~50% AICore 即该负载饱和点。\n")
+    L.append("- 注意：`samples.jsonl` 里的逐波采样在 bench **结束后**取，中位数为 0%"
+             "（空转间隙）——**不要用逐波采样判断利用率**，这是本次踩到的采样陷阱。\n")
+    L.append("\n### 复核：8B vs 4B（同节点背靠背 A/B）\n")
+    L.append("- c32/n96/in256/out96：4B(hybrid) **1196 tok/s / TPOT 20.5ms / TTFT 607ms** vs "
+             "8B(dense) **1406 tok/s / 19.6ms / 318ms** → 8B 快 **17.6%**，且 4B 的 TTFT 反而更差。"
+             "机制：4B 的 24 层 GDN conv1d 走 PyTorch fallback（每请求 host 同步），prefill/decode 双输。\n")
+
     L.append("\n## 七、对 AI Infra serving 面试的用法\n")
     L.append("\n**主叙事（只讲这三条，各 2 分钟）**\n")
     L.append("- **扩容效率**：4 卡集群聚合 ≈ 4×单机稳态，瓶颈在注入不在副本；"
