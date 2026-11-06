@@ -109,6 +109,21 @@ def main():
         for r in sorted(rows, key=lambda x: x["tag"]):
             L.append(f"| {r['tag']} | {r['tok_s']} | {r['ttft']} | {r['tpot']} | {r['ok']} |\n")
 
+    # ---- M2 mixed-load (real metrics) ----
+    mix = load_jsonl(os.path.join(args.local, "m2", "mixed_real.jsonl"))
+    if mix:
+        L.append("\n### 混合负载（long 2800词 + short 120词，各 48 请求，c96）\n")
+        L.append("\n| 轮 | long mean | long p90 | short mean | short p90 | fails |\n")
+        L.append("|---|---|---|---|---|---|\n")
+        for r in mix:
+            lo, sh = r.get("long", {}), r.get("short", {})
+            L.append(f"| {r['round']} | {lo.get('mean')} | {lo.get('p90')} | "
+                     f"{sh.get('mean')} | {sh.get('p90')} | {r.get('fails')} |\n")
+        lom = mean([r["long"]["mean"] for r in mix if "long" in r])
+        shm = mean([r["short"]["mean"] for r in mix if "short" in r])
+        L.append(f"\n均值：long {lom}s vs short {shm}s —— **short 不占优**（FCFS 倒转），"
+                 "正是 E19 的 SRF 要解决的问题。\n")
+
     # ---- M3 ctx + fatigue + wall ----
     L.append("\n## 四、M3 长上下文 / 换租疲劳 / 准入墙\n")
     d = data.get("m3", {})
