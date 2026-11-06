@@ -500,3 +500,17 @@ pkill 未生效会污染后续测量（TP 首轮即因此重跑）。
 - 23:37 UTC 巡检：M1 293 波 / M2 1100 轮(258/320) / M3 1550 波(272/360) / D 370 波
 - 00:14 UTC 最后一次巡检（goal 清除时）：M1 330 波 / M2 1200 轮(282/320min) /
   M3 1760 波 / D 423 波；四副本+nginx 全 200；各线将在 00:39-00:56 自行结束并恢复
+
+### E29 decode 天花板 + MindIE 二次失败（面向 serving 面试）
+
+- **E29（decode_ceiling.py）**：真 0.6B 权重，910B1：
+  - 一次大 matvec 读全部 1.5GB → 1412 GB/s（HBM 94%）= **939 tok/s 天花板**
+  - 逐层 eager decode → **30-34 tok/s（天花板的 3.6%）**：卡在 kernel 发射
+    （~420 次 launch × ~70µs），不是 HBM 也不是算力
+  - bs 1→64 步时几乎不变 → tok/s 线性涨到 2204（权重读一次服务 bs 个 token）
+  - 权重-only int8：分块实测 1.21×（理论 2×，同样被发射开销吃掉）
+  - **这组数字直接回答"为什么需要 ACLGraph/图捕获"和"decode 的天花板在哪"**
+- **MindIE 2.3.0 + Qwen3-8B**：修好配置校验（ModelConfig 必须是数组、
+  maxPrefillTokens≥maxInputTokenLen）后仍 core dump，dmesg 见
+  `stranded cqe`/`hdcdrv` 驱动级故障——与 E5R 的 ATB set_weight 挂死是
+  两种独立的 vendor 栈失败。MindIE 对比实验在此环境不可行。
