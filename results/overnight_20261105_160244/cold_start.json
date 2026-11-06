@@ -1,0 +1,13 @@
+{
+  "model": "/data1/pytroch-7/models/Qwen3-0.6B",
+  "file_gb": 1.503,
+  "disk_read_s": 0.016,
+  "disk_gbps": 92.9,
+  "h2d_s": 0.295,
+  "h2d_gbps": 5.1,
+  "weights_gb": 1.503,
+  "first_call_s": 0.0981,
+  "steady_call_ms": 0.12,
+  "first_over_steady": 817.5,
+  "scale_up_total_s": 0.409
+}
