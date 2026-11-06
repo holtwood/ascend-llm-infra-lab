@@ -1,0 +1,67 @@
+{
+ "rows": [
+  {
+   "mode": "bf16",
+   "ctx": 1535,
+   "decode_p50_ms": 98.9,
+   "quantize_overhead_ms": 0.0,
+   "vs_bf16_ms": 0.0
+  },
+  {
+   "mode": "per_token",
+   "ctx": 1535,
+   "decode_p50_ms": 105.2,
+   "quantize_overhead_ms": 4.9,
+   "first_div_token": 5,
+   "mismatch_ratio": 0.364,
+   "vs_bf16_ms": 6.3
+  },
+  {
+   "mode": "per_channel",
+   "ctx": 1535,
+   "decode_p50_ms": 105.4,
+   "quantize_overhead_ms": 4.6,
+   "first_div_token": null,
+   "mismatch_ratio": 0.0,
+   "vs_bf16_ms": 6.5
+  },
+  {
+   "mode": "gdn_int8",
+   "ctx": 1535,
+   "decode_p50_ms": 100.6,
+   "quantize_overhead_ms": 0.0,
+   "first_div_token": 5,
+   "mismatch_ratio": 0.364,
+   "vs_bf16_ms": 0.0
+  },
+  {
+   "mode": "bf16",
+   "ctx": 8255,
+   "decode_p50_ms": 102.4,
+   "quantize_overhead_ms": 0.0,
+   "vs_bf16_ms": 0.0
+  },
+  {
+   "mode": "per_token",
+   "ctx": 8255,
+   "decode_p50_ms": 106.6,
+   "quantize_overhead_ms": 6.8,
+   "first_div_token": null,
+   "mismatch_ratio": 0.0,
+   "vs_bf16_ms": 4.2
+  },
+  {
+   "mode": "per_channel",
+   "ctx": 8255,
+   "decode_p50_ms": 107.9,
+   "quantize_overhead_ms": 6.3,
+   "first_div_token": null,
+   "mismatch_ratio": 0.0,
+   "vs_bf16_ms": 5.5
+  }
+ ],
+ "mem": {
+  "bf16": 270532608,
+  "int8+fp32_scale_per_token": 137363968
+ }
+}

@@ -366,13 +366,22 @@ class Attention(nn.Module):
 
         if cache is not None:
             cache.append(k, v)
-            k, v = cache.read()                          # full history incl. new
+            res = cache.read()                            # full history incl. new
+            k, v = res[0], res[1]
+            valid = res[2] if len(res) > 2 else None      # L3 slot cache: (B,L) pad mask
+        else:
+            valid = None
         kv_len = k.shape[2]
 
         # causal mask aligned on ABSOLUTE positions so any T_q <= T_k works
         # (single-token decode and L5 chunked prefill are both covered)
-        if seq_len == kv_len:
+        if seq_len == kv_len and (valid is None or bool(valid.all())):
             attn_mask, is_causal = None, True
+        elif seq_len == 1 and valid is not None:
+            # L3 heterogeneous decode: each slot attends its own history prefix;
+            # q is each slot's newest position, so only pad columns need masking.
+            attn_mask = valid[:, None, None, :]           # (B,1,1,L), True=attend
+            is_causal = False
         else:
             q_pos = torch.arange(kv_len - seq_len, kv_len, device=q.device)
             k_pos = torch.arange(kv_len, device=q.device)

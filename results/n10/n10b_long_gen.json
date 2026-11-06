@@ -1,0 +1,26 @@
+{
+ "ctx": 8255,
+ "n_steps": 128,
+ "variants": {
+  "bf16": {
+   "min_top1_top2_gap": 0.0,
+   "fragile_steps_bottom5": [
+    5,
+    39,
+    7,
+    85,
+    50
+   ]
+  },
+  "per_token": {
+   "first_div_token": 37,
+   "mismatch_ratio": 0.7054,
+   "min_top1_top2_gap": 0.0
+  },
+  "per_channel": {
+   "first_div_token": 40,
+   "mismatch_ratio": 0.6899,
+   "min_top1_top2_gap": 0.0
+  }
+ }
+}

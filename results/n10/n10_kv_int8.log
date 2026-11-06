@@ -1,0 +1,13 @@
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights: 100%|██████████| 426/426 [00:00<00:00, 6024.02it/s]
+[load] /model/Qwen3.5-4B
+[prompts] short=1535 tok, long=8255 tok
+[short] bf16: 98.9 ms/step
+[short] per_token: 105.2 ms/step (+6.3), first_div=5, mismatch=0.364
+[short] per_channel: 105.4 ms/step (+6.5), first_div=None, mismatch=0.0
+[short] gdn_int8: first_div=5, mismatch=0.364
+[long] bf16: 102.4 ms/step
+[long] per_token: 106.6 ms/step (+4.2), first_div=None, mismatch=0.0
+[long] per_channel: 107.9 ms/step (+5.5), first_div=None, mismatch=0.0
+[mem] bf16: 270.5 MB (32.00 KB/tok, 32772 B/tok)
+[mem] int8+fp32_scale_per_token: 137.4 MB (16.25 KB/tok, 16640 B/tok)
+[N10] wrote /data/results/n10_kv_int8.md + /data/results/n10_kv_int8.json

@@ -35,8 +35,8 @@ import torch
 
 EPS = 1e-6
 M_SCAN = [1, 8, 64, 512, 2048]
-N_MAIN = 2560
-N_SPOT = 9728
+N_MAIN = 2560                    # Qwen3.5-4B hidden_size (every RMSNorm)
+N_SPOT = 9216                    # intermediate_size (MLP-width spot check)
 WARMUP = 10
 ITERS = 100
 OUT_JSON = "n8_rmsnorm_bench.json"

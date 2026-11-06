@@ -1,0 +1,6 @@
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights: 100%|██████████| 426/426 [00:00<00:00, 4882.07it/s]
+[load] ctx=8255
+[bf16] min gap 0.0000 at steps [5, 39, 7, 85, 50]
+[per_token] first_div=37 mismatch=0.705 min_gap=0.0000
+[per_channel] first_div=40 mismatch=0.690 min_gap=0.0000
+[N10B] wrote /data/results/n10b_long_gen.json
