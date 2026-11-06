@@ -1,0 +1,17 @@
+{
+  "tokens": 153,
+  "bf16_ppl": 20.82,
+  "bf16_nll": 3.0359,
+  "w8a16_ppl": 21.085,
+  "w8a16_nll": 3.0486,
+  "bf16_kv8_ppl": 21.136,
+  "bf16_kv8_nll": 3.051,
+  "w8a16_kv8_ppl": 21.113,
+  "w8a16_kv8_nll": 3.0499,
+  "w8a16_top1_agree_pct": 96.08,
+  "w8a16_ppl_delta_pct": 1.27,
+  "bf16_kv8_top1_agree_pct": 91.5,
+  "bf16_kv8_ppl_delta_pct": 1.52,
+  "w8a16_kv8_top1_agree_pct": 88.24,
+  "w8a16_kv8_ppl_delta_pct": 1.41
+}
