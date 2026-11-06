@@ -26,6 +26,8 @@ import torch
 
 __all__ = ["causal_conv1d_update_nosync"]
 
+_HITS = [0]  # E33 dispatch invocation counter (diagnostic)
+
 PAD_SLOT_ID = -1
 
 

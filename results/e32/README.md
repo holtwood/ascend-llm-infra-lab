@@ -73,8 +73,8 @@ varlen（prefill 多 token）显式拒绝并回退到原实现，边界清楚。
 
 ## 7. 未做（诚实边界）
 
-- **尚未接进推理路径**：要替换 `patch_triton.py` 的绑定并在 ACL graph 下验证
-  capture 成功（需要重启服务 + 跑长上下文/投机解码回归），本次只交付算子 + 数值 + 基准
+- **接进推理路径的尝试（E33）证伪了收益预期**：命中计数显示本模型 decode 走
+  FULL graph 回放 / fused 入口，该 Python 函数不在热路径；A/B 差异为噪声
 - 未测 varlen prefill 路径（显式回退）
 - 未在 TP>1 / 大 dim（如 2048）下测
 

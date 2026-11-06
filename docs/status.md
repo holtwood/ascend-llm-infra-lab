@@ -579,3 +579,11 @@ pkill 未生效会污染后续测量（TP 首轮即因此重跑）。
 - 基准（M3）：fallback O(B) 0.55ms/序列 vs nosync 恒定 1.2ms →
   B=1 0.49×（launch 成本占优）、B=8 3.86×、B=32 15.3×、B=64 31.1×、B=128 60.6×
 - 未接入推理路径（需 hook + ACL graph 回归）；varlen 显式回退
+
+### E33 接进推理路径——负结果（2026-11-06）
+
+- 分发门控 + 命中计数器部署到 M3，A/B 交替 off→on→off→on
+- **命中数 = 0**：decode 走 FULL ACL graph 回放，Python conv1d 不在热路径
+- R1 显示 on +7~15%，R2 反转 on −12%；两个 off 臂自身差 8.7% → 纯噪声
+- 修正 E32/issue #18978 表述：sync 税的是 capture/eager 路径，非回放稳态
+- 已回滚补丁、恢复默认副本；E32 算子保留（数值+算子级收益真实）
