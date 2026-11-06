@@ -49,7 +49,7 @@ def attn_eff(batch):
 
 
 def plan(args):
-    kv_tok = 2 * args.layers * args.nkv * args.head_dim * 2
+    kv_tok = int(2 * args.layers * args.nkv * args.head_dim * 2 * args.kv_scale)
     usable_gb = args.hbm_gb - args.weight_gb - args.overhead_gb
     if usable_gb <= 0:
         return {"error": "model does not fit: weights exceed usable HBM"}
@@ -115,6 +115,8 @@ def main():
     ap.add_argument("--ctx", type=int, default=8192)
     ap.add_argument("--prompt-len", type=int, default=2048)
     ap.add_argument("--target-tpot-ms", type=float, default=50.0)
+    ap.add_argument("--kv-scale", type=float, default=1.0,
+                    help="KV bytes multiplier: 1.0 bf16, 0.5 int8, 0.25 int4")
     ap.add_argument("--graph-captured", action="store_true",
                     help="assume ACLGraph removes the launch floor")
     ap.add_argument("--json", action="store_true")
