@@ -796,3 +796,43 @@ GEMM [M,K]×[K,N]，bf16：
   机理是摊薄发射延迟，而不是摊薄带宽**（带宽早就够摊了）。
 
 复现：`scripts/overnight/tasks/sampling_overhead.py`、`roofline_scan.py`。
+
+## E69 · 真实投机解码：w8a16 当 draft + bf16 当 target（specdec.json）
+
+不是模拟——真的跑 draft/verify 循环：int8 模型贪心起草 q 个 token，
+bf16 模型一次前向验证，取最长匹配前缀 + target 的下一 token：
+
+| q | 每次 target 前向产出 | 各位置接受率 |
+|---|---|---|
+| 2 | 3.0 | [1.0, 1.0] |
+| 4 | 4.78 | [1.0, 1.0, 0.89, 0.89] |
+| 8 | **9.0（全接受）** | [1.0×8] |
+
+**结论与注意点**：
+- **接受率 ~95-100%**（与 E66 的 96% top-1 一致率吻合）。注意本 prompt
+  是低熵说明文续写——**接受率随文本熵变化**，高熵场景会明显更低；
+- **速度模型**（draft=target 同尺寸，本实验 wall-clock 无加速，符合预期）：
+  speedup = E[tokens/cycle] / (q·d + v)。换成真实配置（0.6B draft +
+  32B target，步时比 ~5×：d=6ms, v=30ms）→ q=4 时 4.78 tok / 54ms
+  = **11.3ms/token vs 30ms → ~2.65×**；
+- **q 的选择**：接受率高时 q 越大越好（本例 q=8 全接受→9 tok/前向）；
+  α≈0.7 以下 q>4 收益急剧递减。生产系统按实测 α 在线调 q。
+
+## E70 · KV swap 时延与 offload 决策边界（kvswap.json）
+
+真实 KV block 粒度（kv/token=114688B）的换入换出：
+
+| tokens | KV 体积 | D2H | H2D | 往返 | 对比 recompute |
+|---|---|---|---|---|---|
+| 128（1 block） | 15MB | 0.81ms | 0.72ms | 1.5ms | — |
+| 2048 | 235MB | 11.2ms | 9.2ms | **~21ms** | ≈重算 ~30ms → 打平 |
+| 8192 | 940MB | 40.1ms | 40.5ms | **~81ms** | < 重算 98ms → 胜 1.2× |
+| 32768 | 3.76GB | 187ms | 143ms | **~350ms** | < 重算 ~1s → 胜 ~2.7× |
+
+**三个工程结论**：
+- **pinned ≈ pageable**（都 ~20-26 GB/s）——Ascend 栈上 pin_memory 无收益，
+  与 GPU 经验不同，值得标注；
+- **逐 block 换出无额外惩罚**：64 个 128-token block 顺序换出 45ms ≈
+  一次性大传输（每 op 开销 ~0.7ms 相对 15MB 传输可忽略）；
+- **与 E32 结论一致但更精确**：swap 在 >4k 上下文胜出，但 2k 处基本打平——
+  抢占策略应**按上下文长度自适应**（短上下文直接重算，长的换出）。

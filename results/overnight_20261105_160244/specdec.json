@@ -1,0 +1,54 @@
+{
+  "prompt_len": 25,
+  "cycles": [
+    {
+      "q": 2,
+      "cycles": 14,
+      "tokens": 42,
+      "accept_per_pos": [
+        1.0,
+        1.0
+      ],
+      "mean_tokens_per_tgt_fwd": 3.0,
+      "draft_fwds": 28,
+      "tgt_fwds": 14,
+      "wall_s": 3.1
+    },
+    {
+      "q": 4,
+      "cycles": 9,
+      "tokens": 43,
+      "accept_per_pos": [
+        1.0,
+        1.0,
+        0.889,
+        0.889
+      ],
+      "mean_tokens_per_tgt_fwd": 4.78,
+      "draft_fwds": 36,
+      "tgt_fwds": 9,
+      "wall_s": 2.6
+    },
+    {
+      "q": 8,
+      "cycles": 5,
+      "tokens": 45,
+      "accept_per_pos": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "mean_tokens_per_tgt_fwd": 9.0,
+      "draft_fwds": 40,
+      "tgt_fwds": 5,
+      "wall_s": 2.5
+    }
+  ],
+  "sample": "考虑如何优化模型推理的效率，以满足高并发和低延迟的需求。本文提出了一种基于多线程的并行推理框架，该框架能够有效利用多线程并行处理，从而提升",
+  "note": "draft==target size (same 0.6B): acceptance real, wall-clock speedup NOT real (draft isn't smaller). Speedup model uses E45 verify costs + measured acceptance."
+}

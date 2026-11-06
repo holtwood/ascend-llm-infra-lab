@@ -1,0 +1,73 @@
+{
+  "pageable": [
+    {
+      "tokens": 128,
+      "mb": 14.7,
+      "d2h_ms": 0.811,
+      "h2d_ms": 0.716,
+      "d2h_gbs": 18.1,
+      "h2d_gbs": 20.5
+    },
+    {
+      "tokens": 2048,
+      "mb": 234.9,
+      "d2h_ms": 11.17,
+      "h2d_ms": 9.223,
+      "d2h_gbs": 21.0,
+      "h2d_gbs": 25.5
+    },
+    {
+      "tokens": 8192,
+      "mb": 939.5,
+      "d2h_ms": 38.549,
+      "h2d_ms": 36.073,
+      "d2h_gbs": 24.4,
+      "h2d_gbs": 26.0
+    },
+    {
+      "tokens": 32768,
+      "mb": 3758.1,
+      "d2h_ms": 187.247,
+      "h2d_ms": 143.539,
+      "d2h_gbs": 20.1,
+      "h2d_gbs": 26.2
+    }
+  ],
+  "pinned": [
+    {
+      "tokens": 128,
+      "mb": 14.7,
+      "d2h_ms": 0.742,
+      "h2d_ms": 0.645,
+      "d2h_gbs": 19.8,
+      "h2d_gbs": 22.7
+    },
+    {
+      "tokens": 2048,
+      "mb": 234.9,
+      "d2h_ms": 11.21,
+      "h2d_ms": 10.158,
+      "d2h_gbs": 21.0,
+      "h2d_gbs": 23.1
+    },
+    {
+      "tokens": 8192,
+      "mb": 939.5,
+      "d2h_ms": 40.113,
+      "h2d_ms": 40.529,
+      "d2h_gbs": 23.4,
+      "h2d_gbs": 23.2
+    },
+    {
+      "tokens": 32768,
+      "mb": 3758.1,
+      "d2h_ms": 235.211,
+      "h2d_ms": 201.269,
+      "d2h_gbs": 16.0,
+      "h2d_gbs": 18.7
+    }
+  ],
+  "per_block_ms_pinned": 0.7486,
+  "64_block_seq_ms": 45.14,
+  "note": "kv/token=114688B (E30). Compare with recompute cost E48: prefill_ms(L)=~0.0112*L+4.66e-8*L^2 per layer*28"
+}
