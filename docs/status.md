@@ -485,9 +485,10 @@
 MindIE。踩坑全链路见 `docs/remote-vllm-bringup.md`（torch 钉版、三个
 CUDA 生态 stub、triton-ascend 华为镜像、CANN 版本 .so 不可跨机）。
 
-**队列工程教训**（已修入脚本）：`SimpleQueue.get()` 不支持 timeout（曾
-误标 timeout）；`all_gather_object` 在 HCCL 不可用；HCCL socket 端口需
-每组独立区间；pkill 未生效会污染后续测量（TP 首轮即因此重跑）。
+**队列工程教训**（已修入脚本）：`SimpleQueue.get()` 在 py3.12 不支持
+timeout 参数（曾把 TypeError 误标成 timeout；"all_gather_object 在 HCCL
+不可用"的旧判断未经证实已撤回）；HCCL socket 端口需每组独立区间；
+pkill 未生效会污染后续测量（TP 首轮即因此重跑）。
 - 20:20 UTC 巡检：M1 soak 92 波 / M2 混合 200 轮(47/320min) / M3 长上下文 424 波 / D 100 波(73/360min)
 - 21:13 UTC 巡检：M1 146 波 / M2 混合 ~485 轮（94+/320min）/ M3 723 波 / D 172 波
 - M3 换租疲劳 300 轮完成：sleep 1757.8ms（首末 1762.4→1764.5）、wake 118.1ms
