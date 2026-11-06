@@ -1,0 +1,9 @@
+{
+  "tokens": 153,
+  "bf16_ppl": 20.82,
+  "bf16_nll": 3.0359,
+  "int8_ppl": 21.085,
+  "int8_nll": 3.0486,
+  "top1_agreement_pct": 96.08,
+  "ppl_delta_pct": 1.27
+}
