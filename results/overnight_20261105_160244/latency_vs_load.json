@@ -1,0 +1,101 @@
+{
+  "params": {
+    "weight_gb": 1.5,
+    "layers": 28,
+    "nkv": 8,
+    "head_dim": 128,
+    "hbm_gb": 61.0,
+    "overhead_gb": 2.0,
+    "ctx": 8192,
+    "prompt_lo": 512,
+    "prompt_hi": 2048,
+    "out_len": 128,
+    "max_batch": 64,
+    "chunk": 2048,
+    "rates": "1,2,4,8,12,16,32",
+    "slo_ms": 100.0,
+    "slo_ttft_ms": 2000.0,
+    "sim_seconds": 300.0,
+    "graph_captured": false,
+    "out": "/tmp/lvl_full.json"
+  },
+  "rows": [
+    {
+      "rate": 1.0,
+      "completed": 288,
+      "ttft_p50": 50.6,
+      "ttft_p99": 66.3,
+      "tpot_p50": 32.7,
+      "tpot_p99": 34.5,
+      "tok_s": 122.9,
+      "goodput_tok_s": 122.9,
+      "slo_met_frac": 1.0
+    },
+    {
+      "rate": 2.0,
+      "completed": 581,
+      "ttft_p50": 51.1,
+      "ttft_p99": 68.6,
+      "tpot_p50": 34.3,
+      "tpot_p99": 36.1,
+      "tok_s": 247.9,
+      "goodput_tok_s": 247.9,
+      "slo_met_frac": 1.0
+    },
+    {
+      "rate": 4.0,
+      "completed": 1184,
+      "ttft_p50": 55.0,
+      "ttft_p99": 76.1,
+      "tpot_p50": 36.6,
+      "tpot_p99": 40.7,
+      "tok_s": 505.2,
+      "goodput_tok_s": 505.2,
+      "slo_met_frac": 1.0
+    },
+    {
+      "rate": 8.0,
+      "completed": 2375,
+      "ttft_p50": 70.3,
+      "ttft_p99": 97.0,
+      "tpot_p50": 47.0,
+      "tpot_p99": 50.7,
+      "tok_s": 1013.3,
+      "goodput_tok_s": 1013.3,
+      "slo_met_frac": 1.0
+    },
+    {
+      "rate": 12.0,
+      "completed": 2733,
+      "ttft_p50": 32580.5,
+      "ttft_p99": 68914.1,
+      "tpot_p50": 51.0,
+      "tpot_p99": 51.5,
+      "tok_s": 1166.1,
+      "goodput_tok_s": 53.8,
+      "slo_met_frac": 0.046
+    },
+    {
+      "rate": 16.0,
+      "completed": 2745,
+      "ttft_p50": 60554.5,
+      "ttft_p99": 124059.9,
+      "tpot_p50": 51.0,
+      "tpot_p99": 51.6,
+      "tok_s": 1171.2,
+      "goodput_tok_s": 29.9,
+      "slo_met_frac": 0.026
+    },
+    {
+      "rate": 32.0,
+      "completed": 2745,
+      "ttft_p50": 102265.9,
+      "ttft_p99": 206123.9,
+      "tpot_p50": 51.1,
+      "tpot_p99": 51.6,
+      "tok_s": 1171.2,
+      "goodput_tok_s": 26.0,
+      "slo_met_frac": 0.022
+    }
+  ]
+}
