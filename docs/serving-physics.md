@@ -63,6 +63,11 @@
 - decode：权重读受限，每 token **29,400µs**（bs=1）
 - **每 token 差 250×** → 混跑时 decode 的长尾会被 prefill 洪峰打断
 
+**干扰实测（E44）**：一个 8k 的 prefill chunk 会让并发 decode 延迟膨胀
+**16-34×**（decode bs=1/8）；chunk 降到 512 则只有 1.25-1.41×。
+换双流并发不改善（3.39× vs 串行 1.41×）→ 是真 SM/HBM 争用，
+**所以同卡 PD 分离物理上收益有限，PD 必须有独立设备**（与 E18 互证）。
+
 chunked prefill 的甜点（E34）：chunk=2048 时总 prefill 时间只多 13%，
 但单步阻塞从 152ms 降到 43ms（干扰降 3.5×）。**关键地板：一个 prefill chunk
 的延迟不可能低于一个 decode step（~30ms）**，因为两者是同样的发射开销。

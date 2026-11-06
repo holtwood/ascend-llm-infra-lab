@@ -362,3 +362,29 @@ L=8192 的 prompt，按不同 chunk 切分预填（每 chunk 是调度器的一�
    FlashAttention/paged-KV 内联寻址要解决的问题。
 
 复现：`scripts/overnight/tasks/attn_batch_scaling.py`。
+
+## E44 · Prefill/Decode 干扰实测（pd_interf.jsonl，同卡）
+
+单层 attention，decode 已在跑（ctx=4096），同时插入一个 prefill chunk：
+
+| decode bs | chunk | decode 单独 | 串行 mixed | decode 膨胀 | **双流并发** |
+|---|---|---|---|---|---|
+| 1 | 512 | 98 µs | 139 µs | 1.41× | **3.39×** |
+| 1 | 2048 | 98 µs | 334 µs | 3.40× | 3.16× |
+| 1 | 8192 | 98 µs | 3315 µs | **33.7×** | 33.0× |
+| 8 | 512 | 220 µs | 274 µs | 1.25× | 1.40× |
+| 8 | 2048 | 220 µs | 473 µs | 2.15× | 1.75× |
+| 8 | 8192 | 220 µs | 3527 µs | **16.1×** | 15.0× |
+
+**三个结论**：
+
+1. **一个 8k 的 prefill chunk 能让并发 decode 的延迟膨胀 16-34×**——这就是
+   队头阻塞的真实量级。chunk 从 8192 降到 512，膨胀从 33.7× 降到 1.41×，
+   **这是 chunked prefill 的直接收益（E34 的甜点 2048 对应 3.4×）**。
+2. **换成双流并发没有改善**（甚至 512 chunk 时更差：3.39× vs 1.41×）——
+   说明干扰不只是"排队"，而是**真实的 SM/HBM 争用**。多流/异步解决不了。
+3. **推论：同卡 PD 分离在物理上收益有限**——P 和 D 抢同一批 SM 和同一条 HBM，
+   分离进程并不分离资源。这与 E18 的结论（单卡 PD 数据面不可行）互相印证：
+   PD 只有在**物理上不同的卡**上才有意义。
+
+复现：`scripts/overnight/tasks/pd_interference.py`。
