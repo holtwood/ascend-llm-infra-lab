@@ -84,4 +84,10 @@
 - 机制解释（面试加分）：全零 K/V 不是"遗忘"——softmax(全零分数) 对全部历史位置**均匀加权**，等效有效上下文归零，所以连语言连贯都不保；这类干预实验的判读必须区分"内容丢失"与"计算结构破坏"
 - 工程坑：Qwen3.5 是思考模型，短预算 decode 必须 `apply_chat_template(enable_thinking=False)`，否则 100 token 全被 think 段吃掉
 
-（N1b 阶梯基准 / N6 vllm-ascend 部署+MTP+TP：进行中，数据回来后补条目。）
+**Q: KV cache 到底值多少加速？（手写引擎 A/B，非框架数字）**
+- 自写引擎同权重对照（严格等价：30 greedy token 全一致）：no-cache vs cache = **4.4×@128tok → 9.6×@2048tok**，且 128 token 时就已 4.4×——no-cache 的代价大头是每层算子调度的固定开销而非重算本身
+- cache 版 decode 对上下文长度脱敏：128→2078 ctx（16×）每步只 +2.2%（GDN 层 O(1)/步是架构红利，attention 层 q=1 时 KV 读占比极小）
+- **手写引擎 88-90ms/步 vs transformers 手动循环 96-98ms（快 8-10%）**：省的是 HF DynamicCache 封装、mask/position 构造的 Python 层开销——框架税的实测大小
+- 手撕陷阱：裸调 `model(seq)` 忘 `no_grad()` → autograd 保留全序列中间量，542 token 峰值 +20.4 GiB 直接 OOM（CPU 小模型完全感知不到）——NPU 裸循环验证必须显式 no_grad
+
+（N6 vllm-ascend 部署+MTP+TP：进行中，数据回来后补条目。）
