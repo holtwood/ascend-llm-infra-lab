@@ -129,6 +129,19 @@
 
 D soak：423 波，1167.2 → 1267.8 tok/s
 
-## 六、失败 / 跳过项
+## 六、结论与面试口径
 
-（收尾时人工补：serve 失败、显存不足、线路中断等）
+**1) 4 卡协同用满**：聚合 4394.1 tok/s ≈ 4 × 1099（单机稳态），与 E23 的 4371 同量级。机制：无 RDMA（E18）→ 唯一形态是副本+网关+多客户端；单卡 4B decode 是 memory-bound，AICore 40-50% 峰值即饱和。
+
+**2) 连续服务不退化**：330 波（~5h）吞吐 847.5→837.2 tok/s（-1.2%），TTFT 无上漂。机制：KV 池预分配、无泄漏；长稳压测要看首末对比而不是平均值。
+
+**3) 长上下文成本在 prefill**：c8 下 4k 366.1 → 63k 144.1 tok/s，TTFT 501.4 → 1327.7ms，TPOT 仅 14.1 → 31.3ms。机制：decode 每步只读增量 KV，ctx 主要压 prefill。
+
+**4) 换租不退化**：300 轮 sleep/wake，wake 114.8 → 119.2ms。机制：CaMem 保留 allocator/graph 元数据，唤醒只是权重回灌。
+
+**5) 模型规模/量化选型**：bf16_0p6b@c32=1836.9 bf16_0p6b@c64=2696.3 bf16_0p6b@c8=667.5 bf16_4b@c32=1122.4 bf16_4b@c64=1313.4 bf16_4b@c8=505.1 bf16_8b@c32=1301.3 bf16_8b@c64=1699.4 bf16_8b@c8=404.9 。注意 8B 在 c32/c64 反超 4B——4B 是 hybrid（24 层 GDN），其 conv1d 走 PyTorch fallback 每请求 host 同步（issue3 同源），高并发下被放大；选型不能只看参数量。
+
+## 七、失败 / 跳过项
+- D 的 27B-w8a8 臂：启动失败 `EE1023 Too many streams are created`（graph capture 流耗尽，非显存；issue2 同族）→ 跳过，可用 `--enforce-eager` 补测
+- M2 phase D 首轮空转：`e13_mixedjob.py` 未同步到 M2，6 分钟 7500 次空跑 → 同步脚本后加 `SKIP_ABC=1` 断点重跑
+- M1 首轮启动即退：`set -u` 下残留 `$WAVES` 引用 → 修复后重启

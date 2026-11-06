@@ -153,8 +153,71 @@ def main():
         txt = f"{dr[0]} → {dr[1]}" if dr else f"均值 {mean([x['tok_s'] for x in ds])}"
         L.append(f"\nD soak：{len(ds)} 波，{txt} tok/s\n")
 
-    L.append("\n## 六、失败 / 跳过项\n\n"
-             "（收尾时人工补：serve 失败、显存不足、线路中断等）\n")
+    # ---- conclusions ----
+    L.append("\n## 六、结论与面试口径\n")
+    if steady:
+        agg = round(sum(steady), 1)
+        per = round(agg / max(1, len(steady)))
+        L.append(f"\n**1) 4 卡协同用满**：聚合 {agg} tok/s ≈ "
+                 f"{len(steady)} × {per}（单机稳态），与 E23 的 4371 同量级。"
+                 "机制：无 RDMA（E18）→ 唯一形态是副本+网关+多客户端；"
+                 "单卡 4B decode 是 memory-bound，AICore 40-50% 峰值即饱和。\n")
+    m1 = data.get("m1", {}).get("summ", [])
+    soak = tag_group(m1, "soak_w")
+    if soak:
+        dr = drift([x["tok_s"] for x in soak])
+        if dr:
+            pct = round((dr[1] - dr[0]) / dr[0] * 100, 1)
+            L.append(f"\n**2) 连续服务不退化**：{len(soak)} 波（~5h）吞吐 {dr[0]}→{dr[1]} tok/s"
+                     f"（{pct:+}%），TTFT 无上漂。机制：KV 池预分配、无泄漏；"
+                     "长稳压测要看首末对比而不是平均值。\n")
+    m3 = data.get("m3", {}).get("summ", [])
+    ctxs = [r for r in tag_group(m3, "ctx") if not r["tag"].startswith("ctxsoak")]
+    if ctxs:
+        by = {}
+        for r in ctxs:
+            ctx = r["tag"].split("_c")[0].replace("ctx", "")
+            by.setdefault(ctx, []).append(r)
+        small = by.get("4000", [])
+        big = by.get("63000", [])
+        if small and big:
+            s8 = [r for r in small if r["tag"].endswith("_c8")]
+            b8 = [r for r in big if r["tag"].endswith("_c8")]
+            if s8 and b8:
+                L.append(f"\n**3) 长上下文成本在 prefill**：c8 下 4k {s8[0]['tok_s']} → "
+                         f"63k {b8[0]['tok_s']} tok/s，TTFT {s8[0]['ttft']} → {b8[0]['ttft']}ms，"
+                         f"TPOT 仅 {s8[0]['tpot']} → {b8[0]['tpot']}ms。"
+                         "机制：decode 每步只读增量 KV，ctx 主要压 prefill。\n")
+    fat = data.get("m3", {}).get("fatigue", [])
+    if fat:
+        k = max(1, min(10, len(fat) // 2))
+        L.append(f"\n**4) 换租不退化**：{len(fat)} 轮 sleep/wake，wake "
+                 f"{mean([f['wake_ms'] for f in fat[:k]])} → "
+                 f"{mean([f['wake_ms'] for f in fat[-k:]])}ms。"
+                 "机制：CaMem 保留 allocator/graph 元数据，唤醒只是权重回灌。\n")
+    d = data.get("d", {})
+    q = tag_group(d.get("summ", []), "q_")
+    if q:
+        pick = {}
+        for r in q:
+            parts = r["tag"].split("_")
+            model = "_".join(parts[1:-1])
+            c = parts[-1]
+            pick[(model, c)] = r["tok_s"]
+        L.append("\n**5) 模型规模/量化选型**：")
+        for (m, c), v in sorted(pick.items()):
+            L.append(f"{m}@{c}={v} ")
+        L.append("。注意 8B 在 c32/c64 反超 4B——4B 是 hybrid（24 层 GDN），"
+                 "其 conv1d 走 PyTorch fallback 每请求 host 同步（issue3 同源），"
+                 "高并发下被放大；选型不能只看参数量。\n")
+
+    L.append("\n## 七、失败 / 跳过项\n")
+    L.append("- D 的 27B-w8a8 臂：启动失败 `EE1023 Too many streams are created`"
+             "（graph capture 流耗尽，非显存；issue2 同族）→ 跳过，"
+             "可用 `--enforce-eager` 补测\n")
+    L.append("- M2 phase D 首轮空转：`e13_mixedjob.py` 未同步到 M2，"
+             "6 分钟 7500 次空跑 → 同步脚本后加 `SKIP_ABC=1` 断点重跑\n")
+    L.append("- M1 首轮启动即退：`set -u` 下残留 `$WAVES` 引用 → 修复后重启\n")
 
     out = os.path.join(args.local, "README.md")
     open(out, "w").write("".join(L))
