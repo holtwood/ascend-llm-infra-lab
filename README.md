@@ -42,7 +42,7 @@
 | E6 | W8A8-27B 精度代价：QA 94.3% + PPL/top1 一致性 94.4% | ✅ | results/e6 |
 | E7 | PD 分离同卡共置：建链失败定位 + 收益上限测算 | ✅ | results/e7 |
 | E8 | KV 容量账本：hybrid 公式 vs 实测 + 准入墙/容量墙 | ✅ | results/e8 |
-| E8b–e | 手撕算子/attention 变体（并行 lane） | ✅ | results/e8b–e8e |
+| E8b–e | 手撕算子/attention 变体（并行 lane） | ✅ | results/e8b-e8e（区间） |
 | E9 | goodput@SLO：达标率 vs 吞吐分叉 | ✅ | results/e9 |
 | E10 | sleep/wake：释放 97% 显存，wake 0.58s | ✅ | results/e10 |
 | E11 | async_scheduling 消融：吞吐 +60% TPOT −39% | ✅ | results/e11 |
