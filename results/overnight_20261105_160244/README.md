@@ -224,3 +224,30 @@ prefill 每 token 比 decode 快 **250×**（11.8µs vs 29ms）。
 
 注：L≤2048 的 prefill 步时被 ~30ms 的 launch 开销地板支配（同 E29），
 因此短 prompt 的 tok/s 是发射受限而非算力受限。
+
+## E32 · 抢占经济学：recompute vs swap（preemption.jsonl）
+
+vLLM 抢占序列时有两条路：重算（re-prefill）或把 KV 换出到主机内存。
+用真权重 + 真 KV 张量两条路都实测（910B1，D2H/H2D 实测 17-23 GB/s）：
+
+| 上下文 | KV | recompute | swap | 谁赢 | 倍数 |
+|---|---|---|---|---|---|
+| 1k | 117 MB | 31.9 ms | **11.4 ms** | swap | 2.8× |
+| 4k | 470 MB | **43.0 ms** | 44.6 ms | recompute | 1.04× |
+| 8k | 940 MB | 97.6 ms | **85.9 ms** | swap | 1.14× |
+| 16k | 1.88 GB | 282.0 ms | **204.0 ms** | swap | 1.38× |
+| 32k | 3.76 GB | 966.3 ms | **425.9 ms** | swap | 2.27× |
+
+**机制**：swap 成本 = `2 × KV字节 / 20GB/s`（线性）；
+recompute 成本 = 发射地板(~32ms) + 线性 matvec + **二次 attention（O(L²)）**。
+所以 1k 时 swap 赢在"不用付发射地板"，4k 附近两者打平（唯一 recompute 微胜点），
+16k 之后 recompute 的二次项主导，swap 优势重新拉开到 2.3×。
+
+**这对引擎设计意味着什么**：vLLM 默认用 recompute，前提是它的 prefill 被
+图捕获（地板≈0）且 attention 是融合 kernel（二次项常数小）。本实验给出的
+正是这个前提的量化版本——**换出/重算的交叉点由三件事决定**：
+① prefill 的发射地板 ② attention kernel 的二次项常数 ③ 主机链路带宽。
+在没有图捕获的 eager 栈上（本实验），交叉点只有 4k；工程上必须把 ①②
+压下去，recompute 才划算。
+
+复现：`scripts/overnight/tasks/preemption_economics.py`（逐行落盘，防超时丢数）。

@@ -1,0 +1,5 @@
+{"len": 1024, "kv_mb": 117.4, "recompute_ms": 31.9, "swap_ms": 11.4, "swap_d2h_gbps": 19.5, "swap_h2d_gbps": 21.8, "winner": "swap"}
+{"len": 4096, "kv_mb": 469.8, "recompute_ms": 43.0, "swap_ms": 44.6, "swap_d2h_gbps": 20.4, "swap_h2d_gbps": 21.8, "winner": "recompute"}
+{"len": 8192, "kv_mb": 939.5, "recompute_ms": 97.6, "swap_ms": 85.9, "swap_d2h_gbps": 20.8, "swap_h2d_gbps": 23.1, "winner": "swap"}
+{"len": 16384, "kv_mb": 1879.0, "recompute_ms": 282.0, "swap_ms": 204.0, "swap_d2h_gbps": 17.1, "swap_h2d_gbps": 19.9, "winner": "swap"}
+{"len": 32768, "kv_mb": 3758.1, "recompute_ms": 966.3, "swap_ms": 425.9, "swap_d2h_gbps": 17.7, "swap_h2d_gbps": 17.6, "winner": "swap"}
