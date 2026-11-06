@@ -276,3 +276,32 @@ attend over [prefix KV | suffix]，即 APC 的真实行为）。
 **所以"APC 有没有用"必须按 prefix 长度分布回答，不能只报命中率。**
 
 复现：`scripts/overnight/tasks/prefix_cache_benefit.py`。
+
+## E34 · Chunked prefill：chunk size 怎么选（chunked.jsonl）
+
+L=8192 的 prompt，按不同 chunk 切分预填（每 chunk 是调度器的一步，
+其它请求的 decode 在 chunk 之间插入）：
+
+| chunk | 步数 | 总时长 | 相对单发 | 每 chunk 均值 | 每 chunk 最大 |
+|---|---|---|---|---|---|
+| 8192（单发） | 1 | 151.9 ms | 1.00× | 151.9 ms | 151.9 ms |
+| 4096 | 2 | 177.3 ms | 1.17× | 88.6 ms | 132.0 ms |
+| **2048** | 4 | **171.9 ms** | **1.13×** | **43.0 ms** | 53.8 ms |
+| 1024 | 8 | 273.8 ms | 1.80× | 34.2 ms | 35.5 ms |
+| 512 | 16 | 545.3 ms | 3.59× | 34.1 ms | 36.1 ms |
+
+**结论：chunk=2048 是甜点**——总时长只多 13%，但单步阻塞时间从 152ms
+降到 43ms（干扰降 3.5×）。继续减小 chunk 到 1024/512 **不再降低单步延迟**
+（都卡在 ~34ms），却让总时长涨 1.8-3.6×。
+
+**关键洞察：每 chunk 的延迟地板 ≈ 一个 decode step 的延迟（29-34ms，见 E29）**
+——在 eager 栈上，你无法让"一个 prefill chunk"比"一个 decode step"更便宜，
+因为两者都是 28 层 × ~15 个算子的发射开销。所以 chunk size 的可行区间是
+「够小以降低干扰」到「不小于一个 decode step 的等量级」之间。
+
+**测量修正记录**：首轮未做 warmup，第一行（单发 8192）含冷启动，测出 409ms，
+导致"分块比单发快 2.3×"的错误结论；加 warmup 后单发 152ms，结论翻正为
+"分块小幅增本、显著降干扰"。独立复测单发 8192 = 97.6ms（与 E31 一致），
+说明 152ms 仍含少量残余预热成本，**故本表只用于相对比较**。
+
+复现：`scripts/overnight/tasks/chunked_prefill.py`。

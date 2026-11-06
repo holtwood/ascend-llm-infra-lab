@@ -1,0 +1,5 @@
+{"chunk": 8192, "chunks": 1, "total_ms": 151.9, "overhead_vs_single": 1.0, "per_chunk_ms_mean": 151.9, "per_chunk_ms_max": 151.9, "decode_steps_blocked": 5.2}
+{"chunk": 4096, "chunks": 2, "total_ms": 177.3, "overhead_vs_single": 1.17, "per_chunk_ms_mean": 88.6, "per_chunk_ms_max": 132.0, "decode_steps_blocked": 6.1}
+{"chunk": 2048, "chunks": 4, "total_ms": 171.9, "overhead_vs_single": 1.13, "per_chunk_ms_mean": 43.0, "per_chunk_ms_max": 53.8, "decode_steps_blocked": 5.9}
+{"chunk": 1024, "chunks": 8, "total_ms": 273.8, "overhead_vs_single": 1.8, "per_chunk_ms_mean": 34.2, "per_chunk_ms_max": 35.5, "decode_steps_blocked": 9.4}
+{"chunk": 512, "chunks": 16, "total_ms": 545.3, "overhead_vs_single": 3.59, "per_chunk_ms_mean": 34.1, "per_chunk_ms_max": 36.1, "decode_steps_blocked": 18.8}

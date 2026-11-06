@@ -66,7 +66,7 @@ def layer_forward(W, i, x, nkv, hq, hd, prefix_kv=None):
     g = torch.nn.functional.silu(h2 @ W[p + "mlp.gate_proj.weight"].t())
     u = h2 @ W[p + "mlp.up_proj.weight"].t()
     x = x + (g * u) @ W[p + "mlp.down_proj.weight"].t()
-    return x, (kh[:, ::G], vh[:, ::G])   # return un-expanded k/v for caching
+    return x, (kh0, vh0)   # return un-expanded k/v for caching
 
 
 def prefill(W, x, nlayers, nkv, hq, hd, cache_prefix=None):
