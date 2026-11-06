@@ -336,3 +336,29 @@ L=8192 的 prompt，按不同 chunk 切分预填（每 chunk 是调度器的一�
 先被发射开销卡住（图捕获解决），再被 attention 访存效率卡住（融合 kernel 解决）。
 
 复现：`scripts/overnight/tasks/attention_scaling.py`。
+
+## E39 · 长上下文 decode 的批处理饱和点（attn_batch.jsonl）
+
+单层 decode attention，ctx × batch 网格（GQA 8 KV 头）：
+
+| ctx | bs=1 | bs=4 | bs=16 | bs=64 |
+|---|---|---|---|---|
+| 8k | 215 GB/s (15%) | 485 (35%) | 669 (48%) | 756 (54%) |
+| 32k | 263 GB/s (19%) | 510 (36%) | 662 (47%) | 702 (50%) |
+
+每序列成本（8k）：156 → 69 → 50 → **44 µs**（bs=64 时降 3.5×）
+每序列成本（32k）：511 → 263 → 203 → **191 µs**（降 2.7×）
+
+**结论**：
+1. **长上下文 decode 想要大 batch**——每序列成本可降 2.7-3.5×，这与短上下文
+   "decode 加 batch 只摊薄权重读、不降单请求延迟"（E29）不同：长上下文时
+   KV 读是主体，批处理能提升访存并行度，**单序列成本真的下降**。
+2. **但 KV 带宽在 bs≈16 就饱和到 ~47%**，bs=64 也只到 50-54%（~750 GB/s）。
+   attention kernel 的访存效率上限只有 HBM 峰值的一半，且 batch 救不了。
+3. 结合 E30（8k 时最多 68 并发）与 E29（整步 29ms 发射开销主导）：
+   8k 场景的理论 attention 成本（68 × 44µs × 28 层 ≈ 84ms/step）在真实
+   eager 栈上会被 29ms 的发射地板掩盖，但一旦图捕获把地板压掉，
+   **attention 访存效率（50% 峰值）就会成为下一个瓶颈**——这正是
+   FlashAttention/paged-KV 内联寻址要解决的问题。
+
+复现：`scripts/overnight/tasks/attn_batch_scaling.py`。

@@ -1,0 +1,8 @@
+{"ctx": 8192, "bs": 1, "kv_mb": 33.6, "attn_us": 156.2, "kv_gbps": 214.8, "pct_of_hbm": 15.3, "us_per_seq": 156.2}
+{"ctx": 8192, "bs": 4, "kv_mb": 134.2, "attn_us": 276.7, "kv_gbps": 485.1, "pct_of_hbm": 34.7, "us_per_seq": 69.2}
+{"ctx": 8192, "bs": 16, "kv_mb": 536.9, "attn_us": 802.8, "kv_gbps": 668.8, "pct_of_hbm": 47.8, "us_per_seq": 50.2}
+{"ctx": 8192, "bs": 64, "kv_mb": 2147.5, "attn_us": 2841.0, "kv_gbps": 755.9, "pct_of_hbm": 54.0, "us_per_seq": 44.4}
+{"ctx": 32768, "bs": 1, "kv_mb": 134.2, "attn_us": 511.1, "kv_gbps": 262.6, "pct_of_hbm": 18.8, "us_per_seq": 511.1}
+{"ctx": 32768, "bs": 4, "kv_mb": 536.9, "attn_us": 1053.4, "kv_gbps": 509.7, "pct_of_hbm": 36.4, "us_per_seq": 263.3}
+{"ctx": 32768, "bs": 16, "kv_mb": 2147.5, "attn_us": 3245.2, "kv_gbps": 661.7, "pct_of_hbm": 47.3, "us_per_seq": 202.8}
+{"ctx": 32768, "bs": 64, "kv_mb": 8589.9, "attn_us": 12236.3, "kv_gbps": 702.0, "pct_of_hbm": 50.1, "us_per_seq": 191.2}
