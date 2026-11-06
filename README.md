@@ -83,6 +83,9 @@
 | N3b | cache 干预六条件：清 GDN state 无影响（它是 decode 递推器），清 KV 机制性塌缩（均匀注意力=有效上下文归零）；**轴向与 arXiv 2609.04434 相反** | ✅ | results/n3b |
 | N1b | 引擎阶梯基准：L0/L2 = 4.4×→9.6×（随长度放大），L2 对 ctx 脱敏（+2.2%/16×），**手写比 transformers 快 8-10%**（88-90ms vs 96-98ms/步），30 token 严格等价 | ✅ | results/n1 |
 | N6 | vllm-ascend 0.18 部署 + MTP 扫描（实验C）+ TP=2 对比（实验J） | 🔄 | — |
+| N8 | TileLang-Ascend 算子融合：量化 N2 "eager 小算子 68.9%" 的融合收益（降级路径 torch.compile graph 收益） | 🔄 卡0 | — |
+| N9 | KV offload 分层账本：D2H pinned/pageable×NUMA 带宽 + offload/重算/卡间迁移三方 crossover + 换出换回 demo | 🔄 卡1 | — |
+| — | 手撕题库：MoE router（naive/向量化/负载失衡演示/dispatch）+ top-k/top-p 采样器（Gumbel vs 逆CDF，数值稳定），全部带一致性自测 | ✅ | examples/moe_router_sampler.py |
 
 ## 目录结构
 
