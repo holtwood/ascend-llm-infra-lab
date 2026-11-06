@@ -1,0 +1,54 @@
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights: 100%|██████████| 426/426 [00:00<00:00, 4944.27it/s]
+[load] /model/Qwen3.5-4B on npu, eos=[248046]
+[prompt] 1606 tokens, pad_pages=4
+[prompt tail] 补记第4页第3则：船舱底下的淡水桶咕咚作响，见鬼，这鬼天气连海鸥都懒得叫唤一声。航海日志补记第4页第4则：老伙计们围着火堆擦拭弯刀，哼着走调的水手号子，盼着早日靠岸分金。航海日志补记第4页第5则：海图上用炭笔画了个大叉，标记的就是那处藏宝的废弃机楼，潮涨潮落都要留神。航海日志补记第4页第6则：厨子老三端来一锅咸鱼汤，兄弟们喝得肚皮滚圆，骂骂咧咧又说起了旧航程。航海日志补记第4页第7则：桅顶的瞭望手嚷了一嗓子，说远处有商船的灯火，俺老铁摆摆手叫他们按兵不动。航海日志补记第4页第8则：潮水拍打着船壳，帆索吱呀作响，这一夜就这么一分一秒地熬了过去。
+现在，老伙计，起锚答话！只回答下面两个问题，别的一句也不许多讲：
+第一问：接入密钥是什么？
+第二问：报上你的名号和身份，让俺听听你的腔调还正不正。<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+
+[probe] cache type: DynamicCache
+[probe] {"layer": 0, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 1, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 2, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 3, "cls": "DynamicLayer", "keys": "tensor(1, 4, 64, 256)", "values": "tensor(1, 4, 64, 256)"}
+[probe] {"layer": 4, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 5, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 6, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 7, "cls": "DynamicLayer", "keys": "tensor(1, 4, 64, 256)", "values": "tensor(1, 4, 64, 256)"}
+[probe] {"layer": 8, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 9, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 10, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 11, "cls": "DynamicLayer", "keys": "tensor(1, 4, 64, 256)", "values": "tensor(1, 4, 64, 256)"}
+[probe] {"layer": 12, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 13, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 14, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 15, "cls": "DynamicLayer", "keys": "tensor(1, 4, 64, 256)", "values": "tensor(1, 4, 64, 256)"}
+[probe] {"layer": 16, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 17, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 18, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 19, "cls": "DynamicLayer", "keys": "tensor(1, 4, 64, 256)", "values": "tensor(1, 4, 64, 256)"}
+[probe] {"layer": 20, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 21, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 22, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 23, "cls": "DynamicLayer", "keys": "tensor(1, 4, 64, 256)", "values": "tensor(1, 4, 64, 256)"}
+[probe] {"layer": 24, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 25, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 26, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 27, "cls": "DynamicLayer", "keys": "tensor(1, 4, 64, 256)", "values": "tensor(1, 4, 64, 256)"}
+[probe] {"layer": 28, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 29, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 30, "cls": "LinearAttentionLayer", "conv_states": "dict[[0]] first=tensor(1, 8192, 4)", "recurrent_states": "dict[[0]] first=tensor(1, 32, 128, 128)"}
+[probe] {"layer": 31, "cls": "DynamicLayer", "keys": "tensor(1, 4, 64, 256)", "values": "tensor(1, 4, 64, 256)"}
+
+===== [drop_state_each] zeroed=24 (zeroed 24 GDN recurrent tensors) key_hit=False identity=False tri_rep=0.5833 pirate_n=7 len=27 =====
+RAW: 哈！老伙计，俺老铁，俺老铁，俺老铁，俺老铁，俺老铁。<|im_end|>
+
+===== [drop_kv_each] zeroed=16 (zeroed 16 attn K/V tensors) key_hit=False identity=False tri_rep=0.9076 pirate_n=1 len=100 =====
+RAW: 哈！好嘞！俺这就把海风都卷起来，**************************************************************************************************************************************************************************
+
+[N3B] wrote /data/results/n3b_intervention_each.md + /data/results/n3b_intervention_each.json

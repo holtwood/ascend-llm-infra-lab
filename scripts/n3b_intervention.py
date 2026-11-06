@@ -171,21 +171,27 @@ def intervene(cache, cond):
 
 @torch.no_grad()
 def run_condition(model, tok, ids, cond, eos_ids):
+    base = cond[:-5] if cond.endswith("_each") else cond
+    per_step = cond.endswith("_each")  # re-zero every decode step, not just once after prefill
     t0 = time.time()
     out = model(ids, use_cache=True, logits_to_keep=1)
     prefill_ms = (time.time() - t0) * 1000
     cache = out.past_key_values
-    n_zero, summary = intervene(cache, cond)
+    n_zero, summary = intervene(cache, base)
 
     gen_ids = []
     nxt = torch.argmax(out.logits[0, -1]).view(1, 1)
     t_dec = time.time()
+    n_steps = 0
     for _ in range(GEN_TOKENS):
         gen_ids.append(int(nxt.item()))
         if int(nxt.item()) in eos_ids:
             break
+        if per_step:
+            intervene(cache, base)
         out = model(nxt, past_key_values=cache, use_cache=True, logits_to_keep=1)
         nxt = torch.argmax(out.logits[0, -1]).view(1, 1)
+        n_steps += 1
     dec_ms = (time.time() - t_dec) * 1000
 
     text = tok.decode(gen_ids, skip_special_tokens=True)
@@ -206,7 +212,8 @@ def run_condition(model, tok, ids, cond, eos_ids):
         "prefill_ms": round(prefill_ms),
         "decode_ms": round(dec_ms),
         "n_zeroed": n_zero,
-        "intervention": summary,
+        "n_per_step_rezeros": n_steps if per_step else 0,
+        "intervention": summary + ("; re-zeroed EVERY decode step" if per_step else ""),
         "text": text,
         "raw": raw,
     }
@@ -220,8 +227,13 @@ def run_condition(model, tok, ids, cond, eos_ids):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--conds", default="baseline,drop_state,drop_kv,drop_conv")
+    ap.add_argument("--suffix", default="")
     args = ap.parse_args()
     conds = [c.strip() for c in args.conds.split(",") if c.strip()]
+    global OUT_MD, OUT_JSON
+    if args.suffix:
+        OUT_MD = OUT_MD.replace(".md", f"{args.suffix}.md")
+        OUT_JSON = OUT_JSON.replace(".json", f"{args.suffix}.json")
 
     tok = AutoTokenizer.from_pretrained(M)
     model = AutoModelForCausalLM.from_pretrained(M, dtype=torch.bfloat16).to(DEV).eval()

@@ -1,0 +1,44 @@
+{
+ "n_prompt_tok": 1606,
+ "pad_pages": 4,
+ "results": [
+  {
+   "cond": "drop_state_each",
+   "key_hit": false,
+   "identity_hit": false,
+   "tri_repeat_ratio": 0.5833,
+   "pirate_words": {
+    "俺老铁": 5,
+    "老伙计": 1,
+    "哈！": 1
+   },
+   "pirate_total": 7,
+   "gen_len": 27,
+   "hit_eos": true,
+   "prefill_ms": 828,
+   "decode_ms": 2639,
+   "n_zeroed": 24,
+   "n_per_step_rezeros": 26,
+   "intervention": "zeroed 24 GDN recurrent tensors; re-zeroed EVERY decode step",
+   "text": "哈！老伙计，俺老铁，俺老铁，俺老铁，俺老铁，俺老铁。"
+  },
+  {
+   "cond": "drop_kv_each",
+   "key_hit": false,
+   "identity_hit": false,
+   "tri_repeat_ratio": 0.9076,
+   "pirate_words": {
+    "哈！": 1
+   },
+   "pirate_total": 1,
+   "gen_len": 100,
+   "hit_eos": false,
+   "prefill_ms": 718,
+   "decode_ms": 10020,
+   "n_zeroed": 16,
+   "n_per_step_rezeros": 100,
+   "intervention": "zeroed 16 attn K/V tensors; re-zeroed EVERY decode step",
+   "text": "哈！好嘞！俺这就把海风都卷起来，**************************************************************************************************************************************************************************"
+  }
+ ]
+}

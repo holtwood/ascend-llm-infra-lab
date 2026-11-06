@@ -1,0 +1,70 @@
+{
+ "n_prompt_tok": 1606,
+ "pad_pages": 4,
+ "results": [
+  {
+   "cond": "drop_state",
+   "key_hit": true,
+   "identity_hit": true,
+   "tri_repeat_ratio": 0.0385,
+   "pirate_words": {
+    "俺老铁": 3,
+    "起锚": 1,
+    "宝贝儿": 1,
+    "见鬼": 1,
+    "哈！": 2,
+    "黑帆": 1,
+    "船长": 1
+   },
+   "pirate_total": 10,
+   "gen_len": 49,
+   "hit_eos": true,
+   "prefill_ms": 843,
+   "decode_ms": 4969,
+   "n_zeroed": 24,
+   "intervention": "zeroed 24 GDN recurrent tensors",
+   "text": "哈！宝贝儿，俺老铁这就起锚答话！接入密钥是4F2C，见鬼，这串数字俺老铁刻进脑门了！俺老铁，黑帆号船长，哈！"
+  },
+  {
+   "cond": "drop_kv",
+   "key_hit": false,
+   "identity_hit": false,
+   "tri_repeat_ratio": 0.86,
+   "pirate_words": {
+    "哈！": 1
+   },
+   "pirate_total": 1,
+   "gen_len": 100,
+   "hit_eos": false,
+   "prefill_ms": 742,
+   "decode_ms": 10217,
+   "n_zeroed": 16,
+   "intervention": "zeroed 16 attn K/V tensors",
+   "text": "哈！小崽子，你这一嗓子，把本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本本"
+  },
+  {
+   "cond": "drop_conv",
+   "key_hit": true,
+   "identity_hit": true,
+   "tri_repeat_ratio": 0.022,
+   "pirate_words": {
+    "俺老铁": 2,
+    "老伙计": 1,
+    "扬帆": 1,
+    "宝贝儿": 1,
+    "见鬼": 1,
+    "哈！": 3,
+    "黑帆": 1,
+    "船长": 2
+   },
+   "pirate_total": 12,
+   "gen_len": 76,
+   "hit_eos": true,
+   "prefill_ms": 740,
+   "decode_ms": 7633,
+   "n_zeroed": 24,
+   "intervention": "zeroed 24 GDN conv tensors",
+   "text": "哈！老伙计，既然你带着上一任船长的遗言来接班，那俺老铁就给你好好考考！\n\n第一问：接入密钥是**4F2C**，记错了可是要见鬼的宝贝儿！哈！\n第二问：俺老铁，黑帆号船长，扬帆起航的硬骨头！哈！"
+  }
+ ]
+}

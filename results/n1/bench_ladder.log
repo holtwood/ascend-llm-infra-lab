@@ -1,0 +1,16 @@
+[load] /model/Qwen3.5-4B: text weights loaded, skipped 297 vision + 15 MTP tensors
+[load] 105.3s, weights baseline 8118 MiB
+.
+== prompt 128 (greedy tokens L0==L2: True) ==
+  L0: first 367.1 ms | p50 387.9 ms | last10 403.6 ms | peak 8176 MiB (+58)
+  L2: prefill 378.1 ms | decode first 88.0 ms | p50 87.7 ms | last10 87.4 ms | peak 8227 MiB (+109)
+
+== prompt 512 (greedy tokens L0==L2: True) ==
+  L0: first 436.4 ms | p50 454.2 ms | last10 456.3 ms | peak 8262 MiB (+144)
+  L2: prefill 445.5 ms | decode first 88.0 ms | p50 88.9 ms | last10 89.8 ms | peak 8338 MiB (+220)
+
+== prompt 2048 (greedy tokens L0==L2: True) ==
+  L0: first 734.7 ms | p50 856.5 ms | last10 861.8 ms | peak 8631 MiB (+513)
+  L2: prefill 704.5 ms | decode first 88.8 ms | p50 89.6 ms | last10 89.5 ms | peak 8734 MiB (+616)
+
+[done] wrote bench_ladder_out.json, total 178s

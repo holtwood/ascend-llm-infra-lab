@@ -80,7 +80,8 @@
 | N5 | w8a8 解剖：msModelSlim per-channel int8 对称 + per-token 动态激活量化，覆盖 84.5%，GDN out_proj/lm_head 排除 | ✅ | results/n5 |
 | N1 | 手写推理引擎（L0-L5 阶梯）：Qwen3.5-4B hybrid 前向 + KV/RNN state cache + naive 引擎；**真机 4B 权重 greedy 逐 token 一致**（rel diff 8e-3 ∈ bf16 噪声） | ✅ 骨架+验证 | examples/engine_np, results/n1 |
 | N7 | PD 分离慢互联账本：32K ctx 传 1GB KV@16.3GB/s=63ms≈0.6 decode 步；层级传输 288µs×32 层握手税 > 传输本身；DistServe 前提在本机不成立 | ✅ | results/n7 |
-| N1b/N3b/N6 | 引擎阶梯基准 / cache 干预实验 / vllm-ascend 0.18 部署+MTP 扫描+TP 对比 | 🔄 三线并行 | — |
+| N3b | cache 干预六条件：清 GDN state 无影响（它是 decode 递推器），清 KV 机制性塌缩（均匀注意力=有效上下文归零）；**轴向与 arXiv 2609.04434 相反** | ✅ | results/n3b |
+| N1b/N6 | 引擎阶梯基准 / vllm-ascend 0.18 部署+MTP 扫描+TP 对比 | 🔄 | — |
 
 ## 目录结构
 

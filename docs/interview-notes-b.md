@@ -73,4 +73,15 @@
 - 唯一例外：**tilelang-ascend 适配器仓**（tile-ai 社区线，非 DeepSeek 主线后端）覆盖 A2/A3（910B/C），CANN ≥8.3 即可——我在 CANN 8.5.1 上具备实验条件（用 TileLang DSL 手写融合算子，接 N2 的"eager 小算子未融合占 68.9%"做融合收益量化）
 - 面试加分点：昇腾算子开发三条路线之争（TileLang DSL vs Ascend C 原生 vs CATLASS 模板）、DeepGEMM-Ascend 的 1 Cube+2 Vector 混合核、scale 格式差异（UE8M0 对打包 int16）——能讲出"为什么这批内核 910 存量卡用不了"的人极少
 
-（N1b 阶梯基准 / N3b cache 干预 / N6 vllm-ascend 部署+MTP+TP：进行中，数据回来后补条目。）
+## Hybrid 两类记忆的功能分离（N3b，干预实验——负结果金矿）
+
+**Q: GDN 的 recurrent state 和 KV cache 各自承载什么信息？**
+- 我们做了六条件干预实验（1606 tok prompt：海盗 persona + 10 条事实 + 两问，prefill 后把对应 cache `.zero_()` 再 decode）：
+  - **清空 GDN recurrent state（一次性）→ 完全无影响**：照样答出密钥 4F2C、海盗腔 10 词——state 不承载 prefill 的可检索副本
+  - **清空 8 层 attn KV → 机制性塌缩**："本本本本…"单字重复（3-gram 重复率 0.86），密钥/persona/连贯全丢——KV cache 承载全部 prefill 内容
+  - **每步都清 recurrent state → 塌缩成"俺老铁，俺老铁…"**（rep 0.58）——state 的真实作用是 **decode 期递推连续性**，不是存储器
+- **轴向与 arXiv 2609.04434 的"recurrent=响应策略 / KV=精确检索"结论相反**（至少在本模型单轮短生成下）：实测 KV 是唯一的内容载体，GDN state 是递推器
+- 机制解释（面试加分）：全零 K/V 不是"遗忘"——softmax(全零分数) 对全部历史位置**均匀加权**，等效有效上下文归零，所以连语言连贯都不保；这类干预实验的判读必须区分"内容丢失"与"计算结构破坏"
+- 工程坑：Qwen3.5 是思考模型，短预算 decode 必须 `apply_chat_template(enable_thinking=False)`，否则 100 token 全被 think 段吃掉
+
+（N1b 阶梯基准 / N6 vllm-ascend 部署+MTP+TP：进行中，数据回来后补条目。）
