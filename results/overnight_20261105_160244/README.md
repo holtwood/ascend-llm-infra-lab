@@ -985,3 +985,20 @@ bs=64 decode @ ctx=4k，基线 p50=80.9ms；16k prompt 在 t=15 被调度进来�
   RadixAttention 的 token 粒度优势集中在短共享前缀场景。
 
 复现：`scripts/overnight/tasks/{hccl_overlap,giant_prefill_trace,prefix_divergence}.py`。
+
+## E80 · 面经追问：抢占换出会拖慢正在 decode 的请求吗（swap_decode.json）
+
+bs=32 decode @ ctx=4k，第 15-45 步期间侧流持续 D2H 换出 15MB KV block/步：
+
+| 阶段 | TPOT p50 | p90 | max |
+|---|---|---|---|
+| 换出前 | 45.9ms | 46.2 | 46.3 |
+| **换出中** | **45.7ms** | 45.9 | 46.0 |
+| 换出后 | 45.7ms | 45.9 | 45.9 |
+
+**结论**：**异步 swap-out 对 running 请求透明**——DMA 引擎独立工作，
+每步 15MB 的驱逐流量对 TPOT 影响为零（甚至在噪声内略好）。
+这回答了"抢占时该同步换出还是异步"——**异步换出免费**，
+vLLM 用 async swap worker 是正确设计；代价只在换出方恢复时。
+注意边界：本测量在发射受限域；带宽受限栈中 PCIe 链路饱和时
+结论可能不同，但 D2H 路径不走 HBM，争用点主要在调度开销。
