@@ -1,0 +1,80 @@
+INFO 11-05 12:43:58 [__init__.py:52] Available plugins for group vllm.platform_plugins:
+INFO 11-05 12:43:58 [__init__.py:54] - ascend -> vllm_ascend:register
+INFO 11-05 12:43:58 [__init__.py:57] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+/usr/local/python3.12.13/lib/python3.12/site-packages/triton/language/extra/cann/extension/math_ops.py:13: FutureWarning: triton.language.extra.cann.extension.atan2 is deprecated and will be removed in the next release; use triton.language.extra.cann.libdevice.atan2 instead.
+  @_deprecated(replacement="triton.language.extra.cann.libdevice.atan2")
+/usr/local/python3.12.13/lib/python3.12/site-packages/triton/language/extra/cann/extension/math_ops.py:35: FutureWarning: triton.language.extra.cann.extension.isfinited is deprecated and will be removed in the next release; use triton.language.extra.cann.libdevice.isfinited instead.
+  @_deprecated(replacement="triton.language.extra.cann.libdevice.isfinited")
+/usr/local/python3.12.13/lib/python3.12/site-packages/triton/language/extra/cann/extension/math_ops.py:49: FutureWarning: triton.language.extra.cann.extension.finitef is deprecated and will be removed in the next release; use triton.language.extra.cann.libdevice.finitef instead.
+  @_deprecated(replacement="triton.language.extra.cann.libdevice.finitef")
+INFO 11-05 12:43:58 [__init__.py:272] Platform plugin ascend is activated
+INFO 11-05 12:43:59 [platform.py:74] Breakable CUDAGraph on Ascend is opt-in; using VLLM_USE_BREAKABLE_CUDAGRAPH=0.
+INFO 11-05 12:44:15 [patch_indexer_kv_dtype.py:102] Patched AttentionConfig.indexer_kv_dtype to accept 'int8' (DeepSeek V4 Ascend indexer K cache dtype).
+INFO 11-05 12:44:15 [patch_kv_cache_dtype.py:117] Patched CacheConfig.cache_dtype to accept 'int8' and 'mxfp8' (Ascend KV cache dtypes).
+INFO 11-05 12:44:15 [__init__.py:112] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader`
+INFO 11-05 12:44:15 [__init__.py:112] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork`
+WARNING 11-05 12:44:15 [indexer_topk.py:29] Failed to import the DeepSelect extension (vllm._deepselect_C): No module named 'vllm._deepselect_C'
+(APIServer pid=268638) INFO 11-05 12:44:15 [api_utils.py:347] 
+(APIServer pid=268638) INFO 11-05 12:44:15 [api_utils.py:347]        █     █     █▄   ▄█
+(APIServer pid=268638) INFO 11-05 12:44:15 [api_utils.py:347]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.30.0
+(APIServer pid=268638) INFO 11-05 12:44:15 [api_utils.py:347]   █▄█▀ █     █     █     █  model   /model/Qwen3.5-4B
+(APIServer pid=268638) INFO 11-05 12:44:15 [api_utils.py:347]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=268638) INFO 11-05 12:44:15 [api_utils.py:347] 
+(APIServer pid=268638) INFO 11-05 12:44:15 [api_utils.py:286] non-default args: {'model_tag': '/model/Qwen3.5-4B', 'model': '/model/Qwen3.5-4B', 'max_model_len': 8192, 'served_model_name': ['qwen35-4b'], 'additional_config': {'scheduler_config': {'dyntra_lb_config': {'enabled': True, 'enable_diagnostics': True, 'mode': 'dynamic'}}}}
+(APIServer pid=268638) INFO 11-05 12:44:15 [model.py:692] Resolved architecture: Qwen3_5ForConditionalGeneration
+(APIServer pid=268638) INFO 11-05 12:44:15 [model.py:2030] Using max model len 8192
+(APIServer pid=268638) INFO 11-05 12:44:17 [config.py:625] Mamba cache mode is set to 'align' for Qwen3_5ForConditionalGeneration by default when prefix caching is enabled
+(APIServer pid=268638) INFO 11-05 12:44:17 [kernel.py:416] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['native'])
+(APIServer pid=268638) INFO 11-05 12:44:17 [utils.py:225] No quantization signature detected from model files for "/model/Qwen3.5-4B". The model will be loaded as float. To force a quantization method, pass "--quantization <method>" explicitly.
+(APIServer pid=268638) WARNING 11-05 12:44:17 [platform.py:730] GPU-specific parameter is not supported on Ascend. parameter=disable_cascade_attn, value=True, action: resetting to False.
+(APIServer pid=268638) INFO 11-05 12:44:17 [platform.py:944] The timeout interval of the HCCL operator is 1836s. Timeout in seconds for execute_model RPC calls in multiprocessing must be greater than 1836s, Set VLLM_EXECUTE_MODEL_TIMEOUT_SECONDS=3000
+(APIServer pid=268638) INFO 11-05 12:44:17 [ascend_config.py:334] Dynamic EPLB is False
+(APIServer pid=268638) INFO 11-05 12:44:17 [ascend_config.py:335] The number of redundant experts is 0
+(APIServer pid=268638) INFO 11-05 12:44:17 [ascend_config.py:768] FlashComm1 is disabled. Using flashinfer_all2allv as the all2all backend.
+(APIServer pid=268638) Traceback (most recent call last):
+(APIServer pid=268638)   File "/usr/local/python3.12.13/bin/vllm", line 6, in <module>
+(APIServer pid=268638)     sys.exit(main())
+(APIServer pid=268638)              ^^^^^^
+(APIServer pid=268638)   File "/vllm-workspace/vllm/vllm/entrypoints/cli/main.py", line 106, in main
+(APIServer pid=268638)     args.dispatch_function(args)
+(APIServer pid=268638)   File "/vllm-workspace/vllm/vllm/entrypoints/cli/serve.py", line 154, in cmd
+(APIServer pid=268638)     uvloop.run(run_server(args))
+(APIServer pid=268638)   File "/usr/local/python3.12.13/lib/python3.12/site-packages/uvloop/__init__.py", line 96, in run
+(APIServer pid=268638)     return __asyncio.run(
+(APIServer pid=268638)            ^^^^^^^^^^^^^^
+(APIServer pid=268638)   File "/usr/local/python3.12.13/lib/python3.12/asyncio/runners.py", line 195, in run
+(APIServer pid=268638)     return runner.run(main)
+(APIServer pid=268638)            ^^^^^^^^^^^^^^^^
+(APIServer pid=268638)   File "/usr/local/python3.12.13/lib/python3.12/asyncio/runners.py", line 118, in run
+(APIServer pid=268638)     return self._loop.run_until_complete(task)
+(APIServer pid=268638)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=268638)   File "uvloop/loop.pyx", line 1515, in uvloop.loop.Loop.run_until_complete
+(APIServer pid=268638)   File "/usr/local/python3.12.13/lib/python3.12/site-packages/uvloop/__init__.py", line 48, in wrapper
+(APIServer pid=268638)     return await main
+(APIServer pid=268638)            ^^^^^^^^^^
+(APIServer pid=268638)   File "/vllm-workspace/vllm/vllm/entrypoints/launchers/api_server/entry.py", line 176, in run_server
+(APIServer pid=268638)     await run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+(APIServer pid=268638)   File "/vllm-workspace/vllm/vllm/entrypoints/launchers/api_server/entry.py", line 190, in run_server_worker
+(APIServer pid=268638)     async with build_async_engine_client(
+(APIServer pid=268638)                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=268638)   File "/usr/local/python3.12.13/lib/python3.12/contextlib.py", line 210, in __aenter__
+(APIServer pid=268638)     return await anext(self.gen)
+(APIServer pid=268638)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=268638)   File "/vllm-workspace/vllm/vllm/entrypoints/launchers/api_server/entry.py", line 58, in build_async_engine_client
+(APIServer pid=268638)     async with build_async_engine_client_from_engine_args(
+(APIServer pid=268638)                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=268638)   File "/usr/local/python3.12.13/lib/python3.12/contextlib.py", line 210, in __aenter__
+(APIServer pid=268638)     return await anext(self.gen)
+(APIServer pid=268638)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=268638)   File "/vllm-workspace/vllm/vllm/entrypoints/launchers/api_server/entry.py", line 82, in build_async_engine_client_from_engine_args
+(APIServer pid=268638)     vllm_config = engine_args.create_engine_config(usage_context=usage_context)
+(APIServer pid=268638)                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=268638)   File "/vllm-workspace/vllm/vllm/engine/arg_utils.py", line 2647, in create_engine_config
+(APIServer pid=268638)     config = VllmConfig(
+(APIServer pid=268638)              ^^^^^^^^^^^
+(APIServer pid=268638)   File "/usr/local/python3.12.13/lib/python3.12/site-packages/pydantic/_internal/_dataclasses.py", line 121, in __init__
+(APIServer pid=268638)     s.__pydantic_validator__.validate_python(ArgsKwargs(args, kwargs), self_instance=s)
+(APIServer pid=268638) pydantic_core._pydantic_core.ValidationError: 1 validation error for VllmConfig
+(APIServer pid=268638)   Value error, DyntraLB is only supported on PD-disaggregated D nodes (kv_role='kv_consumer', but got kv_role=None). [type=value_error, input_value=ArgsKwargs((), {'model_co... 'shutdown_timeout': 0}), input_type=ArgsKwargs]
+(APIServer pid=268638)     For further information visit https://errors.pydantic.dev/2.14/v/value_error
+(APIServer pid=268638) [ERROR] 2026-11-05-12:44:19 (PID:268638, Device:-1, RankID:-1) ERR99999 UNKNOWN applicaiton exception

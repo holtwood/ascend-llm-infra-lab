@@ -753,3 +753,46 @@ ppl 测出 **2,890,863**（垃圾值）。补上后降到 20.82。
 **"ppl 荒谬"永远是实现错了，不是模型坏了**——这个自查信号要记住。
 
 复现：`scripts/overnight/tasks/perplexity_check.py`。
+
+## E67 · 采样开销：top-p 在大 batch 下比整个前向还贵（sampling.json）
+
+logits→token 是 TPOT 里很少被量化的隐形成本。vocab=151936（Qwen3）：
+
+| bs | LM head | argmax | softmax+multinomial | **top-p（sort）** |
+|---|---|---|---|---|
+| 1 | 0.84ms | 0.03ms | 0.17ms | **1.51ms（1.8× LM head）** |
+| 32 | 0.86ms | 0.03ms | 0.62ms | **21.5ms（25×）** |
+| 64 | 0.88ms | 0.04ms | 1.17ms | **40.9ms（46×）** |
+| 128 | 0.95ms | 0.06ms | 2.33ms | **78.4ms（83×）** |
+
+**结论**：
+- greedy/argmax 几乎免费（reduce 类 kernel）；
+- 朴素 top-p = softmax + **全词表排序** + cumsum + mask + multinomial，
+  O(vocab·log vocab)，bs=128 时 78ms——**超过本模型整个 decode step（30ms）**；
+- 这就是 vLLM 有独立 sampler kernel、且 top_k 先行截断词表的原因：
+  **先 top_k 截到 k 再排序，成本从 151936·log 降到 k·log**；
+- 温度采样（无 sort）居中，bs=128 时 ~2.3ms/step，是 TPOT 的可见税。
+
+注意这是朴素 torch 实现的量级证据；生产 kernel 会快很多，但
+**"top-p 排序是词表大小的超线性成本"这个结构事实不变**。
+
+## E68 · Roofline 扫描：910B1 的实测峰值与拐点（roofline.json）
+
+GEMM [M,K]×[K,N]，bf16：
+
+| 维度 | 结果 |
+|---|---|
+| 实测峰值 | **~321-324 TFLOPS**（4096³ / ffn m=8192），对标官方 ~320 |
+| 每算子延迟地板 | **~0.024ms**——m≤512 的所有 GEMM 都被发射地板钉死 |
+| 达到接近峰值的 M | **m≈2048-4096**（ffn_up 在 m=8192 到 321TF） |
+| m=1（单序列 decode） | 0.08-0.27 TFLOPS，**只用掉峰值的 0.03%** |
+
+**roofline 的 serving 解读**：
+- 机器平衡点 320TF/1.6TB/s ≈ **200 flop/byte**；
+- 但比理论更糟的是：**每步 m（batch token 数）≤512 时，连访存受限都谈不上，
+  直接卡死在 24µs 发射地板上**——又一次印证 eager 栈是"launch-bound 第一"；
+- 只有图捕获/大 batch 后才能谈真正的 roofline；
+- decode（m=bs）在 bs≤64 时永远是延迟受限，**"加大 batch 提吞吐"的真实
+  机理是摊薄发射延迟，而不是摊薄带宽**（带宽早就够摊了）。
+
+复现：`scripts/overnight/tasks/sampling_overhead.py`、`roofline_scan.py`。

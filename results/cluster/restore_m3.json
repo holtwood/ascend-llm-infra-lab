@@ -1,0 +1,31 @@
+{
+ "summary": {
+  "endpoint": "http://127.0.0.1:8000/v1/chat/completions",
+  "model": "qwen35-4b",
+  "concurrency": 2,
+  "num_requests": 2,
+  "completed": 2,
+  "errors": 0,
+  "wall_s": 0.45,
+  "ttft_mean_ms": 322.7,
+  "ttft_p99_ms": 315.9,
+  "tpot_mean_ms": 18.1,
+  "tpot_p99_ms": 17.3,
+  "output_tok_per_s": 35.4,
+  "err_sample": ""
+ },
+ "requests": [
+  {
+   "ttft_ms": 315.8513009548187,
+   "e2e_ms": 447.6774879731238,
+   "out_tokens": 8,
+   "tpot_ms": 18.832312431186438
+  },
+  {
+   "ttft_ms": 329.453662969172,
+   "e2e_ms": 450.5907017737627,
+   "out_tokens": 8,
+   "tpot_ms": 17.30529125779867
+  }
+ ]
+}

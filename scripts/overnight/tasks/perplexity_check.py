@@ -52,7 +52,14 @@ def apply_rope(q, k, cos, sin):
     return (q * cos + rotate_half(q) * sin, k * cos + rotate_half(k) * sin)
 
 
-def forward_logits(ids, W, cfg, dev, nlayers, hq, nkv, hd, hidden):
+def quant_kv_int8(t):
+    """Per-token-per-head int8 quantization of the KV cache (symmetric)."""
+    scale = t.abs().amax(dim=-1, keepdim=True).clamp_min(1e-8) / 127.0
+    q = torch.round(t / scale).clamp(-127, 127).to(torch.int8)
+    return (q.to(t.dtype) * scale)
+
+
+def forward_logits(ids, W, cfg, dev, nlayers, hq, nkv, hd, hidden, kv_int8=False):
     G = hq // nkv
     x = W["model.embed_tokens.weight"][ids]              # [L, hidden]
     L = x.shape[0]
@@ -67,6 +74,9 @@ def forward_logits(ids, W, cfg, dev, nlayers, hq, nkv, hd, hidden):
         q = rms_norm(q.view(L, hq, hd), W[p + "self_attn.q_norm.weight"]).view(L, -1)
         k = rms_norm(k.view(L, nkv, hd), W[p + "self_attn.k_norm.weight"]).view(L, -1)
         q, k = apply_rope(q.view(L, hq, hd), k.view(L, nkv, hd), cos, sin)
+        if kv_int8:
+            k = quant_kv_int8(k)
+            v = quant_kv_int8(v.view(L, nkv, hd)).view(L, -1)
         qh = q.view(1, L, hq, hd).transpose(1, 2)
         kh = k.view(1, L, nkv, hd).transpose(1, 2).repeat_interleave(G, dim=1)
         vh = v.view(1, L, nkv, hd).transpose(1, 2).repeat_interleave(G, dim=1)
@@ -109,6 +119,7 @@ def main():
     ap.add_argument("--int8", required=True)
     ap.add_argument("--out", required=True)
     args = ap.parse_args()
+    args.kv_int8 = True
     torch_npu.npu.set_device(0)
     dev = "npu:0"
     from transformers import AutoTokenizer
@@ -121,10 +132,14 @@ def main():
     hidden = cfg["hidden_size"]
     res = {"tokens": int(ids.shape[0])}
     outs = {}
-    for tag, path, dq in [("bf16", args.bf16, False), ("int8", args.int8, True)]:
+    runs = [("bf16", args.bf16, False, False),
+            ("w8a16", args.int8, True, False),
+            ("bf16_kv8", args.bf16, False, True),
+            ("w8a16_kv8", args.int8, True, True)]
+    for tag, path, dq, kvq in runs:
         W = load(path, dev, dequant=dq)
         with torch.no_grad():
-            lg = forward_logits(ids, W, cfg, dev, nlayers, hq, nkv, hd, hidden)
+            lg = forward_logits(ids, W, cfg, dev, nlayers, hq, nkv, hd, hidden, kv_int8=kvq)
         p, nll = ppl(lg, ids)
         outs[tag] = lg
         res[f"{tag}_ppl"] = round(p, 3)
@@ -132,11 +147,15 @@ def main():
         print(f"[E66] {tag:5s} ppl={p:8.3f} nll={nll:.4f}", flush=True)
         del W
         torch.npu.empty_cache()
-    a, b = outs["bf16"].argmax(-1), outs["int8"].argmax(-1)
-    res["top1_agreement_pct"] = round(100 * (a == b).float().mean().item(), 2)
-    res["ppl_delta_pct"] = round(100 * (res["int8_ppl"] - res["bf16_ppl"]) / res["bf16_ppl"], 2)
-    print(f"[E66] top-1 agreement {res['top1_agreement_pct']}%  "
-          f"ppl delta {res['ppl_delta_pct']:+.2f}%", flush=True)
+    base = outs["bf16"].argmax(-1)
+    for tag in ["w8a16", "bf16_kv8", "w8a16_kv8"]:
+        if tag in outs:
+            agree = 100 * (base == outs[tag].argmax(-1)).float().mean().item()
+            res[f"{tag}_top1_agree_pct"] = round(agree, 2)
+            res[f"{tag}_ppl_delta_pct"] = round(
+                100 * (res[f"{tag}_ppl"] - res["bf16_ppl"]) / res["bf16_ppl"], 2)
+            print(f"[E66] {tag:10s} top-1 agree {agree:5.2f}%  "
+                  f"ppl delta {res[f'{tag}_ppl_delta_pct']:+.2f}%", flush=True)
     with open(args.out, "w") as f:
         json.dump(res, f, indent=2)
     print("wrote", args.out)

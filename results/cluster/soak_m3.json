@@ -1,0 +1,5209 @@
+{
+ "summary": {
+  "endpoint": "http://127.0.0.1:8092/v1/chat/completions",
+  "model": "qwen35-4b",
+  "concurrency": 24,
+  "num_requests": 1200,
+  "completed": 530,
+  "errors": 670,
+  "wall_s": 125.54,
+  "ttft_mean_ms": 1119.3,
+  "ttft_p99_ms": 2987.2,
+  "tpot_mean_ms": 46.4,
+  "tpot_p99_ms": 76.1,
+  "output_tok_per_s": 404.6,
+  "err_sample": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+ },
+ "requests": [
+  {
+   "ttft_ms": 2029.5740771107376,
+   "e2e_ms": 7517.973218113184,
+   "out_tokens": 96,
+   "tpot_ms": 57.77262253686786
+  },
+  {
+   "ttft_ms": 2327.450731769204,
+   "e2e_ms": 7689.29384695366,
+   "out_tokens": 96,
+   "tpot_ms": 56.44045384404691
+  },
+  {
+   "ttft_ms": 2327.165865805,
+   "e2e_ms": 7689.561353996396,
+   "out_tokens": 96,
+   "tpot_ms": 56.44626829675153
+  },
+  {
+   "ttft_ms": 2326.9991520792246,
+   "e2e_ms": 7689.963452052325,
+   "out_tokens": 96,
+   "tpot_ms": 56.45225578919053
+  },
+  {
+   "ttft_ms": 2326.795917004347,
+   "e2e_ms": 7690.329120960087,
+   "out_tokens": 96,
+   "tpot_ms": 56.458244252165684
+  },
+  {
+   "ttft_ms": 2326.670663896948,
+   "e2e_ms": 7690.662477631122,
+   "out_tokens": 96,
+   "tpot_ms": 56.46307172351762
+  },
+  {
+   "ttft_ms": 2326.5791819430888,
+   "e2e_ms": 7690.929673612118,
+   "out_tokens": 96,
+   "tpot_ms": 56.46684728072662
+  },
+  {
+   "ttft_ms": 2326.387437991798,
+   "e2e_ms": 7690.844992175698,
+   "out_tokens": 96,
+   "tpot_ms": 56.46797425456737
+  },
+  {
+   "ttft_ms": 2326.218063943088,
+   "e2e_ms": 7691.813852638006,
+   "out_tokens": 96,
+   "tpot_ms": 56.479955670472826
+  },
+  {
+   "ttft_ms": 2646.512827835977,
+   "e2e_ms": 7859.925491735339,
+   "out_tokens": 96,
+   "tpot_ms": 54.878028041045916
+  },
+  {
+   "ttft_ms": 2646.397135220468,
+   "e2e_ms": 7860.573106911033,
+   "out_tokens": 96,
+   "tpot_ms": 54.88606285990069
+  },
+  {
+   "ttft_ms": 2646.198381204158,
+   "e2e_ms": 7860.847683157772,
+   "out_tokens": 96,
+   "tpot_ms": 54.89104528372225
+  },
+  {
+   "ttft_ms": 2646.0741981863976,
+   "e2e_ms": 7861.254442017525,
+   "out_tokens": 96,
+   "tpot_ms": 54.896634145590816
+  },
+  {
+   "ttft_ms": 2645.966396201402,
+   "e2e_ms": 7862.428129184991,
+   "out_tokens": 96,
+   "tpot_ms": 54.91012350509041
+  },
+  {
+   "ttft_ms": 2645.7915022037923,
+   "e2e_ms": 7862.229274120182,
+   "out_tokens": 96,
+   "tpot_ms": 54.90987128333042
+  },
+  {
+   "ttft_ms": 2645.662979222834,
+   "e2e_ms": 7864.038453903049,
+   "out_tokens": 96,
+   "tpot_ms": 54.930268154528584
+  },
+  {
+   "ttft_ms": 2645.6395192071795,
+   "e2e_ms": 7864.408502820879,
+   "out_tokens": 96,
+   "tpot_ms": 54.93441035382842
+  },
+  {
+   "ttft_ms": 2988.014761824161,
+   "e2e_ms": 8032.237634062767,
+   "out_tokens": 96,
+   "tpot_ms": 53.09708286566954
+  },
+  {
+   "ttft_ms": 2987.969850655645,
+   "e2e_ms": 8033.023722004145,
+   "out_tokens": 96,
+   "tpot_ms": 53.10583022472105
+  },
+  {
+   "ttft_ms": 2987.769137136638,
+   "e2e_ms": 8033.348449971527,
+   "out_tokens": 96,
+   "tpot_ms": 53.11136118773567
+  },
+  {
+   "ttft_ms": 2987.6532652415335,
+   "e2e_ms": 8033.881271257997,
+   "out_tokens": 96,
+   "tpot_ms": 53.118189537015404
+  },
+  {
+   "ttft_ms": 2987.522811163217,
+   "e2e_ms": 8034.293239936233,
+   "out_tokens": 96,
+   "tpot_ms": 53.12389925024227
+  },
+  {
+   "ttft_ms": 2987.3196268454194,
+   "e2e_ms": 8035.3225925937295,
+   "out_tokens": 96,
+   "tpot_ms": 53.13687332366642
+  },
+  {
+   "ttft_ms": 2987.234504893422,
+   "e2e_ms": 8036.307405214757,
+   "out_tokens": 96,
+   "tpot_ms": 53.14813579285615
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 883.9834788814187,
+   "e2e_ms": 5639.51334124431,
+   "out_tokens": 96,
+   "tpot_ms": 50.058209077504124
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 886.2062892876565,
+   "e2e_ms": 5774.978554341942,
+   "out_tokens": 96,
+   "tpot_ms": 51.46076068478195
+  },
+  {
+   "ttft_ms": 885.7300886884332,
+   "e2e_ms": 5775.00183461234,
+   "out_tokens": 96,
+   "tpot_ms": 51.46601837814639
+  },
+  {
+   "ttft_ms": 885.3476401418447,
+   "e2e_ms": 5774.9889441765845,
+   "out_tokens": 96,
+   "tpot_ms": 51.46990846352357
+  },
+  {
+   "ttft_ms": 885.2325878106058,
+   "e2e_ms": 5774.4167619384825,
+   "out_tokens": 96,
+   "tpot_ms": 51.46509656976713
+  },
+  {
+   "ttft_ms": 884.9330595694482,
+   "e2e_ms": 5774.490652605891,
+   "out_tokens": 96,
+   "tpot_ms": 51.469027295120455
+  },
+  {
+   "ttft_ms": 884.9277198314667,
+   "e2e_ms": 5774.856891017407,
+   "out_tokens": 96,
+   "tpot_ms": 51.47293864406253
+  },
+  {
+   "ttft_ms": 884.412179235369,
+   "e2e_ms": 5774.903682991862,
+   "out_tokens": 96,
+   "tpot_ms": 51.47885793427888
+  },
+  {
+   "ttft_ms": 884.2234653420746,
+   "e2e_ms": 5773.95104104653,
+   "out_tokens": 96,
+   "tpot_ms": 51.47081658636269
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 871.6590260155499,
+   "e2e_ms": 5905.443956144154,
+   "out_tokens": 96,
+   "tpot_ms": 52.987209790827414
+  },
+  {
+   "ttft_ms": 872.0128829590976,
+   "e2e_ms": 5905.803313013166,
+   "out_tokens": 96,
+   "tpot_ms": 52.98726768477967
+  },
+  {
+   "ttft_ms": 871.9672318547964,
+   "e2e_ms": 5905.70706082508,
+   "out_tokens": 96,
+   "tpot_ms": 52.98673504179246
+  },
+  {
+   "ttft_ms": 872.0029131509364,
+   "e2e_ms": 5905.274392105639,
+   "out_tokens": 96,
+   "tpot_ms": 52.98180504162845
+  },
+  {
+   "ttft_ms": 871.3717092759907,
+   "e2e_ms": 5905.297881923616,
+   "out_tokens": 96,
+   "tpot_ms": 52.98869655418553
+  },
+  {
+   "ttft_ms": 871.80808885023,
+   "e2e_ms": 5905.201009940356,
+   "out_tokens": 96,
+   "tpot_ms": 52.983083379896065
+  },
+  {
+   "ttft_ms": 871.7658082023263,
+   "e2e_ms": 5905.947096180171,
+   "out_tokens": 96,
+   "tpot_ms": 52.99138197871415
+  },
+  {
+   "ttft_ms": 870.8952884189785,
+   "e2e_ms": 5905.4816463030875,
+   "out_tokens": 96,
+   "tpot_ms": 52.99564587246431
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 866.9979120604694,
+   "e2e_ms": 6039.722051937133,
+   "out_tokens": 96,
+   "tpot_ms": 54.44972778817541
+  },
+  {
+   "ttft_ms": 866.6931949555874,
+   "e2e_ms": 6039.343963842839,
+   "out_tokens": 96,
+   "tpot_ms": 54.44895546197107
+  },
+  {
+   "ttft_ms": 866.65726499632,
+   "e2e_ms": 6038.832241669297,
+   "out_tokens": 96,
+   "tpot_ms": 54.443947122873446
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 865.2634429745376,
+   "e2e_ms": 6038.1937879137695,
+   "out_tokens": 96,
+   "tpot_ms": 54.45189836778139
+  },
+  {
+   "ttft_ms": 865.3030837886035,
+   "e2e_ms": 6038.489574100822,
+   "out_tokens": 96,
+   "tpot_ms": 54.45459463486546
+  },
+  {
+   "ttft_ms": 865.3010739944875,
+   "e2e_ms": 6038.0796659737825,
+   "out_tokens": 96,
+   "tpot_ms": 54.4503009682031
+  },
+  {
+   "ttft_ms": 865.5285388231277,
+   "e2e_ms": 6038.65007776767,
+   "out_tokens": 96,
+   "tpot_ms": 54.45391093625834
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1903.9479838684201,
+   "e2e_ms": 7288.663087878376,
+   "out_tokens": 96,
+   "tpot_ms": 56.68121162115743
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 1917.07503516227,
+   "e2e_ms": 7160.399675834924,
+   "out_tokens": 96,
+   "tpot_ms": 55.19289095444899
+  },
+  {
+   "ttft_ms": 1915.876439306885,
+   "e2e_ms": 7159.879594109952,
+   "out_tokens": 96,
+   "tpot_ms": 55.20003320845334
+  },
+  {
+   "ttft_ms": 1915.7709372229874,
+   "e2e_ms": 7160.172791220248,
+   "out_tokens": 96,
+   "tpot_ms": 55.204230042076425
+  },
+  {
+   "ttft_ms": 1914.668841753155,
+   "e2e_ms": 7159.67692900449,
+   "out_tokens": 96,
+   "tpot_ms": 55.210611444750896
+  },
+  {
+   "ttft_ms": 1913.4205039590597,
+   "e2e_ms": 7158.392750192434,
+   "out_tokens": 96,
+   "tpot_ms": 55.21023417087762
+  },
+  {
+   "ttft_ms": 1912.8426807001233,
+   "e2e_ms": 7158.542673569173,
+   "out_tokens": 96,
+   "tpot_ms": 55.21789466177947
+  },
+  {
+   "ttft_ms": 1911.817617714405,
+   "e2e_ms": 7157.83415781334,
+   "out_tokens": 96,
+   "tpot_ms": 55.22122673788353
+  },
+  {
+   "ttft_ms": 1911.7659670300782,
+   "e2e_ms": 7158.794870134443,
+   "out_tokens": 96,
+   "tpot_ms": 55.23188319057226
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 1918.652269989252,
+   "e2e_ms": 7031.420317012817,
+   "out_tokens": 96,
+   "tpot_ms": 53.81861102130068
+  },
+  {
+   "ttft_ms": 1917.7379701286554,
+   "e2e_ms": 7031.2803639099,
+   "out_tokens": 96,
+   "tpot_ms": 53.826762039802574
+  },
+  {
+   "ttft_ms": 1916.8822607025504,
+   "e2e_ms": 7030.888274777681,
+   "out_tokens": 96,
+   "tpot_ms": 53.83164225342242
+  },
+  {
+   "ttft_ms": 1915.756125934422,
+   "e2e_ms": 7029.930313583463,
+   "out_tokens": 96,
+   "tpot_ms": 53.83341250156886
+  },
+  {
+   "ttft_ms": 1914.9717083200812,
+   "e2e_ms": 7029.839001130313,
+   "out_tokens": 96,
+   "tpot_ms": 53.84070834537086
+  },
+  {
+   "ttft_ms": 1914.3004529178143,
+   "e2e_ms": 7029.998735059053,
+   "out_tokens": 96,
+   "tpot_ms": 53.84945560148672
+  },
+  {
+   "ttft_ms": 1914.2263918183744,
+   "e2e_ms": 7029.787810053676,
+   "out_tokens": 96,
+   "tpot_ms": 53.84801492879265
+  },
+  {
+   "ttft_ms": 1913.7743222527206,
+   "e2e_ms": 7030.224800109863,
+   "out_tokens": 96,
+   "tpot_ms": 53.85737345112782
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 1915.0686510838568,
+   "e2e_ms": 6902.273685205728,
+   "out_tokens": 96,
+   "tpot_ms": 52.49689509601969
+  },
+  {
+   "ttft_ms": 1913.804491981864,
+   "e2e_ms": 6901.598808821291,
+   "out_tokens": 96,
+   "tpot_ms": 52.50309807199397
+  },
+  {
+   "ttft_ms": 1913.5690270923078,
+   "e2e_ms": 6902.240364346653,
+   "out_tokens": 96,
+   "tpot_ms": 52.51232986583521
+  },
+  {
+   "ttft_ms": 1912.7337182871997,
+   "e2e_ms": 6901.3984450139105,
+   "out_tokens": 96,
+   "tpot_ms": 52.512260281333795
+  },
+  {
+   "ttft_ms": 1912.170855794102,
+   "e2e_ms": 6900.417303200811,
+   "out_tokens": 96,
+   "tpot_ms": 52.507857341123255
+  },
+  {
+   "ttft_ms": 1911.675374954939,
+   "e2e_ms": 6901.349633932114,
+   "out_tokens": 96,
+   "tpot_ms": 52.52288693660184
+  },
+  {
+   "ttft_ms": 1911.4457401446998,
+   "e2e_ms": 6901.166469790041,
+   "out_tokens": 96,
+   "tpot_ms": 52.52337610152991
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 750.0663721002638,
+   "e2e_ms": 5175.18278490752,
+   "out_tokens": 96,
+   "tpot_ms": 46.58017276639217
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 741.8781691230834,
+   "e2e_ms": 5168.707850389183,
+   "out_tokens": 96,
+   "tpot_ms": 46.5982071712221
+  },
+  {
+   "ttft_ms": 740.7957757823169,
+   "e2e_ms": 5167.183016892523,
+   "out_tokens": 96,
+   "tpot_ms": 46.59354990642322
+  },
+  {
+   "ttft_ms": 740.7752252183855,
+   "e2e_ms": 5167.983705177903,
+   "out_tokens": 96,
+   "tpot_ms": 46.60219452588966
+  },
+  {
+   "ttft_ms": 739.9885272607207,
+   "e2e_ms": 5167.7609998732805,
+   "out_tokens": 96,
+   "tpot_ms": 46.60813129065853
+  },
+  {
+   "ttft_ms": 739.3555729649961,
+   "e2e_ms": 5167.587375734001,
+   "out_tokens": 96,
+   "tpot_ms": 46.6129663449369
+  },
+  {
+   "ttft_ms": 739.1192279756069,
+   "e2e_ms": 5168.359373230487,
+   "out_tokens": 96,
+   "tpot_ms": 46.62358047636716
+  },
+  {
+   "ttft_ms": 737.9484008997679,
+   "e2e_ms": 5166.771417018026,
+   "out_tokens": 96,
+   "tpot_ms": 46.61918964335009
+  },
+  {
+   "ttft_ms": 737.1034529060125,
+   "e2e_ms": 5167.304888833314,
+   "out_tokens": 96,
+   "tpot_ms": 46.633699325550545
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 742.7846686914563,
+   "e2e_ms": 5167.812500614673,
+   "out_tokens": 96,
+   "tpot_ms": 46.579240336033855
+  },
+  {
+   "ttft_ms": 741.5059907361865,
+   "e2e_ms": 5165.952239651233,
+   "out_tokens": 96,
+   "tpot_ms": 46.573118409632066
+  },
+  {
+   "ttft_ms": 740.9824091009796,
+   "e2e_ms": 5166.423549875617,
+   "out_tokens": 96,
+   "tpot_ms": 46.5835909555225
+  },
+  {
+   "ttft_ms": 740.518718957901,
+   "e2e_ms": 5166.2191562354565,
+   "out_tokens": 96,
+   "tpot_ms": 46.58632039239532
+  },
+  {
+   "ttft_ms": 740.2797727845609,
+   "e2e_ms": 5166.760156862438,
+   "out_tokens": 96,
+   "tpot_ms": 46.59453035871449
+  },
+  {
+   "ttft_ms": 739.7395321168005,
+   "e2e_ms": 5166.2232163362205,
+   "out_tokens": 96,
+   "tpot_ms": 46.59456509704653
+  },
+  {
+   "ttft_ms": 738.9476140961051,
+   "e2e_ms": 5166.527941823006,
+   "out_tokens": 96,
+   "tpot_ms": 46.60610871291474
+  },
+  {
+   "ttft_ms": 780.7714636437595,
+   "e2e_ms": 5166.406588628888,
+   "out_tokens": 96,
+   "tpot_ms": 46.164580263001355
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 738.3003989234567,
+   "e2e_ms": 5160.34052381292,
+   "out_tokens": 96,
+   "tpot_ms": 46.54779078831014
+  },
+  {
+   "ttft_ms": 738.3840018883348,
+   "e2e_ms": 5160.71053314954,
+   "out_tokens": 96,
+   "tpot_ms": 46.55080559222322
+  },
+  {
+   "ttft_ms": 737.8148580901325,
+   "e2e_ms": 5160.934526938945,
+   "out_tokens": 96,
+   "tpot_ms": 46.559154408934866
+  },
+  {
+   "ttft_ms": 737.6655959524214,
+   "e2e_ms": 5160.630761180073,
+   "out_tokens": 96,
+   "tpot_ms": 46.55752805502791
+  },
+  {
+   "ttft_ms": 737.0658321306109,
+   "e2e_ms": 5160.747744143009,
+   "out_tokens": 96,
+   "tpot_ms": 46.565072758025245
+  },
+  {
+   "ttft_ms": 736.7963758297265,
+   "e2e_ms": 5160.573728848249,
+   "out_tokens": 96,
+   "tpot_ms": 46.56607740019497
+  },
+  {
+   "ttft_ms": 736.0136588104069,
+   "e2e_ms": 5160.824995022267,
+   "out_tokens": 96,
+   "tpot_ms": 46.57696143380905
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 711.8465211242437,
+   "e2e_ms": 5568.847218994051,
+   "out_tokens": 96,
+   "tpot_ms": 51.12632313547166
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 713.0751786753535,
+   "e2e_ms": 5574.952345807105,
+   "out_tokens": 96,
+   "tpot_ms": 51.177654390860546
+  },
+  {
+   "ttft_ms": 712.2054588980973,
+   "e2e_ms": 5574.585966765881,
+   "out_tokens": 96,
+   "tpot_ms": 51.18295271439772
+  },
+  {
+   "ttft_ms": 711.5776953287423,
+   "e2e_ms": 5573.8873411901295,
+   "out_tokens": 96,
+   "tpot_ms": 51.18220679854092
+  },
+  {
+   "ttft_ms": 710.3920988738537,
+   "e2e_ms": 5573.720308020711,
+   "out_tokens": 96,
+   "tpot_ms": 51.19292851733534
+  },
+  {
+   "ttft_ms": 709.8618769086897,
+   "e2e_ms": 5573.500653263181,
+   "out_tokens": 96,
+   "tpot_ms": 51.196197645836754
+  },
+  {
+   "ttft_ms": 708.9915978722274,
+   "e2e_ms": 5573.79658985883,
+   "out_tokens": 96,
+   "tpot_ms": 51.208473599858976
+  },
+  {
+   "ttft_ms": 708.5520378313959,
+   "e2e_ms": 5574.904824141413,
+   "out_tokens": 96,
+   "tpot_ms": 51.224766171684394
+  },
+  {
+   "ttft_ms": 708.3143033087254,
+   "e2e_ms": 5576.390888076276,
+   "out_tokens": 96,
+   "tpot_ms": 51.24291141860579
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 706.3093688338995,
+   "e2e_ms": 5573.309849016368,
+   "out_tokens": 96,
+   "tpot_ms": 51.23158400192072
+  },
+  {
+   "ttft_ms": 705.4222682490945,
+   "e2e_ms": 5573.2599082402885,
+   "out_tokens": 96,
+   "tpot_ms": 51.24039621043362
+  },
+  {
+   "ttft_ms": 704.8300858587027,
+   "e2e_ms": 5573.201597202569,
+   "out_tokens": 96,
+   "tpot_ms": 51.246015908882804
+  },
+  {
+   "ttft_ms": 703.9861758239567,
+   "e2e_ms": 5572.95483071357,
+   "out_tokens": 96,
+   "tpot_ms": 51.25230163041698
+  },
+  {
+   "ttft_ms": 702.9406032525003,
+   "e2e_ms": 5573.072693310678,
+   "out_tokens": 96,
+   "tpot_ms": 51.26454831640187
+  },
+  {
+   "ttft_ms": 702.9544836841524,
+   "e2e_ms": 5573.853370733559,
+   "out_tokens": 96,
+   "tpot_ms": 51.27261986367797
+  },
+  {
+   "ttft_ms": 702.2681678645313,
+   "e2e_ms": 5574.0372450090945,
+   "out_tokens": 96,
+   "tpot_ms": 51.28177975941645
+  },
+  {
+   "ttft_ms": 701.7513969913125,
+   "e2e_ms": 5575.533899012953,
+   "out_tokens": 96,
+   "tpot_ms": 51.302973705490956
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 746.0503317415714,
+   "e2e_ms": 5575.192960910499,
+   "out_tokens": 96,
+   "tpot_ms": 50.83308030704134
+  },
+  {
+   "ttft_ms": 745.3272263519466,
+   "e2e_ms": 5574.826353229582,
+   "out_tokens": 96,
+   "tpot_ms": 50.83683291450143
+  },
+  {
+   "ttft_ms": 744.6181303821504,
+   "e2e_ms": 5574.918525293469,
+   "out_tokens": 96,
+   "tpot_ms": 50.84526731485599
+  },
+  {
+   "ttft_ms": 744.6493608877063,
+   "e2e_ms": 5575.592310167849,
+   "out_tokens": 96,
+   "tpot_ms": 50.85203104505413
+  },
+  {
+   "ttft_ms": 744.2274517379701,
+   "e2e_ms": 5575.159559957683,
+   "out_tokens": 96,
+   "tpot_ms": 50.851916928628555
+  },
+  {
+   "ttft_ms": 743.7433302402496,
+   "e2e_ms": 5575.488697271794,
+   "out_tokens": 96,
+   "tpot_ms": 50.86047754770047
+  },
+  {
+   "ttft_ms": 743.3042312040925,
+   "e2e_ms": 5575.649160891771,
+   "out_tokens": 96,
+   "tpot_ms": 50.866788733554515
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1098.2138640247285,
+   "e2e_ms": 4946.63564208895,
+   "out_tokens": 95,
+   "tpot_ms": 40.940657213449164
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1056.8338437005877,
+   "e2e_ms": 4749.8539057560265,
+   "out_tokens": 94,
+   "tpot_ms": 39.70989314038106
+  },
+  {
+   "ttft_ms": 1056.407033931464,
+   "e2e_ms": 4749.173219781369,
+   "out_tokens": 94,
+   "tpot_ms": 39.70716328870866
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1051.9447950646281,
+   "e2e_ms": 4745.4245570115745,
+   "out_tokens": 94,
+   "tpot_ms": 39.71483614996716
+  },
+  {
+   "ttft_ms": 1051.3019701465964,
+   "e2e_ms": 4744.778051972389,
+   "out_tokens": 94,
+   "tpot_ms": 39.71479657877197
+  },
+  {
+   "ttft_ms": 1051.2211481109262,
+   "e2e_ms": 4745.32909411937,
+   "out_tokens": 94,
+   "tpot_ms": 39.721590817295095
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1047.6751797832549,
+   "e2e_ms": 4742.374378722161,
+   "out_tokens": 94,
+   "tpot_ms": 39.72794837568716
+  },
+  {
+   "ttft_ms": 1047.0967767760158,
+   "e2e_ms": 4741.711533628404,
+   "out_tokens": 94,
+   "tpot_ms": 39.72704039626224
+  },
+  {
+   "ttft_ms": 1047.0156553201377,
+   "e2e_ms": 4741.540500894189,
+   "out_tokens": 94,
+   "tpot_ms": 39.726073608323134
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 1071.3065951131284,
+   "e2e_ms": 4607.955638784915,
+   "out_tokens": 94,
+   "tpot_ms": 38.028484340556844
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 1070.223611779511,
+   "e2e_ms": 4607.712193857878,
+   "out_tokens": 94,
+   "tpot_ms": 38.03751163525126
+  },
+  {
+   "ttft_ms": 1069.2113991826773,
+   "e2e_ms": 4607.319936156273,
+   "out_tokens": 94,
+   "tpot_ms": 38.04417781692038
+  },
+  {
+   "ttft_ms": 1069.2117693834007,
+   "e2e_ms": 4607.610092032701,
+   "out_tokens": 94,
+   "tpot_ms": 38.047293791927956
+  },
+  {
+   "ttft_ms": 1068.9227818511426,
+   "e2e_ms": 4607.3680757544935,
+   "out_tokens": 94,
+   "tpot_ms": 38.04779885917581
+  },
+  {
+   "ttft_ms": 1067.9386807605624,
+   "e2e_ms": 4607.253103982657,
+   "out_tokens": 94,
+   "tpot_ms": 38.057144335721446
+  },
+  {
+   "ttft_ms": 1067.1971440315247,
+   "e2e_ms": 4606.696042232215,
+   "out_tokens": 94,
+   "tpot_ms": 38.05912793764183
+  },
+  {
+   "ttft_ms": 1113.4185530245304,
+   "e2e_ms": 4605.375743005425,
+   "out_tokens": 94,
+   "tpot_ms": 37.54792677398811
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1057.5779401697218,
+   "e2e_ms": 4418.1961002759635,
+   "out_tokens": 93,
+   "tpot_ms": 36.528458262024365
+  },
+  {
+   "ttft_ms": 1048.2026818208396,
+   "e2e_ms": 4408.53777481243,
+   "out_tokens": 93,
+   "tpot_ms": 36.52538144556077
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1047.1928492188454,
+   "e2e_ms": 4408.54813484475,
+   "out_tokens": 93,
+   "tpot_ms": 36.53647049593375
+  },
+  {
+   "ttft_ms": 1047.201570123434,
+   "e2e_ms": 4408.368140924722,
+   "out_tokens": 93,
+   "tpot_ms": 36.534419247840084
+  },
+  {
+   "ttft_ms": 1046.821961645037,
+   "e2e_ms": 4408.380711916834,
+   "out_tokens": 93,
+   "tpot_ms": 36.53868206817171
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1045.0929119251668,
+   "e2e_ms": 4407.936610747129,
+   "out_tokens": 93,
+   "tpot_ms": 36.552648900238715
+  },
+  {
+   "ttft_ms": 1044.8682368732989,
+   "e2e_ms": 4408.71903905645,
+   "out_tokens": 93,
+   "tpot_ms": 36.56359567590382
+  },
+  {
+   "ttft_ms": 1161.3635490648448,
+   "e2e_ms": 5097.229881212115,
+   "out_tokens": 96,
+   "tpot_ms": 41.43017191733969
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 1326.4660513959825,
+   "e2e_ms": 5325.194231234491,
+   "out_tokens": 96,
+   "tpot_ms": 42.09187557724746
+  },
+  {
+   "ttft_ms": 1326.7290159128606,
+   "e2e_ms": 5325.5908489227295,
+   "out_tokens": 96,
+   "tpot_ms": 42.09328245273546
+  },
+  {
+   "ttft_ms": 1327.0277022384107,
+   "e2e_ms": 5325.938187073916,
+   "out_tokens": 96,
+   "tpot_ms": 42.093794577215846
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1316.5971408598125,
+   "e2e_ms": 5315.003184136003,
+   "out_tokens": 96,
+   "tpot_ms": 42.08848466606516
+  },
+  {
+   "ttft_ms": 1316.437667235732,
+   "e2e_ms": 5315.545296296477,
+   "out_tokens": 96,
+   "tpot_ms": 42.09586977958679
+  },
+  {
+   "ttft_ms": 1316.737504210323,
+   "e2e_ms": 5316.1042388528585,
+   "out_tokens": 96,
+   "tpot_ms": 42.09859720676353
+  },
+  {
+   "ttft_ms": 1317.0920619741082,
+   "e2e_ms": 5316.76013302058,
+   "out_tokens": 96,
+   "tpot_ms": 42.10176916891023
+  },
+  {
+   "ttft_ms": 1317.5242808647454,
+   "e2e_ms": 5316.605058964342,
+   "out_tokens": 96,
+   "tpot_ms": 42.09558713789049
+  },
+  {
+   "ttft_ms": 1482.252144254744,
+   "e2e_ms": 5482.223712839186,
+   "out_tokens": 96,
+   "tpot_ms": 42.104963879836234
+  },
+  {
+   "ttft_ms": 1482.0121498778462,
+   "e2e_ms": 5482.021869160235,
+   "out_tokens": 96,
+   "tpot_ms": 42.10536546613041
+  },
+  {
+   "ttft_ms": 1484.3884729780257,
+   "e2e_ms": 5482.824547216296,
+   "out_tokens": 96,
+   "tpot_ms": 42.08880078145548
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 1641.7121905833483,
+   "e2e_ms": 5643.335845787078,
+   "out_tokens": 96,
+   "tpot_ms": 42.12235426530242
+  },
+  {
+   "ttft_ms": 1641.5900588035583,
+   "e2e_ms": 5643.238523975015,
+   "out_tokens": 96,
+   "tpot_ms": 42.122615422857436
+  },
+  {
+   "ttft_ms": 1641.499917022884,
+   "e2e_ms": 5643.164402805269,
+   "out_tokens": 96,
+   "tpot_ms": 42.12278406086721
+  },
+  {
+   "ttft_ms": 1641.50314591825,
+   "e2e_ms": 5643.555630929768,
+   "out_tokens": 96,
+   "tpot_ms": 42.126868263279135
+  },
+  {
+   "ttft_ms": 1641.88589528203,
+   "e2e_ms": 5643.941609188914,
+   "out_tokens": 96,
+   "tpot_ms": 42.126902251651416
+  },
+  {
+   "ttft_ms": 1641.3602433167398,
+   "e2e_ms": 5643.807556945831,
+   "out_tokens": 96,
+   "tpot_ms": 42.131024353990426
+  },
+  {
+   "ttft_ms": 1641.6949606500566,
+   "e2e_ms": 5643.87138793245,
+   "out_tokens": 96,
+   "tpot_ms": 42.12817291876203
+  },
+  {
+   "ttft_ms": 1641.4959160611033,
+   "e2e_ms": 5642.83830486238,
+   "out_tokens": 96,
+   "tpot_ms": 42.11939356632923
+  },
+  {
+   "ttft_ms": 1810.9438549727201,
+   "e2e_ms": 5809.453580994159,
+   "out_tokens": 96,
+   "tpot_ms": 42.08957606338357
+  },
+  {
+   "ttft_ms": 1810.9723660163581,
+   "e2e_ms": 5808.44087805599,
+   "out_tokens": 96,
+   "tpot_ms": 42.07861591620665
+  },
+  {
+   "ttft_ms": 1810.3840718977153,
+   "e2e_ms": 5808.476828970015,
+   "out_tokens": 96,
+   "tpot_ms": 42.085186916550526
+  },
+  {
+   "ttft_ms": 1810.4399237781763,
+   "e2e_ms": 5808.978809975088,
+   "out_tokens": 96,
+   "tpot_ms": 42.08988301259907
+  },
+  {
+   "ttft_ms": 1099.9889937229455,
+   "e2e_ms": 7760.417690034956,
+   "out_tokens": 96,
+   "tpot_ms": 70.10977575065274
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 1102.847068104893,
+   "e2e_ms": 7920.884069055319,
+   "out_tokens": 96,
+   "tpot_ms": 71.76881053632027
+  },
+  {
+   "ttft_ms": 1351.3793740421534,
+   "e2e_ms": 8314.39160881564,
+   "out_tokens": 96,
+   "tpot_ms": 73.2948656291946
+  },
+  {
+   "ttft_ms": 1351.3385732658207,
+   "e2e_ms": 8314.740208443254,
+   "out_tokens": 96,
+   "tpot_ms": 73.2989645808151
+  },
+  {
+   "ttft_ms": 1348.9450998604298,
+   "e2e_ms": 8312.949686776847,
+   "out_tokens": 96,
+   "tpot_ms": 73.30531144122544
+  },
+  {
+   "ttft_ms": 1348.940999712795,
+   "e2e_ms": 8312.831635121256,
+   "out_tokens": 96,
+   "tpot_ms": 73.304111951668
+  },
+  {
+   "ttft_ms": 1347.8334960527718,
+   "e2e_ms": 8312.836615834385,
+   "out_tokens": 96,
+   "tpot_ms": 73.31582231349067
+  },
+  {
+   "ttft_ms": 1347.3241040483117,
+   "e2e_ms": 8312.91834730655,
+   "out_tokens": 96,
+   "tpot_ms": 73.32204466587619
+  },
+  {
+   "ttft_ms": 1347.2747630439699,
+   "e2e_ms": 8312.74391291663,
+   "out_tokens": 96,
+   "tpot_ms": 73.32072789339642
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 1181.01356504485,
+   "e2e_ms": 8147.507078014314,
+   "out_tokens": 96,
+   "tpot_ms": 73.33151066283646
+  },
+  {
+   "ttft_ms": 1444.2426799796522,
+   "e2e_ms": 8577.644255012274,
+   "out_tokens": 96,
+   "tpot_ms": 75.08843763192233
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1442.903010174632,
+   "e2e_ms": 8576.964930165559,
+   "out_tokens": 96,
+   "tpot_ms": 75.09538863148344
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 1274.7035287320614,
+   "e2e_ms": 8408.862800803035,
+   "out_tokens": 96,
+   "tpot_ms": 75.09641339022077
+  },
+  {
+   "ttft_ms": 1614.4423238001764,
+   "e2e_ms": 8838.18421792239,
+   "out_tokens": 96,
+   "tpot_ms": 76.03938835918119
+  },
+  {
+   "ttft_ms": 1614.3885543569922,
+   "e2e_ms": 8837.99112495035,
+   "out_tokens": 96,
+   "tpot_ms": 76.03792179571956
+  },
+  {
+   "ttft_ms": 1614.3769137561321,
+   "e2e_ms": 8838.803882710636,
+   "out_tokens": 96,
+   "tpot_ms": 76.04659967320531
+  },
+  {
+   "ttft_ms": 1613.657268229872,
+   "e2e_ms": 8838.68894027546,
+   "out_tokens": 96,
+   "tpot_ms": 76.05296496890094
+  },
+  {
+   "ttft_ms": 1612.3715592548251,
+   "e2e_ms": 8837.266259361058,
+   "out_tokens": 96,
+   "tpot_ms": 76.05152315901299
+  },
+  {
+   "ttft_ms": 1611.1550112254918,
+   "e2e_ms": 8836.190664209425,
+   "out_tokens": 96,
+   "tpot_ms": 76.05300687351509
+  },
+  {
+   "ttft_ms": 1610.7305521145463,
+   "e2e_ms": 8836.87075972557,
+   "out_tokens": 96,
+   "tpot_ms": 76.06463376432657
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1836.98592428118,
+   "e2e_ms": 9075.372104067355,
+   "out_tokens": 96,
+   "tpot_ms": 76.19353873459131
+  },
+  {
+   "ttft_ms": 1837.5255358405411,
+   "e2e_ms": 9075.215419754386,
+   "out_tokens": 96,
+   "tpot_ms": 76.18620930435627
+  },
+  {
+   "ttft_ms": 1838.016826659441,
+   "e2e_ms": 9075.98793786019,
+   "out_tokens": 96,
+   "tpot_ms": 76.18916959158685
+  },
+  {
+   "ttft_ms": 1839.3401657231152,
+   "e2e_ms": 9076.248582918197,
+   "out_tokens": 96,
+   "tpot_ms": 76.1779833388956
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1664.9211370386183,
+   "e2e_ms": 7536.5955121815205,
+   "out_tokens": 96,
+   "tpot_ms": 61.807098685714756
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 1638.1265013478696,
+   "e2e_ms": 7400.069025345147,
+   "out_tokens": 96,
+   "tpot_ms": 60.65202656839239
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 1285.3528461419046,
+   "e2e_ms": 7048.026666045189,
+   "out_tokens": 96,
+   "tpot_ms": 60.65972442003457
+  },
+  {
+   "ttft_ms": 1287.997624836862,
+   "e2e_ms": 7048.344953916967,
+   "out_tokens": 96,
+   "tpot_ms": 60.63523504294847
+  },
+  {
+   "ttft_ms": 1287.1949169784784,
+   "e2e_ms": 7046.928012277931,
+   "out_tokens": 96,
+   "tpot_ms": 60.62876942420476
+  },
+  {
+   "ttft_ms": 1288.1340580061078,
+   "e2e_ms": 7046.8392400071025,
+   "out_tokens": 96,
+   "tpot_ms": 60.617949284221
+  },
+  {
+   "ttft_ms": 1288.4882250800729,
+   "e2e_ms": 7047.245498280972,
+   "out_tokens": 96,
+   "tpot_ms": 60.61849761264104
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1314.1664457507432,
+   "e2e_ms": 7045.935508795083,
+   "out_tokens": 96,
+   "tpot_ms": 60.33441118994042
+  },
+  {
+   "ttft_ms": 1313.6891657486558,
+   "e2e_ms": 7045.530491042882,
+   "out_tokens": 96,
+   "tpot_ms": 60.33517184520238
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1663.7976220808923,
+   "e2e_ms": 7249.59977902472,
+   "out_tokens": 96,
+   "tpot_ms": 58.79791744151398
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1234.5243659801781,
+   "e2e_ms": 6821.161661297083,
+   "out_tokens": 96,
+   "tpot_ms": 58.80670837175689
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1234.155597165227,
+   "e2e_ms": 6821.040417999029,
+   "out_tokens": 96,
+   "tpot_ms": 58.809313903513704
+  },
+  {
+   "ttft_ms": 1233.7096468545496,
+   "e2e_ms": 6820.955925621092,
+   "out_tokens": 96,
+   "tpot_ms": 58.813118723858345
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 1178.6847738549113,
+   "e2e_ms": 6561.8227031081915,
+   "out_tokens": 96,
+   "tpot_ms": 56.66460978161348
+  },
+  {
+   "ttft_ms": 1177.6005798019469,
+   "e2e_ms": 6561.571638099849,
+   "out_tokens": 96,
+   "tpot_ms": 56.67337956103055
+  },
+  {
+   "ttft_ms": 1177.218581084162,
+   "e2e_ms": 6561.661398969591,
+   "out_tokens": 96,
+   "tpot_ms": 56.678345451425564
+  },
+  {
+   "ttft_ms": 1176.9931460730731,
+   "e2e_ms": 6562.081729061902,
+   "out_tokens": 96,
+   "tpot_ms": 56.685142978829774
+  },
+  {
+   "ttft_ms": 1176.4147826470435,
+   "e2e_ms": 6562.067808583379,
+   "out_tokens": 96,
+   "tpot_ms": 56.69108448354037
+  },
+  {
+   "ttft_ms": 1174.9662309885025,
+   "e2e_ms": 6561.705741100013,
+   "out_tokens": 96,
+   "tpot_ms": 56.70252115906853
+  },
+  {
+   "ttft_ms": 1436.0032370314002,
+   "e2e_ms": 6733.140233904123,
+   "out_tokens": 96,
+   "tpot_ms": 55.75933680918656
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1024.5371754281223,
+   "e2e_ms": 6322.241885121912,
+   "out_tokens": 96,
+   "tpot_ms": 55.765312733618835
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1021.936887409538,
+   "e2e_ms": 6320.056536234915,
+   "out_tokens": 96,
+   "tpot_ms": 55.769680513951336
+  },
+  {
+   "ttft_ms": 1021.0141069255769,
+   "e2e_ms": 6319.914773106575,
+   "out_tokens": 96,
+   "tpot_ms": 55.77790174927367
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1251.5682149678469,
+   "e2e_ms": 6459.061068017036,
+   "out_tokens": 96,
+   "tpot_ms": 54.81571424262304
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 868.558757007122,
+   "e2e_ms": 5265.338420402259,
+   "out_tokens": 96,
+   "tpot_ms": 46.281891193633015
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 735.76570302248,
+   "e2e_ms": 5139.990051742643,
+   "out_tokens": 96,
+   "tpot_ms": 46.36025630231751
+  },
+  {
+   "ttft_ms": 735.5150980874896,
+   "e2e_ms": 5140.3514398261905,
+   "out_tokens": 96,
+   "tpot_ms": 46.36669833409159
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 713.6378609575331,
+   "e2e_ms": 5118.884901981801,
+   "out_tokens": 96,
+   "tpot_ms": 46.37102148446598
+  },
+  {
+   "ttft_ms": 712.7480320632458,
+   "e2e_ms": 5118.768690153956,
+   "out_tokens": 96,
+   "tpot_ms": 46.37916482200748
+  },
+  {
+   "ttft_ms": 712.6003480516374,
+   "e2e_ms": 5119.177279062569,
+   "out_tokens": 96,
+   "tpot_ms": 46.38502032643086
+  },
+  {
+   "ttft_ms": 712.354491930455,
+   "e2e_ms": 5119.122406933457,
+   "out_tokens": 96,
+   "tpot_ms": 46.38703068424212
+  },
+  {
+   "ttft_ms": 712.1787089854479,
+   "e2e_ms": 5120.748504064977,
+   "out_tokens": 96,
+   "tpot_ms": 46.40599784294241
+  },
+  {
+   "ttft_ms": 711.9368929415941,
+   "e2e_ms": 5120.596521068364,
+   "out_tokens": 96,
+   "tpot_ms": 46.406943453966
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 689.9470840580761,
+   "e2e_ms": 5101.218599360436,
+   "out_tokens": 96,
+   "tpot_ms": 46.43443700318274
+  },
+  {
+   "ttft_ms": 689.4746441394091,
+   "e2e_ms": 5101.7595320008695,
+   "out_tokens": 96,
+   "tpot_ms": 46.445104082752216
+  },
+  {
+   "ttft_ms": 688.8332990929484,
+   "e2e_ms": 5100.976923946291,
+   "out_tokens": 96,
+   "tpot_ms": 46.4436171037194
+  },
+  {
+   "ttft_ms": 688.3742492645979,
+   "e2e_ms": 5101.749422028661,
+   "out_tokens": 96,
+   "tpot_ms": 46.4565807659375
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 696.6853449121118,
+   "e2e_ms": 5114.441093988717,
+   "out_tokens": 96,
+   "tpot_ms": 46.50269209554321
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 691.5319287218153,
+   "e2e_ms": 5110.42044358328,
+   "out_tokens": 96,
+   "tpot_ms": 46.51461594591015
+  },
+  {
+   "ttft_ms": 690.3832741081715,
+   "e2e_ms": 5109.609586186707,
+   "out_tokens": 96,
+   "tpot_ms": 46.518171706089845
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 682.3623348027468,
+   "e2e_ms": 5102.569059934467,
+   "out_tokens": 96,
+   "tpot_ms": 46.52849184349179
+  },
+  {
+   "ttft_ms": 681.6457989625633,
+   "e2e_ms": 5104.344858787954,
+   "out_tokens": 96,
+   "tpot_ms": 46.554726945530426
+  },
+  {
+   "ttft_ms": 681.6865410655737,
+   "e2e_ms": 5104.683907236904,
+   "out_tokens": 96,
+   "tpot_ms": 46.557867012329794
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 688.233875669539,
+   "e2e_ms": 5114.71852986142,
+   "out_tokens": 96,
+   "tpot_ms": 46.59457530728296
+  },
+  {
+   "ttft_ms": 687.8381781280041,
+   "e2e_ms": 5114.503826014698,
+   "out_tokens": 96,
+   "tpot_ms": 46.596480504070456
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 686.7919540964067,
+   "e2e_ms": 5114.015094004571,
+   "out_tokens": 96,
+   "tpot_ms": 46.60234884113858
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 685.9106151387095,
+   "e2e_ms": 5115.482627414167,
+   "out_tokens": 96,
+   "tpot_ms": 46.627073813425866
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 642.6739017479122,
+   "e2e_ms": 5077.887579798698,
+   "out_tokens": 96,
+   "tpot_ms": 46.68645976895564
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 679.0825827047229,
+   "e2e_ms": 4947.877479717135,
+   "out_tokens": 96,
+   "tpot_ms": 44.93468312644645
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 728.1873049214482,
+   "e2e_ms": 4996.760446578264,
+   "out_tokens": 96,
+   "tpot_ms": 44.932348859545435
+  },
+  {
+   "ttft_ms": 727.3529162630439,
+   "e2e_ms": 4996.5006010606885,
+   "out_tokens": 96,
+   "tpot_ms": 44.93839668208047
+  },
+  {
+   "ttft_ms": 727.4937597103417,
+   "e2e_ms": 4996.709075756371,
+   "out_tokens": 96,
+   "tpot_ms": 44.9391085899582
+  },
+  {
+   "ttft_ms": 725.8131019771099,
+   "e2e_ms": 4995.783744845539,
+   "out_tokens": 96,
+   "tpot_ms": 44.947059398615046
+  },
+  {
+   "ttft_ms": 725.804862100631,
+   "e2e_ms": 4995.596250984818,
+   "out_tokens": 96,
+   "tpot_ms": 44.94517251457039
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 714.8283771239221,
+   "e2e_ms": 4986.124610062689,
+   "out_tokens": 96,
+   "tpot_ms": 44.961012978302804
+  },
+  {
+   "ttft_ms": 714.2642652615905,
+   "e2e_ms": 4985.1546683348715,
+   "out_tokens": 96,
+   "tpot_ms": 44.95674108498191
+  },
+  {
+   "ttft_ms": 713.9987987466156,
+   "e2e_ms": 4986.147220712155,
+   "out_tokens": 96,
+   "tpot_ms": 44.96998338911094
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 712.0727859437466,
+   "e2e_ms": 4983.2484559156,
+   "out_tokens": 96,
+   "tpot_ms": 44.959743894440564
+  },
+  {
+   "ttft_ms": 711.2447479739785,
+   "e2e_ms": 4981.781973037869,
+   "out_tokens": 96,
+   "tpot_ms": 44.95302342172516
+  },
+  {
+   "ttft_ms": 711.143805179745,
+   "e2e_ms": 4982.507349457592,
+   "out_tokens": 96,
+   "tpot_ms": 44.96172151871418
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 755.7972380891442,
+   "e2e_ms": 4979.519523214549,
+   "out_tokens": 96,
+   "tpot_ms": 44.46023458026742
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 728.776937816292,
+   "e2e_ms": 4988.902711775154,
+   "out_tokens": 96,
+   "tpot_ms": 44.84342919956697
+  },
+  {
+   "ttft_ms": 726.75916319713,
+   "e2e_ms": 4987.057480961084,
+   "out_tokens": 96,
+   "tpot_ms": 44.84524545014689
+  },
+  {
+   "ttft_ms": 726.4467058703303,
+   "e2e_ms": 4987.169953994453,
+   "out_tokens": 96,
+   "tpot_ms": 44.84971840130655
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 719.4294999353588,
+   "e2e_ms": 4981.034216936678,
+   "out_tokens": 96,
+   "tpot_ms": 44.858997021066514
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 698.7664112821221,
+   "e2e_ms": 4960.020770318806,
+   "out_tokens": 96,
+   "tpot_ms": 44.85530904249141
+  },
+  {
+   "ttft_ms": 698.2600586488843,
+   "e2e_ms": 4960.604281630367,
+   "out_tokens": 96,
+   "tpot_ms": 44.86678129454192
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 716.7287198826671,
+   "e2e_ms": 4982.405748218298,
+   "out_tokens": 96,
+   "tpot_ms": 44.901863456164534
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 708.2898318767548,
+   "e2e_ms": 4975.055563729256,
+   "out_tokens": 96,
+   "tpot_ms": 44.91332349318423
+  },
+  {
+   "ttft_ms": 752.1672579459846,
+   "e2e_ms": 4974.824537988752,
+   "out_tokens": 96,
+   "tpot_ms": 44.44902400045019
+  },
+  {
+   "ttft_ms": 751.9448329694569,
+   "e2e_ms": 4975.199676584452,
+   "out_tokens": 96,
+   "tpot_ms": 44.45531414331574
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 705.9576399624348,
+   "e2e_ms": 4971.220958977938,
+   "out_tokens": 96,
+   "tpot_ms": 44.89750862121582
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 879.8367283307016,
+   "e2e_ms": 5298.311743419617,
+   "out_tokens": 96,
+   "tpot_ms": 46.51026331672543
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 880.6113349273801,
+   "e2e_ms": 5301.549834664911,
+   "out_tokens": 96,
+   "tpot_ms": 46.536194734079274
+  },
+  {
+   "ttft_ms": 880.6675761006773,
+   "e2e_ms": 5301.800230983645,
+   "out_tokens": 96,
+   "tpot_ms": 46.53823847245229
+  },
+  {
+   "ttft_ms": 879.874087870121,
+   "e2e_ms": 5301.565544679761,
+   "out_tokens": 96,
+   "tpot_ms": 46.54412059799621
+  },
+  {
+   "ttft_ms": 879.0346691384912,
+   "e2e_ms": 5300.601674243808,
+   "out_tokens": 96,
+   "tpot_ms": 46.54281058005596
+  },
+  {
+   "ttft_ms": 877.5501972995698,
+   "e2e_ms": 5300.1808249391615,
+   "out_tokens": 96,
+   "tpot_ms": 46.55400660673254
+  },
+  {
+   "ttft_ms": 876.5986952930689,
+   "e2e_ms": 5299.759995192289,
+   "out_tokens": 96,
+   "tpot_ms": 46.55959263051811
+  },
+  {
+   "ttft_ms": 875.5965731106699,
+   "e2e_ms": 5298.809504136443,
+   "out_tokens": 96,
+   "tpot_ms": 46.56013611606077
+  },
+  {
+   "ttft_ms": 875.5236719734967,
+   "e2e_ms": 5299.57092134282,
+   "out_tokens": 96,
+   "tpot_ms": 46.56891841441393
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 878.7578432820737,
+   "e2e_ms": 5298.457365948707,
+   "out_tokens": 96,
+   "tpot_ms": 46.52315287017509
+  },
+  {
+   "ttft_ms": 878.2522021792829,
+   "e2e_ms": 5298.484187107533,
+   "out_tokens": 96,
+   "tpot_ms": 46.528757736086845
+  },
+  {
+   "ttft_ms": 877.7792719192803,
+   "e2e_ms": 5298.386234790087,
+   "out_tokens": 96,
+   "tpot_ms": 46.53270487232428
+  },
+  {
+   "ttft_ms": 923.0940290726721,
+   "e2e_ms": 5298.484915867448,
+   "out_tokens": 96,
+   "tpot_ms": 46.056746176787115
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 877.5086756795645,
+   "e2e_ms": 5300.720126833767,
+   "out_tokens": 96,
+   "tpot_ms": 46.560120538465284
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 875.8051679469645,
+   "e2e_ms": 5299.913538619876,
+   "out_tokens": 96,
+   "tpot_ms": 46.56956179655696
+  },
+  {
+   "ttft_ms": 875.8480977267027,
+   "e2e_ms": 5299.734953790903,
+   "out_tokens": 96,
+   "tpot_ms": 46.56723006383369
+  },
+  {
+   "ttft_ms": 875.2723960205913,
+   "e2e_ms": 5300.160244107246,
+   "out_tokens": 96,
+   "tpot_ms": 46.577766821964794
+  },
+  {
+   "ttft_ms": 875.0671818852425,
+   "e2e_ms": 5300.424209795892,
+   "out_tokens": 96,
+   "tpot_ms": 46.58270555695421
+  },
+  {
+   "ttft_ms": 874.5825910009444,
+   "e2e_ms": 5300.57648383081,
+   "out_tokens": 96,
+   "tpot_ms": 46.589409398209106
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 874.3761656805873,
+   "e2e_ms": 5299.937609117478,
+   "out_tokens": 96,
+   "tpot_ms": 46.584857299335695
+  },
+  {
+   "ttft_ms": 874.3879259563982,
+   "e2e_ms": 5300.180933903903,
+   "out_tokens": 96,
+   "tpot_ms": 46.58729482050005
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 921.1339061148465,
+   "e2e_ms": 5299.138151109219,
+   "out_tokens": 96,
+   "tpot_ms": 46.08425521046708
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 916.5253029204905,
+   "e2e_ms": 5295.885188970715,
+   "out_tokens": 96,
+   "tpot_ms": 46.09852511631815
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 874.5199488475919,
+   "e2e_ms": 5301.050372887403,
+   "out_tokens": 96,
+   "tpot_ms": 46.5950570951559
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 711.36863110587,
+   "e2e_ms": 5281.391397118568,
+   "out_tokens": 96,
+   "tpot_ms": 48.10550280013367
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 710.3552781045437,
+   "e2e_ms": 5337.001033127308,
+   "out_tokens": 96,
+   "tpot_ms": 48.70153426339752
+  },
+  {
+   "ttft_ms": 708.5013971664011,
+   "e2e_ms": 5335.858577862382,
+   "out_tokens": 96,
+   "tpot_ms": 48.70902295469453
+  },
+  {
+   "ttft_ms": 708.3071833476424,
+   "e2e_ms": 5336.8082591332495,
+   "out_tokens": 96,
+   "tpot_ms": 48.721063955637966
+  },
+  {
+   "ttft_ms": 707.7183090150356,
+   "e2e_ms": 5334.877465851605,
+   "out_tokens": 96,
+   "tpot_ms": 48.706938493016516
+  },
+  {
+   "ttft_ms": 707.0426042191684,
+   "e2e_ms": 5334.995229262859,
+   "out_tokens": 96,
+   "tpot_ms": 48.71529078993358
+  },
+  {
+   "ttft_ms": 706.4646920189261,
+   "e2e_ms": 5334.414545912296,
+   "out_tokens": 96,
+   "tpot_ms": 48.7152616199302
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 704.9196567386389,
+   "e2e_ms": 5334.107819013298,
+   "out_tokens": 96,
+   "tpot_ms": 48.72829644499641
+  },
+  {
+   "ttft_ms": 704.5498387888074,
+   "e2e_ms": 5333.916474599391,
+   "out_tokens": 96,
+   "tpot_ms": 48.73017511379562
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 708.486856892705,
+   "e2e_ms": 5358.555362559855,
+   "out_tokens": 96,
+   "tpot_ms": 48.94808953333842
+  },
+  {
+   "ttft_ms": 708.2234211266041,
+   "e2e_ms": 5357.648373115808,
+   "out_tokens": 96,
+   "tpot_ms": 48.94131528409688
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 703.2238398678601,
+   "e2e_ms": 5353.375358041376,
+   "out_tokens": 96,
+   "tpot_ms": 48.948963349194905
+  },
+  {
+   "ttft_ms": 703.0344046652317,
+   "e2e_ms": 5353.5809917375445,
+   "out_tokens": 96,
+   "tpot_ms": 48.95312196918224
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 707.1869568899274,
+   "e2e_ms": 5373.345671221614,
+   "out_tokens": 96,
+   "tpot_ms": 49.117460150859856
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 704.8027846030891,
+   "e2e_ms": 5370.007007848471,
+   "out_tokens": 96,
+   "tpot_ms": 49.10741287626718
+  },
+  {
+   "ttft_ms": 703.9686557836831,
+   "e2e_ms": 5370.4317370429635,
+   "out_tokens": 96,
+   "tpot_ms": 49.120664013255585
+  },
+  {
+   "ttft_ms": 703.5699165426195,
+   "e2e_ms": 5370.086648967117,
+   "out_tokens": 96,
+   "tpot_ms": 49.12122876236313
+  },
+  {
+   "ttft_ms": 703.6623093299568,
+   "e2e_ms": 5370.852786116302,
+   "out_tokens": 96,
+   "tpot_ms": 49.128320808277316
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 702.5226838886738,
+   "e2e_ms": 5371.066100895405,
+   "out_tokens": 96,
+   "tpot_ms": 49.14256228428138
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 703.7780815735459,
+   "e2e_ms": 5387.043465860188,
+   "out_tokens": 96,
+   "tpot_ms": 49.29753036091202
+  },
+  {
+   "ttft_ms": 703.1357581727207,
+   "e2e_ms": 5386.750570032746,
+   "out_tokens": 96,
+   "tpot_ms": 49.301208545895
+  },
+  {
+   "ttft_ms": 703.3180119469762,
+   "e2e_ms": 5387.53900770098,
+   "out_tokens": 96,
+   "tpot_ms": 49.30758942898951
+  },
+  {
+   "ttft_ms": 655.5391787551343,
+   "e2e_ms": 5339.709222782403,
+   "out_tokens": 96,
+   "tpot_ms": 49.30705309502388
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 704.1768408380449,
+   "e2e_ms": 5389.15323279798,
+   "out_tokens": 96,
+   "tpot_ms": 49.31554096799932
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 774.2077680304646,
+   "e2e_ms": 5028.949873056263,
+   "out_tokens": 96,
+   "tpot_ms": 44.78675900027156
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 762.9233179613948,
+   "e2e_ms": 5022.898417897522,
+   "out_tokens": 96,
+   "tpot_ms": 44.8418431572224
+  },
+  {
+   "ttft_ms": 762.9219768568873,
+   "e2e_ms": 5023.473710753024,
+   "out_tokens": 96,
+   "tpot_ms": 44.84791298838038
+  },
+  {
+   "ttft_ms": 762.0165273547173,
+   "e2e_ms": 5023.245125077665,
+   "out_tokens": 96,
+   "tpot_ms": 44.855037870767866
+  },
+  {
+   "ttft_ms": 762.3213641345501,
+   "e2e_ms": 5023.499481379986,
+   "out_tokens": 96,
+   "tpot_ms": 44.85450649732038
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 748.719350900501,
+   "e2e_ms": 5010.262076742947,
+   "out_tokens": 96,
+   "tpot_ms": 44.85834448255206
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 747.0124131068587,
+   "e2e_ms": 5009.367307182401,
+   "out_tokens": 96,
+   "tpot_ms": 44.866893621847815
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 745.5169400200248,
+   "e2e_ms": 5008.596509695053,
+   "out_tokens": 96,
+   "tpot_ms": 44.87452178605293
+  },
+  {
+   "ttft_ms": 745.7326748408377,
+   "e2e_ms": 5008.425635751337,
+   "out_tokens": 96,
+   "tpot_ms": 44.870452220110515
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 737.2823166660964,
+   "e2e_ms": 4994.148667901754,
+   "out_tokens": 96,
+   "tpot_ms": 44.80911948669114
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 736.5950122475624,
+   "e2e_ms": 4993.954634293914,
+   "out_tokens": 96,
+   "tpot_ms": 44.81431181101423
+  },
+  {
+   "ttft_ms": 736.2744142301381,
+   "e2e_ms": 4994.160809088498,
+   "out_tokens": 96,
+   "tpot_ms": 44.81985678798274
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 732.8049270436168,
+   "e2e_ms": 4990.7935741357505,
+   "out_tokens": 96,
+   "tpot_ms": 44.82093312728562
+  },
+  {
+   "ttft_ms": 729.4156118296087,
+   "e2e_ms": 4979.930331930518,
+   "out_tokens": 96,
+   "tpot_ms": 44.74226021158852
+  },
+  {
+   "ttft_ms": 729.6493169851601,
+   "e2e_ms": 4981.0129860416055,
+   "out_tokens": 96,
+   "tpot_ms": 44.75119651638364
+  },
+  {
+   "ttft_ms": 728.9737719111145,
+   "e2e_ms": 4980.614867992699,
+   "out_tokens": 96,
+   "tpot_ms": 44.75411680085879
+  },
+  {
+   "ttft_ms": 729.4675325974822,
+   "e2e_ms": 4981.287091970444,
+   "out_tokens": 96,
+   "tpot_ms": 44.755995361820645
+  },
+  {
+   "ttft_ms": 728.796698153019,
+   "e2e_ms": 4981.532177887857,
+   "out_tokens": 96,
+   "tpot_ms": 44.76563662878777
+  },
+  {
+   "ttft_ms": 727.4758592247963,
+   "e2e_ms": 4980.167138390243,
+   "out_tokens": 96,
+   "tpot_ms": 44.765171359636284
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 706.0106205753982,
+   "e2e_ms": 4967.410073615611,
+   "out_tokens": 96,
+   "tpot_ms": 44.856836347791706
+  },
+  {
+   "ttft_ms": 705.3659567609429,
+   "e2e_ms": 4967.337711714208,
+   "out_tokens": 96,
+   "tpot_ms": 44.862860578455425
+  },
+  {
+   "ttft_ms": 705.1284923218191,
+   "e2e_ms": 4967.18108933419,
+   "out_tokens": 96,
+   "tpot_ms": 44.86371154749864
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 691.1842916160822,
+   "e2e_ms": 4957.447122782469,
+   "out_tokens": 96,
+   "tpot_ms": 44.90802980175144
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 703.4765649586916,
+   "e2e_ms": 4967.458704952151,
+   "out_tokens": 96,
+   "tpot_ms": 44.88402252624694
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 879.9295499920845,
+   "e2e_ms": 5238.21565695107,
+   "out_tokens": 96,
+   "tpot_ms": 45.87669586272616
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 914.7614841349423,
+   "e2e_ms": 5292.339141014963,
+   "out_tokens": 96,
+   "tpot_ms": 46.07976480926338
+  },
+  {
+   "ttft_ms": 913.4122440591455,
+   "e2e_ms": 5291.826578788459,
+   "out_tokens": 96,
+   "tpot_ms": 46.088571944519096
+  },
+  {
+   "ttft_ms": 912.246648222208,
+   "e2e_ms": 5291.099681984633,
+   "out_tokens": 96,
+   "tpot_ms": 46.09318982907816
+  },
+  {
+   "ttft_ms": 912.0070626959205,
+   "e2e_ms": 5291.611183900386,
+   "out_tokens": 96,
+   "tpot_ms": 46.10109601267859
+  },
+  {
+   "ttft_ms": 911.1113930121064,
+   "e2e_ms": 5291.1865641362965,
+   "out_tokens": 96,
+   "tpot_ms": 46.10605443288621
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 907.7368681319058,
+   "e2e_ms": 5293.753832112998,
+   "out_tokens": 96,
+   "tpot_ms": 46.1685996208536
+  },
+  {
+   "ttft_ms": 907.585984095931,
+   "e2e_ms": 5294.114648830146,
+   "out_tokens": 96,
+   "tpot_ms": 46.17398594457068
+  },
+  {
+   "ttft_ms": 907.2071956470609,
+   "e2e_ms": 5293.787482660264,
+   "out_tokens": 96,
+   "tpot_ms": 46.17452933698108
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 882.7875233255327,
+   "e2e_ms": 5299.076240044087,
+   "out_tokens": 96,
+   "tpot_ms": 46.487249649668996
+  },
+  {
+   "ttft_ms": 882.3509239591658,
+   "e2e_ms": 5299.826496746391,
+   "out_tokens": 96,
+   "tpot_ms": 46.499742871444475
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 880.5669629946351,
+   "e2e_ms": 5298.73404186219,
+   "out_tokens": 96,
+   "tpot_ms": 46.50702188281637
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 877.5068847462535,
+   "e2e_ms": 5295.91008881107,
+   "out_tokens": 96,
+   "tpot_ms": 46.509507411208595
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 883.4168957546353,
+   "e2e_ms": 5303.287093061954,
+   "out_tokens": 96,
+   "tpot_ms": 46.52494944534019
+  },
+  {
+   "ttft_ms": 882.3015219531953,
+   "e2e_ms": 5302.675539627671,
+   "out_tokens": 96,
+   "tpot_ms": 46.530252817626064
+  },
+  {
+   "ttft_ms": 882.2511709295213,
+   "e2e_ms": 5303.017128258944,
+   "out_tokens": 96,
+   "tpot_ms": 46.53437849820445
+  },
+  {
+   "ttft_ms": 882.0222257636487,
+   "e2e_ms": 5302.946595940739,
+   "out_tokens": 96,
+   "tpot_ms": 46.53604600186411
+  },
+  {
+   "ttft_ms": 881.1851972714067,
+   "e2e_ms": 5302.841413300484,
+   "out_tokens": 96,
+   "tpot_ms": 46.54374964241134
+  },
+  {
+   "ttft_ms": 854.9547339789569,
+   "e2e_ms": 5277.485089376569,
+   "out_tokens": 96,
+   "tpot_ms": 46.55295110944854
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 873.0984777212143,
+   "e2e_ms": 5289.916607085615,
+   "out_tokens": 96,
+   "tpot_ms": 46.49282241436212
+  },
+  {
+   "ttft_ms": 872.9223129339516,
+   "e2e_ms": 5290.247953031212,
+   "out_tokens": 96,
+   "tpot_ms": 46.498164632602744
+  },
+  {
+   "ttft_ms": 872.7881400845945,
+   "e2e_ms": 5290.773535147309,
+   "out_tokens": 96,
+   "tpot_ms": 46.50510942171279
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 869.8966759257019,
+   "e2e_ms": 5289.103297982365,
+   "out_tokens": 96,
+   "tpot_ms": 46.51796444270172
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 875.5173520185053,
+   "e2e_ms": 5290.435798000544,
+   "out_tokens": 96,
+   "tpot_ms": 46.47282574717936
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 729.9370430409908,
+   "e2e_ms": 4821.346404962242,
+   "out_tokens": 96,
+   "tpot_ms": 43.06746696759211
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 709.849436301738,
+   "e2e_ms": 4797.5539159961045,
+   "out_tokens": 96,
+   "tpot_ms": 43.02846820730912
+  },
+  {
+   "ttft_ms": 709.0780297294259,
+   "e2e_ms": 4797.214248683304,
+   "out_tokens": 96,
+   "tpot_ms": 43.03301283109345
+  },
+  {
+   "ttft_ms": 711.1499863676727,
+   "e2e_ms": 4797.573197167367,
+   "out_tokens": 96,
+   "tpot_ms": 43.014981166312566
+  },
+  {
+   "ttft_ms": 710.9166202135384,
+   "e2e_ms": 4797.4146930500865,
+   "out_tokens": 96,
+   "tpot_ms": 43.015769187753136
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 707.3068800382316,
+   "e2e_ms": 4794.347004033625,
+   "out_tokens": 96,
+   "tpot_ms": 43.021474989425194
+  },
+  {
+   "ttft_ms": 706.8280000239611,
+   "e2e_ms": 4793.572908267379,
+   "out_tokens": 96,
+   "tpot_ms": 43.01836745519387
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 752.7001900598407,
+   "e2e_ms": 4792.966294102371,
+   "out_tokens": 96,
+   "tpot_ms": 42.52911688465821
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 751.3471492566168,
+   "e2e_ms": 4792.058014310896,
+   "out_tokens": 96,
+   "tpot_ms": 42.53379857951873
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 699.7005911543965,
+   "e2e_ms": 4796.73715820536,
+   "out_tokens": 96,
+   "tpot_ms": 43.126700705799614
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 651.2065432034433,
+   "e2e_ms": 4747.796929907054,
+   "out_tokens": 96,
+   "tpot_ms": 43.12200407056432
+  },
+  {
+   "ttft_ms": 651.227863971144,
+   "e2e_ms": 4748.589477967471,
+   "out_tokens": 96,
+   "tpot_ms": 43.13012225259291
+  },
+  {
+   "ttft_ms": 650.745932944119,
+   "e2e_ms": 4748.702669981867,
+   "out_tokens": 96,
+   "tpot_ms": 43.136386705660506
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 700.4108568653464,
+   "e2e_ms": 4804.626112803817,
+   "out_tokens": 96,
+   "tpot_ms": 43.202265851983896
+  },
+  {
+   "ttft_ms": 699.7048710472882,
+   "e2e_ms": 4805.302788037807,
+   "out_tokens": 96,
+   "tpot_ms": 43.21682017884756
+  },
+  {
+   "ttft_ms": 698.9860651083291,
+   "e2e_ms": 4808.460278902203,
+   "out_tokens": 96,
+   "tpot_ms": 43.25762330309341
+  },
+  {
+   "ttft_ms": 698.4354229643941,
+   "e2e_ms": 4815.999636892229,
+   "out_tokens": 96,
+   "tpot_ms": 43.34278119924037
+  },
+  {
+   "ttft_ms": 697.3068178631365,
+   "e2e_ms": 4815.373482648283,
+   "out_tokens": 96,
+   "tpot_ms": 43.348070155633124
+  },
+  {
+   "ttft_ms": 696.6661140322685,
+   "e2e_ms": 4815.727879758924,
+   "out_tokens": 96,
+   "tpot_ms": 43.35854490238585
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 694.3248910829425,
+   "e2e_ms": 4818.705725949258,
+   "out_tokens": 96,
+   "tpot_ms": 43.41453510385595
+  },
+  {
+   "ttft_ms": 693.9357230439782,
+   "e2e_ms": 4817.242294084281,
+   "out_tokens": 96,
+   "tpot_ms": 43.40322706358213
+  },
+  {
+   "ttft_ms": 680.4690128192306,
+   "e2e_ms": 4804.279505740851,
+   "out_tokens": 96,
+   "tpot_ms": 43.40853150443811
+  },
+  {
+   "ttft_ms": 680.4776042699814,
+   "e2e_ms": 4804.095762316138,
+   "out_tokens": 96,
+   "tpot_ms": 43.40650692680165
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 685.563747305423,
+   "e2e_ms": 4794.918068218976,
+   "out_tokens": 96,
+   "tpot_ms": 43.25636127277424
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1067.003870382905,
+   "e2e_ms": 5287.56659431383,
+   "out_tokens": 96,
+   "tpot_ms": 44.42697604137816
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 1049.0051987580955,
+   "e2e_ms": 5288.327439688146,
+   "out_tokens": 96,
+   "tpot_ms": 44.62444464136895
+  },
+  {
+   "ttft_ms": 1048.7064230255783,
+   "e2e_ms": 5288.618087302893,
+   "out_tokens": 96,
+   "tpot_ms": 44.63064909765595
+  },
+  {
+   "ttft_ms": 1046.9935652799904,
+   "e2e_ms": 5287.267136853188,
+   "out_tokens": 96,
+   "tpot_ms": 44.634458648138924
+  },
+  {
+   "ttft_ms": 1046.3851923123002,
+   "e2e_ms": 5286.999592091888,
+   "out_tokens": 96,
+   "tpot_ms": 44.638046313469346
+  },
+  {
+   "ttft_ms": 1045.2132560312748,
+   "e2e_ms": 5285.720743238926,
+   "out_tokens": 96,
+   "tpot_ms": 44.636920917975274
+  },
+  {
+   "ttft_ms": 1045.1195929199457,
+   "e2e_ms": 5286.626752931625,
+   "out_tokens": 96,
+   "tpot_ms": 44.64744378959662
+  },
+  {
+   "ttft_ms": 1044.0131076611578,
+   "e2e_ms": 5286.435907706618,
+   "out_tokens": 96,
+   "tpot_ms": 44.65708210574169
+  },
+  {
+   "ttft_ms": 1043.9681969583035,
+   "e2e_ms": 5286.35462699458,
+   "out_tokens": 96,
+   "tpot_ms": 44.65669926353976
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 1043.0824970826507,
+   "e2e_ms": 5290.190531872213,
+   "out_tokens": 96,
+   "tpot_ms": 44.70640036620592
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1034.1847902163863,
+   "e2e_ms": 5283.60606636852,
+   "out_tokens": 96,
+   "tpot_ms": 44.73075027528562
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1033.4058022126555,
+   "e2e_ms": 5283.572175074369,
+   "out_tokens": 96,
+   "tpot_ms": 44.738593398544346
+  },
+  {
+   "ttft_ms": 1076.3264177367091,
+   "e2e_ms": 5287.3712801374495,
+   "out_tokens": 96,
+   "tpot_ms": 44.32678802527095
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1026.8239467404783,
+   "e2e_ms": 5278.4887426532805,
+   "out_tokens": 96,
+   "tpot_ms": 44.75436627276634
+  },
+  {
+   "ttft_ms": 1026.7202043905854,
+   "e2e_ms": 5277.533051092178,
+   "out_tokens": 96,
+   "tpot_ms": 44.745398386332546
+  },
+  {
+   "ttft_ms": 1026.321955025196,
+   "e2e_ms": 5278.251936659217,
+   "out_tokens": 96,
+   "tpot_ms": 44.75715770141075
+  },
+  {
+   "ttft_ms": 1026.0775699280202,
+   "e2e_ms": 5279.211078304797,
+   "out_tokens": 96,
+   "tpot_ms": 44.76982640396608
+  },
+  {
+   "ttft_ms": 1025.3720041364431,
+   "e2e_ms": 5279.037483967841,
+   "out_tokens": 96,
+   "tpot_ms": 44.77542610348839
+  },
+  {
+   "ttft_ms": 1024.6577179059386,
+   "e2e_ms": 5278.673047199845,
+   "out_tokens": 96,
+   "tpot_ms": 44.77910872940954
+  },
+  {
+   "ttft_ms": 1027.0400810986757,
+   "e2e_ms": 5280.954807065427,
+   "out_tokens": 96,
+   "tpot_ms": 44.778049747018436
+  },
+  {
+   "ttft_ms": 1026.271553710103,
+   "e2e_ms": 5281.063179951161,
+   "out_tokens": 96,
+   "tpot_ms": 44.787280276221665
+  },
+  {
+   "ttft_ms": 1026.1777518317103,
+   "e2e_ms": 5280.881364829838,
+   "out_tokens": 96,
+   "tpot_ms": 44.786353821032925
+  },
+  {
+   "ttft_ms": 1025.953226722777,
+   "e2e_ms": 5280.701570678502,
+   "out_tokens": 96,
+   "tpot_ms": 44.78682467321816
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 1028.9574330672622,
+   "e2e_ms": 5283.018993213773,
+   "out_tokens": 96,
+   "tpot_ms": 44.77959536996327
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 875.1100818626583,
+   "e2e_ms": 5119.9303958565,
+   "out_tokens": 96,
+   "tpot_ms": 44.68231909467202
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "ttft_ms": 870.403238106519,
+   "e2e_ms": 5261.860962025821,
+   "out_tokens": 96,
+   "tpot_ms": 46.22587077809792
+  },
+  {
+   "ttft_ms": 870.1648321002722,
+   "e2e_ms": 5262.490616180003,
+   "out_tokens": 96,
+   "tpot_ms": 46.235008253470845
+  },
+  {
+   "ttft_ms": 869.7822629474103,
+   "e2e_ms": 5261.889412999153,
+   "out_tokens": 96,
+   "tpot_ms": 46.232706842649925
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 868.4374340809882,
+   "e2e_ms": 5260.899071116,
+   "out_tokens": 96,
+   "tpot_ms": 46.23643828457907
+  },
+  {
+   "ttft_ms": 868.5227259993553,
+   "e2e_ms": 5262.034905608743,
+   "out_tokens": 96,
+   "tpot_ms": 46.24749662746724
+  },
+  {
+   "ttft_ms": 867.4968928098679,
+   "e2e_ms": 5260.921331588179,
+   "out_tokens": 96,
+   "tpot_ms": 46.2465730397717
+  },
+  {
+   "ttft_ms": 867.2066465951502,
+   "e2e_ms": 5261.6560575552285,
+   "out_tokens": 96,
+   "tpot_ms": 46.2573622206324
+  },
+  {
+   "ttft_ms": 866.7019749991596,
+   "e2e_ms": 5261.177336797118,
+   "out_tokens": 96,
+   "tpot_ms": 46.25763538734693
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 873.2011499814689,
+   "e2e_ms": 5426.732888910919,
+   "out_tokens": 96,
+   "tpot_ms": 47.931913041362634
+  },
+  {
+   "ttft_ms": 872.5091442465782,
+   "e2e_ms": 5426.939463242888,
+   "out_tokens": 96,
+   "tpot_ms": 47.941371778908525
+  },
+  {
+   "ttft_ms": 867.2788678668439,
+   "e2e_ms": 5421.389769762754,
+   "out_tokens": 96,
+   "tpot_ms": 47.93800949364116
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 861.6986740380526,
+   "e2e_ms": 5417.024113237858,
+   "out_tokens": 96,
+   "tpot_ms": 47.950794096840056
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 856.5143491141498,
+   "e2e_ms": 5563.94481100142,
+   "out_tokens": 96,
+   "tpot_ms": 49.55189959881337
+  },
+  {
+   "ttft_ms": 856.3206838443875,
+   "e2e_ms": 5564.101833850145,
+   "out_tokens": 96,
+   "tpot_ms": 49.555591052692186
+  },
+  {
+   "ttft_ms": 855.6690500117838,
+   "e2e_ms": 5564.0649241395295,
+   "out_tokens": 96,
+   "tpot_ms": 49.56206183292364
+  },
+  {
+   "ttft_ms": 855.482135899365,
+   "e2e_ms": 5563.991931732744,
+   "out_tokens": 96,
+   "tpot_ms": 49.56326100877241
+  },
+  {
+   "ttft_ms": 855.2657710388303,
+   "e2e_ms": 5564.6927873604,
+   "out_tokens": 96,
+   "tpot_ms": 49.57291596127968
+  },
+  {
+   "ttft_ms": 855.0438857637346,
+   "e2e_ms": 5565.283800009638,
+   "out_tokens": 96,
+   "tpot_ms": 49.58147278153583
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 926.6166966408491,
+   "e2e_ms": 5725.217806641012,
+   "out_tokens": 96,
+   "tpot_ms": 50.51159063158067
+  },
+  {
+   "ttft_ms": 926.7921117134392,
+   "e2e_ms": 5725.817720871419,
+   "out_tokens": 96,
+   "tpot_ms": 50.5160590437682
+  },
+  {
+   "ttft_ms": 926.9164046272635,
+   "e2e_ms": 5725.653736852109,
+   "out_tokens": 96,
+   "tpot_ms": 50.51302454973522
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 925.1699550077319,
+   "e2e_ms": 5725.069084204733,
+   "out_tokens": 96,
+   "tpot_ms": 50.52525399154738
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "error": "429: {\"error\": {\"type\": \"overloaded\", \"message\": \"control-plane admission cap\", \"retry_after_ms\": 500}}"
+  },
+  {
+   "error": "Server disconnected"
+  },
+  {
+   "ttft_ms": 778.6558070220053,
+   "e2e_ms": 5857.098199892789,
+   "out_tokens": 96,
+   "tpot_ms": 53.45728834600825
+  },
+  {
+   "ttft_ms": 1319.295251276344,
+   "e2e_ms": 5199.092295952141,
+   "out_tokens": 96,
+   "tpot_ms": 40.83996889132418
+  },
+  {
+   "ttft_ms": 1301.1776078492403,
+   "e2e_ms": 4898.397428914905,
+   "out_tokens": 96,
+   "tpot_ms": 37.8654718006912
+  },
+  {
+   "ttft_ms": 1299.9598309397697,
+   "e2e_ms": 4897.817986086011,
+   "out_tokens": 96,
+   "tpot_ms": 37.87219110680254
+  },
+  {
+   "ttft_ms": 1299.849297851324,
+   "e2e_ms": 4897.628821898252,
+   "out_tokens": 96,
+   "tpot_ms": 37.87136341102029
+  },
+  {
+   "ttft_ms": 1299.5832320302725,
+   "e2e_ms": 4897.399717010558,
+   "out_tokens": 96,
+   "tpot_ms": 37.87175247347668
+  },
+  {
+   "ttft_ms": 1298.830906394869,
+   "e2e_ms": 4897.576891351491,
+   "out_tokens": 96,
+   "tpot_ms": 37.881536683753914
+  },
+  {
+   "ttft_ms": 1298.5915197059512,
+   "e2e_ms": 4897.382525727153,
+   "out_tokens": 96,
+   "tpot_ms": 37.88201058969686
+  },
+  {
+   "ttft_ms": 1297.6946900598705,
+   "e2e_ms": 4897.339045070112,
+   "out_tokens": 96,
+   "tpot_ms": 37.89099321063412
+  },
+  {
+   "ttft_ms": 1297.411734238267,
+   "e2e_ms": 4897.112499922514,
+   "out_tokens": 96,
+   "tpot_ms": 37.8915870072026
+  },
+  {
+   "ttft_ms": 1261.5272761322558,
+   "e2e_ms": 4579.385734163225,
+   "out_tokens": 96,
+   "tpot_ms": 34.924825874010196
+  },
+  {
+   "ttft_ms": 1260.824210010469,
+   "e2e_ms": 4579.122168011963,
+   "out_tokens": 96,
+   "tpot_ms": 34.92945218948942
+  },
+  {
+   "ttft_ms": 1260.7815000228584,
+   "e2e_ms": 4578.934194054455,
+   "out_tokens": 96,
+   "tpot_ms": 34.92792309506943
+  },
+  {
+   "ttft_ms": 1260.0795137695968,
+   "e2e_ms": 4578.267498873174,
+   "out_tokens": 96,
+   "tpot_ms": 34.92829458003766
+  },
+  {
+   "ttft_ms": 941.7339940555394,
+   "e2e_ms": 4260.289648082107,
+   "out_tokens": 96,
+   "tpot_ms": 34.93216477922703
+  },
+  {
+   "ttft_ms": 1331.9343412294984,
+   "e2e_ms": 4270.8042012527585,
+   "out_tokens": 96,
+   "tpot_ms": 30.93547221077116
+  },
+  {
+   "ttft_ms": 1331.189745105803,
+   "e2e_ms": 4270.473114214838,
+   "out_tokens": 96,
+   "tpot_ms": 30.939824937989837
+  },
+  {
+   "ttft_ms": 1330.9025592170656,
+   "e2e_ms": 4270.2357289381325,
+   "out_tokens": 96,
+   "tpot_ms": 30.9403491549586
+  },
+  {
+   "ttft_ms": 1330.285845324397,
+   "e2e_ms": 4269.490302074701,
+   "out_tokens": 96,
+   "tpot_ms": 30.938994281582143
+  },
+  {
+   "ttft_ms": 1329.5844891108572,
+   "e2e_ms": 4269.891780801117,
+   "out_tokens": 96,
+   "tpot_ms": 30.950603070423792
+  },
+  {
+   "ttft_ms": 1002.2514699958265,
+   "e2e_ms": 3942.8387279622257,
+   "out_tokens": 96,
+   "tpot_ms": 30.953550083856832
+  },
+  {
+   "ttft_ms": 1001.1126748286188,
+   "e2e_ms": 3941.752773709595,
+   "out_tokens": 96,
+   "tpot_ms": 30.954106304010278
+  },
+  {
+   "ttft_ms": 1034.1612487100065,
+   "e2e_ms": 4053.728424012661,
+   "out_tokens": 96,
+   "tpot_ms": 31.784917634764785
+  },
+  {
+   "ttft_ms": 1033.6773279123008,
+   "e2e_ms": 4053.8292662240565,
+   "out_tokens": 96,
+   "tpot_ms": 31.791073034860585
+  },
+  {
+   "ttft_ms": 730.4986761882901,
+   "e2e_ms": 3750.465699005872,
+   "out_tokens": 96,
+   "tpot_ms": 31.789126555974548
+  },
+  {
+   "ttft_ms": 1212.9320059902966,
+   "e2e_ms": 4833.296151831746,
+   "out_tokens": 95,
+   "tpot_ms": 38.51451218980265
+  },
+  {
+   "ttft_ms": 1423.4899380244315,
+   "e2e_ms": 4841.199777089059,
+   "out_tokens": 95,
+   "tpot_ms": 36.35861530919817
+  },
+  {
+   "ttft_ms": 1423.212541732937,
+   "e2e_ms": 4840.904220938683,
+   "out_tokens": 95,
+   "tpot_ms": 36.35842211921006
+  },
+  {
+   "ttft_ms": 1423.238143324852,
+   "e2e_ms": 4841.262388974428,
+   "out_tokens": 95,
+   "tpot_ms": 36.36196006010187
+  },
+  {
+   "ttft_ms": 1423.5407798551023,
+   "e2e_ms": 4841.755759902298,
+   "out_tokens": 95,
+   "tpot_ms": 36.363989149438254
+  },
+  {
+   "ttft_ms": 1423.3887856826186,
+   "e2e_ms": 4841.71756869182,
+   "out_tokens": 95,
+   "tpot_ms": 36.365199819246826
+  },
+  {
+   "ttft_ms": 1650.2557410858572,
+   "e2e_ms": 4859.66333700344,
+   "out_tokens": 95,
+   "tpot_ms": 34.14263399912322
+  },
+  {
+   "ttft_ms": 1649.767350871116,
+   "e2e_ms": 4859.435902908444,
+   "out_tokens": 95,
+   "tpot_ms": 34.14541012805669
+  },
+  {
+   "ttft_ms": 1650.0449161976576,
+   "e2e_ms": 4859.260028228164,
+   "out_tokens": 95,
+   "tpot_ms": 34.14058629819687
+  },
+  {
+   "ttft_ms": 1869.1723803058267,
+   "e2e_ms": 4869.026426225901,
+   "out_tokens": 95,
+   "tpot_ms": 31.91334091404334
+  },
+  {
+   "ttft_ms": 1868.9257642254233,
+   "e2e_ms": 4868.773039896041,
+   "out_tokens": 95,
+   "tpot_ms": 31.913268890112956
+  },
+  {
+   "ttft_ms": 1868.9675750210881,
+   "e2e_ms": 4868.595106061548,
+   "out_tokens": 95,
+   "tpot_ms": 31.910931181281487
+  },
+  {
+   "ttft_ms": 1869.2821618169546,
+   "e2e_ms": 4869.167898781598,
+   "out_tokens": 95,
+   "tpot_ms": 31.91367805281535
+  },
+  {
+   "ttft_ms": 1869.3121527321637,
+   "e2e_ms": 4870.248232968152,
+   "out_tokens": 95,
+   "tpot_ms": 31.924851917404126
+  },
+  {
+   "ttft_ms": 1858.4743216633797,
+   "e2e_ms": 4859.593435656279,
+   "out_tokens": 95,
+   "tpot_ms": 31.926799085030847
+  },
+  {
+   "ttft_ms": 2090.158504899591,
+   "e2e_ms": 4859.404242131859,
+   "out_tokens": 94,
+   "tpot_ms": 29.776835884217935
+  },
+  {
+   "ttft_ms": 2090.5469940043986,
+   "e2e_ms": 4860.8759846538305,
+   "out_tokens": 94,
+   "tpot_ms": 29.788483770423998
+  },
+  {
+   "ttft_ms": 2090.63001582399,
+   "e2e_ms": 4862.68057487905,
+   "out_tokens": 94,
+   "tpot_ms": 29.80699525865656
+  },
+  {
+   "ttft_ms": 2090.6197046861053,
+   "e2e_ms": 4864.151737652719,
+   "out_tokens": 94,
+   "tpot_ms": 29.822925085662515
+  },
+  {
+   "ttft_ms": 2090.435930993408,
+   "e2e_ms": 4864.990445785224,
+   "out_tokens": 94,
+   "tpot_ms": 29.8339195138905
+  },
+  {
+   "ttft_ms": 2090.453891083598,
+   "e2e_ms": 4865.991278085858,
+   "out_tokens": 94,
+   "tpot_ms": 29.84448803228236
+  },
+  {
+   "ttft_ms": 2148.095983080566,
+   "e2e_ms": 4784.933716058731,
+   "out_tokens": 94,
+   "tpot_ms": 28.353093902991024
+  },
+  {
+   "ttft_ms": 2147.9904209263623,
+   "e2e_ms": 4784.325401764363,
+   "out_tokens": 94,
+   "tpot_ms": 28.34768796600001
+  },
+  {
+   "ttft_ms": 2172.160448040813,
+   "e2e_ms": 4785.070578102022,
+   "out_tokens": 93,
+   "tpot_ms": 28.40119706588271
+  },
+  {
+   "ttft_ms": 682.423026766628,
+   "e2e_ms": 4251.316317822784,
+   "out_tokens": 96,
+   "tpot_ms": 37.56729780059112
+  },
+  {
+   "ttft_ms": 986.2207230180502,
+   "e2e_ms": 4482.235253788531,
+   "out_tokens": 96,
+   "tpot_ms": 36.800152955478744
+  },
+  {
+   "ttft_ms": 985.5721988715231,
+   "e2e_ms": 4482.247693929821,
+   "out_tokens": 96,
+   "tpot_ms": 36.80711047429787
+  },
+  {
+   "ttft_ms": 985.5277268216014,
+   "e2e_ms": 4482.269504107535,
+   "out_tokens": 96,
+   "tpot_ms": 36.80780818195719
+  },
+  {
+   "ttft_ms": 1151.0132579132915,
+   "e2e_ms": 4659.506136085838,
+   "out_tokens": 96,
+   "tpot_ms": 36.93150398076365
+  },
+  {
+   "ttft_ms": 1150.4612159915268,
+   "e2e_ms": 4659.252881072462,
+   "out_tokens": 96,
+   "tpot_ms": 36.9346491061151
+  },
+  {
+   "ttft_ms": 1133.0384579487145,
+   "e2e_ms": 4641.838802956045,
+   "out_tokens": 96,
+   "tpot_ms": 36.93474047376137
+  },
+  {
+   "ttft_ms": 1132.7133919112384,
+   "e2e_ms": 4641.43302384764,
+   "out_tokens": 96,
+   "tpot_ms": 36.93389086248843
+  },
+  {
+   "ttft_ms": 1178.135200869292,
+   "e2e_ms": 4642.071967944503,
+   "out_tokens": 96,
+   "tpot_ms": 36.46249228500222
+  },
+  {
+   "ttft_ms": 1275.8317440748215,
+   "e2e_ms": 4800.226096063852,
+   "out_tokens": 96,
+   "tpot_ms": 37.098887915674005
+  },
+  {
+   "ttft_ms": 1275.3174132667482,
+   "e2e_ms": 4800.1900049857795,
+   "out_tokens": 96,
+   "tpot_ms": 37.10392201809507
+  },
+  {
+   "ttft_ms": 1275.0907870940864,
+   "e2e_ms": 4800.572142936289,
+   "out_tokens": 96,
+   "tpot_ms": 37.110330061496875
+  },
+  {
+   "ttft_ms": 1274.8272609896958,
+   "e2e_ms": 4800.334298051894,
+   "out_tokens": 96,
+   "tpot_ms": 37.1106003901284
+  },
+  {
+   "ttft_ms": 1443.1717861443758,
+   "e2e_ms": 4976.5229457989335,
+   "out_tokens": 96,
+   "tpot_ms": 37.193170101626926
+  },
+  {
+   "ttft_ms": 1442.5728730857372,
+   "e2e_ms": 4976.561837829649,
+   "out_tokens": 96,
+   "tpot_ms": 37.1998838394096
+  },
+  {
+   "ttft_ms": 1442.2340039163828,
+   "e2e_ms": 4976.614088285714,
+   "out_tokens": 96,
+   "tpot_ms": 37.20400088809823
+  },
+  {
+   "ttft_ms": 1440.5944477766752,
+   "e2e_ms": 4975.03720363602,
+   "out_tokens": 96,
+   "tpot_ms": 37.20466058799311
+  },
+  {
+   "ttft_ms": 1438.7384173460305,
+   "e2e_ms": 4974.0362809970975,
+   "out_tokens": 96,
+   "tpot_ms": 37.21366172264281
+  },
+  {
+   "ttft_ms": 1436.8860363028944,
+   "e2e_ms": 4972.166340332478,
+   "out_tokens": 96,
+   "tpot_ms": 37.21347688452194
+  },
+  {
+   "ttft_ms": 1663.513246923685,
+   "e2e_ms": 5148.156533949077,
+   "out_tokens": 96,
+   "tpot_ms": 36.680455652898864
+  },
+  {
+   "ttft_ms": 1662.5131438486278,
+   "e2e_ms": 5147.447288036346,
+   "out_tokens": 96,
+   "tpot_ms": 36.68351730723914
+  },
+  {
+   "ttft_ms": 1631.7149987444282,
+   "e2e_ms": 5116.935529746115,
+   "out_tokens": 96,
+   "tpot_ms": 36.686531905280916
+  },
+  {
+   "ttft_ms": 1631.5200948156416,
+   "e2e_ms": 5117.179775144905,
+   "out_tokens": 96,
+   "tpot_ms": 36.69115452978172
+  },
+  {
+   "ttft_ms": 1630.9480122290552,
+   "e2e_ms": 5117.420280352235,
+   "out_tokens": 96,
+   "tpot_ms": 36.699708085507154
+  },
+  {
+   "ttft_ms": 624.4353172369301,
+   "e2e_ms": 4363.968743011355,
+   "out_tokens": 96,
+   "tpot_ms": 39.36350974499395
+  },
+  {
+   "ttft_ms": 894.5038737729192,
+   "e2e_ms": 4186.602668836713,
+   "out_tokens": 96,
+   "tpot_ms": 34.6536715269873
+  },
+  {
+   "ttft_ms": 893.9405214041471,
+   "e2e_ms": 4186.627330258489,
+   "out_tokens": 96,
+   "tpot_ms": 34.65986114583517
+  },
+  {
+   "ttft_ms": 893.3636979199946,
+   "e2e_ms": 4185.925984289497,
+   "out_tokens": 96,
+   "tpot_ms": 34.65855038283687
+  },
+  {
+   "ttft_ms": 884.5627629198134,
+   "e2e_ms": 4023.0353609658778,
+   "out_tokens": 96,
+   "tpot_ms": 33.036553663642785
+  },
+  {
+   "ttft_ms": 884.7034960053861,
+   "e2e_ms": 4022.68532384187,
+   "out_tokens": 96,
+   "tpot_ms": 33.03138766143667
+  },
+  {
+   "ttft_ms": 884.1471937485039,
+   "e2e_ms": 4022.2524437122047,
+   "out_tokens": 96,
+   "tpot_ms": 33.03268684172317
+  },
+  {
+   "ttft_ms": 884.4221299514174,
+   "e2e_ms": 4022.1094111911952,
+   "out_tokens": 96,
+   "tpot_ms": 33.02828717094503
+  },
+  {
+   "ttft_ms": 884.0246298350394,
+   "e2e_ms": 4021.7298017814755,
+   "out_tokens": 96,
+   "tpot_ms": 33.028475494173016
+  },
+  {
+   "ttft_ms": 870.0883509591222,
+   "e2e_ms": 3860.202379990369,
+   "out_tokens": 96,
+   "tpot_ms": 31.47488451611839
+  },
+  {
+   "ttft_ms": 870.1067110523582,
+   "e2e_ms": 3859.8602721467614,
+   "out_tokens": 96,
+   "tpot_ms": 31.47109011678319
+  },
+  {
+   "ttft_ms": 869.5232677273452,
+   "e2e_ms": 3859.0225828811526,
+   "out_tokens": 96,
+   "tpot_ms": 31.46841384372429
+  },
+  {
+   "ttft_ms": 869.8202152736485,
+   "e2e_ms": 3858.8842009194195,
+   "out_tokens": 96,
+   "tpot_ms": 31.46383142785022
+  },
+  {
+   "ttft_ms": 859.2932499013841,
+   "e2e_ms": 3701.8765988759696,
+   "out_tokens": 96,
+   "tpot_ms": 29.921929989206163
+  },
+  {
+   "ttft_ms": 859.3355719931424,
+   "e2e_ms": 3701.567601878196,
+   "out_tokens": 96,
+   "tpot_ms": 29.91823189352688
+  },
+  {
+   "ttft_ms": 858.6021447554231,
+   "e2e_ms": 3700.674071907997,
+   "out_tokens": 96,
+   "tpot_ms": 29.916546601606044
+  },
+  {
+   "ttft_ms": 858.9960127137601,
+   "e2e_ms": 3700.6600410677493,
+   "out_tokens": 96,
+   "tpot_ms": 29.91225293004199
+  },
+  {
+   "ttft_ms": 858.4131309762597,
+   "e2e_ms": 3699.987096711993,
+   "out_tokens": 96,
+   "tpot_ms": 29.911304902481405
+  },
+  {
+   "ttft_ms": 858.6883670650423,
+   "e2e_ms": 3699.839753098786,
+   "out_tokens": 96,
+   "tpot_ms": 29.90685669509204
+  },
+  {
+   "ttft_ms": 913.2114998064935,
+   "e2e_ms": 3538.8252628035843,
+   "out_tokens": 96,
+   "tpot_ms": 27.638039610495692
+  },
+  {
+   "ttft_ms": 913.3949540555477,
+   "e2e_ms": 3538.6823089793324,
+   "out_tokens": 96,
+   "tpot_ms": 27.63460373603984
+  },
+  {
+   "ttft_ms": 913.2973812520504,
+   "e2e_ms": 3538.033464923501,
+   "out_tokens": 96,
+   "tpot_ms": 27.628800880752113
+  },
+  {
+   "ttft_ms": 913.0966770462692,
+   "e2e_ms": 3537.260528188199,
+   "out_tokens": 96,
+   "tpot_ms": 27.622777380441363
+  },
+  {
+   "ttft_ms": 912.799371406436,
+   "e2e_ms": 3536.819068249315,
+   "out_tokens": 96,
+   "tpot_ms": 27.62125996676715
+  },
+  {
+   "ttft_ms": 543.3240039274096,
+   "e2e_ms": 3756.8525122478604,
+   "out_tokens": 96,
+   "tpot_ms": 33.82661587705738
+  },
+  {
+   "ttft_ms": 1116.6449943557382,
+   "e2e_ms": 3743.7131092883646,
+   "out_tokens": 96,
+   "tpot_ms": 27.653348578238173
+  }
+ ]
+}

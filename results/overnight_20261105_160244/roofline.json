@@ -1,0 +1,271 @@
+{
+  "qwen3_shapes": [
+    {
+      "m": 1,
+      "n": 1024,
+      "k": 1024,
+      "ms": 0.0252,
+      "tflops": 0.08,
+      "gbs": 83.4,
+      "ai_flop_per_byte": 1.0,
+      "shape": "proj"
+    },
+    {
+      "m": 8,
+      "n": 1024,
+      "k": 1024,
+      "ms": 0.0239,
+      "tflops": 0.7,
+      "gbs": 89.0,
+      "ai_flop_per_byte": 7.9,
+      "shape": "proj"
+    },
+    {
+      "m": 32,
+      "n": 1024,
+      "k": 1024,
+      "ms": 0.0234,
+      "tflops": 2.87,
+      "gbs": 95.4,
+      "ai_flop_per_byte": 30.1,
+      "shape": "proj"
+    },
+    {
+      "m": 128,
+      "n": 1024,
+      "k": 1024,
+      "ms": 0.0235,
+      "tflops": 11.44,
+      "gbs": 111.7,
+      "ai_flop_per_byte": 102.4,
+      "shape": "proj"
+    },
+    {
+      "m": 512,
+      "n": 1024,
+      "k": 1024,
+      "ms": 0.0243,
+      "tflops": 44.1,
+      "gbs": 172.3,
+      "ai_flop_per_byte": 256.0,
+      "shape": "proj"
+    },
+    {
+      "m": 2048,
+      "n": 1024,
+      "k": 1024,
+      "ms": 0.0238,
+      "tflops": 180.77,
+      "gbs": 441.3,
+      "ai_flop_per_byte": 409.6,
+      "shape": "proj"
+    },
+    {
+      "m": 8192,
+      "n": 1024,
+      "k": 1024,
+      "ms": 0.062,
+      "tflops": 276.88,
+      "gbs": 574.6,
+      "ai_flop_per_byte": 481.9,
+      "shape": "proj"
+    },
+    {
+      "m": 1,
+      "n": 3072,
+      "k": 1024,
+      "ms": 0.0246,
+      "tflops": 0.26,
+      "gbs": 255.9,
+      "ai_flop_per_byte": 1.0,
+      "shape": "ffn_up"
+    },
+    {
+      "m": 8,
+      "n": 3072,
+      "k": 1024,
+      "ms": 0.0243,
+      "tflops": 2.07,
+      "gbs": 261.3,
+      "ai_flop_per_byte": 7.9,
+      "shape": "ffn_up"
+    },
+    {
+      "m": 32,
+      "n": 3072,
+      "k": 1024,
+      "ms": 0.0244,
+      "tflops": 8.25,
+      "gbs": 268.7,
+      "ai_flop_per_byte": 30.7,
+      "shape": "ffn_up"
+    },
+    {
+      "m": 128,
+      "n": 3072,
+      "k": 1024,
+      "ms": 0.0247,
+      "tflops": 32.65,
+      "gbs": 297.6,
+      "ai_flop_per_byte": 109.7,
+      "shape": "ffn_up"
+    },
+    {
+      "m": 512,
+      "n": 3072,
+      "k": 1024,
+      "ms": 0.025,
+      "tflops": 128.93,
+      "gbs": 419.7,
+      "ai_flop_per_byte": 307.2,
+      "shape": "ffn_up"
+    },
+    {
+      "m": 2048,
+      "n": 3072,
+      "k": 1024,
+      "ms": 0.0468,
+      "tflops": 275.57,
+      "gbs": 493.4,
+      "ai_flop_per_byte": 558.5,
+      "shape": "ffn_up"
+    },
+    {
+      "m": 8192,
+      "n": 3072,
+      "k": 1024,
+      "ms": 0.1603,
+      "tflops": 321.46,
+      "gbs": 457.8,
+      "ai_flop_per_byte": 702.2,
+      "shape": "ffn_up"
+    },
+    {
+      "m": 1,
+      "n": 1024,
+      "k": 3072,
+      "ms": 0.0237,
+      "tflops": 0.27,
+      "gbs": 265.4,
+      "ai_flop_per_byte": 1.0,
+      "shape": "ffn_dn"
+    },
+    {
+      "m": 8,
+      "n": 1024,
+      "k": 3072,
+      "ms": 0.0244,
+      "tflops": 2.06,
+      "gbs": 260.5,
+      "ai_flop_per_byte": 7.9,
+      "shape": "ffn_dn"
+    },
+    {
+      "m": 32,
+      "n": 1024,
+      "k": 3072,
+      "ms": 0.0233,
+      "tflops": 8.63,
+      "gbs": 280.9,
+      "ai_flop_per_byte": 30.7,
+      "shape": "ffn_dn"
+    },
+    {
+      "m": 128,
+      "n": 1024,
+      "k": 3072,
+      "ms": 0.0233,
+      "tflops": 34.5,
+      "gbs": 314.4,
+      "ai_flop_per_byte": 109.7,
+      "shape": "ffn_dn"
+    },
+    {
+      "m": 512,
+      "n": 1024,
+      "k": 3072,
+      "ms": 0.0303,
+      "tflops": 106.31,
+      "gbs": 346.1,
+      "ai_flop_per_byte": 307.2,
+      "shape": "ffn_dn"
+    },
+    {
+      "m": 2048,
+      "n": 1024,
+      "k": 3072,
+      "ms": 0.0506,
+      "tflops": 254.57,
+      "gbs": 455.8,
+      "ai_flop_per_byte": 558.5,
+      "shape": "ffn_dn"
+    },
+    {
+      "m": 8192,
+      "n": 1024,
+      "k": 3072,
+      "ms": 0.1612,
+      "tflops": 319.75,
+      "gbs": 455.4,
+      "ai_flop_per_byte": 702.2,
+      "shape": "ffn_dn"
+    }
+  ],
+  "square_sweep": [
+    {
+      "m": 256,
+      "n": 256,
+      "k": 256,
+      "ms": 0.0238,
+      "tflops": 1.41,
+      "gbs": 16.5,
+      "ai_flop_per_byte": 85.3
+    },
+    {
+      "m": 512,
+      "n": 512,
+      "k": 512,
+      "ms": 0.0236,
+      "tflops": 11.4,
+      "gbs": 66.8,
+      "ai_flop_per_byte": 170.7
+    },
+    {
+      "m": 1024,
+      "n": 1024,
+      "k": 1024,
+      "ms": 0.0243,
+      "tflops": 88.26,
+      "gbs": 258.6,
+      "ai_flop_per_byte": 341.3
+    },
+    {
+      "m": 2048,
+      "n": 2048,
+      "k": 2048,
+      "ms": 0.0653,
+      "tflops": 263.0,
+      "gbs": 385.3,
+      "ai_flop_per_byte": 682.7
+    },
+    {
+      "m": 4096,
+      "n": 4096,
+      "k": 4096,
+      "ms": 0.4236,
+      "tflops": 324.43,
+      "gbs": 237.6,
+      "ai_flop_per_byte": 1365.3
+    },
+    {
+      "m": 8192,
+      "n": 8192,
+      "k": 8192,
+      "ms": 3.6926,
+      "tflops": 297.76,
+      "gbs": 109.0,
+      "ai_flop_per_byte": 2730.7
+    }
+  ],
+  "peak_note": "910B1 bf16 spec ~320 TFLOPS dense; HBM ~1.6TB/s"
+}

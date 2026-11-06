@@ -1,0 +1,173 @@
+INFO 11-05 14:28:00 [__init__.py:52] Available plugins for group vllm.platform_plugins:
+INFO 11-05 14:28:00 [__init__.py:54] - ascend -> vllm_ascend:register
+INFO 11-05 14:28:00 [__init__.py:57] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+/usr/local/python3.12.13/lib/python3.12/site-packages/triton/language/extra/cann/extension/math_ops.py:13: FutureWarning: triton.language.extra.cann.extension.atan2 is deprecated and will be removed in the next release; use triton.language.extra.cann.libdevice.atan2 instead.
+  @_deprecated(replacement="triton.language.extra.cann.libdevice.atan2")
+/usr/local/python3.12.13/lib/python3.12/site-packages/triton/language/extra/cann/extension/math_ops.py:35: FutureWarning: triton.language.extra.cann.extension.isfinited is deprecated and will be removed in the next release; use triton.language.extra.cann.libdevice.isfinited instead.
+  @_deprecated(replacement="triton.language.extra.cann.libdevice.isfinited")
+/usr/local/python3.12.13/lib/python3.12/site-packages/triton/language/extra/cann/extension/math_ops.py:49: FutureWarning: triton.language.extra.cann.extension.finitef is deprecated and will be removed in the next release; use triton.language.extra.cann.libdevice.finitef instead.
+  @_deprecated(replacement="triton.language.extra.cann.libdevice.finitef")
+INFO 11-05 14:28:00 [__init__.py:272] Platform plugin ascend is activated
+INFO 11-05 14:28:01 [platform.py:74] Breakable CUDAGraph on Ascend is opt-in; using VLLM_USE_BREAKABLE_CUDAGRAPH=0.
+INFO 11-05 14:28:17 [patch_indexer_kv_dtype.py:102] Patched AttentionConfig.indexer_kv_dtype to accept 'int8' (DeepSeek V4 Ascend indexer K cache dtype).
+INFO 11-05 14:28:17 [patch_kv_cache_dtype.py:117] Patched CacheConfig.cache_dtype to accept 'int8' and 'mxfp8' (Ascend KV cache dtypes).
+INFO 11-05 14:28:17 [__init__.py:112] Registered model loader `<class 'vllm_ascend.model_loader.netloader.netloader.ModelNetLoaderElastic'>` with load format `netloader`
+INFO 11-05 14:28:17 [__init__.py:112] Registered model loader `<class 'vllm_ascend.model_loader.rfork.rfork_loader.RForkModelLoader'>` with load format `rfork`
+WARNING 11-05 14:28:17 [indexer_topk.py:29] Failed to import the DeepSelect extension (vllm._deepselect_C): No module named 'vllm._deepselect_C'
+(APIServer pid=298208) INFO 11-05 14:28:17 [api_utils.py:347] 
+(APIServer pid=298208) INFO 11-05 14:28:17 [api_utils.py:347]        █     █     █▄   ▄█
+(APIServer pid=298208) INFO 11-05 14:28:17 [api_utils.py:347]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.30.0
+(APIServer pid=298208) INFO 11-05 14:28:17 [api_utils.py:347]   █▄█▀ █     █     █     █  model   /model/Qwen3.5-4B
+(APIServer pid=298208) INFO 11-05 14:28:17 [api_utils.py:347]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=298208) INFO 11-05 14:28:17 [api_utils.py:347] 
+(APIServer pid=298208) INFO 11-05 14:28:17 [api_utils.py:286] non-default args: {'model_tag': '/model/Qwen3.5-4B', 'model': '/model/Qwen3.5-4B', 'max_model_len': 8192, 'served_model_name': ['qwen35-4b']}
+(APIServer pid=298208) INFO 11-05 14:28:17 [model.py:692] Resolved architecture: Qwen3_5ForConditionalGeneration
+(APIServer pid=298208) INFO 11-05 14:28:17 [model.py:2030] Using max model len 8192
+(APIServer pid=298208) INFO 11-05 14:28:19 [config.py:625] Mamba cache mode is set to 'align' for Qwen3_5ForConditionalGeneration by default when prefix caching is enabled
+(APIServer pid=298208) INFO 11-05 14:28:19 [kernel.py:416] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['native'])
+(APIServer pid=298208) INFO 11-05 14:28:19 [utils.py:225] No quantization signature detected from model files for "/model/Qwen3.5-4B". The model will be loaded as float. To force a quantization method, pass "--quantization <method>" explicitly.
+(APIServer pid=298208) WARNING 11-05 14:28:19 [platform.py:730] GPU-specific parameter is not supported on Ascend. parameter=disable_cascade_attn, value=True, action: resetting to False.
+(APIServer pid=298208) INFO 11-05 14:28:19 [platform.py:944] The timeout interval of the HCCL operator is 1836s. Timeout in seconds for execute_model RPC calls in multiprocessing must be greater than 1836s, Set VLLM_EXECUTE_MODEL_TIMEOUT_SECONDS=3000
+(APIServer pid=298208) INFO 11-05 14:28:19 [ascend_config.py:334] Dynamic EPLB is False
+(APIServer pid=298208) INFO 11-05 14:28:19 [ascend_config.py:335] The number of redundant experts is 0
+(APIServer pid=298208) INFO 11-05 14:28:19 [ascend_config.py:768] FlashComm1 is disabled. Using flashinfer_all2allv as the all2all backend.
+(APIServer pid=298208) INFO 11-05 14:28:19 [platform.py:1455] Set PYTORCH_NPU_ALLOC_CONF=expandable_segments:True
+(APIServer pid=298208) INFO 11-05 14:28:19 [compilation.py:336] Enabled custom fusions: norm_quant, act_quant
+(APIServer pid=298208) [transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+(APIServer pid=298208) Traceback (most recent call last):
+(APIServer pid=298208)   File "/usr/local/python3.12.13/bin/vllm", line 6, in <module>
+(APIServer pid=298208)     sys.exit(main())
+(APIServer pid=298208)              ^^^^^^
+(APIServer pid=298208)   File "/vllm-workspace/vllm/vllm/entrypoints/cli/main.py", line 106, in main
+(APIServer pid=298208)     args.dispatch_function(args)
+(APIServer pid=298208)   File "/vllm-workspace/vllm/vllm/entrypoints/cli/serve.py", line 154, in cmd
+(APIServer pid=298208)     uvloop.run(run_server(args))
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/site-packages/uvloop/__init__.py", line 96, in run
+(APIServer pid=298208)     return __asyncio.run(
+(APIServer pid=298208)            ^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/asyncio/runners.py", line 195, in run
+(APIServer pid=298208)     return runner.run(main)
+(APIServer pid=298208)            ^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/asyncio/runners.py", line 118, in run
+(APIServer pid=298208)     return self._loop.run_until_complete(task)
+(APIServer pid=298208)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "uvloop/loop.pyx", line 1509, in uvloop.loop.Loop.run_until_complete
+(APIServer pid=298208)   File "uvloop/loop.pyx", line 1502, in uvloop.loop.Loop.run_until_complete
+(APIServer pid=298208)   File "uvloop/loop.pyx", line 1371, in uvloop.loop.Loop.run_forever
+(APIServer pid=298208)   File "uvloop/loop.pyx", line 551, in uvloop.loop.Loop._run
+(APIServer pid=298208)   File "uvloop/loop.pyx", line 471, in uvloop.loop.Loop._on_idle
+(APIServer pid=298208)   File "uvloop/cbhandles.pyx", line 86, in uvloop.loop.Handle._run
+(APIServer pid=298208)   File "uvloop/cbhandles.pyx", line 64, in uvloop.loop.Handle._run
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/site-packages/uvloop/__init__.py", line 48, in wrapper
+(APIServer pid=298208)     return await main
+(APIServer pid=298208)            ^^^^^^^^^^
+(APIServer pid=298208)   File "/vllm-workspace/vllm/vllm/entrypoints/launchers/api_server/entry.py", line 176, in run_server
+(APIServer pid=298208)     await run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+(APIServer pid=298208)   File "/vllm-workspace/vllm/vllm/entrypoints/launchers/api_server/entry.py", line 190, in run_server_worker
+(APIServer pid=298208)     async with build_async_engine_client(
+(APIServer pid=298208)                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/contextlib.py", line 210, in __aenter__
+(APIServer pid=298208)     return await anext(self.gen)
+(APIServer pid=298208)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/vllm-workspace/vllm/vllm/entrypoints/launchers/api_server/entry.py", line 58, in build_async_engine_client
+(APIServer pid=298208)     async with build_async_engine_client_from_engine_args(
+(APIServer pid=298208)                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/contextlib.py", line 210, in __aenter__
+(APIServer pid=298208)     return await anext(self.gen)
+(APIServer pid=298208)            ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/vllm-workspace/vllm/vllm/entrypoints/launchers/api_server/entry.py", line 94, in build_async_engine_client_from_engine_args
+(APIServer pid=298208)     async_llm = AsyncLLM.from_vllm_config(
+(APIServer pid=298208)                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/vllm-workspace/vllm/vllm/v1/engine/async_llm.py", line 235, in from_vllm_config
+(APIServer pid=298208)     return cls(
+(APIServer pid=298208)            ^^^^
+(APIServer pid=298208)   File "/vllm-workspace/vllm/vllm/v1/engine/async_llm.py", line 146, in __init__
+(APIServer pid=298208)     self.input_processor = InputProcessor(self.vllm_config, renderer)
+(APIServer pid=298208)                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/vllm-workspace/vllm/vllm/v1/engine/input_processor.py", line 63, in __init__
+(APIServer pid=298208)     mm_budget = MultiModalBudget(vllm_config, mm_registry)
+(APIServer pid=298208)                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/vllm-workspace/vllm/vllm/multimodal/encoder_budget.py", line 94, in __init__
+(APIServer pid=298208)     all_mm_max_toks_per_item = get_mm_max_toks_per_item(
+(APIServer pid=298208)                                ^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/vllm-workspace/vllm/vllm/multimodal/encoder_budget.py", line 26, in get_mm_max_toks_per_item
+(APIServer pid=298208)     max_tokens_per_item = processor.info.get_mm_max_tokens_per_item(
+(APIServer pid=298208)                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/vllm-workspace/vllm/vllm/model_executor/models/qwen2_vl.py", line 877, in get_mm_max_tokens_per_item
+(APIServer pid=298208)     max_image_tokens = self.get_max_image_tokens()
+(APIServer pid=298208)                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/vllm-workspace/vllm/vllm/model_executor/models/qwen2_vl.py", line 1023, in get_max_image_tokens
+(APIServer pid=298208)     image_processor = self.get_image_processor()
+(APIServer pid=298208)                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/vllm-workspace/vllm/vllm/model_executor/models/qwen3_vl.py", line 922, in get_image_processor
+(APIServer pid=298208)     return self.get_hf_processor(**kwargs).image_processor
+(APIServer pid=298208)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/vllm-workspace/vllm/vllm/model_executor/models/qwen3_vl.py", line 915, in get_hf_processor
+(APIServer pid=298208)     return self.ctx.get_hf_processor(
+(APIServer pid=298208)            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/vllm-workspace/vllm/vllm/multimodal/processing/context.py", line 244, in get_hf_processor
+(APIServer pid=298208)     return cached_processor_from_config(
+(APIServer pid=298208)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/vllm-workspace/vllm/vllm/transformers_utils/processor.py", line 385, in cached_processor_from_config
+(APIServer pid=298208)     return cached_get_processor_without_dynamic_kwargs(
+(APIServer pid=298208)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/vllm-workspace/vllm/vllm/transformers_utils/processor.py", line 369, in cached_get_processor_without_dynamic_kwargs
+(APIServer pid=298208)     final_processor = cached_get_processor(
+(APIServer pid=298208)                       ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/vllm-workspace/vllm/vllm/transformers_utils/processor.py", line 239, in get_processor
+(APIServer pid=298208)     processor = processor_cls.from_pretrained(
+(APIServer pid=298208)                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/site-packages/transformers/processing_utils.py", line 1722, in from_pretrained
+(APIServer pid=298208)     args = cls._get_arguments_from_pretrained(pretrained_model_name_or_path, processor_dict, **kwargs)
+(APIServer pid=298208)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/site-packages/transformers/processing_utils.py", line 1847, in _get_arguments_from_pretrained
+(APIServer pid=298208)     tokenizer = cls._load_tokenizer_from_pretrained(
+(APIServer pid=298208)                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/site-packages/transformers/processing_utils.py", line 1783, in _load_tokenizer_from_pretrained
+(APIServer pid=298208)     tokenizer = auto_processor_class.from_pretrained(
+(APIServer pid=298208)                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 747, in from_pretrained
+(APIServer pid=298208)     config = AutoConfig.from_pretrained(
+(APIServer pid=298208)              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py", line 376, in from_pretrained
+(APIServer pid=298208)     config_dict, unused_kwargs = PreTrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+(APIServer pid=298208)                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/site-packages/transformers/configuration_utils.py", line 719, in get_config_dict
+(APIServer pid=298208)     original_kwargs = copy.deepcopy(kwargs)
+(APIServer pid=298208)                       ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/copy.py", line 136, in deepcopy
+(APIServer pid=298208)     y = copier(x, memo)
+(APIServer pid=298208)         ^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/copy.py", line 221, in _deepcopy_dict
+(APIServer pid=298208)     y[deepcopy(key, memo)] = deepcopy(value, memo)
+(APIServer pid=298208)                              ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/copy.py", line 162, in deepcopy
+(APIServer pid=298208)     y = _reconstruct(x, memo, *rv)
+(APIServer pid=298208)         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/copy.py", line 253, in _reconstruct
+(APIServer pid=298208)     y = func(*args)
+(APIServer pid=298208)         ^^^^^^^^^^^
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/copy.py", line 252, in <genexpr>
+(APIServer pid=298208)     args = (deepcopy(arg, memo) for arg in args)
+(APIServer pid=298208)             ^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/copy.py", line 162, in deepcopy
+(APIServer pid=298208)     y = _reconstruct(x, memo, *rv)
+(APIServer pid=298208)         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/copy.py", line 259, in _reconstruct
+(APIServer pid=298208)     state = deepcopy(state, memo)
+(APIServer pid=298208)             ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/copy.py", line 136, in deepcopy
+(APIServer pid=298208)     y = copier(x, memo)
+(APIServer pid=298208)         ^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/copy.py", line 221, in _deepcopy_dict
+(APIServer pid=298208)     y[deepcopy(key, memo)] = deepcopy(value, memo)
+(APIServer pid=298208)                              ^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/copy.py", line 162, in deepcopy
+(APIServer pid=298208)     y = _reconstruct(x, memo, *rv)
+(APIServer pid=298208)         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=298208)   File "/usr/local/python3.12.13/lib/python3.12/copy.py", line 261, in _reconstruct
+(APIServer pid=298208)     y.__setstate__(state)
+(APIServer pid=298208)   File "/vllm-workspace/vllm/vllm/entrypoints/launchers/api_server/entry.py", line 171, in _interrupt_init
+(APIServer pid=298208)     raise KeyboardInterrupt("terminated")
+(APIServer pid=298208) KeyboardInterrupt: terminated
+(APIServer pid=298208) [ERROR] 2026-11-05-14:28:39 (PID:298208, Device:-1, RankID:-1) ERR99999 UNKNOWN applicaiton exception
