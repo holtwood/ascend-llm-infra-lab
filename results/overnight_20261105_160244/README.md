@@ -1002,3 +1002,24 @@ bs=32 decode @ ctx=4k，第 15-45 步期间侧流持续 D2H 换出 15MB KV block
 vLLM 用 async swap worker 是正确设计；代价只在换出方恢复时。
 注意边界：本测量在发射受限域；带宽受限栈中 PCIe 链路饱和时
 结论可能不同，但 D2H 路径不走 HBM，争用点主要在调度开销。
+
+## E81 · canonical 题：static vs continuous batching 实测（cb_static.json）
+
+32 请求、输出长度 U[32,256]、cap=16、ctx=2048，真实 decode forward：
+
+| 模式 | 总时长 | 步数 | 平均活跃 bs |
+|---|---|---|---|
+| static（全员等齐才换批） | 14.3s | 485 | 16.0（**含空转槽位**） |
+| continuous（完成即退、即刻补位） | 9.9s | 338 | 11.2 |
+| **加速比** | | | **1.44×** |
+
+**为什么低于传说 2-3×（值得说清）**：
+- 本实验是**封闭池**（32 个请求一次性到达）：static 的浪费上界 =
+  每批 (max_len − mean_len) 步，147/485 ≈ 30%——所以只有 1.44×；
+- 传说的 2-3× 假设**开放到达流**：static 下在跑 batch 锁死槽位，
+  新请求连排队入场都不行——那种场景的放大效应在 E54 测到过
+  （FCFS 46.9 → SJF/CB 式调度 goodput 1140，差 24×）；
+- 所以答这题要分两层：**同池对比 ~1.4×（本实测），
+  开放负载下差距由调度准入决定，可以远大于此**。
+
+复现：`scripts/overnight/tasks/static_vs_continuous.py`。
