@@ -40,6 +40,33 @@ device 计算淹没在 ~30µs/op 的调度开销里。这正是融合的价值�
 | reduce-only + 1D copy | `(bM,)` shared→GM 1D copy | MLIR `tensor.expand_shape` 验证失败（干净报错） |
 | v*/npuir_* 烟测 | T.vrec/vsqrt/vrsqrt 及完整 rms 变体 | 编译期 DiagnosticError（形参语义不符，非 dump） |
 | API 清点 | T.power / T.reciprocal | 不存在于 0.1.30 |
+| **exp/log 绕开（17:34 冲刺）** | rsqrt = exp(-0.5·log(v))，exp/log/exp2/log2 | **编译+运行全通，但输出错误值**：smoke 出 nan，完整 RMSNorm max\|diff\|=68.75 —— transcendental 家族在 0.1.30-npuir 是**数值级损坏**（不崩但算错） |
+| **完整 RMSNorm 里程碑（17:34）** | 树归约 + exp/log 组合的完整 fused RMSNorm | **首次编译+运行不崩**（`scripts/n8_rescue/tl_explog.py`）——证明除 transcendental 数值外全链路（copy/归约/fp32 数学/bf16 cast/融合写回）可用 |
+
+**0.1.15 overlay 路线的最终真相（17:30–17:32 验证）**：`py311tl+tl015` 这份 0.1.15 的
+ascend dialect 是 **Ascend 950 专用 build**（目标 dav-3510，`T.Kernel(N)` 1-D grid +
+`T.SimtVF`/`T.SimdVF`，无 `is_npu`）；其 README 官方 GEMM 例子在 910B2 上**编译成功**
+（生成 dav-3510 AscendC 代码）但**运行即 ERR99999**。烂尾脚本所用的 API
+（`is_npu=True` 双层 grid、`PassConfigKey.TL_ASCEND_*`）对应的是**另一个 0.1.15 build**
+（910 系支持）——机器上没有。overlay 路线对 910B2 判死刑。
+
+## 六点五、续作两条现实路径（按可信度排序）
+
+1. **0.1.30 上替换 transcendental 实现**（推荐，现有环境即可跑）：K_a 已证明纯算术
+   （copy/乘加/cast）全安全。rsqrt 用分段查表 + 1–2 次牛顿修正
+   （`y ← y·(1.5 − 0.5·v·y²)`，纯乘加）或多项式逼近实现，精度对 bf16 出
+   （2⁻⁸）绰绰有余。骨架直接用 `tl_explog.py` 的完整 RMSNorm（已跑通，只换 inv 一行）。
+2. **源码 build 910B2 支持的 tilelang-ascend**：机器外网通（github 可达），
+   `USE_ASCEND=ON` 源码编译，`ASCEND_NPU_ARCH` 指定 910B2 目标。耗时但能拿到
+   烂尾脚本原生 API（`is_npu`/`T.alloc_ub`/`PassConfigKey.TL_ASCEND_*`）。
+
+## 七、环境回收记录
+
+36.151 于北京时间 **17:35** 回收（连接拒绝），比预告的 17:30 晚 5 分钟。最后一发
+`tl_diag.py`（log/exp 单独归因诊断）未能跑成——本地存档于 `scripts/n8_rescue/`，
+续作时环境复活后可直接续跑。
+
+## 七点五、产出物（续）
 
 结论：**0.1.30-npuir 的 transcendental 家族（rsqrt 运行崩、sqrt 编译崩）与 reduce_sum
 全坏**；elementwise/fragment/cast 底座完好。membound 旧脚本（tlwork）当年 core dump
