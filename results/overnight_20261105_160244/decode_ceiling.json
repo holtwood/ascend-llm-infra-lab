@@ -1,0 +1,87 @@
+{
+  "model": "/data1/pytroch-7/models/Qwen3-0.6B",
+  "weight_gb": 1.503,
+  "kv_bytes_per_token": 114688,
+  "theoretical_tps_bs1": 931.3,
+  "rows": [
+    {
+      "ctx": 512,
+      "bs": 1,
+      "step_ms": 29.44,
+      "tok_s": 34.0,
+      "ceiling_tok_s": 931.3,
+      "pct_of_bw_ceiling": 3.6
+    },
+    {
+      "ctx": 512,
+      "bs": 4,
+      "step_ms": 28.27,
+      "tok_s": 141.5,
+      "ceiling_tok_s": 3725.2,
+      "pct_of_bw_ceiling": 3.8
+    },
+    {
+      "ctx": 512,
+      "bs": 16,
+      "step_ms": 29.15,
+      "tok_s": 548.8,
+      "ceiling_tok_s": 14900.9,
+      "pct_of_bw_ceiling": 3.7
+    },
+    {
+      "ctx": 512,
+      "bs": 64,
+      "step_ms": 29.04,
+      "tok_s": 2203.9,
+      "ceiling_tok_s": 59603.6,
+      "pct_of_bw_ceiling": 3.7
+    },
+    {
+      "ctx": 4096,
+      "bs": 1,
+      "step_ms": 29.01,
+      "tok_s": 34.5,
+      "ceiling_tok_s": 931.3,
+      "pct_of_bw_ceiling": 3.7
+    },
+    {
+      "ctx": 4096,
+      "bs": 4,
+      "step_ms": 31.67,
+      "tok_s": 126.3,
+      "ceiling_tok_s": 3725.2,
+      "pct_of_bw_ceiling": 3.4
+    },
+    {
+      "ctx": 4096,
+      "bs": 16,
+      "step_ms": 32.19,
+      "tok_s": 497.1,
+      "ceiling_tok_s": 14900.9,
+      "pct_of_bw_ceiling": 3.3
+    },
+    {
+      "ctx": 4096,
+      "bs": 64,
+      "step_ms": 43.83,
+      "tok_s": 1460.1,
+      "ceiling_tok_s": 59603.6,
+      "pct_of_bw_ceiling": 2.4
+    }
+  ],
+  "concat_weight_gb": 1.21,
+  "pure_matvec": [
+    {
+      "bs": 1,
+      "ms": 0.86,
+      "achieved_GBps": 1411.8,
+      "equiv_tok_s_bs1": 939.2
+    },
+    {
+      "bs": 64,
+      "ms": 1.1,
+      "achieved_GBps": 1097.0,
+      "equiv_tok_s_bs1": 729.8
+    }
+  ]
+}

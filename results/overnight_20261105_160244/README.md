@@ -138,3 +138,46 @@ vllm+vllm_ascend 在远端成功安装并激活 `PLATFORM npu`、W8A16 模型权
 对训练/推理长任务的可预测性有直接意义。
 
 复现：`scripts/overnight/tasks/hccl_soak.py` + `soak_drift.py`。
+
+## E29 · Decode 吞吐天花板与发射开销墙（decode_ceiling.json，真 Qwen3-0.6B 权重）
+
+面试必问："这个模型在这张卡上 decode tok/s 上限多少、为什么？"
+用真权重做三层测量（910B1，bs=1..64，ctx=512/4096）：
+
+| 层次 | 实测 | 说明 |
+|---|---|---|
+| **带宽天花板**（一次大 matvec 读全部 1.5GB 权重） | 0.86 ms → **1412 GB/s**（HBM 峰值 ~94%） | 等效 **939 tok/s @bs=1** |
+| **逐层 decode**（28 层 × 6 matvec + attention，eager python） | 29-33 ms → **30-34 tok/s** | 仅为天花板的 **3.6%** |
+| **12 分块 matvec**（65535 列一块，受算子限制） | 2.80 ms → 575 GB/s | 分块发射把带宽砍半 |
+
+**核心结论：batch=1 的 decode 不是被 HBM 或算力卡住，而是被 kernel 发射开销卡住**
+（28 层 × ~15 个算子 ≈ 420 次 launch × ~70µs ≈ 29ms）。这解释了为什么
+vLLM/ACLGraph 必须做图捕获：同样的权重、同样的卡，eager 只有天花板 3.6%。
+
+**批处理经济学**：步时在 bs=1→64 之间几乎不变（29ms），所以 tok/s 随 bs
+线性增长（34 → 2204 tok/s）——decode 阶段"一次权重读服务 bs 个 token"，
+直到算力或 KV 带宽成为新瓶颈（本实验 ctx=4096/bs=64 时步时升到 44ms，
+KV 读放大开始显现）。
+
+**权重-only int8 的收益**：分块对照（12×65535 列）bf16 575 GB/s vs
+int8 349 GB/s，但 int8 只读一半字节 → 端到端 **1.21×**；若发射开销被
+图捕获消除，理论上限是 2×（939 → 1878 tok/s）。**量化收益同样被发射开销吃掉**，
+这与 E8k/E8j 的"必须融合进 kernel"是同一结论。
+
+复现：`scripts/overnight/tasks/decode_ceiling.py`（torch 级，不需要 vllm）。
+
+## MindIE 2.3.0 + Qwen3-8B：第二次 vendor 栈失败（驱动级）
+
+在 nmindie 容器（CANN 8.5.0，mindie-service 2.3.0，Qwen3-8B 16GB 在位）尝试
+生产服务，逐层排障后确认是**驱动/运行时级故障**：
+
+| 阶段 | 现象 | 处置 |
+|---|---|---|
+| 配置校验 | `maxPrefillTokens < maxInputTokenLen` | 调平到 8192/2048 |
+| 配置解析 | `JSON error ... cannot use operator[] with a numeric argument with object` | `ModelConfig` 必须是**数组**不是对象 |
+| 启动 | `Failed to init infer backend manager` | 修正配置后通过 |
+| 运行 | 子进程 core dump；dmesg 出现 `stranded cqe` / `hdcdrv_recv_peek_wait` | **驱动级 CQE 卡死**，非配置问题 |
+
+与 E5R（ATB `set_weight` 挂死）合起来，MindIE 在本容器有两种独立失败模式，
+均为 vendor 栈问题。**结论：MindIE 2.3.0 + CANN 8.5.0 在此环境不可用**，
+MindIE 对比实验只能留给能拿到可用 MindIE 镜像的场景。
