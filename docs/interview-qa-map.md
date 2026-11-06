@@ -160,7 +160,7 @@ E78 直接答——bs=64 @ ctx=4k decode 基线 p50=80.9ms，16k prompt 到达�
   |---|---|---|
   | 容量 | W8A16 权重 −29%；int8 KV 2×、int4 KV 4× | E41/E65 |
   | 速度 | W8A16 本栈 decode/prefill 0.8-0.99×（int8 张量核没用上） | E41/E58 |
-  | 质量 | W8A16 ppl +1.27%、top-1 96.1%；int8 KV +1.52%/91.5%；**int4 必须 KIVI**（K per-channel：+0.27%；naive +15M%、group-32 +328%） | E66 |
+  | 质量 | W8A16 ppl +1.27%；**fp8 KV +0.23%/top-1 96.1%（同字节全面碾压 int8）**；int8 KV +1.52%/91.5%；**int4 必须 KIVI**（K per-channel：+0.27%；naive +15M%、group-32 +328%） | E66 |
 - **验收要看 top-1 一致率不能只看 ppl**：int8 KV 的 ppl 增量和 W8A16 同级，
   但 top-1 扰动更深（91.5% vs 96.1%）——ppl 被简单 token 主导会掩盖预测翻转。
 - **int4 KV 的死因是 K 的通道级 outlier**——KIVI 论文核心论点在本模型复现。
@@ -172,6 +172,13 @@ E78 直接答——bs=64 @ ctx=4k decode 基线 p50=80.9ms，16k prompt 到达�
   q=8 全接受 → **9 token/target 前向**；创意文本深位置掉到 75%。
 - 速度公式：speedup = E[tokens/cycle]/(q·d+v)；α 决定最优 q，
   α<0.7 时 q>4 收益急剧递减。**draft/target 同尺寸时零收益**（本实验如实记录）。
+
+**Q："一个 DP rank 收到长 prompt，所有 rank 的 decode 都变慢"为什么？**
+
+- E82 实测（2-rank allreduce 循环）：rank0 插入 ~10× prefill，
+  **rank1 步时 0.5→4.3ms（8.6×）、首步 478ms**——集合通信让最慢
+  rank 成为全员下限。→ 路由要按 prompt 长度均衡 + chunked prefill
+  切小 straggler 尖峰。
 
 **Q：为什么 decode 需要 CUDA graph/ACLGraph？**
 

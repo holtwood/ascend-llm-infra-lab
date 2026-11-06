@@ -59,6 +59,20 @@ def quant_kv_int8(t):
     return (q.to(t.dtype) * scale)
 
 
+def _fp8_e4m3_emulate(x):
+    """Simulate fp8 e4m3fn rounding without the dtype (CANN 9.0 lacks it)."""
+    ax = x.abs().clamp_min(2 ** -9)
+    e = torch.floor(torch.log2(ax)).clamp(-6, 8)
+    step = torch.where(e >= -6, torch.exp2(e - 3), torch.tensor(2 ** -9, device=x.device))
+    return x.sign() * (torch.round(ax / step) * step).clamp(max=448.0)
+
+
+def quant_kv_fp8(t):
+    """FP8 e4m3 quantization, per-token-per-head scale (emulated)."""
+    scale = t.abs().amax(dim=-1, keepdim=True).clamp_min(1e-8) / 448.0
+    return _fp8_e4m3_emulate(t / scale) * scale
+
+
 def quant_k_int4_perchannel(t):
     """KIVI-style: K quantized per-channel (scale per head_dim channel over L)."""
     scale = t.abs().amax(dim=0, keepdim=True).clamp_min(1e-8) / 7.0  # [1,H,D]
@@ -96,7 +110,10 @@ def forward_logits(ids, W, cfg, dev, nlayers, hq, nkv, hd, hidden, kv_int8=False
         q = rms_norm(q.view(L, hq, hd), W[p + "self_attn.q_norm.weight"]).view(L, -1)
         k = rms_norm(k.view(L, nkv, hd), W[p + "self_attn.k_norm.weight"]).view(L, -1)
         q, k = apply_rope(q.view(L, hq, hd), k.view(L, nkv, hd), cos, sin)
-        if kv_int8:
+        if kv_int8 == 2:
+            k = quant_kv_fp8(k)
+            v = quant_kv_fp8(v.view(L, nkv, hd)).view(L, -1)
+        elif kv_int8:
             k = quant_kv_int8(k)
             v = quant_kv_int8(v.view(L, nkv, hd)).view(L, -1)
         elif kv_int4 == 2:
@@ -163,6 +180,7 @@ def main():
     runs = [("bf16", args.bf16, False, 0),
             ("w8a16", args.int8, True, 0),
             ("bf16_kv8", args.bf16, False, 8),
+            ("bf16_kvfp8", args.bf16, False, 9),
             ("bf16_kv4", args.bf16, False, -4),
             ("bf16_kv4g32", args.bf16, False, -40),
             ("bf16_kv4kivi", args.bf16, False, -41),
@@ -171,7 +189,7 @@ def main():
         W = load(path, dev, dequant=dq)
         with torch.no_grad():
             lg = forward_logits(ids, W, cfg, dev, nlayers, hq, nkv, hd, hidden,
-                                kv_int8=(kvb == 8),
+                                kv_int8=(2 if kvb == 9 else (1 if kvb == 8 else 0)),
                                 kv_int4=(2 if kvb == -41 else (1 if kvb < 0 else 0)),
                                 kv4_group=(32 if kvb == -40 else None))
         p, nll = ppl(lg, ids)
@@ -182,8 +200,8 @@ def main():
         del W
         torch.npu.empty_cache()
     base = outs["bf16"].argmax(-1)
-    for tag in ["w8a16", "bf16_kv8", "bf16_kv4", "bf16_kv4g32", "bf16_kv4kivi",
-                "w8a16_kv8"]:
+    for tag in ["w8a16", "bf16_kv8", "bf16_kvfp8", "bf16_kv4", "bf16_kv4g32",
+                "bf16_kv4kivi", "w8a16_kv8"]:
         if tag in outs:
             agree = 100 * (base == outs[tag].argmax(-1)).float().mean().item()
             res[f"{tag}_top1_agree_pct"] = round(agree, 2)
