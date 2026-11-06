@@ -1,0 +1,26 @@
+{
+ "256": {
+  "hit_ttft_med_s": 0.163,
+  "miss_ttft_med_s": 0.087,
+  "saved_s": -0.076,
+  "saved_pct": -87.4
+ },
+ "1024": {
+  "hit_ttft_med_s": 0.163,
+  "miss_ttft_med_s": 0.303,
+  "saved_s": 0.14,
+  "saved_pct": 46.1
+ },
+ "2048": {
+  "hit_ttft_med_s": 0.102,
+  "miss_ttft_med_s": 0.236,
+  "saved_s": 0.134,
+  "saved_pct": 56.6
+ },
+ "3584": {
+  "hit_ttft_med_s": 0.171,
+  "miss_ttft_med_s": 0.311,
+  "saved_s": 0.14,
+  "saved_pct": 45.0
+ }
+}

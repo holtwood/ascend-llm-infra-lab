@@ -78,3 +78,45 @@ INFO 11-06 04:06:15 [ascend_config.py:768] FlashComm1 is disabled. Using flashin
 (EngineCore pid=477823) INFO 11-06 04:06:38 [weight_utils.py:918] Auto-prefetch is disabled because the filesystem (XFS) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
 (EngineCore pid=477823) Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
 (EngineCore pid=477823) Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:03<00:03,  3.86s/it]
+(EngineCore pid=477823) Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:05<00:00,  2.59s/it]
+(EngineCore pid=477823) Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:05<00:00,  2.78s/it]
+(EngineCore pid=477823) 
+(EngineCore pid=477823) INFO 11-06 04:06:44 [default_loader.py:430] Loading weights took 5.70 seconds
+(EngineCore pid=477823) INFO 11-06 04:06:45 [model_runner_v1.py:4484] Loading model weights took 8.5833 GB
+(EngineCore pid=477823) INFO 11-06 04:06:45 [model_runner_v1.py:4571] Model runner load_model total time: 7.93 seconds
+(EngineCore pid=477823) INFO 11-06 04:06:45 [interface.py:635] Setting kv cache block size to 128 for CUSTOM backend.
+(EngineCore pid=477823) INFO 11-06 04:06:45 [interface.py:933] Setting attention block size to 640 tokens to ensure that attention page size is >= mamba page size.
+(EngineCore pid=477823) INFO 11-06 04:06:45 [interface.py:957] Padding mamba page size by 22.14% to ensure that mamba page size and attention page size are exactly equal.
+(EngineCore pid=477823) INFO 11-06 04:06:45 [utils.py:320] Using LBNHC KV cache layout.
+(EngineCore pid=477823) INFO 11-06 04:06:46 [gpu_model_runner.py:6496] Encoder cache will be initialized with a budget of 16384 tokens, and profiled with 1 image items of the maximum feature size.
+(APIServer pid=477653) INFO 11-06 04:06:46 [base.py:261] Multi-modal warmup completed in 51.905s
+(APIServer pid=477653) INFO 11-06 04:06:49 [base.py:261] Readonly multi-modal warmup completed in 2.660s
+(EngineCore pid=477823) INFO 11-06 04:06:56 [compiler_interface.py:254] AscendCompiler hash factors: {'torch_npu_version': '2.10.0.post7', 'enable_npugraph_ex': False, 'enable_static_kernel': False, 'enable_super_kernel': False}
+(EngineCore pid=477823) INFO 11-06 04:06:56 [backends.py:1094] Using cache directory: /root/.cache/vllm/torch_compile_cache/43687d0a3f/rank_0_0/backbone for vLLM's torch.compile
+(EngineCore pid=477823) INFO 11-06 04:06:56 [backends.py:1155] Dynamo bytecode transform time: 2.03 s
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323] Compiling model again due to a load failure from /root/.cache/vllm/torch_compile_cache/torch_aot_compile/d287449b456e85137d2a7f0f00098a555c31d7e2202a61b535b027184e4bc260/rank_0_0/model, reason: While executing %triton_kernel_wrapper_mutation : [num_users=0] = call_function[target=torch.ops.higher_order.triton_kernel_wrapper_mutation](args = (), kwargs = {kernel_idx: 0, constant_args_idx: 0, grid: [(%floordiv, 1, 1)], tma_descriptor_metadata: {}, kwargs: {X: %reshape_2, Y: %empty_like, W: %contiguous, Z: %reshape_3, Rstd: %empty, M: %mul}})
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323] Original traceback:
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323]   File "/vllm-workspace/vllm/vllm/model_executor/models/qwen3_next.py", line 716, in forward
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323]     hidden_states, residual = layer(
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323]   File "/vllm-workspace/vllm/vllm/model_executor/models/qwen3_next.py", line 568, in forward
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323]     hidden_states = self.linear_attn(hidden_states=hidden_states)
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323]   File "/vllm-workspace/vllm-ascend/vllm_ascend/ops/gdn.py", line 371, in forward
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323]     core_attn_out = self.norm(core_attn_out, z)
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323]   File "/vllm-workspace/vllm/vllm/model_executor/custom_op.py", line 136, in forward
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323]     return self._forward_method(*args, **kwargs)
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323]   File "/vllm-workspace/vllm-ascend/vllm_ascend/ops/layernorm.py", line 215, in forward_oot
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323]     return LayerNormFn.apply(x, self.weight, self.bias, z, self.eps, self.group_size, self.norm_before_gate, True)
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323]   File "/vllm-workspace/vllm-ascend/vllm_ascend/ops/layernorm.py", line 157, in forward
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323]     y, mean, rstd = layer_norm_fwd_npu(
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323]   File "/vllm-workspace/vllm-ascend/vllm_ascend/ops/triton/layernorm_gated.py", line 148, in layer_norm_fwd_npu
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323]     _layer_norm_fwd_1pass_kernel_npu[grid](
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323]   File "/usr/local/python3.12.13/lib/python3.12/site-packages/triton/runtime/jit.py", line 370, in <lambda>
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323]     return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323]   File "/usr/local/python3.12.13/lib/python3.12/site-packages/triton/runtime/autotuner.py", line 459, in run
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323]     return self.fn.run(*args, **kwargs)
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323]   File "/usr/local/python3.12.13/lib/python3.12/site-packages/triton/runtime/autotuner.py", line 459, in run
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323]     return self.fn.run(*args, **kwargs)
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323] 
+(EngineCore pid=477823) WARNING 11-06 04:06:59 [decorators.py:323] Use tlparse to see full graph. (https://github.com/pytorch/tlparse?tab=readme-ov-file#tlparse-parse-structured-pt2-logs)
+(EngineCore pid=477823) INFO 11-06 04:07:08 [compiler_interface.py:254] AscendCompiler hash factors: {'torch_npu_version': '2.10.0.post7', 'enable_npugraph_ex': False, 'enable_static_kernel': False, 'enable_super_kernel': False}
+(EngineCore pid=477823) INFO 11-06 04:07:08 [backends.py:1155] Dynamo bytecode transform time: 9.65 s
