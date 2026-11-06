@@ -90,4 +90,20 @@
 - **手写引擎 88-90ms/步 vs transformers 手动循环 96-98ms（快 8-10%）**：省的是 HF DynamicCache 封装、mask/position 构造的 Python 层开销——框架税的实测大小
 - 手撕陷阱：裸调 `model(seq)` 忘 `no_grad()` → autograd 保留全序列中间量，542 token 峰值 +20.4 GiB 直接 OOM（CPU 小模型完全感知不到）——NPU 裸循环验证必须显式 no_grad
 
-（N6 vllm-ascend 部署+MTP+TP：进行中，数据回来后补条目。）
+## KV offload / 分层存储（N9，2TB DRAM 一手账本）
+
+**Q: KV cache 换出到 host DRAM 划算吗？**
+- 我的 crossover 账本（全部本仓实测常数）：**等效重算带宽 = prefill 吞吐 × KV/token = 2765 tok/s × 32KB = 91 MB/s**——重算和搬运都线性于容量，分界在带宽不在容量。pinned 往返（26.7 GB/s 调和）是分界线 **294 倍**，结论：只要 PCIe > 0.1 GB/s 就该 offload 而不是丢弃重算
+- 实测三方对照（1GB restore）：卡间迁移 66ms < host pinned 81ms << pageable 1699ms << 重算 11851ms。卡间抢的是稀缺 HBM，host 是 2TB 弹性池、只慢 23%
+- **pinned memory 是 25.5× 的生死线**（28.59 vs ~1.1 GB/s），跨 NUMA 绑错域再打 7 折（28.5→19.4）——offload 三件套：pinned buffer + 独立进程绑 NUMA（torch_npu 进程内 setaffinity 会 EINVAL）+ 卡所属域
+- 正确性 demo：Qwen3.5-4B 的 102MB cache（attn KV bf16 + GDN state fp32 混合）换出→跑别的请求→换回，greedy 输出 **bit-exact**，pinned 换入 10ms ≈ 0.1 decode 步——"S 矩阵原子交接"实操可行（呼应 N7 的 PD 分离难点）
+- 隐藏收益不在账面：H2D 是 DMA 不占 AI Core（重算会排挤 decode），释放的 HBM 换并发容量
+
+## Continuous batching 调度器（N1-L3 前置，手撕+实现）
+
+**Q: 手写一个 continuous batching 调度器要注意什么？**
+- 我写的 CPU 模拟版（token-budget + KV 完成预留 + chunked prefill + 抢占最后手段）：64 请求 makespan **155 vs static 953（6.1×）**，p90 123 vs 953——static 批次被最长请求拖尾的量化演示
+- 三个真实活锁 bug（都留了墓志注释）：① dataclass 默认按值相等 → 调度池 remove 移错元素（要 eq=False 走 id）；② 逐出 WAITING 不释放任何 KV 却返回"成功"→死循环；③ 收录失败就抢占 running → 抢-复录-再抢震荡（tight-KV 24 请求 5000 步只完成 6 个），改成**收录失败只等待**后 6 轮干净收敛
+- vLLM 语义对应：preemption 是最后手段（decode 推进不了才抢）；被抢占者 recompute（丢 KV 保 output）vs swap（N9 的账本是 swap 路线的成本依据）
+
+（N6 MTP/TP、N8 TileLang：进行中，数据回来后补条目。）
