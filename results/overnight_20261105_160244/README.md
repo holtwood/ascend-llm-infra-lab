@@ -251,3 +251,28 @@ recompute 成本 = 发射地板(~32ms) + 线性 matvec + **二次 attention（O(
 压下去，recompute 才划算。
 
 复现：`scripts/overnight/tasks/preemption_economics.py`（逐行落盘，防超时丢数）。
+
+## E33 · Prefix cache（APC）的真实收益曲线（prefix.jsonl）
+
+N=8 个请求共享长度 P 的 prefix，各自只有 128 token 的独有后缀。
+对比：cold（每个请求重算 P+128）vs warm（prefix KV 算一次，后缀只算 128 但
+attend over [prefix KV | suffix]，即 APC 的真实行为）。
+
+| Prefix | 命中率 | cold | warm | 单请求加速 | 8 请求总加速 | prefix KV |
+|---|---|---|---|---|---|---|
+| 512 | 80% | 30.2 ms | 35.7 ms | **0.85×（更慢）** | 0.86× | 59 MB |
+| 2048 | 94% | 29.4 ms | 35.6 ms | **0.83×（更慢）** | 0.84× | 235 MB |
+| 8192 | 98% | 98.3 ms | 35.6 ms | **2.76×** | 2.26× | 940 MB |
+
+**结论：APC 的收益不是"命中率"决定的，而是"省下的二次项"决定的。**
+- P≤2k：两条路都被 ~30ms 发射地板支配，APC 还要多付 `cat(prefix KV)` 和
+  显式 mask 构造 → 净亏 15-17%
+- P=8k：cold 要跑 8320 token 的**二次** attention；warm 只有 128 个 query
+  对 8320 个 key（线性）→ 2.76× 收益
+
+**这条正好解释 E3 在真实 vLLM 上的反常现象**：APC 开着时**中位数 TTFT
+反而 +12%**，但 p99 −55%。机制就是本实验：短/中等 prefix 命中时省不下二次项，
+只多付了哈希和 cat 开销；而长 prefix 的请求（p99 那些）省下大量二次计算。
+**所以"APC 有没有用"必须按 prefix 长度分布回答，不能只报命中率。**
+
+复现：`scripts/overnight/tasks/prefix_cache_benefit.py`。
