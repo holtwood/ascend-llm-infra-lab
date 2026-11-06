@@ -1,0 +1,57 @@
+{
+  "bf16_weight_gb": 1.503,
+  "int8_weight_gb": 1.064,
+  "weight_saving_gb": 0.439,
+  "kv_bytes_per_token": 114688,
+  "extra_seqs_at_8k": 0.47,
+  "speed": [
+    {
+      "tensor": "q_proj",
+      "bs": 1,
+      "bf16_us": 31.6,
+      "int8_us": 32.1,
+      "speedup": 0.99,
+      "rel_err": 0.01587
+    },
+    {
+      "tensor": "q_proj",
+      "bs": 64,
+      "bf16_us": 30.1,
+      "int8_us": 33.3,
+      "speedup": 0.9,
+      "rel_err": 0.01136
+    },
+    {
+      "tensor": "gate_proj",
+      "bs": 1,
+      "bf16_us": 30.9,
+      "int8_us": 33.2,
+      "speedup": 0.93,
+      "rel_err": 0.00873
+    },
+    {
+      "tensor": "gate_proj",
+      "bs": 64,
+      "bf16_us": 31.7,
+      "int8_us": 33.4,
+      "speedup": 0.95,
+      "rel_err": 0.01467
+    },
+    {
+      "tensor": "down_proj",
+      "bs": 1,
+      "bf16_us": 30.9,
+      "int8_us": 33.8,
+      "speedup": 0.91,
+      "rel_err": 0.0098
+    },
+    {
+      "tensor": "down_proj",
+      "bs": 64,
+      "bf16_us": 30.5,
+      "int8_us": 38.2,
+      "speedup": 0.8,
+      "rel_err": 0.01531
+    }
+  ]
+}
