@@ -1,0 +1,4 @@
+{"tag":"default","budget":0,"startup_s":181,"capture":"Capturing CUDA graphs (decode, FULL): 100%"}
+{"tag":"same_b4","budget":4,"startup_s":169,"capture":"E30 capture budget=4: pruned 35 -> 4 sizes [1, 8, 32, 256]"}
+{"tag":"same_default","budget":0,"startup_s":180,"capture":"Capturing CUDA graphs (decode, FULL): 100%"}
+{"tag":"same_b10","budget":10,"startup_s":162,"capture":"E30 capture budget=10: pruned 35 -> 9 sizes [1, 2, 4, 8, 16, 32, 64, 128, 256]"}

@@ -1,0 +1,12 @@
+{"tag": "default", "c": 8, "tok_s": 496.8, "ttft": 276.4, "tpot": 13.4, "ttft_p99": 446.7, "ok": 64, "err": 0}
+{"tag": "default", "c": 32, "tok_s": 1224.9, "ttft": 573.1, "tpot": 20.2, "ttft_p99": 849.2, "ok": 64, "err": 0}
+{"tag": "default", "c": 128, "tok_s": 1828.2, "ttft": 1958.9, "tpot": 48.2, "ttft_p99": 3216.9, "ok": 128, "err": 0}
+{"tag": "same_b4", "c": 8, "tok_s": 492.5, "ttft": 288.6, "tpot": 13.4, "ttft_p99": 460.5, "ok": 64, "err": 0}
+{"tag": "same_b4", "c": 32, "tok_s": 1158.9, "ttft": 606.4, "tpot": 21.4, "ttft_p99": 909.4, "ok": 64, "err": 0}
+{"tag": "same_b4", "c": 128, "tok_s": 1703.7, "ttft": 2065.2, "tpot": 52.0, "ttft_p99": 3384.9, "ok": 128, "err": 0}
+{"tag": "same_default", "c": 8, "tok_s": 498.0, "ttft": 272.8, "tpot": 13.4, "ttft_p99": 443.0, "ok": 64, "err": 0}
+{"tag": "same_default", "c": 32, "tok_s": 1218.1, "ttft": 572.8, "tpot": 20.4, "ttft_p99": 850.0, "ok": 64, "err": 0}
+{"tag": "same_default", "c": 128, "tok_s": 1865.7, "ttft": 1968.7, "tpot": 46.7, "ttft_p99": 3236.7, "ok": 128, "err": 0}
+{"tag": "same_b10", "c": 8, "tok_s": 500.1, "ttft": 275.6, "tpot": 13.3, "ttft_p99": 447.9, "ok": 64, "err": 0}
+{"tag": "same_b10", "c": 32, "tok_s": 1226.9, "ttft": 580.8, "tpot": 20.1, "ttft_p99": 857.2, "ok": 64, "err": 0}
+{"tag": "same_b10", "c": 128, "tok_s": 1898.2, "ttft": 1977.2, "tpot": 45.5, "ttft_p99": 3250.7, "ok": 128, "err": 0}

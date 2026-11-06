@@ -1,0 +1,3 @@
+{"tag": "default", "c": 8, "tok_s": 496.8, "ttft": 276.4, "tpot": 13.4, "ttft_p99": 446.7, "ok": 64, "err": 0}
+{"tag": "default", "c": 32, "tok_s": 1224.9, "ttft": 573.1, "tpot": 20.2, "ttft_p99": 849.2, "ok": 64, "err": 0}
+{"tag": "default", "c": 128, "tok_s": 1828.2, "ttft": 1958.9, "tpot": 48.2, "ttft_p99": 3216.9, "ok": 128, "err": 0}
