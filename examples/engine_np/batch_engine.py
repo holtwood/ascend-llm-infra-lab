@@ -106,7 +106,12 @@ class SlotHybridCaches:
     def __init__(self, config: Qwen35Config, max_b: int, max_len: int,
                  device: str, dtype=torch.bfloat16):
         self.config, self.max_b, self.seq_len = config, max_b, 0
-        self.slot_seq_lens = torch.zeros(max_b, dtype=torch.long, device=device)
+        # per-(attention-layer, slot) lengths! A single shared counter is the
+        # classic bug: every layer's append() bumps it, so 8 attn layers x a
+        # 32-token prefill = 256, decode +1 = 257 (the mystery "[1,16,1,256]
+        # vs [1,1,1,257]" broadcast error). The CPU selftest's tiny model has
+        # only ONE attn layer, which is exactly why it passed there.
+        self.attn_lens = {}                                 # layer -> (MAX_B,)
         conv_dim = config.linear_key_dim * 2 + config.linear_value_dim
         self._pools = {}                                   # layer -> pooled tensors
         for i in range(config.num_hidden_layers):
@@ -114,6 +119,8 @@ class SlotHybridCaches:
                 pk = torch.zeros(max_b, config.num_key_value_heads, max_len,
                                  config.head_dim, device=device, dtype=dtype)
                 self._pools[i] = (pk, torch.zeros_like(pk))          # (B,H,L,D)
+                self.attn_lens[i] = torch.zeros(max_b, dtype=torch.long,
+                                                device=device)
             else:
                 conv = torch.zeros(max_b, conv_dim,
                                    config.linear_conv_kernel_dim,
@@ -129,17 +136,13 @@ class SlotHybridCaches:
         att_ids = {i for i, p in self._pools.items() if p[0].dim() == 4}
         for i, pool in self._pools.items():
             if i in att_ids:
-                self.layers[i] = _AttnSlot(pool[0], pool[1], self.slot_seq_lens, slots)
+                self.layers[i] = _AttnSlot(pool[0], pool[1], self.attn_lens[i], slots)
             else:
                 self.layers[i] = _GDNSlot(pool[0], pool[1], slots,
                                           self.config.linear_conv_kernel_dim, phase)
         self.slots, self.phase = slots, phase
-        if slots:
-            sidx = torch.tensor(slots, device=self.slot_seq_lens.device)
-            self.seq_len = int(self.slot_seq_lens[sidx].max())
-        else:
-            self.seq_len = 0                               # model reads it for
-        return self                                        # default position_ids
+        self.seq_len = 0    # informational only; engine always passes position_ids
+        return self
 
 
 class BatchEngine:
@@ -231,9 +234,13 @@ class BatchEngine:
 # selftest: tiny random model — heterogeneous batch path == single path
 # =============================================================================
 def build_tiny(device):
+    # 3 layers with TWO attn layers: a single-attn-layer tiny model is exactly
+    # what let the shared-seq_len bug pass the CPU selftest (each layer's
+    # append bumped the ONE counter; x1 == correct by accident).
     c = Qwen35Config(
         vocab_size=512, hidden_size=64, intermediate_size=128,
-        num_hidden_layers=2, layer_types=["linear_attention", "full_attention"],
+        num_hidden_layers=3,
+        layer_types=["linear_attention", "full_attention", "full_attention"],
         num_attention_heads=2, num_key_value_heads=1, head_dim=32,
         rope_theta=1e6,
         linear_num_value_heads=2, linear_num_key_heads=1,

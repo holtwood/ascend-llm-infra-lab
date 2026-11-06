@@ -84,7 +84,7 @@
 | N1b | 引擎阶梯基准：L0/L2 = 4.4×→9.6×（随长度放大），L2 对 ctx 脱敏（+2.2%/16×），**手写比 transformers 快 8-10%**（88-90ms vs 96-98ms/步），30 token 严格等价 | ✅ | results/n1 |
 | N6 | vllm-ascend 0.18 部署 27B-w8a8（CANN 8.5.1 兼容组合）+ MTP 扫描：c=1 TPOT **−39%**（73.6→45.1ms）但 c=16 吞吐**净负 15%**——TPOT 改善≠吞吐改善 + TP=2 跨NUMA：全面净负（c=16 TPOT +54%/吞吐 −35%），验证 N4 推论 | ✅ | results/n6 |
 | N8 | 算子融合收益：eager RMSNorm 9-op 链 **100% host 开销**（sync≈host-only 211µs）；**torch.compile(inductor) 在 NPU 反慢 39-107%**（launch 更重无真融合）——昇腾走 torchair/TileLang 原生路线的实证；TileLang 原生 kernel 线烂尾（clone 中断，续作在 36.151 工作站的现成环境） | ✅ 主结论 | results/n8 |
-| N1-L3 | continuous batching 引擎：SlotHybridCaches+分桶 prefill+异构 decode mask，**CPU selftest 全过（batched==single）**；NPU 端遇 aclnnFA 对 per-slot mask 的兼容错误（MATH override 不生效），已知问题记录在案 | ◐ CPU过/NPU待修 | examples/engine_np/batch_engine.py |
+| N1-L3 | continuous batching 引擎 NPU 收官：**4.99×（5.3s vs 26.6s，吞吐 5×）**；根因=共享 seq_lens 被 8 个 attn 层各 +T（257=32×8+1 破案），selftest 加第 2 个 attn 层防回归；1/8 token 一致 = N2b 的 bf16 batch 形状敏感 | ✅ | examples/engine_np/batch_engine.py, results/n1/l3_demo.log |
 | N2b | batch 扫描：decode **白嫖 32.5×**（b32 每步 108.7ms ≈ b1 的 110.3ms，host-bound 自洽）；两个发现：bf16 大 batch 形状敏感确定性翻边（B=16 全槽第 10 步同步翻，修正 E83 边界）+ **left-padding 在 hybrid GDN 上语义性失效**（pad 进 conv/递推 → 必须 varlen） | ✅ | results/n2b |
 | N11 | GDN chunk 扫描：U 形曲线——L=1024 最优 chunk 64（FLA 默认），L=4096 最优 128（比默认快 12%，比最差档快 1.8-2.9×）；chunk 只改结合顺序不改数学（1.2e-4 bf16 噪声） | ✅ | results/n11 |
 | N9 | KV offload 账本：pinned vs pageable **25.5×**、跨NUMA 税 1.47×、等效重算带宽仅 91MB/s（**无条件 offload 划算**，pinned 往返=294×）；102MB cache 换出→跑B→换回 **bit-exact**，pinned 换入 10ms | ✅ | results/n9 |

@@ -1,0 +1,10 @@
+[load] /model/Qwen3.5-4B: text weights loaded, skipped 297 vision + 15 MTP tensors
+
+| 模式 | makespan s | 吞吐 tok/s | engine steps |
+|---|---:|---:|---:|
+| 串行 x8 | 26.6 | 7.2 | - |
+| continuous (max_b=8) | 5.3 | 36.0 | 32 |
+
+speedup = 4.99x
+correctness: 1/8 last-tokens match serial (DIVERGED (bf16 batch shape sensitivity, see N2b))
+L3_DEMO_OK
