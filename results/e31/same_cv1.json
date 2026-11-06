@@ -1,0 +1,20 @@
+{
+ "rate_target": 8.0,
+ "cv": 1.0,
+ "duration": 45.0,
+ "n": 380,
+ "ok": 380,
+ "fail": 0,
+ "achieved_rps": 8.44,
+ "e2e_p50": 16.627,
+ "e2e_p90": 38.817,
+ "e2e_p99": 53.389,
+ "e2e_max": 62.879,
+ "slo_ttft_s": 2.0,
+ "slo_tpot_s": 0.05,
+ "in_median_tok": 200,
+ "out_median_tok": 150,
+ "slo_e2e_threshold_s": 9.5,
+ "goodput_rps": 1.69,
+ "slo_attain_pct": 20.0
+}
