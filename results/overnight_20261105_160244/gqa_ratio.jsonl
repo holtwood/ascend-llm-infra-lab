@@ -1,0 +1,8 @@
+{"nkv": 32, "group": 1, "bs": 1, "attn_us": 159.5, "kv_bytes_per_token_per_layer": 16384, "kv_mb_read": 134.2, "kv_gbps": 841.3, "pct_of_hbm": 59.6, "time_vs_mha": 1.0}
+{"nkv": 32, "group": 1, "bs": 8, "attn_us": 836.2, "kv_bytes_per_token_per_layer": 16384, "kv_mb_read": 1073.7, "kv_gbps": 1284.1, "pct_of_hbm": 90.9, "time_vs_mha": 5.24}
+{"nkv": 8, "group": 4, "bs": 1, "attn_us": 149.9, "kv_bytes_per_token_per_layer": 4096, "kv_mb_read": 33.6, "kv_gbps": 223.8, "pct_of_hbm": 15.8, "time_vs_mha": 0.94}
+{"nkv": 8, "group": 4, "bs": 8, "attn_us": 779.8, "kv_bytes_per_token_per_layer": 4096, "kv_mb_read": 268.4, "kv_gbps": 344.3, "pct_of_hbm": 24.4, "time_vs_mha": 4.89}
+{"nkv": 4, "group": 8, "bs": 1, "attn_us": 149.0, "kv_bytes_per_token_per_layer": 2048, "kv_mb_read": 16.8, "kv_gbps": 112.6, "pct_of_hbm": 8.0, "time_vs_mha": 0.93}
+{"nkv": 4, "group": 8, "bs": 8, "attn_us": 772.0, "kv_bytes_per_token_per_layer": 2048, "kv_mb_read": 134.2, "kv_gbps": 173.9, "pct_of_hbm": 12.3, "time_vs_mha": 4.84}
+{"nkv": 1, "group": 32, "bs": 1, "attn_us": 149.9, "kv_bytes_per_token_per_layer": 512, "kv_mb_read": 4.2, "kv_gbps": 28.0, "pct_of_hbm": 2.0, "time_vs_mha": 0.94}
+{"nkv": 1, "group": 32, "bs": 8, "attn_us": 769.1, "kv_bytes_per_token_per_layer": 512, "kv_mb_read": 33.6, "kv_gbps": 43.6, "pct_of_hbm": 3.1, "time_vs_mha": 4.82}
