@@ -887,3 +887,23 @@ CPU 层恢复只要重算的 21-37%——这意味着**前缀缓存不该因 HBM
 HBM 命中 ≈0。这是 docs/design/kv-tiering.md 分级模型的实测常数。
 
 复现：`scripts/overnight/tasks/tpot_churn.py`、`tiered_apc.py`。
+
+## E75 · 传输与计算的流并发：谁能藏进 GEMM 间隙（overlap.json）
+
+双流并发：一路 ~51ms GEMM 链（14×8192³）+ 一路传输，对比顺序执行：
+
+| 传输类型 | 单独 | 顺序 | 并发 | 隐藏率 |
+|---|---|---|---|---|
+| **D2H 940MB**（KV offload / 权重加载） | 39.7ms | 90.6ms | **51.3ms** | **98.9%** |
+| **D2D 235MB×80**（设备内搬运） | 29.8ms | 79.3ms | **86.3ms** | **−23.6%** |
+
+**结论**——两条互补的物理事实：
+- **主机↔设备传输走独立 DMA 引擎 → 几乎 100% 可被计算掩盖**。
+  含义：KV offload 换出、异步权重加载、PD 场景下经 PCIe/网卡发 KV，
+  只要提前一拍发起，对 decode 步时近乎零成本（前提是带宽不饱和）。
+- **设备内拷贝与 GEMM 共享 HBM 带宽 → 并发反而 −24%**。
+  含义：设备内的 KV gather/搬运/重组**藏不住**——它直接从 attention/MLP
+  嘴里抢带宽。这与 E44"同卡 PD 干扰是物理竞争"自洽：同卡上的显存流量
+  没有第二条路可走。
+
+复现：`scripts/overnight/tasks/stream_overlap.py`。

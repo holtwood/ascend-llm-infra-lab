@@ -1,0 +1,21 @@
+{
+  "rows": [
+    {
+      "transfer": "d2h_940MB",
+      "gemm_ms": 51.24,
+      "copy_ms": 39.72,
+      "seq_ms": 90.58,
+      "par_ms": 51.29,
+      "overlap_efficiency": 98.9
+    },
+    {
+      "transfer": "d2d_x80_235MB",
+      "gemm_ms": 51.15,
+      "copy_ms": 29.81,
+      "seq_ms": 79.26,
+      "par_ms": 86.28,
+      "overlap_efficiency": -23.6
+    }
+  ],
+  "note": "overlap_efficiency = fraction of copy time hidden under gemm; 100% = copy completely free"
+}
