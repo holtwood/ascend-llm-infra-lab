@@ -305,3 +305,34 @@ L=8192 的 prompt，按不同 chunk 切分预填（每 chunk 是调度器的一�
 说明 152ms 仍含少量残余预热成本，**故本表只用于相对比较**。
 
 复现：`scripts/overnight/tasks/chunked_prefill.py`。
+
+## E37 · 长上下文 decode：attention 何时压过权重读（attn_scale.jsonl）
+
+单层 decode attention（bs=1，GQA 8 KV 头 × 128 维）随上下文的变化，
+对比"读一层权重"的成本（53.7MB / 1400GB/s ≈ **38µs**）：
+
+| ctx | 每层 KV | attention | vs 权重读 | KV 带宽 |
+|---|---|---|---|---|
+| 1k | 4.2 MB | 73 µs | **1.91×** | 57 GB/s |
+| 4k | 16.8 MB | 81 µs | 2.12× | 206 GB/s |
+| 16k | 67.1 MB | 264 µs | 6.89× | 254 GB/s |
+| 32k | 134 MB | 508 µs | 13.25× | 264 GB/s |
+| 64k | 268 MB | 1021 µs | 26.63× | 263 GB/s |
+| 128k | 537 MB | 2025 µs | **52.80×** | 265 GB/s |
+
+**两个结论**：
+
+1. **"decode 是权重读受限"只在极短上下文成立**。从 1k 起 attention 就比
+   权重读贵（1.9×），32k 时贵 13×，128k 时贵 53×。长上下文服务的瓶颈
+   不是模型权重，而是 KV 读。
+2. **attention 的 KV 读只有 265 GB/s = HBM 峰值的 19%**（E29 实测裸 matvec
+   1412 GB/s）。也就是说长上下文 decode 既不是"带宽打满"也不是"算力打满"，
+   而是**访存效率只有 1/5** —— 这正是 FlashAttention 类融合 kernel、
+   paged-KV 内联寻址、KV 量化（E8k）要解决的问题：把 265 GB/s 往 1412 拉。
+   若能达到峰值，32k 上下文每层 attention 可从 508µs 降到 ~95µs（5.3×）。
+
+**与 E29 的关系**：E29 的整模型 29ms/step 是**发射开销**主导（420 次 launch）；
+本实验的单算子测量揭示的是**算子内部的物理**。两者合起来才是完整图像：
+先被发射开销卡住（图捕获解决），再被 attention 访存效率卡住（融合 kernel 解决）。
+
+复现：`scripts/overnight/tasks/attention_scaling.py`。

@@ -1,0 +1,6 @@
+{"ctx": 1024, "kv_mb_per_layer": 4.2, "attn_us": 73.3, "weight_read_us": 38.4, "attn_over_weight": 1.91, "kv_bw_gbps": 57.2}
+{"ctx": 4096, "kv_mb_per_layer": 16.8, "attn_us": 81.3, "weight_read_us": 38.4, "attn_over_weight": 2.12, "kv_bw_gbps": 206.4}
+{"ctx": 16384, "kv_mb_per_layer": 67.1, "attn_us": 264.2, "weight_read_us": 38.4, "attn_over_weight": 6.89, "kv_bw_gbps": 254.0}
+{"ctx": 32768, "kv_mb_per_layer": 134.2, "attn_us": 508.3, "weight_read_us": 38.4, "attn_over_weight": 13.25, "kv_bw_gbps": 264.1}
+{"ctx": 65536, "kv_mb_per_layer": 268.4, "attn_us": 1021.3, "weight_read_us": 38.4, "attn_over_weight": 26.63, "kv_bw_gbps": 262.8}
+{"ctx": 131072, "kv_mb_per_layer": 536.9, "attn_us": 2025.4, "weight_read_us": 38.4, "attn_over_weight": 52.8, "kv_bw_gbps": 265.1}
