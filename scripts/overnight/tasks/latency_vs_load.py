@@ -21,18 +21,21 @@ import argparse, json, random, statistics
 
 HBM_ACHIEVED_GBPS = 1412.0
 LAUNCH_FLOOR_MS = 29.0
-ATTN_EFF_BS1, ATTN_EFF_BS16 = 0.19, 0.50
+ATTN_EFF_BS1, ATTN_EFF_BS16, ATTN_EFF_BS64 = 0.19, 0.50, 0.86
 PREFILL_QUAD = 4.66e-8
 PREFILL_LIN_US = 0.09
 PREFILL_FLOOR_MS = 0.10
 
 
 def attn_eff(b):
+    """Calibrated against E37 (bs=1:19%), E39 (bs=16:50%), E52 (bs=64:86%)."""
     if b <= 1:
         return ATTN_EFF_BS1
-    if b >= 16:
-        return ATTN_EFF_BS16
-    return ATTN_EFF_BS1 + (ATTN_EFF_BS16 - ATTN_EFF_BS1) * (b - 1) / 15.0
+    if b < 16:
+        return ATTN_EFF_BS1 + (ATTN_EFF_BS16 - ATTN_EFF_BS1) * (b - 1) / 15.0
+    if b < 64:
+        return ATTN_EFF_BS16 + (ATTN_EFF_BS64 - ATTN_EFF_BS16) * (b - 16) / 48.0
+    return ATTN_EFF_BS64
 
 
 class Sim:

@@ -12,12 +12,12 @@
     "out_len": 128,
     "max_batch": 64,
     "chunk": 2048,
-    "rates": "1,2,4,8,12,16,32",
+    "rates": "1,2,4,8,12,16",
     "slo_ms": 100.0,
     "slo_ttft_ms": 2000.0,
     "sim_seconds": 300.0,
     "graph_captured": false,
-    "out": "/tmp/lvl_full.json"
+    "out": "/tmp/lvl_v2.json"
   },
   "rows": [
     {
@@ -34,10 +34,10 @@
     {
       "rate": 2.0,
       "completed": 581,
-      "ttft_p50": 51.1,
-      "ttft_p99": 68.6,
+      "ttft_p50": 52.1,
+      "ttft_p99": 68.3,
       "tpot_p50": 34.3,
-      "tpot_p99": 36.1,
+      "tpot_p99": 35.9,
       "tok_s": 247.9,
       "goodput_tok_s": 247.9,
       "slo_met_frac": 1.0
@@ -45,57 +45,46 @@
     {
       "rate": 4.0,
       "completed": 1184,
-      "ttft_p50": 55.0,
-      "ttft_p99": 76.1,
-      "tpot_p50": 36.6,
-      "tpot_p99": 40.7,
+      "ttft_p50": 54.5,
+      "ttft_p99": 73.2,
+      "tpot_p50": 36.2,
+      "tpot_p99": 38.6,
       "tok_s": 505.2,
       "goodput_tok_s": 505.2,
       "slo_met_frac": 1.0
     },
     {
       "rate": 8.0,
-      "completed": 2375,
-      "ttft_p50": 70.3,
-      "ttft_p99": 97.0,
-      "tpot_p50": 47.0,
-      "tpot_p99": 50.7,
-      "tok_s": 1013.3,
-      "goodput_tok_s": 1013.3,
+      "completed": 2382,
+      "ttft_p50": 60.2,
+      "ttft_p99": 80.9,
+      "tpot_p50": 40.5,
+      "tpot_p99": 41.8,
+      "tok_s": 1016.3,
+      "goodput_tok_s": 1016.3,
       "slo_met_frac": 1.0
     },
     {
       "rate": 12.0,
-      "completed": 2733,
-      "ttft_p50": 32580.5,
-      "ttft_p99": 68914.1,
-      "tpot_p50": 51.0,
-      "tpot_p99": 51.5,
-      "tok_s": 1166.1,
-      "goodput_tok_s": 53.8,
-      "slo_met_frac": 0.046
+      "completed": 3278,
+      "ttft_p50": 11886.6,
+      "ttft_p99": 24460.8,
+      "tpot_p50": 42.5,
+      "tpot_p99": 42.9,
+      "tok_s": 1398.6,
+      "goodput_tok_s": 150.2,
+      "slo_met_frac": 0.107
     },
     {
       "rate": 16.0,
-      "completed": 2745,
-      "ttft_p50": 60554.5,
-      "ttft_p99": 124059.9,
-      "tpot_p50": 51.0,
-      "tpot_p99": 51.6,
-      "tok_s": 1171.2,
-      "goodput_tok_s": 29.9,
-      "slo_met_frac": 0.026
-    },
-    {
-      "rate": 32.0,
-      "completed": 2745,
-      "ttft_p50": 102265.9,
-      "ttft_p99": 206123.9,
-      "tpot_p50": 51.1,
-      "tpot_p99": 51.6,
-      "tok_s": 1171.2,
-      "goodput_tok_s": 26.0,
-      "slo_met_frac": 0.022
+      "completed": 3286,
+      "ttft_p50": 44830.2,
+      "ttft_p99": 90806.5,
+      "tpot_p50": 42.5,
+      "tpot_p99": 42.9,
+      "tok_s": 1402.0,
+      "goodput_tok_s": 48.2,
+      "slo_met_frac": 0.034
     }
   ]
 }
