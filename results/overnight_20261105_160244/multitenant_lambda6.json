@@ -1,0 +1,105 @@
+{
+  "params": {
+    "weight_gb": 1.5,
+    "layers": 28,
+    "nkv": 8,
+    "head_dim": 128,
+    "hbm_gb": 61.0,
+    "ctx": 8192,
+    "out_len": 128,
+    "max_batch": 64,
+    "chunk": 2048,
+    "rate": 6.0,
+    "slo_ms": 100.0,
+    "slo_ttft_ms": 2000.0,
+    "sim_seconds": 300.0,
+    "graph_captured": false,
+    "out": "/tmp/mt6.json"
+  },
+  "rows": [
+    {
+      "policy": "fcfs",
+      "rate": 6.0,
+      "rejected": 0,
+      "classes": {
+        "short": {
+          "n": 1245,
+          "ttft_p50": 73.0,
+          "ttft_p99": 101.7,
+          "slo_met_pct": 100.0
+        },
+        "long": {
+          "n": 531,
+          "ttft_p50": 121.0,
+          "ttft_p99": 152.0,
+          "slo_met_pct": 100.0
+        }
+      },
+      "tok_s": 757.8,
+      "goodput": 757.8
+    },
+    {
+      "policy": "sjf",
+      "rate": 6.0,
+      "rejected": 0,
+      "classes": {
+        "short": {
+          "n": 1245,
+          "ttft_p50": 73.0,
+          "ttft_p99": 101.7,
+          "slo_met_pct": 100.0
+        },
+        "long": {
+          "n": 531,
+          "ttft_p50": 121.0,
+          "ttft_p99": 152.0,
+          "slo_met_pct": 100.0
+        }
+      },
+      "tok_s": 757.8,
+      "goodput": 757.8
+    },
+    {
+      "policy": "slo_admit",
+      "rate": 6.0,
+      "rejected": 0,
+      "classes": {
+        "short": {
+          "n": 1245,
+          "ttft_p50": 73.0,
+          "ttft_p99": 101.7,
+          "slo_met_pct": 100.0
+        },
+        "long": {
+          "n": 531,
+          "ttft_p50": 121.0,
+          "ttft_p99": 152.0,
+          "slo_met_pct": 100.0
+        }
+      },
+      "tok_s": 757.8,
+      "goodput": 757.8
+    },
+    {
+      "policy": "priority",
+      "rate": 6.0,
+      "rejected": 0,
+      "classes": {
+        "short": {
+          "n": 1245,
+          "ttft_p50": 73.0,
+          "ttft_p99": 101.7,
+          "slo_met_pct": 100.0
+        },
+        "long": {
+          "n": 531,
+          "ttft_p50": 121.0,
+          "ttft_p99": 152.0,
+          "slo_met_pct": 100.0
+        }
+      },
+      "tok_s": 757.8,
+      "goodput": 757.8
+    }
+  ]
+}
