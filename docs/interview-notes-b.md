@@ -1,0 +1,60 @@
+# 面试知识点索引·环境B白盒线（数据 → 结论 → 原理）
+
+环境A（`interview-notes.md`）从服务层看推理；本篇下钻到算子层/实现层。每条：结论 → 我们的实测 → 机制。原始数据 `results/n{N}/`。
+
+## Decode 的真实瓶颈（N2，profiler 白盒）
+
+**Q: 为什么说 decode 是 memory-bound？**
+- 标准答案只对了一半。torch_npu.profiler 实测（Qwen3.5-4B bf16, 910B2, eager）：单 token decode 每步 wall 114ms，**device 算子合计只跑 24.1ms——79% 时间 NPU 在等 host**
+- 每步下发 2935 个算子（32 层 ≈ 92 算子/层），host 调度/launch 是第一瓶颈；MatMul(GEMV) 34.7%（权重读取）才是第二位的 memory-bound 项
+- 机制：eager 模式每个 op 一次下发；小 batch decode 的算子都极小（1 token），下发开销 >> 执行
+- **这就是 vLLM graph capture（cudagraph/fullgraph）存在的理由**：把 2935 次下发折叠成 1 次图重放。反问面试官："你们的引擎 decode 路径开 graph 了吗？"
+
+**Q: prefill 和 decode 的算子分布差在哪？**
+- prefill 4096tk：AIV(向量核) 68.9%、AIC(矩阵核) 仅 20.4%——Top 算子是 `Mul`×8205、`Slice`×19946、`Tril`(单次 688µs) 等未融合小算子；`MatMulV3` 单次 551µs 只占 13%
+- decode 1tk：MatMulV2 34.7% 居首，`TransData` 22.1%（bf16→Cube 计算格式的搬运税）
+- 结论：eager 下两个阶段都先被"小算子未融合+host 开销"拖累；融合优化（RMSNorm 算子化、FusedQKV、FA）收益直接写在 profile 里
+
+**Q: 什么算子会落到 AI CPU（性能坑）？**
+- 实测本模型 AI_CPU 占比仅 0.4%（GDN 无回退，好）；已知高危名单：ScatterElements/MaskedFill/Cumsum（MiniMind 910B4 案例，单次耗时远超 AI Core 路径）
+- 排查方法：op_statistic.csv 按 Core Type 聚合，AI_CPU 行非零即候选
+
+## Hybrid 架构（N3 + N1，Qwen3.5 一手数据）
+
+**Q: GQA/MLA/DeltaNet 的 KV cache 区别？**
+- 我实测过 Qwen3.5-4B（24 层 GDN + 8 层 Gated Attention，3:1）：**KV 斜率 32 KB/token，六个长度点（512→131072）与公式逐字节吻合**（8 attn层×2×L×4 KV头×256×2B）；全注意力同规模对照是 128 KB/token——**hybrid 把 KV 增长压到 1/4**
+- GDN 层不存 KV，存固定 recurrent state S∈R^(32头×128×128)：实测恒 49.5MB（fp32 存储=bf16 理论 2.06×，框架为数值稳定升精度——GDN 的 decay `g=-exp(A_log)·softplus(a+dt_bias)` 必须全程 fp32，bf16 下 A_log.exp() 会溢出）
+- 131072 ctx 显存剖面：权重 7.93G + KV 4.1G + state 49.5MB；全注意力模型此时 KV 已 16G
+- prefill 时间拐点：512→32768（64×长度）时间仅 15×（GDN chunked O(L) 主导）；65536→131072 涨 2.41×（8 层 attn 的 O(L²) 显形）——hybrid = 24 层线性 + 8 层二次的合成曲线
+
+**Q: 手写 hybrid 前向最容易踩的坑？**（N1 实现+对齐 transformers 5.16.1，greedy 逐 token 一致，rel 8e-3∈bf16 噪声）
+- GDN 更新顺序：先衰减 `S←S·exp(g_t)` 再算 delta `=(v−Sᵀk)·β`，输出用更新后的 S
+- RMSNorm 是 zero-init delta 语义 `out=rms(x)·(1+w)`（GDN 的门控 norm 则是 one-init 直乘）——照抄 Llama 会整体偏移
+- q_proj 输出 2×（q 与 sigmoid gate 融合投影）；attention 有 q_norm/k_norm（RoPE 前）；conv state 存最后 K=4 个原始输入（非 K−1）
+- tied weight 陷阱：TextConfig 默认 tie=False 而 4B 是 True，load_state_dict 会经共享 Parameter 静默覆盖 embedding（missing/unexpected 都为空，极难察觉）
+
+## TP 并行（N4，跨 NUMA PCIe 实测）
+
+**Q: TP 为什么对 decode 收益差甚至为负？**
+- 微基准（2×910B2 跨 NUMA PCIe，hccl）：**裸 all_reduce ~288µs（1 元素）**；4KB–256KB 延迟与消息大小无关（292–302µs 平台）→ **>97% 是 barrier/握手，不是带宽**。对比 NVLink H200 同类 6.9µs：慢互联放大 40×
+- 带宽饱和 16.3 GB/s（PCIe Gen4 x16 理论 51%）；延迟模型 `latency ≈ 285µs + bytes/16.6GB/s` 拟合极好
+- 推论：4B 模型 TP=2 decode 每层 2 次 all-reduce ≥576µs 固定开销，vs 单层计算 150–300µs——**通信是计算的 2–4 倍**，扩展比失效。小消息通信是"按调用次数交税"，不是按字节
+- 工程含义：TP 放高速互联（HCCS/NVLink）内；慢互联优先单卡/PP/通信-计算重叠；MB 级消息要看 p99（实测 16MB p99 是 p50 的 4–5 倍）
+
+## W8A8 量化解剖（N5，msModelSlim 格式一手分析）
+
+**Q: W8A8 的 scale 怎么存、哪些层不能量化？**
+- 实测 Qwen3.8-27B-w8a8（msModelSlim/ascendv1_saver）：**权重 per-channel int8 对称量化**——scale F32 shape (out_channel,1)（对齐 Cube 算子的轴布局），offset 全 0 是占位字段；group_size=0 无 per-group
+- 激活 **per-token 动态量化**（在线 absmax，不落盘）——部署时即 vllm-ascend 的 dynamic quant cube 算子
+- 覆盖 84.5% 权重参数；**排除项都有理由**：GDN out_proj（exclude `*linear_fc2*`，精度敏感，代价 3.0GiB bf16）、lm_head/embedding（各 2.37GiB，输出质量敏感）、全部 norm、A_log/dt_bias（存 BF16 运行时升 fp32）
+- 压缩比 1.73×（vs 理想 2×，被排除项拖低）；理论字节 29.922GiB 与磁盘完全对账
+- scale 分布：median 3.9e-4，离群集中在深层 full_attention 的 v_proj（layers 51/55/59/63，~3.5× 中位）；权重侧几乎无离群通道（>8×median 占比≈0）→ 量化难点在激活侧而非权重侧——这正是 per-token dynamic + exclude out_proj 的动机
+- 该格式是 vllm-ascend 专用产物（verified_tags 锁 Atlas A2/A3），HF transformers 加载不了
+
+## 白盒方法论（可迁移的面试谈资）
+
+- torch_npu.profiler 完全对标 PyTorch GPU profiler：`ProfilerLevel.Level1 + AiCMetrics.PipeUtilization` 拿 Cube/Vector 利用率，导出 op_statistic.csv 按算子/核类型聚合
+- 判据链：wall vs device 合计 → host gap 占比；算子次数/步 → 下发税；Core Type 分布 → 计算形态；TransData 占比 → 格式搬运税
+- 长上下文实验必须 `logits_to_keep=1`：全序列 lm_head 在 65536 ctx 会申请 30GB（65536×248320×2B）直接 OOM——这本身就是"引擎只对最后位置算 logits"的原因的直观演示
+
+（N1b 阶梯基准 / N3b cache 干预 / N6 vllm-ascend 部署：进行中，数据回来后补条目。）
