@@ -1,0 +1,48 @@
+{
+  "dist": "lognormal",
+  "n": 2000,
+  "mean_len": 1365.7,
+  "rows": [
+    {
+      "block": 16,
+      "tail_waste_pct": 0.55,
+      "allocated_tokens": 2746416,
+      "used_tokens": 2731365,
+      "gather_tax": 1.54,
+      "efficiency_index": 0.6458
+    },
+    {
+      "block": 32,
+      "tail_waste_pct": 1.13,
+      "allocated_tokens": 2762656,
+      "used_tokens": 2731365,
+      "gather_tax": 1.7,
+      "efficiency_index": 0.5816
+    },
+    {
+      "block": 64,
+      "tail_waste_pct": 2.24,
+      "allocated_tokens": 2793856,
+      "used_tokens": 2731365,
+      "gather_tax": 1.98,
+      "efficiency_index": 0.4938
+    },
+    {
+      "block": 128,
+      "tail_waste_pct": 4.38,
+      "allocated_tokens": 2856576,
+      "used_tokens": 2731365,
+      "gather_tax": 2.31,
+      "efficiency_index": 0.4139
+    },
+    {
+      "block": 256,
+      "tail_waste_pct": 8.52,
+      "allocated_tokens": 2985728,
+      "used_tokens": 2731365,
+      "gather_tax": 2.3,
+      "efficiency_index": 0.3977
+    }
+  ],
+  "optimal_block": 16
+}

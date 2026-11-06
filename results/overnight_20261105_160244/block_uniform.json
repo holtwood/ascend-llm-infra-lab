@@ -1,0 +1,48 @@
+{
+  "dist": "uniform",
+  "n": 2000,
+  "mean_len": 1046.9,
+  "rows": [
+    {
+      "block": 16,
+      "tail_waste_pct": 0.71,
+      "allocated_tokens": 2108896,
+      "used_tokens": 2093887,
+      "gather_tax": 1.54,
+      "efficiency_index": 0.6447
+    },
+    {
+      "block": 32,
+      "tail_waste_pct": 1.45,
+      "allocated_tokens": 2124640,
+      "used_tokens": 2093887,
+      "gather_tax": 1.7,
+      "efficiency_index": 0.5797
+    },
+    {
+      "block": 64,
+      "tail_waste_pct": 2.92,
+      "allocated_tokens": 2156800,
+      "used_tokens": 2093887,
+      "gather_tax": 1.98,
+      "efficiency_index": 0.4903
+    },
+    {
+      "block": 128,
+      "tail_waste_pct": 5.68,
+      "allocated_tokens": 2219904,
+      "used_tokens": 2093887,
+      "gather_tax": 2.31,
+      "efficiency_index": 0.4083
+    },
+    {
+      "block": 256,
+      "tail_waste_pct": 10.62,
+      "allocated_tokens": 2342656,
+      "used_tokens": 2093887,
+      "gather_tax": 2.3,
+      "efficiency_index": 0.3886
+    }
+  ],
+  "optimal_block": 16
+}
